@@ -8,8 +8,19 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-inter);
+  --font-serif: var(--font-playfair);
+  
+  /* Brand Colors extracted from the logo */
+  --color-lf-burgundy: #842b46;
+  --color-lf-olive: #66733a;
+  --color-lf-gold: #dfae19;
+  --color-lf-pink: #c76785;
+  --color-lf-orange: #b56f35;
+  
+  /* Hover variants */
+  --color-lf-burgundy-hover: #6a2238;
+  --color-lf-gold-hover: #c49915;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -22,5 +33,4 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
 }

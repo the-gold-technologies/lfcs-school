@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Playfair_Display } from "next/font/google";
+import { Inter, Playfair_Display, Satisfy } from "next/font/google";
 import "./globals.css";
 
 const inter = Inter({
@@ -9,6 +9,12 @@ const inter = Inter({
 
 const playfair = Playfair_Display({
   variable: "--font-playfair",
+  subsets: ["latin"],
+});
+
+const satisfy = Satisfy({
+  weight: "400",
+  variable: "--font-satisfy",
   subsets: ["latin"],
 });
 
@@ -26,7 +32,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${playfair.variable} antialiased scroll-smooth`}>
+    <html lang="en" className={`${inter.variable} ${playfair.variable} ${satisfy.variable} antialiased scroll-smooth`}>
       <body className="font-sans min-h-screen flex flex-col bg-white text-gray-900">
         <Header />
         <main className="flex-grow">

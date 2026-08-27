@@ -36,10 +36,10 @@ export default function Footer() {
           <div className="lg:col-span-2 pr-8">
             <Link href="/" className="flex-shrink-0 flex items-center gap-4 mb-6">
               <Image 
-                src="/logo.png" 
+                src="/logo1.png" 
                 alt="Little Flower Logo" 
-                width={64} 
-                height={64} 
+                width={70} 
+                height={70} 
                 className="object-contain" 
               />
               <div className="flex flex-col">

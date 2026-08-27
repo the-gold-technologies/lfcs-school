@@ -15,13 +15,13 @@ export default function OurApproachSection() {
 
   return (
     <section className="py-12 bg-[#fcfdfe]">
-      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-[#0a192f] rounded-[40px] p-10 md:p-14 flex flex-col lg:flex-row items-center relative overflow-hidden shadow-xl">
+      <div className="max-w-[1400px] mx-auto px-2 sm:px-6 lg:px-8">
+        <div className="bg-[#0a192f] rounded-[40px] p-10  md:p-14 flex flex-col lg:flex-row items-center relative overflow-hidden shadow-xl">
           {/* Left Content */}
           <div className="lg:w-[32%] z-10 shrink-0">
             <span className="text-[#dfae19] font-bold text-[11px] tracking-[0.15em] uppercase mb-4 block">OUR APPROACH</span>
-            <h2 className="font-serif text-[42px] font-medium text-white leading-tight mb-5">
-              Learning That<br />Builds <span className="font-script text-[#dfae19] text-[48px] relative inline-block -my-4 pr-1">
+            <h2 className="font-serif text-[34px] md:text-[42px] font-medium text-white leading-tight mb-5">
+              Learning That<br />Builds <span className="font-script text-[#dfae19] text-[38px] md:text-[48px] relative inline-block -my-4 pr-1">
                 Life Skills
                 <svg className="absolute bottom-[4px] left-0 w-full h-[6px]" viewBox="0 0 100 10" preserveAspectRatio="none">
                   <path d="M2 7 Q 50 12 98 3" stroke="#dfae19" strokeWidth="3" fill="none" strokeLinecap="round" />

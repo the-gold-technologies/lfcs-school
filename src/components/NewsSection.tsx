@@ -7,8 +7,8 @@ export default function NewsSection() {
         <div className="flex justify-between items-end mb-10">
           <div>
             <span className="text-lf-gold font-bold text-xs tracking-[0.2em] uppercase mb-3 block">News & Achievements</span>
-            <h2 className="font-serif text-[44px] font-medium text-[#0a192f] leading-tight mb-2">
-              Celebrating <span className="font-script text-[#dfae19] text-[48px] relative inline-block -my-4 pr-1">
+            <h2 className="font-serif text-[34px] md:text-[44px] font-medium text-[#0a192f] leading-tight mb-2">
+              Celebrating <span className="font-script text-[#dfae19] text-[38px] md:text-[48px] relative inline-block -my-4 pr-1">
                 Success
                 <svg className="absolute bottom-[4px] left-0 w-full h-[6px]" viewBox="0 0 100 10" preserveAspectRatio="none">
                   <path d="M2 7 Q 50 12 98 3" stroke="#dfae19" strokeWidth="3" fill="none" strokeLinecap="round" />

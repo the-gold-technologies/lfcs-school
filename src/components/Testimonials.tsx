@@ -51,15 +51,19 @@ export default function Testimonials() {
 
   return (
     <section className="py-24 bg-[#fcfdfe] relative overflow-hidden">
+      {/* Decorative background */}
+      <img
+        src="/decorative_right.png"
+        alt=""
+        aria-hidden="true"
+        className="absolute inset-0 w-full h-full object-contain pointer-events-none select-none"
+      />
       {/* Playful Background Elements */}
       <div className="absolute top-10 left-10 opacity-20 animate-bounce" style={{ animationDuration: '3s' }}>
         <Star className="w-12 h-12 text-[#dfae19] fill-[#dfae19]" />
       </div>
       <div className="absolute bottom-20 right-10 opacity-20 animate-pulse" style={{ animationDuration: '4s' }}>
         <Heart className="w-14 h-14 text-[#c76785] fill-[#c76785]" />
-      </div>
-      <div className="absolute top-40 right-20 opacity-20">
-        <Sparkles className="w-10 h-10 text-[#66733a]" />
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">

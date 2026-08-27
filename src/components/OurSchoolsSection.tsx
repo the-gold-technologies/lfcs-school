@@ -34,16 +34,23 @@ export default function OurSchoolsSection() {
   }, [maxIndex]);
 
   return (
-    <section className="py-24 bg-[#fcfdfe]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-24 bg-[#fcfdfe] relative overflow-hidden">
+      {/* Decorative background */}
+      <img
+        src="/decorative_left.png"
+        alt=""
+        aria-hidden="true"
+        className="absolute inset-0 top-0 w-full h-full object-cover pointer-events-none select-none"
+      />
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
         {/* Header */}
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 gap-6">
           <div>
             <span className="text-[#dfae19] font-bold text-[12px] tracking-[0.15em] uppercase mb-3 block">OUR SCHOOLS</span>
-            <h2 className="font-serif text-[44px] font-medium text-[#0a192f] leading-tight mb-2">
+            <h2 className="font-serif text-[34px] md:text-[44px] font-medium text-[#0a192f] leading-tight mb-2">
               A Strong Network. A Shared{" "}
-              <span className="font-script text-[#dfae19] text-[48px] relative inline-block -my-4 pr-1">
+              <span className="font-script text-[#dfae19] text-[38px] md:text-[48px] relative inline-block -my-4 pr-1">
                 Vision.
                 <svg className="absolute bottom-[4px] left-0 w-full h-[6px]" viewBox="0 0 100 10" preserveAspectRatio="none">
                   <path d="M2 7 Q 50 12 98 3" stroke="#dfae19" strokeWidth="3" fill="none" strokeLinecap="round" />

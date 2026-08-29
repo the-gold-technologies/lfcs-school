@@ -28,8 +28,9 @@ const LinkedinIcon = () => (
 
 export default function Footer() {
   return (
-    <footer className="bg-[#0a192f] text-white pt-20 pb-8">
-      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="bg-[#fdfdfc]">
+      <footer className="bg-[#6a2238] text-white pt-20 pb-8 rounded-t-[40px] mx-1">
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8 mb-16">
           
           {/* Logo & Description */}
@@ -47,20 +48,20 @@ export default function Footer() {
                 <span className="text-white font-semibold text-[13px] uppercase tracking-widest mt-1">Group of Schools</span>
               </div>
             </Link>
-            <p className="text-gray-400 text-[13px] leading-relaxed mb-8 pr-4">
+            <p className="text-[#eef3ea] text-[13px] leading-relaxed mb-8 pr-4">
               A network of CBSE schools committed to academic excellence, character building and holistic development.
             </p>
             <div className="flex gap-4">
-              <Link href="#" className="w-10 h-10 rounded-full border border-gray-600 flex items-center justify-center text-gray-400 hover:text-white hover:border-white transition-all">
+              <Link href="#" className="w-10 h-10 rounded-full border border-white/30 flex items-center justify-center text-[#eef3ea] hover:text-white hover:border-white transition-all">
                 <FacebookIcon />
               </Link>
-              <Link href="#" className="w-10 h-10 rounded-full border border-gray-600 flex items-center justify-center text-gray-400 hover:text-white hover:border-white transition-all">
+              <Link href="#" className="w-10 h-10 rounded-full border border-white/30 flex items-center justify-center text-[#eef3ea] hover:text-white hover:border-white transition-all">
                 <InstagramIcon />
               </Link>
-              <Link href="#" className="w-10 h-10 rounded-full border border-gray-600 flex items-center justify-center text-gray-400 hover:text-white hover:border-white transition-all">
+              <Link href="#" className="w-10 h-10 rounded-full border border-white/30 flex items-center justify-center text-[#eef3ea] hover:text-white hover:border-white transition-all">
                 <YoutubeIcon />
               </Link>
-              <Link href="#" className="w-10 h-10 rounded-full border border-gray-600 flex items-center justify-center text-gray-400 hover:text-white hover:border-white transition-all">
+              <Link href="#" className="w-10 h-10 rounded-full border border-white/30 flex items-center justify-center text-[#eef3ea] hover:text-white hover:border-white transition-all">
                 <LinkedinIcon />
               </Link>
             </div>
@@ -68,9 +69,9 @@ export default function Footer() {
 
           {/* Links 1 - QUICK LINKS */}
           <div>
-            <h4 className="text-[#facc15] font-bold mb-6 uppercase tracking-wider text-xs">Quick Links</h4>
-            <ul className="space-y-3.5 text-[13px] text-gray-300">
-              <li><Link href="#" className="hover:text-white transition-colors">About Us</Link></li>
+            <h4 className="text-lf-gold font-bold mb-6 uppercase tracking-wider text-xs">Quick Links</h4>
+            <ul className="space-y-3.5 text-[13px] text-[#eef3ea]">
+              <li><Link href="/about" className="hover:text-white transition-colors">About Us</Link></li>
               <li><Link href="#" className="hover:text-white transition-colors">Academics</Link></li>
               <li><Link href="#" className="hover:text-white transition-colors">Experience</Link></li>
               <li><Link href="#" className="hover:text-white transition-colors">Our Schools</Link></li>
@@ -80,12 +81,10 @@ export default function Footer() {
             </ul>
           </div>
 
-         
-
           {/* Links 3 - ADMISSIONS */}
           <div>
-            <h4 className="text-[#facc15] font-bold mb-6 uppercase tracking-wider text-xs">Admissions</h4>
-            <ul className="space-y-3.5 text-[13px] text-gray-300">
+            <h4 className="text-lf-gold font-bold mb-6 uppercase tracking-wider text-xs">Admissions</h4>
+            <ul className="space-y-3.5 text-[13px] text-[#eef3ea]">
               <li><Link href="#" className="hover:text-white transition-colors">Why Choose Us</Link></li>
               <li><Link href="#" className="hover:text-white transition-colors">Admission Process</Link></li>
               <li><Link href="#" className="hover:text-white transition-colors">Eligibility & Documents</Link></li>
@@ -97,8 +96,8 @@ export default function Footer() {
 
           {/* Links 4 - START A SCHOOL */}
           <div>
-            <h4 className="text-[#facc15] font-bold mb-6 uppercase tracking-wider text-xs">Start A School</h4>
-            <ul className="space-y-3.5 text-[13px] text-gray-300">
+            <h4 className="text-lf-gold font-bold mb-6 uppercase tracking-wider text-xs">Start A School</h4>
+            <ul className="space-y-3.5 text-[13px] text-[#eef3ea]">
               <li><Link href="#" className="hover:text-white transition-colors">Why Partner With Us</Link></li>
               <li><Link href="#" className="hover:text-white transition-colors">Our School Model</Link></li>
               <li><Link href="#" className="hover:text-white transition-colors">Support & Benefits</Link></li>
@@ -111,8 +110,8 @@ export default function Footer() {
 
           {/* Links 5 - RESOURCES */}
           <div className="hidden lg:block">
-            <h4 className="text-[#facc15] font-bold mb-6 uppercase tracking-wider text-xs">Resources</h4>
-             <ul className="space-y-3.5 text-[13px] text-gray-300">
+            <h4 className="text-lf-gold font-bold mb-6 uppercase tracking-wider text-xs">Resources</h4>
+             <ul className="space-y-3.5 text-[13px] text-[#eef3ea]">
               <li><Link href="#" className="hover:text-white transition-colors">News & Events</Link></li>
               <li><Link href="#" className="hover:text-white transition-colors">Careers</Link></li>
               <li><Link href="#" className="hover:text-white transition-colors">Downloads</Link></li>
@@ -124,30 +123,30 @@ export default function Footer() {
         </div>
 
         {/* Bottom Contact Bar */}
-        <div className="border-t border-gray-800 pt-8 pb-4 flex flex-col md:flex-row flex-wrap justify-between items-center gap-6 text-[13px] text-gray-400">
+        <div className="border-t border-white/20 pt-8 pb-4 flex flex-col md:flex-row flex-wrap justify-between items-center gap-6 text-[13px] text-[#eef3ea]">
           
           <div className="flex flex-wrap justify-center md:justify-start gap-8">
             <div className="flex items-center gap-3">
-              <Phone className="w-5 h-5 text-[#facc15]" strokeWidth={1.5} />
+              <Phone className="w-5 h-5 text-lf-gold" strokeWidth={1.5} />
               <span className="hover:text-white transition-colors cursor-pointer">+91 123 456 7890</span>
             </div>
             <div className="flex items-center gap-3">
-              <Mail className="w-5 h-5 text-[#facc15]" strokeWidth={1.5} />
+              <Mail className="w-5 h-5 text-lf-gold" strokeWidth={1.5} />
               <span className="hover:text-white transition-colors cursor-pointer">info@littleflowergroup.com</span>
             </div>
             <div className="flex items-center gap-3">
-              <MapPin className="w-5 h-5 text-[#facc15]" strokeWidth={1.5} />
+              <MapPin className="w-5 h-5 text-lf-gold" strokeWidth={1.5} />
               <span>Little Flower Group of Schools, Uttar Pradesh, India</span>
             </div>
             <div className="flex items-center gap-3">
-              <Clock className="w-5 h-5 text-[#facc15]" strokeWidth={1.5} />
+              <Clock className="w-5 h-5 text-lf-gold" strokeWidth={1.5} />
               <span>Mon - Sat: 8:00 AM - 5:00 PM</span>
             </div>
           </div>
           
           <div className="text-center md:text-right mt-4 md:mt-0">
-            <div className="w-10 h-10 border border-gray-700 rounded-full flex items-center justify-center hover:bg-gray-800 transition-colors ml-auto cursor-pointer">
-              <ChevronRight className="w-5 h-5 -rotate-90 text-gray-400" />
+            <div className="w-10 h-10 border border-white/30 rounded-full flex items-center justify-center hover:bg-white/10 transition-colors ml-auto cursor-pointer">
+              <ChevronRight className="w-5 h-5 -rotate-90 text-white/80" />
             </div>
           </div>
           
@@ -155,5 +154,6 @@ export default function Footer() {
         
       </div>
     </footer>
+    </div>
   );
 }

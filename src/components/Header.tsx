@@ -8,11 +8,11 @@ export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   const navLinks = [
-    { label: 'About Us', icon: Home },
-    { label: 'Academics', icon: BookOpen },
-    { label: 'Experience', icon: Backpack },
-    { label: 'Our Schools', icon: Building },
-    { label: 'Admissions', icon: GraduationCap },
+    { label: 'About Us', href: '/about', icon: Home },
+    { label: 'Academics', href: '#', icon: BookOpen },
+    { label: 'Experience', href: '#', icon: Backpack },
+    { label: 'Our Schools', href: '#', icon: Building },
+    { label: 'Admissions', href: '#', icon: GraduationCap },
   ];
 
   return (
@@ -35,8 +35,8 @@ export default function Header() {
 
             {/* Desktop Navigation */}
             <nav className="hidden lg:flex space-x-8 items-end">
-              {navLinks.map(({ label, icon: Icon }) => (
-                <Link key={label} href="#" className="flex flex-col items-center text-[#0a192f] hover:text-lf-burgundy group">
+              {navLinks.map(({ label, href, icon: Icon }) => (
+                <Link key={label} href={href} className="flex flex-col items-center text-[#0a192f] hover:text-lf-burgundy group">
                   <Icon className="w-6 h-6 mb-1 text-lf-olive group-hover:-translate-y-1 group-hover:text-lf-burgundy transition-all" strokeWidth={1.5} />
                   <span className="text-[13px] font-bold flex items-center gap-1">{label} <ChevronDown className="w-4 h-4" /></span>
                 </Link>
@@ -78,10 +78,10 @@ export default function Header() {
             </div>
 
             <nav className="flex-1 overflow-y-auto py-4 px-2">
-              {navLinks.map(({ label, icon: Icon }) => (
+              {navLinks.map(({ label, href, icon: Icon }) => (
                 <Link
                   key={label}
-                  href="#"
+                  href={href}
                   onClick={() => setMobileOpen(false)}
                   className="flex items-center gap-4 px-4 py-3.5 rounded-[12px] text-[#0a192f] hover:bg-gray-50 font-semibold text-[15px] transition-colors"
                 >

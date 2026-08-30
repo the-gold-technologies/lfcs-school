@@ -8,11 +8,11 @@ export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   const navLinks = [
-    { label: 'About Us', href: '/about', icon: Home },
-    { label: 'Academics', href: '#', icon: BookOpen },
-    { label: 'Experience', href: '#', icon: Backpack },
-    { label: 'Our Schools', href: '#', icon: Building },
-    { label: 'Admissions', href: '#', icon: GraduationCap },
+    { label: 'About Us', href: '/about', icon: Home, hasDropdown: false },
+    { label: 'Academics', href: '#', icon: BookOpen, hasDropdown: false },
+    { label: 'Experience', href: '#', icon: Backpack, hasDropdown: true },
+    { label: 'Our Schools', href: '#', icon: Building, hasDropdown: true },
+    { label: 'Admissions', href: '#', icon: GraduationCap, hasDropdown: true },
   ];
 
   return (
@@ -33,12 +33,18 @@ export default function Header() {
               </div>
             </Link>
 
-            {/* Desktop Navigation */}
             <nav className="hidden lg:flex space-x-8 items-end">
-              {navLinks.map(({ label, href, icon: Icon }) => (
-                <Link key={label} href={href} className="flex flex-col items-center text-[#0a192f] hover:text-lf-burgundy group">
-                  <Icon className="w-6 h-6 mb-1 text-lf-olive group-hover:-translate-y-1 group-hover:text-lf-burgundy transition-all" strokeWidth={1.5} />
-                  <span className="text-[13px] font-bold flex items-center gap-1">{label} <ChevronDown className="w-4 h-4" /></span>
+              {navLinks.map(({ label, href, icon: Icon, hasDropdown }) => (
+                <Link key={label} href={href} className="flex flex-col items-center text-[#0a192f] group py-1 px-2">
+                  <div className="relative">
+                    <Icon className="w-6 h-6 mb-1 text-lf-olive group-hover:scale-110 group-hover:text-lf-burgundy transition-all duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)] relative z-10" strokeWidth={1.5} />
+                    {/* Subtle glow effect behind the icon */}
+                    <div className="absolute inset-0 bg-lf-burgundy/20 rounded-full scale-0 group-hover:scale-[1.7] blur-md transition-all duration-500 opacity-0 group-hover:opacity-100 z-0" />
+                  </div>
+                  <span className="text-[13px] font-bold flex items-center gap-1 group-hover:text-lf-burgundy transition-colors duration-300 relative">
+                    {label} 
+                    {hasDropdown && <ChevronDown className="w-4 h-4 transition-transform duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)] group-hover:-rotate-180" />}
+                  </span>
                 </Link>
               ))}
             </nav>

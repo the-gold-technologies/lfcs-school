@@ -9,7 +9,7 @@ export default function Header() {
 
   const navLinks = [
     { label: 'About Us', href: '/about', icon: Home, hasDropdown: false },
-    { label: 'Academics', href: '#', icon: BookOpen, hasDropdown: false },
+    { label: 'Academics', href: '/academics', icon: BookOpen, hasDropdown: false },
     { label: 'Experience', href: '#', icon: Backpack, hasDropdown: true },
     { label: 'Our Schools', href: '#', icon: Building, hasDropdown: true },
     { label: 'Admissions', href: '#', icon: GraduationCap, hasDropdown: true },

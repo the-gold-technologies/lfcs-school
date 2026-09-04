@@ -21,7 +21,6 @@ export default function FacultySection() {
         alt="" 
         className="absolute inset-0 w-full h-full -top-32 object-contain z-0 pointer-events-none opacity-100"
       />
-
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-0 relative z-20">
         
         {/* Header */}

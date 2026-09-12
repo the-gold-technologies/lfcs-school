@@ -17,7 +17,7 @@ export default function ExperienceHeroSection() {
             
             <h1 className="font-serif text-3xl sm:text-4xl md:text-[55px] font-medium leading-[1.3] mb-6 text-[#0a192f]">
               More than Just a <br />
-              <span className="font-script text-[#dfae19] text-[40px] sm:text-[48px] md:text-[55px] relative inline-block -my-2 pr-2">
+              <span className="font-script text-lf-burgundy text-[40px] sm:text-[48px] md:text-[55px] relative inline-block -my-2 pr-2">
                  School Day.
                 <svg className="absolute bottom-[4px] left-0 w-full h-[6px]" viewBox="0 0 100 10" preserveAspectRatio="none">
                   <path d="M2 7 Q 50 12 98 3" stroke="#dfae19" strokeWidth="3" fill="none" strokeLinecap="round" />

@@ -1,7 +1,7 @@
 "use client";
 import { Trophy, Lightbulb, Microscope, LayoutGrid, ShieldCheck, ArrowRight, Star } from "lucide-react";
 import { useState, useEffect } from "react";
-
+import Link from "next/link";
 // Each column cycles through its own set of school-environment images, offset by time
 const columnImages = [
   [
@@ -107,12 +107,12 @@ export default function ExperienceSection() {
               </div>
             </div>
 
-            <button className="bg-lf-burgundy text-white pl-7 pr-2 py-2 rounded-[16px] font-bold text-[14px] hover:bg-lf-burgundy-hover transition-colors flex items-center gap-1 w-fit shadow-md group">
+            <Link href="/experience" className="bg-lf-burgundy text-white pl-7 pr-2 py-2 rounded-[16px] font-bold text-[14px] hover:bg-lf-burgundy-hover transition-colors flex items-center gap-1 w-fit shadow-md group">
               Explore Experience
               <div className="w-10 h-10  flex items-center justify-center">
                 <ArrowRight className="w-4 h-4 text-white" />
               </div>
-            </button>
+            </Link>
           </div>
 
           {/* Right: 3 auto-cycling image columns — hidden on mobile, visible from lg */}

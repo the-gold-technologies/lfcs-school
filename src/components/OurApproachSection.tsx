@@ -52,14 +52,12 @@ export default function OurApproachSection() {
 
             <div ref={scrollContainerRef} className="flex gap-5 overflow-x-auto pt-4 snap-x snap-mandatory [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden scroll-smooth">
               {[
-                { img: 'https://images.unsplash.com/photo-1577896851231-70ef18881754?q=80&w=2070&auto=format&fit=crop', label: 'Experiential\nLearning' },
-                { img: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=2070&auto=format&fit=crop', label: 'Technology &\nInnovation' },
-                { img: 'https://images.unsplash.com/photo-1526232761682-d26e03ac148e?q=80&w=2029&auto=format&fit=crop', label: 'Sports &\nPhysical Growth' },
-                { img: 'https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?q=80&w=2070&auto=format&fit=crop', label: 'Art, Culture &\nExpression' },
-                { img: 'https://images.unsplash.com/photo-1532094349884-543bc11b234d?q=80&w=2070&auto=format&fit=crop', label: 'Science &\nResearch' },
-                { img: 'https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?q=80&w=2070&auto=format&fit=crop', label: 'Academic\nExcellence' },
-                { img: 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=2022&auto=format&fit=crop', label: 'Global\nPerspective' },
-                { img: 'https://images.unsplash.com/photo-1546519638-68e109498ffc?q=80&w=2090&auto=format&fit=crop', label: 'Leadership &\nCharacter' },
+                { img: '/home-page/skills1.jpg', label: 'Experiential\nLearning' },
+                { img: '/home-page/skills2.jpg', label: 'Technology &\nInnovation' },
+                { img: '/home-page/skills3.jpg', label: 'Sports &\nPhysical Growth' },
+                { img: '/home-page/skills4.jpeg', label: 'Art, Culture &\nExpression' },
+                { img: '/home-page/skills5.jpg', label: 'Science &\nResearch' },
+                { img: '/home-page/skills6.jpg', label: 'Academic\nExcellence' },
               ].map((card, i) => (
                 <div key={i} className="relative snap-start shrink-0">
                   {i === 0 && <div className="absolute -inset-0.5 rounded-[24px]"></div>}

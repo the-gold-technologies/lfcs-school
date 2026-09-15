@@ -55,10 +55,10 @@ export default function OurStorySection() {
           {/* Right: Images */}
           <div className="lg:w-1/2 relative w-full h-[500px]">
             <div className="absolute top-0 right-0 w-[80%] h-[80%] rounded-[32px] overflow-hidden shadow-2xl z-10 border-8 border-white">
-              <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?q=80&w=2070&auto=format&fit=crop" alt="Teacher and students" className="w-full h-full object-cover" />
+              <img src="/about/story1.jpg" alt="Teacher and students" className="w-full h-full object-cover" />
             </div>
             <div className="absolute bottom-0 left-0 w-[60%] h-[55%] rounded-[32px] overflow-hidden shadow-xl z-20 border-8 border-white">
-              <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=2132&auto=format&fit=crop" alt="Students in classroom" className="w-full h-full object-cover" />
+              <img src="/about/story2.jpg" alt="Students in classroom" className="w-full h-full object-cover" />
             </div>
             
             {/* Playful shapes behind images */}

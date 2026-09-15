@@ -5,22 +5,19 @@ import Link from "next/link";
 // Each column cycles through its own set of school-environment images, offset by time
 const columnImages = [
   [
-    "https://images.unsplash.com/photo-1546519638-68e109498ffc?q=80&w=2090&auto=format&fit=crop",   // Sports
-    "https://images.unsplash.com/photo-1526232761682-d26e03ac148e?q=80&w=2029&auto=format&fit=crop", // PE field
-    "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?q=80&w=2072&auto=format&fit=crop", // Students running
-    "https://images.unsplash.com/photo-1574629810360-7efbbe195018?q=80&w=2093&auto=format&fit=crop", // Swimming
+    "/home-page/Experience1.jpg",   // Sports
+    "/home-page/Experience2.jpg", // PE field
+    "/home-page/Experience3.jpg", // Students running
   ],
   [
-    "https://images.unsplash.com/photo-1532094349884-543bc11b234d?q=80&w=2070&auto=format&fit=crop", // Science lab
-    "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=2070&auto=format&fit=crop", // Tech/computer
-    "https://images.unsplash.com/photo-1564069114553-7215e1ff1890?q=80&w=1932&auto=format&fit=crop", // Books/study
-    "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=2022&auto=format&fit=crop", // Classroom
+    "/home-page/Experience4.jpg", // Science lab
+    "/home-page/Experience5.jpg", // Tech/computer
+    "/home-page/Experience6.jpg", // Books/study
   ],
   [
-    "https://images.unsplash.com/photo-1577896851231-70ef18881754?q=80&w=2070&auto=format&fit=crop", // Teacher classroom
-    "https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?q=80&w=2070&auto=format&fit=crop", // Students studying
-    "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?q=80&w=2070&auto=format&fit=crop", // Art & music
-    "https://images.unsplash.com/photo-1580582932707-520aed937b7b?q=80&w=2089&auto=format&fit=crop", // School building
+    "/home-page/Experience7.jpg", // Teacher classroom
+    "/home-page/Experience8.jpg", // Students studying
+    "/home-page/Experience9.jpg", // Art & music
   ],
 ];
 

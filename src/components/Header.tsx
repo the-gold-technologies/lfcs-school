@@ -11,7 +11,7 @@ export default function Header() {
     { label: 'About Us', href: '/about', icon: Home, hasDropdown: false },
     { label: 'Academics', href: '/academics', icon: BookOpen, hasDropdown: false },
     { label: 'Experience', href: '/experience', icon: Backpack, hasDropdown: false },
-    { label: 'Our Schools', href: '#', icon: Building, hasDropdown: true },
+    { label: 'Our Schools', href: '/our-school', icon: Building, hasDropdown: false },
     { label: 'Admissions', href: '#', icon: GraduationCap, hasDropdown: true },
   ];
 

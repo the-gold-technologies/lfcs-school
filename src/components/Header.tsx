@@ -25,7 +25,7 @@ export default function Header() {
         { label: 'LFIS, MAU', href: 'https://lfismau.co.in/', img: '/schools/lfis-mau.jpg' },
       ]
     },
-    { label: 'Admissions', href: '#', icon: GraduationCap, hasDropdown: false }, // Removed placeholder dropdown
+    { label: 'Admissions', href: '/admissions', icon: GraduationCap, hasDropdown: false }, // Removed placeholder dropdown
   ];
 
   return (
@@ -60,20 +60,20 @@ export default function Header() {
                     </span>
                   </Link>
                   {hasDropdown && dropdownItems && (
-                    <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[650px] bg-white rounded-2xl shadow-[0_10px_40px_-10px_rgba(0,0,0,0.1)] border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top group-hover:translate-y-0 translate-y-2 p-5 z-[100]">
-                      <div className="grid grid-cols-3 gap-5">
+                    <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[540px] bg-white rounded-2xl shadow-[0_10px_40px_-10px_rgba(0,0,0,0.1)] border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top group-hover:translate-y-0 translate-y-2 p-4 z-[100]">
+                      <div className="grid grid-cols-3 gap-3.5">
                         {dropdownItems.map((item, idx) => (
                           <Link 
                             key={idx} 
                             href={item.href} 
                             target="_blank" 
                             rel="noopener noreferrer"
-                            className="group/item block rounded-xl overflow-hidden hover:bg-gray-50 transition-colors border border-transparent hover:border-gray-100 pb-3"
+                            className="group/item block rounded-lg overflow-hidden hover:bg-gray-50 transition-colors border border-transparent hover:border-gray-100 pb-2"
                           >
-                            <div className="h-24 w-full overflow-hidden mb-2.5 rounded-t-xl">
+                            <div className="h-20 w-full overflow-hidden mb-2 rounded-t-lg">
                               <img src={item.img} alt={item.label} className="w-full h-full object-cover group-hover/item:scale-105 transition-transform duration-500" />
                             </div>
-                            <span className="px-3 block text-[13px] font-bold text-[#0a192f] group-hover/item:text-lf-burgundy transition-colors truncate">
+                            <span className="px-2.5 block text-[12px] font-bold text-[#0a192f] group-hover/item:text-lf-burgundy transition-colors truncate">
                               {item.label}
                             </span>
                           </Link>
@@ -87,7 +87,7 @@ export default function Header() {
 
             {/* CTA + Hamburger */}
             <div className="flex items-center gap-3">
-              <Link href="#" className="hidden md:block bg-lf-burgundy text-white px-5 lg:px-8 py-2.5 lg:py-3.5 rounded-[16px] font-semibold text-sm hover:bg-lf-burgundy-hover transition-colors">
+              <Link href="/start-school" className="hidden md:block bg-lf-burgundy text-white px-5 lg:px-8 py-2.5 lg:py-3.5 rounded-[16px] font-semibold text-sm hover:bg-lf-burgundy-hover transition-colors">
                 Start a School
               </Link>
               <button
@@ -157,7 +157,7 @@ export default function Header() {
             </nav>
 
             <div className="p-5 border-t border-gray-100">
-              <Link href="#" onClick={() => setMobileOpen(false)} className="block w-full text-center bg-lf-burgundy text-white px-6 py-3 rounded-[16px] font-semibold text-sm hover:bg-lf-burgundy-hover transition-colors">
+              <Link href="/start-school" onClick={() => setMobileOpen(false)} className="block w-full text-center bg-lf-burgundy text-white px-6 py-3 rounded-[16px] font-semibold text-sm hover:bg-lf-burgundy-hover transition-colors">
                 Start a School
               </Link>
             </div>

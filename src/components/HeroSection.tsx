@@ -1,4 +1,5 @@
 import { ArrowRight, GraduationCap, MapPin, Flag, Users, Award } from "lucide-react";
+import Link from "next/link";
 
 export default function HeroSection() {
   return (
@@ -25,12 +26,12 @@ export default function HeroSection() {
             A network of CBSE schools committed to academic excellence, character building and holistic development.
           </p>
           <div className="flex flex-wrap gap-3 md:gap-4">
-            <button className="bg-lf-burgundy text-white px-5 md:px-6 py-2.5 md:py-3 rounded-[16px] font-semibold hover:bg-lf-burgundy-hover transition-all flex items-center gap-2 text-sm md:text-base">
+            <Link href="/our-school" className="bg-lf-burgundy text-white px-5 md:px-6 py-2.5 md:py-3 rounded-[16px] font-semibold hover:bg-lf-burgundy-hover transition-all flex items-center gap-2 text-sm md:text-base">
               Explore Our Schools <ArrowRight className="w-4 h-4 md:w-5 md:h-5 text-lf-gold" />
-            </button>
-            <button className="bg-transparent border border-lf-burgundy text-lf-burgundy px-5 md:px-6 py-2.5 md:py-3 rounded-[16px] font-semibold hover:bg-lf-burgundy/5 transition-all flex items-center gap-2 text-sm md:text-base">
+            </Link>
+            <Link href="/admissions" className="bg-transparent border border-lf-burgundy text-lf-burgundy px-5 md:px-6 py-2.5 md:py-3 rounded-[16px] font-semibold hover:bg-lf-burgundy/5 transition-all flex items-center gap-2 text-sm md:text-base">
               Admissions Open <GraduationCap className="w-4 h-4 md:w-5 md:h-5" />
-            </button>
+            </Link>
           </div>
         </div>
       </section>

@@ -16,7 +16,7 @@ export default function ExperienceCTASection() {
                 Ready to Join the <br /> LFCS Community?
               </h2>
               <div className="flex flex-col sm:flex-row flex-wrap gap-4 w-full">
-                <Link href="/" className="bg-lf-burgundy text-white px-6 py-3 rounded-full font-bold text-[14px] hover:bg-lf-burgundy-hover transition-all flex items-center justify-center gap-2 shadow-md hover:shadow-lg w-full sm:w-auto">
+                <Link href="/our-school" className="bg-lf-burgundy text-white px-6 py-3 rounded-full font-bold text-[14px] hover:bg-lf-burgundy-hover transition-all flex items-center justify-center gap-2 shadow-md hover:shadow-lg w-full sm:w-auto">
                   Explore our School
                   <Globe className="w-4 h-4" />
                 </Link>

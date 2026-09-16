@@ -2,6 +2,7 @@
 import { MapPin, ArrowRight, ChevronLeft, ChevronRight, Globe } from "lucide-react";
 import { FaFacebook, FaInstagram, FaYoutube } from "react-icons/fa";
 import { useState, useEffect } from "react";
+import Link from "next/link";
 
 const schools = [
   {
@@ -128,9 +129,9 @@ export default function OurSchoolsSection() {
               className="w-10 h-10 rounded-full bg-[#0a192f] text-white flex items-center justify-center hover:bg-[#dfae19] transition-all disabled:opacity-30 disabled:cursor-not-allowed">
               <ChevronRight className="w-5 h-5" />
             </button>
-            <button className="hidden md:flex items-center gap-2 border border-[#0a192f]/20 text-[#0a192f] px-5 py-2.5 rounded-[16px] font-semibold hover:bg-gray-50 transition-colors text-[14px] ml-2">
+            <Link href="/our-school" className="hidden md:flex items-center gap-2 border border-[#0a192f]/20 text-[#0a192f] px-5 py-2.5 rounded-[16px] font-semibold hover:bg-gray-50 transition-colors text-[14px] ml-2">
               View All <ArrowRight className="w-4 h-4" />
-            </button>
+            </Link>
           </div>
         </div>
 

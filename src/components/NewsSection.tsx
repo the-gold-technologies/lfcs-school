@@ -35,7 +35,7 @@ export default function NewsSection() {
               <div className="flex flex-col justify-center">
                 <span className="text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-1 block">{news.date}</span>
                 <h3 className="font-bold text-[#0a192f] text-sm leading-snug mb-3 line-clamp-2">{news.title}</h3>
-                <a href="#" className="text-gray-500 text-xs font-bold flex items-center gap-1 hover:text-[#0a192f]">
+                <a href="/news" className="text-gray-500 text-xs font-bold flex items-center gap-1 hover:text-[#0a192f]">
                   Read More <ArrowRight className="w-3 h-3" />
                 </a>
               </div>

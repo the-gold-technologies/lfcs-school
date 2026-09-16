@@ -73,11 +73,11 @@ export default function Footer() {
             <ul className="space-y-3.5 text-[13px] text-[#eef3ea]">
               <li><Link href="/about" className="hover:text-white transition-colors">About Us</Link></li>
               <li><Link href="/academics" className="hover:text-white transition-colors">Academics</Link></li>
-              <li><Link href="#" className="hover:text-white transition-colors">Experience</Link></li>
+              <li><Link href="/experience" className="hover:text-white transition-colors">Experience</Link></li>
               <li><Link href="/our-school" className="hover:text-white transition-colors">Our Schools</Link></li>
-              <li><Link href="#" className="hover:text-white transition-colors">Admissions</Link></li>
-              <li><Link href="#" className="hover:text-white transition-colors">Start a School</Link></li>
-              <li><Link href="#" className="hover:text-white transition-colors">Contact Us</Link></li>
+              <li><Link href="/admissions" className="hover:text-white transition-colors">Admissions</Link></li>
+              <li><Link href="/start-school" className="hover:text-white transition-colors">Start a School</Link></li>
+              <li><Link href="/contact" className="hover:text-white transition-colors">Contact Us</Link></li>
             </ul>
           </div>
 
@@ -85,12 +85,12 @@ export default function Footer() {
           <div>
             <h4 className="text-lf-gold font-bold mb-6 uppercase tracking-wider text-xs">Admissions</h4>
             <ul className="space-y-3.5 text-[13px] text-[#eef3ea]">
-              <li><Link href="#" className="hover:text-white transition-colors">Why Choose Us</Link></li>
-              <li><Link href="#" className="hover:text-white transition-colors">Admission Process</Link></li>
-              <li><Link href="#" className="hover:text-white transition-colors">Eligibility & Documents</Link></li>
-              <li><Link href="#" className="hover:text-white transition-colors">Fee Structure</Link></li>
-              <li><Link href="#" className="hover:text-white transition-colors">FAQs</Link></li>
-              <li><Link href="#" className="hover:text-white transition-colors">Apply Now</Link></li>
+              <li><Link href="/admissions#why-choose-us" className="hover:text-white transition-colors">Why Choose Us</Link></li>
+              <li><Link href="/admissions#process" className="hover:text-white transition-colors">Admission Process</Link></li>
+              <li><Link href="/admissions#eligibility" className="hover:text-white transition-colors">Eligibility & Documents</Link></li>
+              <li><Link href="/admissions#fees" className="hover:text-white transition-colors">Fee Structure</Link></li>
+              <li><Link href="/admissions#faqs" className="hover:text-white transition-colors">FAQs</Link></li>
+              <li><Link href="/admissions#apply" className="hover:text-white transition-colors">Apply Now</Link></li>
             </ul>
           </div>
 
@@ -98,13 +98,13 @@ export default function Footer() {
           <div>
             <h4 className="text-lf-gold font-bold mb-6 uppercase tracking-wider text-xs">Start A School</h4>
             <ul className="space-y-3.5 text-[13px] text-[#eef3ea]">
-              <li><Link href="#" className="hover:text-white transition-colors">Why Partner With Us</Link></li>
-              <li><Link href="#" className="hover:text-white transition-colors">Our School Model</Link></li>
-              <li><Link href="#" className="hover:text-white transition-colors">Support & Benefits</Link></li>
-              <li><Link href="#" className="hover:text-white transition-colors">Requirements</Link></li>
-              <li><Link href="#" className="hover:text-white transition-colors">Investment Overview</Link></li>
-              <li><Link href="#" className="hover:text-white transition-colors">Partner With Us</Link></li>
-              <li><Link href="#" className="hover:text-white transition-colors">FAQs</Link></li>
+              <li><Link href="/start-school#why-partner" className="hover:text-white transition-colors">Why Partner With Us</Link></li>
+              <li><Link href="/start-school#model" className="hover:text-white transition-colors">Our School Model</Link></li>
+              <li><Link href="/start-school#support" className="hover:text-white transition-colors">Support & Benefits</Link></li>
+              <li><Link href="/start-school#requirements" className="hover:text-white transition-colors">Requirements</Link></li>
+              <li><Link href="/start-school#investment" className="hover:text-white transition-colors">Investment Overview</Link></li>
+              <li><Link href="/start-school#apply" className="hover:text-white transition-colors">Partner With Us</Link></li>
+              <li><Link href="/start-school#faqs" className="hover:text-white transition-colors">FAQs</Link></li>
             </ul>
           </div>
 
@@ -112,11 +112,11 @@ export default function Footer() {
           <div className="hidden lg:block">
             <h4 className="text-lf-gold font-bold mb-6 uppercase tracking-wider text-xs">Resources</h4>
              <ul className="space-y-3.5 text-[13px] text-[#eef3ea]">
-              <li><Link href="#" className="hover:text-white transition-colors">News & Events</Link></li>
-              <li><Link href="#" className="hover:text-white transition-colors">Careers</Link></li>
-              <li><Link href="#" className="hover:text-white transition-colors">Downloads</Link></li>
-              <li><Link href="#" className="hover:text-white transition-colors">Privacy Policy</Link></li>
-              <li><Link href="#" className="hover:text-white transition-colors">Terms & Conditions</Link></li>
+              <li><Link href="/news" className="hover:text-white transition-colors">News & Events</Link></li>
+              <li><Link href="/careers" className="hover:text-white transition-colors">Careers</Link></li>
+              <li><Link href="/downloads" className="hover:text-white transition-colors">Downloads</Link></li>
+              <li><Link href="/privacy-policy" className="hover:text-white transition-colors">Privacy Policy</Link></li>
+              <li><Link href="/terms" className="hover:text-white transition-colors">Terms & Conditions</Link></li>
             </ul>
           </div>
 

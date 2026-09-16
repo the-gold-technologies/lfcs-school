@@ -9,7 +9,7 @@ export default function OurValuesSection() {
       color: "#dfae19", // gold
       bgColor: "bg-[#fcf9ed]", // very light gold
       tinyIcon: Heart,
-      img: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=400&auto=format&fit=crop"
+      img: "/about/values1.png"
     },
     { 
       icon: Heart, 
@@ -18,7 +18,7 @@ export default function OurValuesSection() {
       color: "#fb5857", // red/pink
       bgColor: "bg-[#fdf4f4]", // very light pink
       tinyIcon: Heart,
-      img: "https://images.unsplash.com/photo-1577896851231-70ef18881754?q=80&w=400&auto=format&fit=crop"
+      img: "/about/values2.png"
     },
     { 
       icon: Star, 
@@ -27,7 +27,7 @@ export default function OurValuesSection() {
       color: "#66733a", // olive
       bgColor: "bg-[#f3f7ef]", // very light green
       tinyIcon: Star,
-      img: "https://images.unsplash.com/photo-1511629091441-ee46146481b6?q=80&w=400&auto=format&fit=crop"
+      img: "/about/values3.png"
     },
     { 
       icon: Lightbulb, 
@@ -36,7 +36,7 @@ export default function OurValuesSection() {
       color: "#3b82f6", // blue
       bgColor: "bg-[#f0f6ff]", // very light blue
       tinyIcon: Heart,
-      img: "https://images.unsplash.com/photo-1588072432836-e10032774350?q=80&w=400&auto=format&fit=crop"
+      img: "/about/values4.png"
     },
     { 
       icon: Users, 
@@ -45,7 +45,7 @@ export default function OurValuesSection() {
       color: "#fb5857", // red/pink
       bgColor: "bg-[#fdf4f4]", 
       tinyIcon: Heart,
-      img: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=400&auto=format&fit=crop"
+      img: "/about/values5.png"
     },
     { 
       icon: Leaf, 
@@ -54,7 +54,7 @@ export default function OurValuesSection() {
       color: "#dfae19", // gold
       bgColor: "bg-[#fcf9ed]", 
       tinyIcon: Heart,
-      img: "https://images.unsplash.com/photo-1577896851231-70ef18881754?q=80&w=400&auto=format&fit=crop"
+      img: "/about/values6.png"
     },
   ];
 

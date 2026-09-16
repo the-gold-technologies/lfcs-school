@@ -21,7 +21,7 @@ export default function SportsFitnessSection() {
             <div className="flex flex-col gap-4">
               <div className="h-48 md:h-64 rounded-[20px] overflow-hidden shadow-sm">
                 <img loading="lazy" decoding="async" 
-                  src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?q=80&w=2093&auto=format&fit=crop" 
+                  src="/experience/sports1.jpg" 
                   alt="Swimming" 
                   className="w-full h-full object-cover"
                 />
@@ -38,7 +38,7 @@ export default function SportsFitnessSection() {
               </div>
               <div className="h-48 md:h-64 rounded-[20px] overflow-hidden shadow-sm">
                 <img loading="lazy" decoding="async" 
-                  src="https://images.unsplash.com/photo-1526232761682-d26e03ac148e?q=80&w=2029&auto=format&fit=crop" 
+                  src="/experience/sports2.jpeg" 
                   alt="Outdoor sports" 
                   className="w-full h-full object-cover"
                 />

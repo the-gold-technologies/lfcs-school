@@ -89,7 +89,7 @@ export default function GallerySection() {
               style={{ flexBasis: getFlexBasis(idx), flexGrow: 1 }}
               className="h-[140px] md:h-[180px] lg:h-[220px] rounded-[16px] overflow-hidden group relative min-w-[140px] sm:min-w-[180px] shadow-sm hover:shadow-md transition-all duration-300 cursor-pointer"
             >
-              <img 
+              <img loading="lazy" decoding="async" 
                 src={item.image} 
                 alt={item.category} 
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"

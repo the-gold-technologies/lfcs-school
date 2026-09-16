@@ -48,7 +48,7 @@ export default function OurGrowthSection() {
     <section className="py-20 bg-[#fdfdfc] relative overflow-hidden">
 
       {/* Decorative Background Image */}
-      <img 
+      <img loading="lazy" decoding="async" 
         src="/decorative_left_top.png" 
         alt="" 
         className="absolute inset-0 w-full h-full object-contain z-0 pointer-events-none opacity-100"
@@ -119,7 +119,7 @@ export default function OurGrowthSection() {
 
                   {/* Image */}
                   <div className="w-full aspect-[4/3] rounded-[24px] overflow-hidden mb-6 relative">
-                    <img src={m.img} alt={m.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                    <img loading="lazy" decoding="async" src={m.img} alt={m.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
                   </div>
 
                   {/* Content */}

@@ -16,7 +16,7 @@ export default function FacultySection() {
     <section className="py-16 md:py-24 bg-white relative overflow-hidden" id="faculty">
       
       {/* Decorative Image */}
-      <img 
+      <img loading="lazy" decoding="async" 
         src="/decorative_left_top.png" 
         alt="" 
         className="absolute inset-0 w-full h-full -top-32 object-contain z-0 pointer-events-none opacity-100"
@@ -44,7 +44,7 @@ export default function FacultySection() {
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
           {faculty.map((member, i) => (
             <div key={i} className="group relative rounded-[24px] overflow-hidden aspect-[4/5] bg-gray-100 shadow-sm cursor-pointer">
-              <img 
+              <img loading="lazy" decoding="async" 
                 src={member.img} 
                 alt={member.name}
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"

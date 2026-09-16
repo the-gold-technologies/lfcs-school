@@ -6,7 +6,7 @@ export default function CTABanners() {
       <div className="flex flex-col md:flex-row gap-6">
         <div className="flex-1 bg-lf-burgundy rounded-[40px] overflow-hidden relative p-6 md:p-10 flex flex-col justify-center min-h-[300px]">
           <div className="absolute right-0 top-0 bottom-0 w-3/5">
-            <img src="https://images.unsplash.com/photo-1544717302-de2939b7ef71?q=80&w=2070&auto=format&fit=crop" className="w-full h-full object-cover opacity-60 mix-blend-multiply grayscale" style={{ maskImage: 'linear-gradient(to left, black 40%, transparent)' }} alt="Student" />
+            <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1544717302-de2939b7ef71?q=80&w=2070&auto=format&fit=crop" className="w-full h-full object-cover opacity-60 mix-blend-multiply grayscale" style={{ maskImage: 'linear-gradient(to left, black 40%, transparent)' }} alt="Student" />
           </div>
           <div className="relative z-10 w-full md:w-2/3">
             <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center mb-6 shadow-lg">
@@ -22,7 +22,7 @@ export default function CTABanners() {
 
         <div className="flex-1 bg-lf-gold rounded-[40px] overflow-hidden relative p-10 flex flex-col justify-center min-h-[300px]">
           <div className="absolute right-0 top-0 bottom-0 w-3/5">
-            <img src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?q=80&w=2089&auto=format&fit=crop" className="w-full h-full object-cover opacity-40 mix-blend-multiply grayscale" style={{ maskImage: 'linear-gradient(to left, black 40%, transparent)' }} alt="School" />
+            <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?q=80&w=2089&auto=format&fit=crop" className="w-full h-full object-cover opacity-40 mix-blend-multiply grayscale" style={{ maskImage: 'linear-gradient(to left, black 40%, transparent)' }} alt="School" />
           </div>
           <div className="relative z-10 w-full md:w-2/3">
             <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center mb-6 shadow-lg">

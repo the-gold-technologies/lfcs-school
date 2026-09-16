@@ -52,7 +52,7 @@ export default function Testimonials() {
   return (
     <section className="py-24 bg-[#fcfdfe] relative overflow-hidden">
       {/* Decorative background */}
-      <img
+      <img loading="lazy" decoding="async"
         src="/decorative_right.png"
         alt=""
         aria-hidden="true"

@@ -30,7 +30,7 @@ export default function NewsSection() {
           ].map((news, i) => (
             <div key={i} className="flex gap-4 p-4 border border-gray-100 rounded-xl hover:shadow-md transition-shadow">
               <div className="w-24 h-24 rounded-lg overflow-hidden shrink-0">
-                <img src={news.img} alt={news.title} className="w-full h-full object-cover" />
+                <img loading="lazy" decoding="async" src={news.img} alt={news.title} className="w-full h-full object-cover" />
               </div>
               <div className="flex flex-col justify-center">
                 <span className="text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-1 block">{news.date}</span>

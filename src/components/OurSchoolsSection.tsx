@@ -1,16 +1,75 @@
 "use client";
-import { MapPin, ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
+import { MapPin, ArrowRight, ChevronLeft, ChevronRight, Globe } from "lucide-react";
+import { FaFacebook, FaInstagram, FaYoutube } from "react-icons/fa";
 import { useState, useEffect } from "react";
 
 const schools = [
-  { city: 'Prayagraj', state: 'Uttar Pradesh', img: 'https://images.unsplash.com/photo-1562774053-701939374585?q=80&w=2086&auto=format&fit=crop' },
-  { city: 'Lucknow', state: 'Uttar Pradesh', img: 'https://images.unsplash.com/photo-1580582932707-520aed937b7b?q=80&w=2089&auto=format&fit=crop' },
-  { city: 'Varanasi', state: 'Uttar Pradesh', img: 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=2022&auto=format&fit=crop' },
-  { city: 'Kanpur', state: 'Uttar Pradesh', img: 'https://images.unsplash.com/photo-1541339907198-e08756dedf3f?q=80&w=2070&auto=format&fit=crop' },
-  { city: 'Agra', state: 'Uttar Pradesh', img: 'https://images.unsplash.com/photo-1564069114553-7215e1ff1890?q=80&w=1932&auto=format&fit=crop' },
-  { city: 'Mathura', state: 'Uttar Pradesh', img: 'https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?q=80&w=2070&auto=format&fit=crop' },
-  { city: 'Gorakhpur', state: 'Uttar Pradesh', img: 'https://images.unsplash.com/photo-1546519638-68e109498ffc?q=80&w=2090&auto=format&fit=crop' },
-  { city: 'Meerut', state: 'Uttar Pradesh', img: 'https://images.unsplash.com/photo-1532094349884-543bc11b234d?q=80&w=2070&auto=format&fit=crop' },
+  {
+    name: 'LFCS, MAU',
+    city: 'Mau',
+    state: 'Uttar Pradesh',
+    address: 'WHPC+9MX, Nizamuddinpura, Sahadatpura, Mau, Uttar Pradesh 275101',
+    website: 'https://lfgos.com/',
+    instagram: 'https://www.instagram.com/official_lfcsnizamuddinpura?igsh=OHB6ZWE3bzV0cWc4',
+    facebook: 'https://www.facebook.com/share/19GPAevD61/',
+    youtube: '',
+    img: '/schools/Nizamuddinpura-Mau.jpg'
+  },
+  {
+    name: 'LFCS, SIKATIYA',
+    city: 'Mau',
+    state: 'Uttar Pradesh',
+    address: 'Near Sikatiya Overbridge, Mau, Uttar Pradesh',
+    website: 'https://lfcsmau.co/',
+    instagram: 'https://www.instagram.com/lfcssikatiyamau?igsh=NWNxOHZ6bGVvN2xy',
+    facebook: 'https://www.facebook.com/share/19SXEvspwD/',
+    youtube: '',
+    img: '/schools/Sikatia-Mau.jpg'
+  },
+  {
+    name: 'LFCS, GHOSI',
+    city: 'Ghosi',
+    state: 'Uttar Pradesh',
+    address: 'Zamal Bikkampur, Ghosi, Uttar Pradesh 275304',
+    website: 'https://www.lfcsghosi.co.in/',
+    instagram: 'https://www.instagram.com/littleflowerchildren?igsh=Zm9kbGQ0Mmh1Z3Jq',
+    facebook: 'https://www.facebook.com/share/1bmo1SL5EY/',
+    youtube: 'https://youtube.com/@littleflowerchildrenschool7873?si=BaZY_xTs0DmYVV4L',
+    img: '/schools/Ghosi.jpeg'
+  },
+  {
+    name: 'LFCS, KHALISHPUR',
+    city: 'Mau',
+    state: 'Uttar Pradesh',
+    address: 'S.H. 34 Mau - Ballia Road khalishpur Mau, Uttar Pradesh 275102',
+    website: 'https://lfcsballia.co.in/',
+    instagram: 'https://www.instagram.com/lfcs.ballia?igsh=MWlrYjN4OGN0NmtyYg==',
+    facebook: 'https://www.facebook.com/share/1EkqBTTVKx/',
+    youtube: '',
+    img: '/schools/Khalispur-Balia.jpeg'
+  },
+  {
+    name: 'LFCS, KASIMABAD',
+    city: 'Kasimabad',
+    state: 'Uttar Pradesh',
+    address: 'RM22+GPP, Campus: Gehuri, Mardah - Kasimabad Rd, Kasimabad, Uttar Pradesh 233230',
+    website: 'https://www.lfcskasimabad.in/',
+    instagram: 'https://www.instagram.com/lfcsghazipur?igsh=bzdnOHlueWZ6d3g0',
+    facebook: 'https://www.facebook.com/share/1HDhticq5g/',
+    youtube: 'https://m.youtube.com/%40lfcs-ghazipur?fbclid=PAb21jcATneaJwZG9mAmV4dG4DYWVtAjExAHNydGMGYXBwX2lkDzU2NzA2NzM0MzM1MjQyNwABpxOWZnA2iTlDmD-F17tfUplSU6zSWMXnudLmhm37QeOK1oHD_Dqo8SWU6W-u_aem_yXSkKcFwEpvnM-qYsL_hCw',
+    img: '/schools/Kasimabad.jpg'
+  },
+  {
+    name: 'LFIS, MAU',
+    city: 'Mau',
+    state: 'Uttar Pradesh',
+    address: 'S.H. 34 Mau - Ballia Road khalishpur Mau, Uttar Pradesh 275102',
+    website: 'https://lfismau.co.in/',
+    instagram: 'https://www.instagram.com/lfis.mau15?igsh=MXF2YWYzNjN2YXd5eg==',
+    facebook: 'https://www.facebook.com/share/1Bd9LEPBNU/',
+    youtube: '',
+    img: '/schools/lfis-mau.jpg'
+  }
 ];
 
 // Card width + gap in px — must match CSS below
@@ -36,7 +95,7 @@ export default function OurSchoolsSection() {
   return (
     <section className="py-24 bg-[#fcfdfe] relative overflow-hidden">
       {/* Decorative background */}
-      <img
+      <img loading="lazy" decoding="async"
         src="/decorative_left.png"
         alt=""
         aria-hidden="true"
@@ -84,19 +143,45 @@ export default function OurSchoolsSection() {
             {schools.map((school, i) => (
               <div key={i} className="min-w-[300px] w-[300px] bg-[#f4f5f7] rounded-[20px] overflow-hidden border border-gray-200  hover:-translate-y-1 transition-transform duration-300 group shrink-0">
                 <div className="h-[160px] overflow-hidden">
-                  <img src={school.img} alt={school.city} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                  <img loading="lazy" decoding="async" src={school.img} alt={school.city} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                 </div>
-                <div className="p-4">
-                  <h3 className="font-semibold text-[#0a192f] text-[15px] leading-snug mb-2">
-                    Little Flower School {school.city}
+                <div className="p-4 flex flex-col h-[150px]">
+                  <h3 className="font-semibold text-[#0a192f] text-[15px] leading-snug mb-2 truncate">
+                    {school.name}
                   </h3>
-                  <div className="flex items-center gap-2 text-[12.5px] font-medium text-gray-500 mb-4">
-                    <MapPin className="w-4 h-4 text-red-500/80 shrink-0" strokeWidth={2} />
-                    {school.city}, {school.state}
+                  <div className="flex items-start gap-2 text-[12.5px] font-medium text-gray-500 mb-3 h-[36px]">
+                    <MapPin className="w-4 h-4 text-red-500/80 shrink-0 mt-0.5" strokeWidth={2} />
+                    <span className="line-clamp-2" title={school.address}>{school.address}</span>
                   </div>
-                  <a href="#" className="text-[#0a192f] font-bold text-[13px] flex items-center gap-1.5 hover:text-[#dfae19] transition-colors">
-                    Visit School <ArrowRight className="w-4 h-4" />
-                  </a>
+
+                  <div className="flex items-center justify-between mt-auto pt-3 border-t border-gray-200">
+                    <div className="flex items-center gap-1.5">
+                      {school.website && (
+                        <a href={school.website} target="_blank" rel="noopener noreferrer" className="w-6 h-6 rounded-full bg-white border border-gray-200 flex items-center justify-center text-gray-500 hover:text-blue-600 hover:shadow-md transition-all">
+                          <Globe className="w-3 h-3" />
+                        </a>
+                      )}
+                      {school.facebook && (
+                        <a href={school.facebook} target="_blank" rel="noopener noreferrer" className="w-6 h-6 rounded-full bg-white border border-gray-200 flex items-center justify-center text-gray-500 hover:text-blue-600 hover:shadow-md transition-all">
+                          <FaFacebook className="w-3 h-3" />
+                        </a>
+                      )}
+                      {school.instagram && (
+                        <a href={school.instagram} target="_blank" rel="noopener noreferrer" className="w-6 h-6 rounded-full bg-white border border-gray-200 flex items-center justify-center text-gray-500 hover:text-pink-600 hover:shadow-md transition-all">
+                          <FaInstagram className="w-3 h-3" />
+                        </a>
+                      )}
+                      {school.youtube && (
+                        <a href={school.youtube} target="_blank" rel="noopener noreferrer" className="w-6 h-6 rounded-full bg-white border border-gray-200 flex items-center justify-center text-gray-500 hover:text-red-600 hover:shadow-md transition-all">
+                          <FaYoutube className="w-3 h-3" />
+                        </a>
+                      )}
+                    </div>
+                    
+                    <a href={school.website || "#"} target={school.website ? "_blank" : "_self"} rel="noopener noreferrer" className="text-[#0a192f] font-bold text-[11px] uppercase flex items-center gap-1 hover:text-[#dfae19] transition-colors">
+                      Website <ArrowRight className="w-3 h-3" />
+                    </a>
+                  </div>
                 </div>
               </div>
             ))}

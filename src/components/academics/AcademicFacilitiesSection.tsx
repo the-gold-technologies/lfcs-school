@@ -4,25 +4,25 @@ const facilities = [
   {
     title: "Smart / Digital Classrooms",
     description: "Technology-enabled resources that support classroom instruction and visual learning.",
-    image: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=2022&auto=format&fit=crop",
+    image: "/academics/facility/digital-classroom.jpg",
     icon: Monitor
   },
   {
     title: "Science Laboratories",
     description: "Environment where students can experiment & practically apply their science concepts.",
-    image: "https://images.unsplash.com/photo-1532094349884-543bc11b234d?q=80&w=2070&auto=format&fit=crop",
+    image: "/academics/facility/science-lab.jpg",
     icon: FlaskConical
   },
   {
     title: "Computer Laboratories",
     description: "Facilities that help students develop digital and computer skills.",
-    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=2070&auto=format&fit=crop",
+    image: "/academics/facility/computer-lab.jpeg",
     icon: Laptop
   },
   {
     title: "Library",
     description: "An Independent learning zone that encourages students to understand the world.",
-    image: "https://images.unsplash.com/photo-1564069114553-7215e1ff1890?q=80&w=1932&auto=format&fit=crop",
+    image: "/academics/facility/library.jpeg",
     icon: BookOpen
   }
 ];
@@ -63,7 +63,7 @@ export default function AcademicFacilitiesSection() {
 
                 {/* Image Container with heavily rounded edges */}
                 <div className="relative w-full aspect-[4/3] rounded-[36px] overflow-hidden mb-6 shadow-sm border border-gray-100">
-                  <img 
+                  <img loading="lazy" decoding="async" 
                     src={facility.image} 
                     alt={facility.title} 
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"

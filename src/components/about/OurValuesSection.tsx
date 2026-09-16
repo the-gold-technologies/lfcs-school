@@ -62,7 +62,7 @@ export default function OurValuesSection() {
     <section className="py-20 bg-[#fdfdfc] overflow-hidden relative">
       
       {/* Decorative Background Image */}
-      <img 
+      <img loading="lazy" decoding="async" 
         src="/decorative_right.png" 
         alt="" 
         className="absolute inset-0 w-full h-full object-contain z-0 pointer-events-none opacity-100"
@@ -106,7 +106,7 @@ export default function OurValuesSection() {
                   
                   {/* Circle Image */}
                   <div className="w-full aspect-[3/4] rounded-[100px] overflow-hidden mb-6 border-[5px] border-white shadow-sm bg-white">
-                    <img src={v.img} alt={v.title} className="w-full h-full object-cover" />
+                    <img loading="lazy" decoding="async" src={v.img} alt={v.title} className="w-full h-full object-cover" />
                   </div>
                   
                   {/* Title & Tiny Icon */}

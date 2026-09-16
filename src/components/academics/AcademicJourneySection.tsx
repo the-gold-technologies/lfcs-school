@@ -106,7 +106,7 @@ export default function AcademicJourneySection() {
                   
                   {/* Colored Header Area (50%) */}
                   <div className={`${stage.lightBg} rounded-t-[32px] pt-10 pb-2 px-4 h-1/2 shrink-0 flex items-end justify-center overflow-hidden`}>
-                     <img src={stage.image} alt={stage.title} className="w-full h-full object-contain object-bottom scale-[1.15] origin-bottom" />
+                     <img loading="lazy" decoding="async" src={stage.image} alt={stage.title} className="w-full h-full object-contain object-bottom scale-[1.15] origin-bottom" />
                   </div>
 
                   {/* Text Content (50%) */}

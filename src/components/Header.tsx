@@ -11,8 +11,21 @@ export default function Header() {
     { label: 'About Us', href: '/about', icon: Home, hasDropdown: false },
     { label: 'Academics', href: '/academics', icon: BookOpen, hasDropdown: false },
     { label: 'Experience', href: '/experience', icon: Backpack, hasDropdown: false },
-    { label: 'Our Schools', href: '/our-school', icon: Building, hasDropdown: false },
-    { label: 'Admissions', href: '#', icon: GraduationCap, hasDropdown: true },
+    { 
+      label: 'Our Schools', 
+      href: '/our-school', 
+      icon: Building, 
+      hasDropdown: true,
+      dropdownItems: [
+        { label: 'LFCS, MAU', href: 'https://lfgos.com/', img: '/schools/Nizamuddinpura-Mau.jpg' },
+        { label: 'LFCS, SIKATIYA', href: 'https://lfcsmau.co/', img: '/schools/Sikatia-Mau.jpg' },
+        { label: 'LFCS, GHOSI', href: 'https://www.lfcsghosi.co.in/', img: '/schools/Ghosi.jpeg' },
+        { label: 'LFCS, KHALISHPUR', href: 'https://lfcsballia.co.in/', img: '/schools/Khalispur-Balia.jpeg' },
+        { label: 'LFCS, KASIMABAD', href: 'https://www.lfcskasimabad.in/', img: '/schools/Kasimabad.jpg' },
+        { label: 'LFIS, MAU', href: 'https://lfismau.co.in/', img: '/schools/lfis-mau.jpg' },
+      ]
+    },
+    { label: 'Admissions', href: '#', icon: GraduationCap, hasDropdown: false }, // Removed placeholder dropdown
   ];
 
   return (
@@ -34,18 +47,41 @@ export default function Header() {
             </Link>
 
             <nav className="hidden lg:flex space-x-8 items-end">
-              {navLinks.map(({ label, href, icon: Icon, hasDropdown }) => (
-                <Link key={label} href={href} className="flex flex-col items-center text-[#0a192f] group py-1 px-2">
-                  <div className="relative">
-                    <Icon className="w-6 h-6 mb-1 text-lf-olive group-hover:scale-110 group-hover:text-lf-burgundy transition-all duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)] relative z-10" strokeWidth={1.5} />
-                    {/* Subtle glow effect behind the icon */}
-                    <div className="absolute inset-0 bg-lf-burgundy/20 rounded-full scale-0 group-hover:scale-[1.7] blur-md transition-all duration-500 opacity-0 group-hover:opacity-100 z-0" />
-                  </div>
-                  <span className="text-[13px] font-bold flex items-center gap-1 group-hover:text-lf-burgundy transition-colors duration-300 relative">
-                    {label} 
-                    {hasDropdown && <ChevronDown className="w-4 h-4 transition-transform duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)] group-hover:-rotate-180" />}
-                  </span>
-                </Link>
+              {navLinks.map(({ label, href, icon: Icon, hasDropdown, dropdownItems }) => (
+                <div key={label} className="relative group">
+                  <Link href={href} className="flex flex-col items-center text-[#0a192f] py-1 px-2">
+                    <div className="relative">
+                      <Icon className="w-6 h-6 mb-1 text-lf-olive group-hover:scale-110 group-hover:text-lf-burgundy transition-all duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)] relative z-10" strokeWidth={1.5} />
+                      <div className="absolute inset-0 bg-lf-burgundy/20 rounded-full scale-0 group-hover:scale-[1.7] blur-md transition-all duration-500 opacity-0 group-hover:opacity-100 z-0" />
+                    </div>
+                    <span className="text-[13px] font-bold flex items-center gap-1 group-hover:text-lf-burgundy transition-colors duration-300 relative">
+                      {label} 
+                      {hasDropdown && <ChevronDown className="w-4 h-4 transition-transform duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)] group-hover:-rotate-180" />}
+                    </span>
+                  </Link>
+                  {hasDropdown && dropdownItems && (
+                    <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[650px] bg-white rounded-2xl shadow-[0_10px_40px_-10px_rgba(0,0,0,0.1)] border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top group-hover:translate-y-0 translate-y-2 p-5 z-[100]">
+                      <div className="grid grid-cols-3 gap-5">
+                        {dropdownItems.map((item, idx) => (
+                          <Link 
+                            key={idx} 
+                            href={item.href} 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            className="group/item block rounded-xl overflow-hidden hover:bg-gray-50 transition-colors border border-transparent hover:border-gray-100 pb-3"
+                          >
+                            <div className="h-24 w-full overflow-hidden mb-2.5 rounded-t-xl">
+                              <img src={item.img} alt={item.label} className="w-full h-full object-cover group-hover/item:scale-105 transition-transform duration-500" />
+                            </div>
+                            <span className="px-3 block text-[13px] font-bold text-[#0a192f] group-hover/item:text-lf-burgundy transition-colors truncate">
+                              {item.label}
+                            </span>
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                </div>
               ))}
             </nav>
 
@@ -84,16 +120,39 @@ export default function Header() {
             </div>
 
             <nav className="flex-1 overflow-y-auto py-4 px-2">
-              {navLinks.map(({ label, href, icon: Icon }) => (
-                <Link
-                  key={label}
-                  href={href}
-                  onClick={() => setMobileOpen(false)}
-                  className="flex items-center gap-4 px-4 py-3.5 rounded-[12px] text-[#0a192f] hover:bg-gray-50 font-semibold text-[15px] transition-colors"
-                >
-                  <Icon className="w-5 h-5 text-lf-olive shrink-0" strokeWidth={1.5} />
-                  {label}
-                </Link>
+              {navLinks.map(({ label, href, icon: Icon, hasDropdown, dropdownItems }) => (
+                <div key={label}>
+                  <Link
+                    href={href}
+                    onClick={() => !hasDropdown && setMobileOpen(false)}
+                    className="flex items-center justify-between px-4 py-3.5 rounded-[12px] text-[#0a192f] hover:bg-gray-50 font-semibold text-[15px] transition-colors"
+                  >
+                    <div className="flex items-center gap-4">
+                      <Icon className="w-5 h-5 text-lf-olive shrink-0" strokeWidth={1.5} />
+                      {label}
+                    </div>
+                    {hasDropdown && <ChevronDown className="w-4 h-4 text-gray-400" />}
+                  </Link>
+                  {hasDropdown && dropdownItems && (
+                    <div className="ml-12 mt-1 mb-2 flex flex-col gap-2 border-l-2 border-gray-100 pl-4">
+                      {dropdownItems.map((item, idx) => (
+                        <Link
+                          key={idx}
+                          href={item.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          onClick={() => setMobileOpen(false)}
+                          className="flex items-center gap-3 py-2 hover:bg-gray-50 rounded-lg transition-colors group/mob"
+                        >
+                          <img src={item.img} alt={item.label} className="w-10 h-10 rounded-md object-cover flex-shrink-0" />
+                          <span className="text-[13px] font-semibold text-[#0a192f] group-hover/mob:text-lf-burgundy transition-colors truncate">
+                            {item.label}
+                          </span>
+                        </Link>
+                      ))}
+                    </div>
+                  )}
+                </div>
               ))}
             </nav>
 

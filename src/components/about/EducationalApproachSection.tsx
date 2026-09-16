@@ -8,7 +8,7 @@ export default function EducationalApproachSection() {
       desc: "We focus on nurturing curiosity and encouraging exploration.",
       color: "#dfae19", // gold
       bgColor: "bg-[#fcf5de]", 
-      imgSrc: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=600&auto=format&fit=crop", 
+      imgSrc: "/about/approach1.jpg", 
     },
     {
       icon: Lightbulb,
@@ -16,7 +16,7 @@ export default function EducationalApproachSection() {
       desc: "Hands-on experiences that make learning meaningful and lasting.",
       color: "#66733a", // olive
       bgColor: "bg-[#edf1e8]",
-      imgSrc: "https://images.unsplash.com/photo-1577896851231-70ef18881754?q=80&w=600&auto=format&fit=crop",
+      imgSrc: "/about/approach2.jpg",
     },
     {
       icon: Puzzle,
@@ -24,7 +24,7 @@ export default function EducationalApproachSection() {
       desc: "We nurture academics, creativity, sports, and life skills equally.",
       color: "#c76785", // pink
       bgColor: "bg-[#fbeff2]", 
-      imgSrc: "https://images.unsplash.com/photo-1511629091441-ee46146481b6?q=80&w=600&auto=format&fit=crop",
+      imgSrc: "/about/approach3.jpg",
     },
     {
       icon: Globe2,
@@ -32,14 +32,14 @@ export default function EducationalApproachSection() {
       desc: "Building strong values, empathy, and respect for a better tomorrow.",
       color: "#3b82f6", // blue
       bgColor: "bg-[#eff6ff]",
-      imgSrc: "https://images.unsplash.com/photo-1588072432836-e10032774350?q=80&w=600&auto=format&fit=crop",
+      imgSrc: "/about/approach4.jpg",
     },
   ];
 
   return (
     <section className="py-20 relative overflow-hidden">
       {/* Decorative Full Background Image */}
-      <img 
+      <img loading="lazy" decoding="async" 
         src="/decorative_left_top.png" 
         alt="" 
         className="absolute inset-0 w-full h-full object-cover z-0 pointer-events-none opacity-100"
@@ -76,7 +76,7 @@ export default function EducationalApproachSection() {
                 
                 {/* Image */}
                 <div className="relative z-10 w-full pt-[75%] rounded-[32px] overflow-hidden shadow-sm bg-white">
-                  <img src={item.imgSrc} alt={item.title} className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                  <img loading="lazy" decoding="async" src={item.imgSrc} alt={item.title} className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
                 </div>
               </div>
               

@@ -20,7 +20,7 @@ export default function SportsFitnessSection() {
           <div className="grid grid-cols-2 gap-4">
             <div className="flex flex-col gap-4">
               <div className="h-48 md:h-64 rounded-[20px] overflow-hidden shadow-sm">
-                <img 
+                <img loading="lazy" decoding="async" 
                   src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?q=80&w=2093&auto=format&fit=crop" 
                   alt="Swimming" 
                   className="w-full h-full object-cover"
@@ -37,7 +37,7 @@ export default function SportsFitnessSection() {
                 <Dumbbell className="w-12 h-12 text-[#dfae19]" />
               </div>
               <div className="h-48 md:h-64 rounded-[20px] overflow-hidden shadow-sm">
-                <img 
+                <img loading="lazy" decoding="async" 
                   src="https://images.unsplash.com/photo-1526232761682-d26e03ac148e?q=80&w=2029&auto=format&fit=crop" 
                   alt="Outdoor sports" 
                   className="w-full h-full object-cover"

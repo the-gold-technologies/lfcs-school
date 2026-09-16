@@ -19,7 +19,7 @@ export default function TeachingAndLearningSection() {
         <div className="bg-[#0a192f] rounded-[40px] p-10 md:p-14 flex flex-col lg:flex-row gap-4 items-center relative overflow-hidden shadow-xl">
           
           {/* Left Content */}
-          <div className="lg:w-[32%] z-10 shrink-0">
+          <div className="lg:w-[31%] z-10 shrink-0">
             <span className="text-[#dfae19] font-bold text-[11px] tracking-[0.15em] uppercase mb-4 block">Teaching & Learning</span>
             <h2 className="font-serif text-[34px] md:text-[42px] font-medium text-white leading-tight mb-5">
               From Concepts to<br /><span className="font-script text-[#dfae19] text-[38px] md:text-[48px] relative inline-block -my-4 pr-1">
@@ -33,10 +33,6 @@ export default function TeachingAndLearningSection() {
             <p className="text-gray-400 mb-10 text-[15px] leading-relaxed max-w-sm">
               Learning at LFCS moves beyond books. Our skilled teachers work towards making classroom learning clear, interactive, and relevant.
             </p>
-
-            <button className="bg-[#dfae19] cursor-pointer text-[#0a192f] px-7 py-3.5 rounded-[16px] font-bold text-[14px] hover:bg-white transition-colors flex items-center gap-2">
-              Meet Our Faculty <ArrowRight className="w-4 h-4" />
-            </button>
           </div>
 
           {/* Right Carousel Area */}
@@ -53,17 +49,17 @@ export default function TeachingAndLearningSection() {
 
             <div ref={scrollContainerRef} className="flex gap-5 overflow-x-auto pt-4 snap-x snap-mandatory [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden scroll-smooth">
               {[
-                { img: 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=2022&auto=format&fit=crop', label: 'Classroom\nLearning' },
-                { img: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=2070&auto=format&fit=crop', label: 'Activity-Based\nLearning' },
-                { img: 'https://images.unsplash.com/photo-1532094349884-543bc11b234d?q=80&w=2070&auto=format&fit=crop', label: 'Project &\nPractical' },
-                { img: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=2070&auto=format&fit=crop', label: 'Technology\nEnabled' },
-                { img: 'https://images.unsplash.com/photo-1577896851231-70ef18881754?q=80&w=2070&auto=format&fit=crop', label: 'Collaborative\nLearning' },
-                { img: 'https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?q=80&w=2070&auto=format&fit=crop', label: 'Independent\nLearning' },
+                { img: '/academics/classroom.jpg', label: 'Classroom\nLearning' },
+                { img: '/academics/activity.jpg', label: 'Activity-Based\nLearning' },
+                { img: '/academics/practical.jpg', label: 'Project &\nPractical' },
+                { img: '/academics/technology.jpeg', label: 'Technology\nEnabled' },
+                { img: '/academics/collabrative.jpg', label: 'Collaborative\nLearning' },
+                { img: '/academics/independent.jpg', label: 'Independent\nLearning' },
               ].map((card, i) => (
                 <div key={i} className="relative snap-start shrink-0">
                   {i === 0 && <div className="absolute -inset-0.5 rounded-[24px]"></div>}
                   <div className="w-[200px] h-[280px] rounded-[24px] overflow-hidden relative group border-[1.5px] border-white/20 bg-[#0a192f]">
-                    <img src={card.img} alt={card.label} className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                    <img loading="lazy" decoding="async" src={card.img} alt={card.label} className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
                     <div className="absolute inset-0 bg-gradient-to-t from-[#0a192f] via-[#0a192f]/40 to-transparent opacity-90"></div>
                     <div className="absolute bottom-5 left-5 right-5">
                       <h4 className="text-white font-medium text-[15px] leading-snug whitespace-pre-line">{card.label}</h4>

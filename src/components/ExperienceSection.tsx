@@ -34,7 +34,7 @@ function AutoImageColumn({ images, delayMs }: { images: string[]; delayMs: numbe
   return (
     <div className="w-full rounded-[20px] overflow-hidden h-full shrink-0 shadow-sm border border-gray-100 relative">
       {images.map((src, i) => (
-        <img
+        <img loading="lazy" decoding="async"
           key={src}
           src={src}
           alt="School experience"

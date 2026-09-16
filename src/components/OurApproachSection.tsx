@@ -62,7 +62,7 @@ export default function OurApproachSection() {
                 <div key={i} className="relative snap-start shrink-0">
                   {i === 0 && <div className="absolute -inset-0.5 rounded-[24px]"></div>}
                   <div className="w-[200px] h-[280px] rounded-[24px] overflow-hidden relative group border-[1.5px] border-white/20 bg-[#0a192f]">
-                    <img src={card.img} alt={card.label} className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                    <img loading="lazy" decoding="async" src={card.img} alt={card.label} className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
                     <div className="absolute inset-0 bg-gradient-to-t from-[#0a192f] via-[#0a192f]/20 to-transparent opacity-90"></div>
                     <div className="absolute bottom-5 left-5 right-5">
                       <h4 className="text-white font-medium text-[15px] leading-snug whitespace-pre-line">{card.label}</h4>

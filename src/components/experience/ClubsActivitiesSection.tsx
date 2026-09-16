@@ -81,7 +81,7 @@ export default function ClubsActivitiesSection() {
               className=" border border-gray-100 rounded-[24px] shadow-sm hover:shadow-xl transition-shadow flex flex-col items-center gap-4 group cursor-pointer"
             >
               <div className="relative w-full h-[160px] md:h-[200px] mt-2">
-                 <img src={activity.image} alt={activity.name} className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500" />
+                 <img loading="lazy" decoding="async" src={activity.image} alt={activity.name} className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500" />
                  
                  {/* Icon Badge */}
                  <div className={`absolute bottom-3 left-3 w-12 h-12 rounded-full ${activity.bg} border-4 border-white flex items-center justify-center shadow-md z-10`}>

@@ -75,7 +75,7 @@ export default function OurSchoolCTASection() {
 
             {/* Right Image */}
             <div className="w-full h-[400px] lg:h-auto relative -ml-10">
-              <img 
+              <img loading="lazy" decoding="async" 
                 src="/our-school-cta.png" 
                 alt="LFCS Students" 
                 className="w-full h-full object-contain"

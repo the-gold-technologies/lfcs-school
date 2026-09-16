@@ -4,7 +4,7 @@ export default function HowWeEducateSection() {
   return (
     <section className="py-14 md:py-24 bg-[#fcfdfe] relative overflow-hidden">
       {/* Decorative background */}
-      <img
+      <img loading="lazy" decoding="async"
         src="/decorative_right.png"
         alt=""
         aria-hidden="true"
@@ -19,7 +19,7 @@ export default function HowWeEducateSection() {
               <div className="absolute -top-4 -left-4 w-full h-full rounded-[32px] border-[6px] border-[#89b3a9] z-10"></div>
               <div className="absolute -top-16 -right-8 w-40 h-32 bg-[#f5d7ce] rounded-[40px] rounded-bl-[80px] rotate-[15deg] z-20"></div>
               <div className="absolute -bottom-10 -left-10 w-32 h-32 bg-[#fae5a0] rounded-[40px] rounded-tr-[80px] -rotate-[15deg] z-20"></div>
-              <img src="/home-page/how-we-educate.jpg" alt="Students learning" className="w-full h-auto min-h-[350px] rounded-[32px] object-cover relative z-10" />
+              <img loading="lazy" decoding="async" src="/home-page/how-we-educate.jpg" alt="Students learning" className="w-full h-auto min-h-[350px] rounded-[32px] object-cover relative z-10" />
             </div>
           </div>
 

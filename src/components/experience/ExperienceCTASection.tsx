@@ -25,7 +25,7 @@ export default function ExperienceCTASection() {
 
             {/* Right Image Placeholder (Could reuse cta-bg.png or another image) */}
             <div className="md:col-span-8 flex justify-end">
-              <img 
+              <img loading="lazy" decoding="async" 
                 src="/cta-bg.png" 
                 alt="Join Little Flower Family" 
                 className="w-full absolute max-w-[95%] md:max-w-[75%] -bottom-10 right-0 object-contain translate-x-4 lg:translate-x-12 hidden md:block" 

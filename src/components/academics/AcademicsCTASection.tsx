@@ -24,7 +24,7 @@ export default function AcademicsCTASection() {
 
             {/* Right Image */}
             <div className="md:col-span-7 flex justify-end">
-              <img 
+              <img loading="lazy" decoding="async" 
                 src="/cta-bg.png" 
                 alt="Join Little Flower Family" 
                 className="w-full absolute max-w-[95%] md:max-w-[70%] -top-6 object-contain translate-x-4 lg:translate-x-12" 

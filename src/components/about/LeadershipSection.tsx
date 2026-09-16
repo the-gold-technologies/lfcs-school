@@ -34,14 +34,14 @@ export default function LeadershipSection() {
             
             <div className="w-full md:w-1/3">
               <div className="relative aspect-[4/5] md:aspect-square rounded-2xl overflow-hidden shadow-lg group-hover:-translate-y-2 transition-transform duration-500">
-                <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?q=80&w=1974&auto=format&fit=crop" alt="Late Shiksha Ratan Vijay Shankar Yadav Ji" className="w-full h-full object-cover" />
+                <img loading="lazy" decoding="async" src="/about/founder.jpg" alt="Late Vijay Shankar Yadav Ji" className="w-full h-full object-cover" />
                 <div className="absolute inset-0 ring-1 ring-inset ring-black/10 rounded-2xl"></div>
               </div>
             </div>
             <div className="w-full md:w-2/3 space-y-6">
               <div>
                 <h3 className="text-[#dfae19] font-bold text-[15px] uppercase tracking-[0.15em] mb-3">Founder’s Vision</h3>
-                <h2 className="font-serif text-[32px] md:text-[40px] text-[#0a192f] font-medium leading-tight">Late Shiksha Ratan Vijay Shankar Yadav Ji</h2>
+                <h2 className="font-serif text-[32px] md:text-[40px] text-[#0a192f] font-medium leading-tight">Late Vijay Shankar Yadav Ji</h2>
               </div>
               <p className="text-gray-600 text-[18px] leading-relaxed italic border-l-4 border-[#dfae19] pl-6 py-2 bg-gray-50 rounded-r-xl">
                 "The foundation of Little Flower's educational journey was laid by Late Shiksha Ratan Vijay Shankar Yadav Ji, whose belief in the importance of education continues to remain part of the institution's identity."
@@ -68,14 +68,14 @@ export default function LeadershipSection() {
               </div>
               
               <div className="pt-8 border-t border-gray-200">
-                <p className="font-serif text-[24px] text-[#0a192f] font-medium">— [Name of the Chairman]</p>
+                <p className="font-serif text-[24px] text-[#0a192f] font-medium">Mr. Murali Yadav</p>
                 <p className="text-[#c76785] text-[15px] font-bold uppercase tracking-wider mt-2">Chairman, Little Flower Group of Schools</p>
               </div>
             </div>
             
             <div className="w-full md:w-2/5">
               <div className="relative aspect-[4/5] rounded-[2rem] overflow-hidden shadow-2xl group">
-                <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=1974&auto=format&fit=crop" alt="Chairman" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                <img loading="lazy" decoding="async" src="/about/chairman.jpg" alt="Chairman" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0a192f] via-[#0a192f]/40 to-transparent opacity-80"></div>
                 <div className="absolute inset-0 p-8 flex flex-col justify-end opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <div className="flex gap-4">

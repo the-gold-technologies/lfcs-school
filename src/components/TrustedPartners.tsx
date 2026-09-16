@@ -47,7 +47,7 @@ export default function TrustedPartners() {
                   rel="noopener noreferrer" 
                   className="flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300 opacity-60 hover:opacity-100 mx-8 shrink-0"
                 >
-                  <img src={partner.logo} alt={partner.name} className="h-10 md:h-12 w-auto object-contain" />
+                  <img loading="lazy" decoding="async" src={partner.logo} alt={partner.name} className="h-10 md:h-12 w-auto object-contain" />
                 </a>
               ))}
             </div>

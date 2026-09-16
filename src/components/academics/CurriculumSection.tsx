@@ -4,7 +4,7 @@ export default function CurriculumSection() {
   return (
     <section className="py-14 md:py-20 bg-[#fcfdfe] relative overflow-hidden" id="curriculum">
       {/* Decorative background */}
-      <img
+      <img loading="lazy" decoding="async"
         src="/decorative_right.png"
         alt=""
         aria-hidden="true"
@@ -20,8 +20,8 @@ export default function CurriculumSection() {
               <div className="absolute -top-4 -left-4 w-full h-full rounded-[32px] border-[6px] border-[#c76785]/40 z-10"></div>
               <div className="absolute -top-10 -right-8 w-40 h-32 bg-[#fae5a0] rounded-[40px] rounded-bl-[80px] rotate-[15deg] z-20"></div>
               <div className="absolute -bottom-10 -left-10 w-32 h-32 bg-[#dceae8] rounded-[40px] rounded-tr-[80px] -rotate-[15deg] z-20"></div>
-              <img
-                src="https://images.unsplash.com/photo-1577896851231-70ef18881754?q=80&w=2070&auto=format&fit=crop"
+              <img loading="lazy" decoding="async"
+                src="/academics/curriculum.jpg"
                 alt="Students learning together"
                 className="w-full h-auto min-h-[400px] rounded-[32px] object-cover relative z-10"
               />

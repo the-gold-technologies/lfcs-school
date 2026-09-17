@@ -11,7 +11,7 @@ const stages = [
     lightBg: "bg-[#ffb703]/10",
     borderColor: "border-[#ffb703]",
     icon: <Baby className="w-6 h-6 text-[#ffb703]" strokeWidth={1.5} />,
-    image: "/JourneyCard1.png",
+    image: "/JourneyCard1.webp",
   },
   {
     title: "Primary School",
@@ -23,7 +23,7 @@ const stages = [
     lightBg: "bg-[#2a9d8f]/10",
     borderColor: "border-[#2a9d8f]",
     icon: <BookOpen className="w-6 h-6 text-[#2a9d8f]" strokeWidth={1.5} />,
-    image: "/JourneyCard2.png",
+    image: "/JourneyCard2.webp",
   },
   {
     title: "Middle School",
@@ -35,7 +35,7 @@ const stages = [
     lightBg: "bg-[#0077b6]/10",
     borderColor: "border-[#0077b6]",
     icon: <Globe className="w-6 h-6 text-[#0077b6]" strokeWidth={1.5} />,
-    image: "/JourneyCard3.png",
+    image: "/JourneyCard3.webp",
   },
   {
     title: "Secondary School",
@@ -47,7 +47,7 @@ const stages = [
     lightBg: "bg-[#7209b7]/10",
     borderColor: "border-[#7209b7]",
     icon: <GraduationCap className="w-6 h-6 text-[#7209b7]" strokeWidth={1.5} />,
-    image: "/JourneyCard4.png",
+    image: "/JourneyCard4.webp",
   },
   {
     title: "Senior Secondary",
@@ -59,7 +59,7 @@ const stages = [
     lightBg: "bg-[#ff4d6d]/10",
     borderColor: "border-[#ff4d6d]",
     icon: <Target className="w-6 h-6 text-[#ff4d6d]" strokeWidth={1.5} />,
-    image: "/JourneyCard5.png",
+    image: "/JourneyCard5.webp",
   }
 ];
 

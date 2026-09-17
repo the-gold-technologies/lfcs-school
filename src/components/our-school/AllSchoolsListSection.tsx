@@ -12,7 +12,7 @@ const schools = [
     instagram: 'https://www.instagram.com/official_lfcsnizamuddinpura?igsh=OHB6ZWE3bzV0cWc4',
     facebook: 'https://www.facebook.com/share/19GPAevD61/',
     youtube: '',
-    img: '/schools/Nizamuddinpura-Mau.jpg'
+    img: '/schools/Nizamuddinpura-Mau.webp'
   },
   {
     name: 'LFCS, SIKATIYA',
@@ -23,7 +23,7 @@ const schools = [
     instagram: 'https://www.instagram.com/lfcssikatiyamau?igsh=NWNxOHZ6bGVvN2xy',
     facebook: 'https://www.facebook.com/share/19SXEvspwD/',
     youtube: '',
-    img: '/schools/Sikatia-Mau.jpg'
+    img: '/schools/Sikatia-Mau.webp'
   },
   {
     name: 'LFCS, GHOSI',
@@ -34,7 +34,7 @@ const schools = [
     instagram: 'https://www.instagram.com/littleflowerchildren?igsh=Zm9kbGQ0Mmh1Z3Jq',
     facebook: 'https://www.facebook.com/share/1bmo1SL5EY/',
     youtube: 'https://youtube.com/@littleflowerchildrenschool7873?si=BaZY_xTs0DmYVV4L',
-    img: '/schools/Ghosi.jpeg'
+    img: '/schools/Ghosi.webp'
   },
   {
     name: 'LFCS, KHALISHPUR',
@@ -45,7 +45,7 @@ const schools = [
     instagram: 'https://www.instagram.com/lfcs.ballia?igsh=MWlrYjN4OGN0NmtyYg==',
     facebook: 'https://www.facebook.com/share/1EkqBTTVKx/',
     youtube: '',
-    img: '/schools/Khalispur-Balia.jpeg'
+    img: '/schools/Khalispur-Balia.webp'
   },
   {
     name: 'LFCS, KASIMABAD',
@@ -56,7 +56,7 @@ const schools = [
     instagram: 'https://www.instagram.com/lfcsghazipur?igsh=bzdnOHlueWZ6d3g0',
     facebook: 'https://www.facebook.com/share/1HDhticq5g/',
     youtube: 'https://m.youtube.com/%40lfcs-ghazipur?fbclid=PAb21jcATneaJwZG9mAmV4dG4DYWVtAjExAHNydGMGYXBwX2lkDzU2NzA2NzM0MzM1MjQyNwABpxOWZnA2iTlDmD-F17tfUplSU6zSWMXnudLmhm37QeOK1oHD_Dqo8SWU6W-u_aem_yXSkKcFwEpvnM-qYsL_hCw',
-    img: '/schools/Kasimabad.jpg'
+    img: '/schools/Kasimabad.webp'
   },
   {
     name: 'LFIS, MAU',
@@ -67,7 +67,7 @@ const schools = [
     instagram: 'https://www.instagram.com/lfis.mau15?igsh=MXF2YWYzNjN2YXd5eg==',
     facebook: 'https://www.facebook.com/share/1Bd9LEPBNU/',
     youtube: '',
-    img: '/schools/lfis-mau.jpg'
+    img: '/schools/lfis-mau.webp'
   }
 ];
 

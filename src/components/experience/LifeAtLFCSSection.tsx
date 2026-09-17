@@ -58,7 +58,7 @@ export default function LifeAtLFCSSection() {
             
             <div className="absolute top-0 right-0 w-[60%] h-[60%] rounded-[20px] overflow-hidden shadow-lg border-4 border-white z-10">
               <img loading="lazy" decoding="async" 
-                src="/experience/life1.jpeg" 
+                src="/experience/life1.webp" 
                 alt="Creative activities" 
                 className="w-full h-full object-cover"
               />
@@ -66,7 +66,7 @@ export default function LifeAtLFCSSection() {
             
             <div className="absolute bottom-0 left-0 w-[65%] h-[55%] rounded-[20px] overflow-hidden shadow-xl border-4 border-white z-20">
               <img loading="lazy" decoding="async" 
-                src="/experience/life2.jpeg" 
+                src="/experience/life2.webp" 
                 alt="Sports activities" 
                 className="w-full h-full object-cover"
               />
@@ -76,7 +76,7 @@ export default function LifeAtLFCSSection() {
           {/* Mobile Single Image */}
           <div className="md:hidden w-full h-[300px] rounded-[20px] overflow-hidden shadow-md">
             <img loading="lazy" decoding="async" 
-              src="/experience/life2.jpeg" 
+              src="/experience/life2.webp" 
               alt="School Life" 
               className="w-full h-full object-cover"
             />

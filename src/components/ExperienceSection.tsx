@@ -5,19 +5,19 @@ import Link from "next/link";
 // Each column cycles through its own set of school-environment images, offset by time
 const columnImages = [
   [
-    "/home-page/Experience1.jpg",   // Sports
-    "/home-page/Experience2.jpg", // PE field
-    "/home-page/Experience3.jpg", // Students running
+    "/home-page/Experience1.webp",   // Sports
+    "/home-page/Experience2.webp", // PE field
+    "/home-page/Experience3.webp", // Students running
   ],
   [
-    "/home-page/Experience4.jpg", // Science lab
-    "/home-page/Experience5.jpg", // Tech/computer
-    "/home-page/Experience6.jpg", // Books/study
+    "/home-page/Experience4.webp", // Science lab
+    "/home-page/Experience5.webp", // Tech/computer
+    "/home-page/Experience6.webp", // Books/study
   ],
   [
-    "/home-page/Experience7.jpg", // Teacher classroom
-    "/home-page/Experience8.jpg", // Students studying
-    "/home-page/Experience9.jpg", // Art & music
+    "/home-page/Experience7.webp", // Teacher classroom
+    "/home-page/Experience8.webp", // Students studying
+    "/home-page/Experience9.webp", // Art & music
   ],
 ];
 

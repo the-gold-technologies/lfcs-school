@@ -34,7 +34,7 @@ export default function LeadershipSection() {
             
             <div className="w-full md:w-1/3">
               <div className="relative aspect-[4/5] md:aspect-square rounded-2xl overflow-hidden shadow-lg group-hover:-translate-y-2 transition-transform duration-500">
-                <img loading="lazy" decoding="async" src="/about/founder.jpg" alt="Late Vijay Shankar Yadav Ji" className="w-full h-full object-cover" />
+                <img loading="lazy" decoding="async" src="/about/founder.webp" alt="Late Vijay Shankar Yadav Ji" className="w-full h-full object-cover" />
                 <div className="absolute inset-0 ring-1 ring-inset ring-black/10 rounded-2xl"></div>
               </div>
             </div>
@@ -75,7 +75,7 @@ export default function LeadershipSection() {
             
             <div className="w-full md:w-1/3 max-w-[300px] mx-auto">
               <div className="relative aspect-[3/4] rounded-2xl overflow-hidden shadow-xl group relative">
-                <img loading="lazy" decoding="async" src="/about/chairman.jpg" alt="Chairman" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                <img loading="lazy" decoding="async" src="/about/chairman.webp" alt="Chairman" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0a192f] via-[#0a192f]/40 to-transparent opacity-80"></div>
                 <div className="absolute inset-0 p-6 flex flex-col justify-end opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <div className="flex gap-3">
@@ -111,7 +111,7 @@ export default function LeadershipSection() {
                 
                 <div className="flex flex-col sm:flex-row sm:items-center gap-12 mb-8 relative z-10">
                   <div className="w-32 h-32 md:w-40 md:h-40 shrink-0 rounded-2xl overflow-hidden shadow-lg">
-                    <img loading="lazy" decoding="async" src="/about/founder-partner.jpg" alt="Ms. Manju Rana" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                    <img loading="lazy" decoding="async" src="/about/founder-partner.webp" alt="Ms. Manju Rana" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                   </div>
                   <div>
                     <h3 className="font-serif text-[24px] md:text-[28px] text-[#0a192f] font-medium mb-1">Ms. Manju Rana</h3>
@@ -137,7 +137,7 @@ export default function LeadershipSection() {
                     <p className="text-[#dfae19] text-[14px] font-bold uppercase tracking-wider">Co-Founder</p>
                   </div>
                   <div className="w-32 h-32 md:w-40 md:h-40 shrink-0 rounded-2xl overflow-hidden shadow-lg mx-auto sm:mx-0">
-                    <img loading="lazy" decoding="async" src="/about/cofounder-partner.jpg" alt="Ms. V. Suprabha" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                    <img loading="lazy" decoding="async" src="/about/cofounder-partner.webp" alt="Ms. V. Suprabha" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                   </div>
                 </div>
                 

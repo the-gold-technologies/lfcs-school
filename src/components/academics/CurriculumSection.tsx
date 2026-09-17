@@ -5,7 +5,7 @@ export default function CurriculumSection() {
     <section className="py-14 md:py-20 bg-[#fcfdfe] relative overflow-hidden" id="curriculum">
       {/* Decorative background */}
       <img loading="lazy" decoding="async"
-        src="/decorative_right.png"
+        src="/decorative_right.webp"
         alt=""
         aria-hidden="true"
         className="absolute inset-0 w-full h-full object-cover pointer-events-none select-none opacity-70"
@@ -21,7 +21,7 @@ export default function CurriculumSection() {
               <div className="absolute -top-10 -right-8 w-40 h-32 bg-[#fae5a0] rounded-[40px] rounded-bl-[80px] rotate-[15deg] z-20"></div>
               <div className="absolute -bottom-10 -left-10 w-32 h-32 bg-[#dceae8] rounded-[40px] rounded-tr-[80px] -rotate-[15deg] z-20"></div>
               <img loading="lazy" decoding="async"
-                src="/academics/curriculum.jpg"
+                src="/academics/curriculum.webp"
                 alt="Students learning together"
                 className="w-full h-auto min-h-[400px] rounded-[32px] object-cover relative z-10"
               />

@@ -53,12 +53,12 @@ export default function OurApproachSection() {
 
             <div ref={scrollContainerRef} className="flex gap-5 overflow-x-auto pt-4 snap-x snap-mandatory [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden scroll-smooth">
               {[
-                { img: '/home-page/skills1.jpg', label: 'Experiential\nLearning' },
-                { img: '/home-page/skills2.jpg', label: 'Technology &\nInnovation' },
-                { img: '/home-page/skills3.jpg', label: 'Sports &\nPhysical Growth' },
-                { img: '/home-page/skills4.jpeg', label: 'Art, Culture &\nExpression' },
-                { img: '/home-page/skills5.jpg', label: 'Science &\nResearch' },
-                { img: '/home-page/skills6.jpg', label: 'Academic\nExcellence' },
+                { img: '/home-page/skills1.webp', label: 'Experiential\nLearning' },
+                { img: '/home-page/skills2.webp', label: 'Technology &\nInnovation' },
+                { img: '/home-page/skills3.webp', label: 'Sports &\nPhysical Growth' },
+                { img: '/home-page/skills4.webp', label: 'Art, Culture &\nExpression' },
+                { img: '/home-page/skills5.webp', label: 'Science &\nResearch' },
+                { img: '/home-page/skills6.webp', label: 'Academic\nExcellence' },
               ].map((card, i) => (
                 <div key={i} className="relative snap-start shrink-0">
                   {i === 0 && <div className="absolute -inset-0.5 rounded-[24px]"></div>}

@@ -9,7 +9,7 @@ export default function OurValuesSection() {
       color: "#dfae19", // gold
       bgColor: "bg-[#fcf9ed]", // very light gold
       tinyIcon: Heart,
-      img: "/about/values1.png"
+      img: "/about/values1.webp"
     },
     { 
       icon: Heart, 
@@ -18,7 +18,7 @@ export default function OurValuesSection() {
       color: "#fb5857", // red/pink
       bgColor: "bg-[#fdf4f4]", // very light pink
       tinyIcon: Heart,
-      img: "/about/values2.png"
+      img: "/about/values2.webp"
     },
     { 
       icon: Star, 
@@ -27,7 +27,7 @@ export default function OurValuesSection() {
       color: "#66733a", // olive
       bgColor: "bg-[#f3f7ef]", // very light green
       tinyIcon: Star,
-      img: "/about/values3.png"
+      img: "/about/values3.webp"
     },
     { 
       icon: Lightbulb, 
@@ -36,7 +36,7 @@ export default function OurValuesSection() {
       color: "#3b82f6", // blue
       bgColor: "bg-[#f0f6ff]", // very light blue
       tinyIcon: Heart,
-      img: "/about/values4.png"
+      img: "/about/values4.webp"
     },
     { 
       icon: Users, 
@@ -45,7 +45,7 @@ export default function OurValuesSection() {
       color: "#fb5857", // red/pink
       bgColor: "bg-[#fdf4f4]", 
       tinyIcon: Heart,
-      img: "/about/values5.png"
+      img: "/about/values5.webp"
     },
     { 
       icon: Leaf, 
@@ -54,7 +54,7 @@ export default function OurValuesSection() {
       color: "#dfae19", // gold
       bgColor: "bg-[#fcf9ed]", 
       tinyIcon: Heart,
-      img: "/about/values6.png"
+      img: "/about/values6.webp"
     },
   ];
 
@@ -63,7 +63,7 @@ export default function OurValuesSection() {
       
       {/* Decorative Background Image */}
       <img loading="lazy" decoding="async" 
-        src="/decorative_right.png" 
+        src="/decorative_right.webp" 
         alt="" 
         className="absolute inset-0 w-full h-full object-contain z-0 pointer-events-none opacity-100"
       />

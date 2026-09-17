@@ -53,7 +53,7 @@ export default function Testimonials() {
     <section className="py-24 bg-[#fcfdfe] relative overflow-hidden">
       {/* Decorative background */}
       <img loading="lazy" decoding="async"
-        src="/decorative_right.png"
+        src="/decorative_right.webp"
         alt=""
         aria-hidden="true"
         className="absolute inset-0 w-full h-full object-contain pointer-events-none select-none"

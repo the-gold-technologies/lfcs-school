@@ -38,7 +38,7 @@ export default function ExperienceHeroSection() {
           <div className="lg:col-span-7 relative w-full flex justify-center">
             <div className="relative w-full max-w-full lg:max-w-[110%] overflow-hidden scale-105">
               <Image 
-                src="/experience-hero.png" 
+                src="/experience-hero.webp" 
                 alt="Students interacting at school" 
                 width={1200}
                 height={900}

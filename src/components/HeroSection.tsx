@@ -7,9 +7,9 @@ export default function HeroSection() {
       {/* 1. Hero Section */}
       <section className="relative min-h-[75vh] sm:min-h-[65vh] md:h-[75vh] lg:h-[95vh] flex items-center overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <img src="/hersection_bg.png" alt="Students" className="absolute inset-0 w-full h-full object-cover object-top" />
+          <img src="/hersection_bg.webp" alt="Students" className="absolute inset-0 w-full h-full object-cover object-top" />
           <div className="absolute inset-y-0 left-0 w-full md:w-[70%] lg:w-[55%] bg-gradient-to-r from-white/95 via-white/80 to-transparent"></div>
-          <img src="/herobg1.png" alt="Hero Overlay" className="absolute inset-0 w-full h-full object-cover pointer-events-none" />
+          <img src="/herobg1.webp" alt="Hero Overlay" className="absolute inset-0 w-full h-full object-cover pointer-events-none" />
         </div>
 
         <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-0 mt-20 md:mt-14 pb-10 md:pb-0">

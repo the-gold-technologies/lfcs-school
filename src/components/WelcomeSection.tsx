@@ -26,9 +26,9 @@ export default function WelcomeSection() {
 
           <div className="lg:w-2/3 grid grid-cols-1 sm:grid-cols-3 gap-5 md:gap-6">
             {[
-              { img: '/home-page/academics.jpg', icon: BookOpen, color: 'bg-lf-olive', title: 'Strong Academics', desc: 'CBSE curriculum with future ready learning.' },
-              { img: '/home-page/holistic.jpg', icon: Sprout, color: 'bg-lf-burgundy', title: 'Holistic Growth', desc: 'Sports, arts, life skills and leadership opportunities.' },
-              { img: '/home-page/future.jpg', icon: Lightbulb, color: 'bg-lf-gold', title: 'Future Ready', desc: 'Innovation, technology and 21st century skills.' },
+              { img: '/home-page/academics.webp', icon: BookOpen, color: 'bg-lf-olive', title: 'Strong Academics', desc: 'CBSE curriculum with future ready learning.' },
+              { img: '/home-page/holistic.webp', icon: Sprout, color: 'bg-lf-burgundy', title: 'Holistic Growth', desc: 'Sports, arts, life skills and leadership opportunities.' },
+              { img: '/home-page/future.webp', icon: Lightbulb, color: 'bg-lf-gold', title: 'Future Ready', desc: 'Innovation, technology and 21st century skills.' },
             ].map(({ img, icon: Icon, color, title, desc }) => (
               <div key={title} className="bg-white rounded-[24px] overflow-hidden border border-gray-100 shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:-translate-y-1 transition-transform group flex flex-col">
                 <div className="relative h-44 sm:h-48 w-full">

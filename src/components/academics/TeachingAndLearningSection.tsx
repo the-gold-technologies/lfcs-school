@@ -49,12 +49,12 @@ export default function TeachingAndLearningSection() {
 
             <div ref={scrollContainerRef} className="flex gap-5 overflow-x-auto pt-4 snap-x snap-mandatory [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden scroll-smooth">
               {[
-                { img: '/academics/classroom.jpg', label: 'Classroom\nLearning' },
-                { img: '/academics/activity.jpg', label: 'Activity-Based\nLearning' },
-                { img: '/academics/practical.jpg', label: 'Project &\nPractical' },
-                { img: '/academics/technology.jpeg', label: 'Technology\nEnabled' },
-                { img: '/academics/collabrative.jpg', label: 'Collaborative\nLearning' },
-                { img: '/academics/independent.jpg', label: 'Independent\nLearning' },
+                { img: '/academics/classroom.webp', label: 'Classroom\nLearning' },
+                { img: '/academics/activity.webp', label: 'Activity-Based\nLearning' },
+                { img: '/academics/practical.webp', label: 'Project &\nPractical' },
+                { img: '/academics/technology.webp', label: 'Technology\nEnabled' },
+                { img: '/academics/collabrative.webp', label: 'Collaborative\nLearning' },
+                { img: '/academics/independent.webp', label: 'Independent\nLearning' },
               ].map((card, i) => (
                 <div key={i} className="relative snap-start shrink-0">
                   {i === 0 && <div className="absolute -inset-0.5 rounded-[24px]"></div>}

@@ -8,7 +8,7 @@ export default function EducationalApproachSection() {
       desc: "We focus on nurturing curiosity and encouraging exploration.",
       color: "#dfae19", // gold
       bgColor: "bg-[#fcf5de]", 
-      imgSrc: "/about/approach1.jpg", 
+      imgSrc: "/about/approach1.webp", 
     },
     {
       icon: Lightbulb,
@@ -16,7 +16,7 @@ export default function EducationalApproachSection() {
       desc: "Hands-on experiences that make learning meaningful and lasting.",
       color: "#66733a", // olive
       bgColor: "bg-[#edf1e8]",
-      imgSrc: "/about/approach2.jpg",
+      imgSrc: "/about/approach2.webp",
     },
     {
       icon: Puzzle,
@@ -24,7 +24,7 @@ export default function EducationalApproachSection() {
       desc: "We nurture academics, creativity, sports, and life skills equally.",
       color: "#c76785", // pink
       bgColor: "bg-[#fbeff2]", 
-      imgSrc: "/about/approach3.jpg",
+      imgSrc: "/about/approach3.webp",
     },
     {
       icon: Globe2,
@@ -32,7 +32,7 @@ export default function EducationalApproachSection() {
       desc: "Building strong values, empathy, and respect for a better tomorrow.",
       color: "#3b82f6", // blue
       bgColor: "bg-[#eff6ff]",
-      imgSrc: "/about/approach4.jpg",
+      imgSrc: "/about/approach4.webp",
     },
   ];
 
@@ -40,7 +40,7 @@ export default function EducationalApproachSection() {
     <section className="py-20 relative overflow-hidden">
       {/* Decorative Full Background Image */}
       <img loading="lazy" decoding="async" 
-        src="/decorative_left_top.png" 
+        src="/decorative_left_top.webp" 
         alt="" 
         className="absolute inset-0 w-full h-full object-cover z-0 pointer-events-none opacity-100"
       />

@@ -4,25 +4,25 @@ const facilities = [
   {
     title: "Smart / Digital Classrooms",
     description: "Technology-enabled resources that support classroom instruction and visual learning.",
-    image: "/academics/facility/digital-classroom.jpg",
+    image: "/academics/facility/digital-classroom.webp",
     icon: Monitor
   },
   {
     title: "Science Laboratories",
     description: "Environment where students can experiment & practically apply their science concepts.",
-    image: "/academics/facility/science-lab.jpg",
+    image: "/academics/facility/science-lab.webp",
     icon: FlaskConical
   },
   {
     title: "Computer Laboratories",
     description: "Facilities that help students develop digital and computer skills.",
-    image: "/academics/facility/computer-lab.jpeg",
+    image: "/academics/facility/computer-lab.webp",
     icon: Laptop
   },
   {
     title: "Library",
     description: "An Independent learning zone that encourages students to understand the world.",
-    image: "/academics/facility/library.jpeg",
+    image: "/academics/facility/library.webp",
     icon: BookOpen
   }
 ];

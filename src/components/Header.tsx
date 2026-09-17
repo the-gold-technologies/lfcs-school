@@ -17,12 +17,12 @@ export default function Header() {
       icon: Building, 
       hasDropdown: true,
       dropdownItems: [
-        { label: 'LFCS, MAU', href: 'https://lfgos.com/', img: '/schools/Nizamuddinpura-Mau.jpg' },
-        { label: 'LFCS, SIKATIYA', href: 'https://lfcsmau.co/', img: '/schools/Sikatia-Mau.jpg' },
-        { label: 'LFCS, GHOSI', href: 'https://www.lfcsghosi.co.in/', img: '/schools/Ghosi.jpeg' },
-        { label: 'LFCS, KHALISHPUR', href: 'https://lfcsballia.co.in/', img: '/schools/Khalispur-Balia.jpeg' },
-        { label: 'LFCS, KASIMABAD', href: 'https://www.lfcskasimabad.in/', img: '/schools/Kasimabad.jpg' },
-        { label: 'LFIS, MAU', href: 'https://lfismau.co.in/', img: '/schools/lfis-mau.jpg' },
+        { label: 'LFCS, MAU', href: 'https://lfgos.com/', img: '/schools/Nizamuddinpura-Mau.webp' },
+        { label: 'LFCS, SIKATIYA', href: 'https://lfcsmau.co/', img: '/schools/Sikatia-Mau.webp' },
+        { label: 'LFCS, GHOSI', href: 'https://www.lfcsghosi.co.in/', img: '/schools/Ghosi.webp' },
+        { label: 'LFCS, KHALISHPUR', href: 'https://lfcsballia.co.in/', img: '/schools/Khalispur-Balia.webp' },
+        { label: 'LFCS, KASIMABAD', href: 'https://www.lfcskasimabad.in/', img: '/schools/Kasimabad.webp' },
+        { label: 'LFIS, MAU', href: 'https://lfismau.co.in/', img: '/schools/lfis-mau.webp' },
       ]
     },
     { label: 'Admissions', href: '/admissions', icon: GraduationCap, hasDropdown: false }, // Removed placeholder dropdown
@@ -35,7 +35,7 @@ export default function Header() {
           <div className="flex justify-between items-center h-[70px] md:h-[85px]">
             {/* Logo */}
             <Link href="/" className="flex-shrink-0 flex items-center gap-2">
-              <Image src="/logo1.png" alt="Little Flower Logo" width={60} height={60} className="object-contain md:w-[80px] md:h-[80px]" />
+              <Image src="/logo1.webp" alt="Little Flower Logo" width={60} height={60} className="object-contain md:w-[80px] md:h-[80px]" />
               <div className="flex flex-col items-center">
                 <span className="text-lf-burgundy font-serif text-[22px] md:text-[32px] leading-none tracking-[0.06rem] font-semibold">Little Flower</span>
                 <div className="flex items-center gap-2 mt-1">
@@ -111,7 +111,7 @@ export default function Header() {
           <div className="relative ml-auto w-[280px] h-full bg-white flex flex-col shadow-2xl">
             <div className="flex items-center justify-between p-5 border-b border-gray-100">
               <Link href="/" className="flex items-center gap-2" onClick={() => setMobileOpen(false)}>
-                <Image src="/logo1.png" alt="Logo" width={44} height={44} className="object-contain" />
+                <Image src="/logo1.webp" alt="Logo" width={44} height={44} className="object-contain" />
                 <span className="text-lf-burgundy font-serif text-[18px] font-semibold">Little Flower</span>
               </Link>
               <button onClick={() => setMobileOpen(false)} className="p-1 text-gray-500 hover:text-gray-800">

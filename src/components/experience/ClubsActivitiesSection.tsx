@@ -5,49 +5,49 @@ const activities = [
     name: "Academic competitions", 
     icon: <Trophy className="w-5 h-5 text-white" />, 
     bg: "bg-[#e5a024]", 
-    image: "/club-card1.png" 
+    image: "/club-card1.webp" 
   },
   { 
     name: "Quiz & general knowledge", 
     icon: <Lightbulb className="w-5 h-5 text-white" />, 
     bg: "bg-[#d47087]", 
-    image: "/club-card2.png" 
+    image: "/club-card2.webp" 
   },
   { 
     name: "Technology / STEM activities", 
     icon: <Code className="w-5 h-5 text-white" />, 
     bg: "bg-[#832646]",
-    image: "/club-card3.png" 
+    image: "/club-card3.webp" 
   },
   { 
     name: "Debates & communication", 
     icon: <MessageSquare className="w-5 h-5 text-white" />, 
     bg: "bg-[#7949a3]", 
-    image: "/club-card4.png" 
+    image: "/club-card4.webp" 
   },
   { 
     name: "Literary activities", 
     icon: <BookOpen className="w-5 h-5 text-white" />, 
     bg: "bg-[#1e9575]", 
-    image: "/club-card-5.png" 
+    image: "/club-card-5.webp" 
   },
   { 
     name: "Art & creative activities", 
     icon: <Palette className="w-5 h-5 text-white" />, 
     bg: "bg-[#e87a71]", 
-    image: "/club-card-6.png" 
+    image: "/club-card-6.webp" 
   },
   { 
     name: "Sports", 
     icon: <Activity className="w-5 h-5 text-white" />, 
     bg: "bg-[#5b9e59]", 
-    image: "/club-card-7.png" 
+    image: "/club-card-7.webp" 
   },
   { 
     name: "Cultural activities", 
     icon: <Music className="w-5 h-5 text-white" />, 
     bg: "bg-[#d89728]", 
-    image: "/club-card-8.png" 
+    image: "/club-card-8.webp" 
   },
 ];
 

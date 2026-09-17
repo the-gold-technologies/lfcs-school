@@ -37,7 +37,7 @@ export default function AboutHeroSection() {
           {/* Right Image */}
           <div className="lg:col-span-7 relative w-full flex justify-end">
             <div className="relative w-full max-w-full lg:max-w-[110%] overflow-hidden scale-105 origin-right">
-              <img src="/about-hero.png" alt="Little Flower Children School Hero" className="w-full h-auto object-contain" />
+              <img src="/about-hero.webp" alt="Little Flower Children School Hero" className="w-full h-auto object-contain" />
             </div>
           </div>
           

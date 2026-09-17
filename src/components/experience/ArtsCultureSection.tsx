@@ -57,7 +57,7 @@ export default function ArtsCultureSection() {
             <div className="flex flex-col gap-4">
               <div className="h-48 md:h-64 rounded-[20px] overflow-hidden shadow-sm">
                 <img loading="lazy" decoding="async" 
-                  src="/experience/art1.jpeg" 
+                  src="/experience/art1.webp" 
                   alt="Art and Craft" 
                   className="w-full h-full object-cover"
                 />
@@ -74,7 +74,7 @@ export default function ArtsCultureSection() {
               </div>
               <div className="h-48 md:h-64 rounded-[20px] overflow-hidden shadow-sm">
                 <img loading="lazy" decoding="async" 
-                  src="/experience/art2.jpeg" 
+                  src="/experience/art2.webp" 
                   alt="Cultural Performance" 
                   className="w-full h-full object-cover"
                 />

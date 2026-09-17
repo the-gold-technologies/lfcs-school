@@ -37,7 +37,7 @@ export default function Footer() {
           <div className="lg:col-span-2 pr-8">
             <Link href="/" className="flex-shrink-0 flex items-center gap-4 mb-6">
               <Image 
-                src="/logo1.png" 
+                src="/logo1.webp" 
                 alt="Little Flower Logo" 
                 width={70} 
                 height={70} 

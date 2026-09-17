@@ -49,7 +49,7 @@ export default function OurGrowthSection() {
 
       {/* Decorative Background Image */}
       <img loading="lazy" decoding="async" 
-        src="/decorative_left_top.png" 
+        src="/decorative_left_top.webp" 
         alt="" 
         className="absolute inset-0 w-full h-full object-contain z-0 pointer-events-none opacity-100"
       />

@@ -39,7 +39,7 @@ export default function AcademicsHeroSection() {
           <div className="lg:col-span-7 relative w-full flex justify-end">
             <div className="relative w-full max-w-full lg:max-w-[110%] overflow-hidden scale-107 origin-right">
               <Image 
-                src="/academics-hero.png" 
+                src="/academics-hero.webp" 
                 alt="Students learning with globe" 
                 width={1200}
                 height={900}

@@ -28,8 +28,8 @@ export default function AboutHeroSection() {
               Discover the heart of Little Flower Group of Schools. A legacy of excellence, rooted in values, and dedicated to shaping the leaders of tomorrow.
             </p>
 
-            <a href="#academics" className="inline-flex items-center gap-2 bg-lf-burgundy text-white px-5 lg:px-8 py-2.5 lg:py-3.5 rounded-[16px] font-semibold hover:bg-lf-burgundy-hover transition-colors text-sm">
-              Explore Our Academics
+            <a href="#our-story" className="inline-flex items-center gap-2 bg-lf-burgundy text-white px-5 lg:px-8 py-2.5 lg:py-3.5 rounded-[16px] font-semibold hover:bg-lf-burgundy-hover transition-colors text-sm">
+              Explore Our Story
               <ChevronRight className="w-4 h-4" />
             </a>
           </div>

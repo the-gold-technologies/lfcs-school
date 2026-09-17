@@ -1,6 +1,7 @@
 "use client";
 import { ArrowRight } from "lucide-react";
 import { useRef } from "react";
+import Link from "next/link";
 
 export default function OurApproachSection() {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
@@ -33,9 +34,9 @@ export default function OurApproachSection() {
               Not just academics we prepare children for life, with knowledge, character and curiosity.
             </p>
 
-            <button className="bg-[#dfae19] text-[#0a192f] px-7 py-3.5 rounded-[16px] font-bold text-[14px] hover:bg-white transition-colors flex items-center gap-2 cursor-pointer">
+            <Link href="/academics" className="bg-[#dfae19] text-[#0a192f] px-7 py-3.5 rounded-[16px] font-bold text-[14px] hover:bg-white transition-colors flex items-center justify-center w-fit gap-2 cursor-pointer">
               Explore Academics <ArrowRight className="w-4 h-4" />
-            </button>
+            </Link>
           </div>
 
           {/* Right Carousel Area */}

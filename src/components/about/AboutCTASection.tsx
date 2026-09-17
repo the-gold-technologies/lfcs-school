@@ -18,7 +18,7 @@ export default function AboutCTASection() {
                 Admissions open for a brighter tomorrow.
               </p>
               
-              <Link href="#admissions" className="bg-lf-burgundy text-white pl-6 pr-2 py-2 rounded-full font-bold text-[15px] hover:bg-lf-burgundy-hover transition-all flex items-center justify-center gap-4 shadow-md hover:shadow-lg inline-flex w-max">
+              <Link href="/admissions" className="bg-lf-burgundy text-white pl-6 pr-2 py-2 rounded-full font-bold text-[15px] hover:bg-lf-burgundy-hover transition-all flex items-center justify-center gap-4 shadow-md hover:shadow-lg inline-flex w-max">
                 <span>Enquire Now</span> 
                 <span className="bg-white rounded-full p-1.5 flex items-center justify-center">
                   <ArrowRight className="w-4 h-4 text-lf-burgundy" strokeWidth={3} />

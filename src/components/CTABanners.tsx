@@ -1,5 +1,5 @@
 import { GraduationCap, Building, ArrowRight } from "lucide-react";
-
+import Link from "next/link";
 export default function CTABanners() {
   return (
     <section className="max-w-7xl mx-auto w-full py-5 px-3 md:px-0">
@@ -14,9 +14,9 @@ export default function CTABanners() {
             </div>
             <h2 className="text-[26px] md:text-[32px] font-serif text-white mb-2 leading-tight">Admissions Open</h2>
             <p className="text-gray-200 text-[14px] mb-8 max-w-sm leading-relaxed">Begin your child's journey of excellence and endless possibilities.</p>
-            <button className="bg-lf-gold text-[#0a192f] px-6 py-2.5 rounded-[16px] font-bold text-[14px] hover:bg-[#c99a12] transition-colors w-max flex items-center gap-2">
+            <Link href="/admissions" className="bg-lf-gold text-[#0a192f] px-6 py-2.5 rounded-[16px] font-bold text-[14px] hover:bg-[#c99a12] transition-colors w-max flex items-center gap-2">
               Learn About Admissions <ArrowRight className="w-4 h-4" />
-            </button>
+            </Link>
           </div>
         </div>
 
@@ -30,9 +30,9 @@ export default function CTABanners() {
             </div>
             <h2 className="text-[26px] md:text-[32px] font-serif text-[#0a192f] mb-2 leading-tight">Start a School</h2>
             <p className="text-[#0a192f]/80 text-[14px] mb-8 max-w-sm leading-relaxed">Partner with us to bring quality education to more communities.</p>
-            <button className="bg-lf-burgundy text-white px-6 py-2.5 rounded-[16px] font-bold text-[14px] hover:bg-[#6c2339] transition-colors w-max flex items-center gap-2">
+            <Link href="/partner" className="bg-lf-burgundy text-white px-6 py-2.5 rounded-[16px] font-bold text-[14px] hover:bg-[#6c2339] transition-colors w-max flex items-center gap-2">
               Partner With Us <ArrowRight className="w-4 h-4" />
-            </button>
+            </Link>
           </div>
         </div>
       </div>

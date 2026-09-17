@@ -1,4 +1,5 @@
 import { ArrowRight, BookOpen, Sprout, Lightbulb } from "lucide-react";
+import Link from "next/link";
 
 export default function WelcomeSection() {
   return (
@@ -18,9 +19,9 @@ export default function WelcomeSection() {
             <p className="text-gray-600 mb-6 md:mb-8 leading-relaxed text-sm md:text-base">
               Our schools are places where children discover their potential, nurture their dreams and grow into confident, compassionate and responsible global citizens.
             </p>
-            <button className="bg-lf-burgundy text-white px-5 md:px-6 py-2.5 md:py-3 rounded-[16px] font-semibold hover:bg-lf-burgundy-hover transition-colors flex items-center gap-2 text-sm md:text-base">
+            <Link href="/about" className="bg-lf-burgundy text-white px-5 md:px-6 py-2.5 md:py-3 rounded-[16px] font-semibold hover:bg-lf-burgundy-hover transition-colors flex items-center gap-2 text-sm md:text-base w-fit">
               Know More About Us <ArrowRight className="w-4 h-4 md:w-5 md:h-5" />
-            </button>
+            </Link>
           </div>
 
           <div className="lg:w-2/3 grid grid-cols-1 sm:grid-cols-3 gap-5 md:gap-6">

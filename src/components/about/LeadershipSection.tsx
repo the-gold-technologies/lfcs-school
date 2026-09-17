@@ -50,16 +50,16 @@ export default function LeadershipSection() {
           </div>
 
           {/* Chairman Section */}
-          <div className="flex flex-col-reverse md:flex-row items-center gap-12 lg:gap-20">
-            <div className="w-full md:w-3/5 space-y-8">
+          <div className="flex flex-col-reverse md:flex-row items-center gap-8 lg:gap-12">
+            <div className="w-full md:w-2/3 space-y-6">
               <div>
-                <h3 className="text-[#c76785] font-bold text-[15px] uppercase tracking-[0.15em] mb-3">Chairman's Message</h3>
-                <h2 className="font-serif text-[32px] md:text-[40px] text-[#0a192f] font-medium leading-tight">Education That Creates Lasting Impact</h2>
+                <h3 className="text-[#c76785] font-bold text-[13px] uppercase tracking-[0.15em] mb-2">Chairman's Message</h3>
+                <h2 className="font-serif text-[28px] md:text-[32px] text-[#0a192f] font-medium leading-tight">Education That Creates Lasting Impact</h2>
               </div>
               
               <div className="relative">
-                <Quote className="absolute -top-6 -left-8 w-16 h-16 text-[#dfae19] opacity-20 -z-10 rotate-180" />
-                <div className="space-y-5 text-gray-600 text-[17px] leading-relaxed">
+                <Quote className="absolute -top-4 -left-6 w-12 h-12 text-[#dfae19] opacity-20 -z-10 rotate-180" />
+                <div className="space-y-3 text-gray-600 text-[15px] leading-relaxed">
                   <p>At Little Flower, we believe that the true purpose of education is to prepare children not only for examinations, but for the opportunities and responsibilities that lie ahead.</p>
                   <p>Our journey has always been guided by a commitment to provide quality education while creating an environment where students can develop knowledge, character, confidence and a sense of responsibility.</p>
                   <p>We are proud of the journey Little Flower has undertaken so far, but we also recognise that education is constantly evolving. Our responsibility is to keep learning, improving and creating better opportunities for every student who becomes a part of the Little Flower family.</p>
@@ -67,29 +67,87 @@ export default function LeadershipSection() {
                 </div>
               </div>
               
-              <div className="pt-8 border-t border-gray-200">
-                <p className="font-serif text-[24px] text-[#0a192f] font-medium">Mr. Murali Yadav</p>
-                <p className="text-[#c76785] text-[15px] font-bold uppercase tracking-wider mt-2">Chairman, Little Flower Group of Schools</p>
+              <div className="pt-6 border-t border-gray-200">
+                <p className="font-serif text-[20px] text-[#0a192f] font-medium">Mr. Murali Yadav</p>
+                <p className="text-[#c76785] text-[13px] font-bold uppercase tracking-wider mt-1">Chairman, Little Flower Group of Schools</p>
               </div>
             </div>
             
-            <div className="w-full md:w-2/5">
-              <div className="relative aspect-[4/5] rounded-[2rem] overflow-hidden shadow-2xl group">
+            <div className="w-full md:w-1/3 max-w-[300px] mx-auto">
+              <div className="relative aspect-[3/4] rounded-2xl overflow-hidden shadow-xl group relative">
                 <img loading="lazy" decoding="async" src="/about/chairman.jpg" alt="Chairman" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0a192f] via-[#0a192f]/40 to-transparent opacity-80"></div>
-                <div className="absolute inset-0 p-8 flex flex-col justify-end opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <div className="flex gap-4">
-                    <a href="#" className="w-12 h-12 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center text-white hover:bg-[#dfae19] hover:text-[#0a192f] transition-all duration-300 border border-white/20">
-                      <FaLinkedin className="w-5 h-5" />
+                <div className="absolute inset-0 p-6 flex flex-col justify-end opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <div className="flex gap-3">
+                    <a href="#" className="w-10 h-10 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center text-white hover:bg-[#dfae19] hover:text-[#0a192f] transition-all duration-300 border border-white/20">
+                      <FaLinkedin className="w-4 h-4" />
                     </a>
-                    <a href="#" className="w-12 h-12 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center text-white hover:bg-[#dfae19] hover:text-[#0a192f] transition-all duration-300 border border-white/20">
-                      <Mail className="w-5 h-5" />
+                    <a href="#" className="w-10 h-10 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center text-white hover:bg-[#dfae19] hover:text-[#0a192f] transition-all duration-300 border border-white/20">
+                      <Mail className="w-4 h-4" />
                     </a>
                   </div>
                 </div>
               </div>
               {/* Decorative dots */}
-              <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-[radial-gradient(#dfae19_2px,transparent_2px)] [background-size:16px_16px] opacity-30 -z-10"></div>
+              <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-[radial-gradient(#dfae19_2px,transparent_2px)] [background-size:16px_16px] opacity-30 -z-10"></div>
+            </div>
+          </div>
+
+          {/* Concort Consultant Management Profile Section */}
+          <div className="pt-16">
+            <div className="text-center mb-12">
+              <span className="text-[#c76785] font-bold text-[12px] tracking-[0.2em] uppercase mb-4 block">Our Partners</span>
+              <h2 className="font-serif text-[32px] md:text-[36px] font-medium text-[#0a192f] leading-tight">
+                Concort Consultant <span className="text-[#dfae19]">Management Profile</span>
+              </h2>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
+              {/* Ms. Manju Rana */}
+              {/* Ms. Manju Rana */}
+              {/* Ms. Manju Rana */}
+              <div className="bg-white p-8 md:p-10 rounded-2xl shadow-lg overflow-hidden border border-gray-100 relative group transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 hover:border-[#c76785]/30">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-[#c76785] opacity-5 rounded-bl-[100px] transition-all duration-500 group-hover:scale-110"></div>
+                
+                <div className="flex flex-col sm:flex-row sm:items-center gap-12 mb-8 relative z-10">
+                  <div className="w-32 h-32 md:w-40 md:h-40 shrink-0 rounded-2xl overflow-hidden shadow-lg">
+                    <img loading="lazy" decoding="async" src="/about/founder-partner.jpg" alt="Ms. Manju Rana" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                  </div>
+                  <div>
+                    <h3 className="font-serif text-[24px] md:text-[28px] text-[#0a192f] font-medium mb-1">Ms. Manju Rana</h3>
+                    <p className="text-[#c76785] text-[14px] font-bold uppercase tracking-wider">Founder</p>
+                  </div>
+                </div>
+                
+                <div className="space-y-4 text-gray-600 text-[15px] leading-relaxed relative z-10">
+                  <p>Felicitated with the National Award for Teachers by the President of India in 2018 for her contribution in the field of education for over 34 years.</p>
+                  <p>Former Director of the Seth Anandram Jaipuria Group of Schools, with extensive experience in academics, strategic planning, and administrative management.</p>
+                  <p>Worked closely with premier educational bodies like CBSE, British Council, NPSC, and Sahodaya Schools Complex.</p>
+                  <p>A CBSE expert trainer and auditor, delivering workshops on educational leadership and publishing insightful articles in national publications.</p>
+                </div>
+              </div>
+
+              {/* Ms. V. Suprabha */}
+              <div className="bg-white p-8 md:p-10 rounded-2xl shadow-lg border overflow-hidden border-gray-100 relative group transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 hover:border-[#dfae19]/30">
+                <div className="absolute top-0 left-0 w-32 h-32 bg-[#dfae19] opacity-5 rounded-br-[100px] transition-all duration-500 group-hover:scale-110"></div>
+                
+                <div className="flex flex-col-reverse sm:flex-row sm:items-center sm:justify-end gap-12 mb-8 relative z-10 text-center sm:text-right">
+                  <div>
+                    <h3 className="font-serif text-[24px] md:text-[28px] text-[#0a192f] font-medium mb-1">Ms. V. Suprabha</h3>
+                    <p className="text-[#dfae19] text-[14px] font-bold uppercase tracking-wider">Co-Founder</p>
+                  </div>
+                  <div className="w-32 h-32 md:w-40 md:h-40 shrink-0 rounded-2xl overflow-hidden shadow-lg mx-auto sm:mx-0">
+                    <img loading="lazy" decoding="async" src="/about/cofounder-partner.jpg" alt="Ms. V. Suprabha" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                  </div>
+                </div>
+                
+                <div className="space-y-4 text-gray-600 text-[15px] leading-relaxed relative z-10">
+                  <p>Over 33 years of diverse leadership experience across major institutions like Bluebells Public School and Seth Anandram Jaipuria School.</p>
+                  <p>Former Associate Professor at the College of Education, Guru Gobind Singh IP University, delivering impactful capacity building for educators.</p>
+                  <p>A seasoned policy designer who empowers schools through strategic leadership and robust governance, notably guiding schools to ISO certification.</p>
+                  <p>An independent auditor who has contributed to national bodies such as CBSE, NTA, British Council, and NIOS SWAYAM to realize academic excellence.</p>
+                </div>
+              </div>
             </div>
           </div>
 

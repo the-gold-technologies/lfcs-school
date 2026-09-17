@@ -2,7 +2,7 @@ import { Sparkles, History, Users } from "lucide-react";
 
 export default function OurStorySection() {
   return (
-    <section className="py-20  bg-white relative overflow-hidden">
+    <section id="our-story" className="py-20  bg-white relative overflow-hidden">
       
      
 

@@ -1,4 +1,4 @@
-import { ArrowRight, GraduationCap, MapPin, Flag, Users, Award } from "lucide-react";
+import { ArrowRight, GraduationCap, Users, Award, Trophy } from "lucide-react";
 import Link from "next/link";
 
 export default function HeroSection() {
@@ -38,55 +38,37 @@ export default function HeroSection() {
 
       {/* 2. Statistics Bar */}
       <div className="relative z-20 max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-0 -mt-8 md:-mt-16 mb-10 md:mb-16">
-        <div className="bg-white rounded-[24px] md:rounded-[32px] shadow-xl py-5 md:py-8 px-4 md:px-10 grid grid-cols-3 md:grid-cols-5 gap-3 md:gap-6 text-left divide-x divide-gray-100">
+        <div className="bg-white rounded-[24px] md:rounded-[32px] shadow-xl py-5 md:py-8 px-4 md:px-10 grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 text-left divide-x divide-gray-100">
           <div className="flex flex-row gap-2 md:gap-4 items-start">
-            <BuildingIcon className="w-7 h-7 md:w-11 md:h-11 text-red-500 mb-2 md:mb-3 shrink-0" strokeWidth={1.5} />
+            <GraduationCap className="w-7 h-7 md:w-11 md:h-11 text-red-500 mb-2 md:mb-3 shrink-0" strokeWidth={1.5} />
             <div>
-              <div className="text-xl md:text-3xl font-medium text-[#0a192f]">60+</div>
-              <div className="text-[10px] md:text-xs font-medium text-gray-500 uppercase tracking-wide mt-0.5 md:mt-1">Schools</div>
+              <div className="text-xl md:text-3xl font-medium text-[#0a192f]">1200+</div>
+              <div className="text-[10px] md:text-xs font-medium text-gray-500 uppercase tracking-wide mt-0.5 md:mt-1">Happy Students</div>
             </div>
           </div>
           <div className="flex flex-row gap-2 md:gap-4 items-start">
-            <MapPin className="w-7 h-7 md:w-11 md:h-11 text-orange-500 mb-2 md:mb-3 shrink-0" strokeWidth={1.5} />
-            <div>
-              <div className="text-xl md:text-3xl font-medium text-[#0a192f]">40+</div>
-              <div className="text-[10px] md:text-xs font-medium text-gray-500 uppercase tracking-wide mt-0.5 md:mt-1">Cities</div>
-            </div>
-          </div>
-          <div className="flex flex-row gap-2 md:gap-4 items-start">
-            <Flag className="w-7 h-7 md:w-11 md:h-11 text-green-500 mb-2 md:mb-3 shrink-0" strokeWidth={1.5} />
-            <div>
-              <div className="text-xl md:text-3xl font-medium text-[#0a192f]">5</div>
-              <div className="text-[10px] md:text-xs font-medium text-gray-500 uppercase tracking-wide mt-0.5 md:mt-1">States</div>
-            </div>
-          </div>
-          <div className="hidden md:flex flex-row gap-2 md:gap-4 items-start">
             <Users className="w-7 h-7 md:w-11 md:h-11 text-blue-500 mb-2 md:mb-3 shrink-0" strokeWidth={1.5} />
             <div>
-              <div className="text-xl md:text-3xl font-medium text-[#0a192f]">50K+</div>
-              <div className="text-[10px] md:text-xs font-medium text-gray-500 uppercase tracking-wide mt-0.5 md:mt-1">Students</div>
+              <div className="text-xl md:text-3xl font-medium text-[#0a192f]">80+</div>
+              <div className="text-[10px] md:text-xs font-medium text-gray-500 uppercase tracking-wide mt-0.5 md:mt-1">Qualified Teachers</div>
             </div>
           </div>
-          <div className="hidden md:flex flex-row gap-4 items-start">
-            <Award className="w-11 h-11 text-pink-500 mb-3 shrink-0" strokeWidth={1.5} />
+          <div className="flex flex-row gap-2 md:gap-4 items-start">
+            <Award className="w-7 h-7 md:w-11 md:h-11 text-pink-500 mb-2 md:mb-3 shrink-0" strokeWidth={1.5} />
             <div>
-              <div className="text-3xl font-medium text-[#0a192f]">20+</div>
-              <div className="text-xs font-medium text-gray-500 uppercase tracking-wide mt-1">Years of Excellence</div>
+              <div className="text-xl md:text-3xl font-medium text-[#0a192f]">10+</div>
+              <div className="text-[10px] md:text-xs font-medium text-gray-500 uppercase tracking-wide mt-0.5 md:mt-1">Years Of Excellence</div>
+            </div>
+          </div>
+          <div className="flex flex-row gap-2 md:gap-4 items-start">
+            <Trophy className="w-7 h-7 md:w-11 md:h-11 text-orange-500 mb-2 md:mb-3 shrink-0" strokeWidth={1.5} />
+            <div>
+              <div className="text-xl md:text-3xl font-medium text-[#0a192f]">150+</div>
+              <div className="text-[10px] md:text-xs font-medium text-gray-500 uppercase tracking-wide mt-0.5 md:mt-1">Activities &amp; Achievements</div>
             </div>
           </div>
         </div>
       </div>
     </>
-  );
-}
-
-function BuildingIcon(props: any) {
-  return (
-    <svg {...props} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <rect width="16" height="20" x="4" y="2" rx="2" ry="2" />
-      <path d="M9 22v-4h6v4" /><path d="M8 6h.01" /><path d="M16 6h.01" /><path d="M12 6h.01" />
-      <path d="M12 10h.01" /><path d="M12 14h.01" /><path d="M16 10h.01" /><path d="M16 14h.01" />
-      <path d="M8 10h.01" /><path d="M8 14h.01" />
-    </svg>
   );
 }

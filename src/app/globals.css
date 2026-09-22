@@ -51,3 +51,25 @@ body {
   animation-play-state: paused;
 }
 
+.styled-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #d8c3ca transparent;
+}
+
+.styled-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.styled-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.styled-scrollbar::-webkit-scrollbar-thumb {
+  background-color: #d8c3ca;
+  border-radius: 999px;
+}
+
+.styled-scrollbar::-webkit-scrollbar-thumb:hover {
+  background-color: #842b46;
+}
+

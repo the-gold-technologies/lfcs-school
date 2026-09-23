@@ -51,7 +51,7 @@ export default function LeadershipSection() {
 
           {/* Chairman Section */}
           <div className="flex flex-col-reverse md:flex-row items-center gap-8 lg:gap-12">
-            <div className="w-full md:w-2/3 space-y-6">
+            <div className="w-full md:w-2/3 space-y-6 pl-10">
               <div>
                 <h3 className="text-[#c76785] font-bold text-[13px] uppercase tracking-[0.15em] mb-2">Chairman's Message</h3>
                 <h2 className="font-serif text-[28px] md:text-[32px] text-[#0a192f] font-medium leading-tight">Education That Creates Lasting Impact</h2>
@@ -94,7 +94,7 @@ export default function LeadershipSection() {
           </div>
 
           {/* Concort Consultant Management Profile Section */}
-          <div className="pt-16">
+          <div className="pt-12">
             <div className="text-center mb-12">
               <span className="text-[#c76785] font-bold text-[12px] tracking-[0.2em] uppercase mb-4 block">Our Partners</span>
               <h2 className="font-serif text-[32px] md:text-[36px] font-medium text-[#0a192f] leading-tight">
@@ -102,24 +102,14 @@ export default function LeadershipSection() {
               </h2>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
-              {/* Ms. Manju Rana */}
-              {/* Ms. Manju Rana */}
-              {/* Ms. Manju Rana */}
-              <div className="bg-white p-8 md:p-10 rounded-2xl shadow-lg overflow-hidden border border-gray-100 relative group transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 hover:border-[#c76785]/30">
-                <div className="absolute top-0 right-0 w-32 h-32 bg-[#c76785] opacity-5 rounded-bl-[100px] transition-all duration-500 group-hover:scale-110"></div>
-                
-                <div className="flex flex-col sm:flex-row sm:items-center gap-12 mb-8 relative z-10">
-                  <div className="w-32 h-32 md:w-40 md:h-40 shrink-0 rounded-2xl overflow-hidden shadow-lg">
-                    <img loading="lazy" decoding="async" src="/about/founder-partner.webp" alt="Ms. Manju Rana" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-                  </div>
-                  <div>
-                    <h3 className="font-serif text-[24px] md:text-[28px] text-[#0a192f] font-medium mb-1">Ms. Manju Rana</h3>
-                    <p className="text-[#c76785] text-[14px] font-bold uppercase tracking-wider">Founder</p>
-                  </div>
+            <div className="flex flex-col-reverse md:flex-row items-center gap-8 lg:gap-12">
+              <div className="w-full md:w-3/5 space-y-6 pl-10">
+                <div>
+                  <h3 className="text-[#c76785] font-bold text-[13px] uppercase tracking-[0.15em] mb-2">Founder</h3>
+                  <h2 className="font-serif text-[28px] md:text-[32px] text-[#0a192f] font-medium leading-tight">Ms. Manju Rana</h2>
                 </div>
-                
-                <div className="space-y-4 text-gray-600 text-[15px] leading-relaxed relative z-10">
+
+                <div className="space-y-3 text-gray-600 text-[15px] leading-relaxed">
                   <p>Felicitated with the National Award for Teachers by the President of India in 2018 for her contribution in the field of education for over 34 years.</p>
                   <p>Former Director of the Seth Anandram Jaipuria Group of Schools, with extensive experience in academics, strategic planning, and administrative management.</p>
                   <p>Worked closely with premier educational bodies like CBSE, British Council, NPSC, and Sahodaya Schools Complex.</p>
@@ -127,26 +117,24 @@ export default function LeadershipSection() {
                 </div>
               </div>
 
-              {/* Ms. V. Suprabha */}
-              <div className="bg-white p-8 md:p-10 rounded-2xl shadow-lg border overflow-hidden border-gray-100 relative group transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 hover:border-[#dfae19]/30">
-                <div className="absolute top-0 left-0 w-32 h-32 bg-[#dfae19] opacity-5 rounded-br-[100px] transition-all duration-500 group-hover:scale-110"></div>
-                
-                <div className="flex flex-col-reverse sm:flex-row sm:items-center sm:justify-end gap-12 mb-8 relative z-10 text-center sm:text-right">
-                  <div>
-                    <h3 className="font-serif text-[24px] md:text-[28px] text-[#0a192f] font-medium mb-1">Ms. V. Suprabha</h3>
-                    <p className="text-[#dfae19] text-[14px] font-bold uppercase tracking-wider">Co-Founder</p>
-                  </div>
-                  <div className="w-32 h-32 md:w-40 md:h-40 shrink-0 rounded-2xl overflow-hidden shadow-lg mx-auto sm:mx-0">
-                    <img loading="lazy" decoding="async" src="/about/cofounder-partner.webp" alt="Ms. V. Suprabha" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+              <div className="w-full md:w-2/5 relative pt-8">
+                <div className="relative aspect-[1690/1000] rounded-2xl overflow-hidden shadow-xl group">
+                  <img loading="lazy" decoding="async" src="/about/manju-rana-full.webp" alt="Ms. Manju Rana receiving the National Award for Teachers from the President of India" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0a192f]/80 via-transparent to-transparent"></div>
+                  <div className="absolute bottom-0 left-0 right-0 p-4 flex items-end justify-between opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <p className="text-white text-[12px] font-medium">National Award for Teachers, 2018</p>
+                    <div className="flex gap-2">
+                      <a href="#" className="w-8 h-8 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center text-white hover:bg-[#dfae19] hover:text-[#0a192f] transition-all duration-300 border border-white/20">
+                        <FaLinkedin className="w-3.5 h-3.5" />
+                      </a>
+                      <a href="#" className="w-8 h-8 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center text-white hover:bg-[#dfae19] hover:text-[#0a192f] transition-all duration-300 border border-white/20">
+                        <Mail className="w-3.5 h-3.5" />
+                      </a>
+                    </div>
                   </div>
                 </div>
-                
-                <div className="space-y-4 text-gray-600 text-[15px] leading-relaxed relative z-10">
-                  <p>Over 33 years of diverse leadership experience across major institutions like Bluebells Public School and Seth Anandram Jaipuria School.</p>
-                  <p>Former Associate Professor at the College of Education, Guru Gobind Singh IP University, delivering impactful capacity building for educators.</p>
-                  <p>A seasoned policy designer who empowers schools through strategic leadership and robust governance, notably guiding schools to ISO certification.</p>
-                  <p>An independent auditor who has contributed to national bodies such as CBSE, NTA, British Council, and NIOS SWAYAM to realize academic excellence.</p>
-                </div>
+                {/* Decorative dots */}
+                <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-[radial-gradient(#c76785_2px,transparent_2px)] [background-size:16px_16px] opacity-30 -z-10"></div>
               </div>
             </div>
           </div>

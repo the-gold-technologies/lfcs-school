@@ -25,7 +25,6 @@ export default function Header() {
         { label: 'LFIS, MAU', href: 'https://lfismau.co.in/', img: '/schools/lfis-mau.webp' },
       ]
     },
-    { label: 'Admissions', href: '/admissions', icon: GraduationCap, hasDropdown: false }, // Removed placeholder dropdown
   ];
 
   return (

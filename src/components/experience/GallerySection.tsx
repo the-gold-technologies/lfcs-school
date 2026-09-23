@@ -15,20 +15,20 @@ const filters = [
 ];
 
 const galleryItems = [
-  { category: "Annual Functions", image: "https://images.unsplash.com/photo-1544928147-79a2dbc1f389?q=80&w=1974&auto=format&fit=crop" },
-  { category: "Sports Days", image: "https://images.unsplash.com/photo-1546519638-68e109498ffc?q=80&w=2090&auto=format&fit=crop" },
-  { category: "School Programmes", image: "https://images.unsplash.com/photo-1531482615713-2afd69097998?q=80&w=2070&auto=format&fit=crop" },
-  { category: "Competitions", image: "https://images.unsplash.com/photo-1565034946487-077786996e27?q=80&w=2070&auto=format&fit=crop" },
-  { category: "Workshops", image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=2071&auto=format&fit=crop" },
-  { category: "Educational Trips", image: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=2022&auto=format&fit=crop" },
-  { category: "Celebrations", image: "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?q=80&w=1974&auto=format&fit=crop" },
-  { category: "Competitions", image: "https://images.unsplash.com/photo-1526232761682-d26e03ac148e?q=80&w=2029&auto=format&fit=crop" },
-  { category: "School Programmes", image: "https://images.unsplash.com/photo-1577896851231-70ef18881754?q=80&w=2070&auto=format&fit=crop" },
-  { category: "Annual Functions", image: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?q=80&w=2070&auto=format&fit=crop" },
-  { category: "Educational Trips", image: "https://images.unsplash.com/photo-1529390079861-591de354faf5?q=80&w=2070&auto=format&fit=crop" },
-  { category: "Celebrations", image: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=2070&auto=format&fit=crop" },
-  { category: "Sports Days", image: "https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?q=80&w=2049&auto=format&fit=crop" },
-  { category: "Workshops", image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=2070&auto=format&fit=crop" },
+  { category: "Annual Functions", image: "/home-page/Experience8.webp" },
+  { category: "Sports Days", image: "/experience/sports1.webp" },
+  { category: "School Programmes", image: "/home-page/skills1.webp" },
+  { category: "Competitions", image: "/home-page/Experience9.webp" },
+  { category: "Workshops", image: "/academics/collabrative.webp" },
+  { category: "Educational Trips", image: "/experience/art1.webp" },
+  { category: "Celebrations", image: "/experience/life1.webp" },
+  { category: "Competitions", image: "/academics/practical.webp" },
+  { category: "School Programmes", image: "/experience/art2.webp" },
+  { category: "Annual Functions", image: "/home-page/skills4.webp" },
+  { category: "Educational Trips", image: "/home-page/Experience4.webp" },
+  { category: "Celebrations", image: "/experience/life2.webp" },
+  { category: "Sports Days", image: "/experience/sports2.webp" },
+  { category: "Workshops", image: "/home-page/skills2.webp" },
 ];
 
 export default function GallerySection() {

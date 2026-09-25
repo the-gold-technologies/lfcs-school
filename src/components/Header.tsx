@@ -2,10 +2,18 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { Home, BookOpen, Building, Menu, X, ChevronDown, Backpack, GraduationCap } from 'lucide-react';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 10);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
 
   const navLinks = [
     { label: 'About Us', href: '/about', icon: Home, hasDropdown: false },
@@ -29,8 +37,18 @@ export default function Header() {
 
   return (
     <>
-      <header className="w-full bg-transparent absolute top-1 z-50">
-        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+      <header
+        className={`w-full fixed left-0 z-50 px-4 sm:px-6 xl:px-0 transition-all duration-300 ${
+          scrolled ? 'top-3' : 'top-1'
+        }`}
+      >
+        <div
+          className={`max-w-7xl mx-auto px-3 sm:px-4 lg:px-0 rounded-2xl border transition-all duration-300 ${
+            scrolled
+              ? 'bg-white/95 lg:px-2  backdrop-blur-md border-gray-100 shadow-[0_8px_30px_-10px_rgba(0,0,0,0.2)]'
+              : 'bg-transparent border-transparent'
+          }`}
+        >
           <div className="flex justify-between items-center h-[70px] md:h-[85px]">
             {/* Logo */}
             <Link href="/" className="flex-shrink-0 flex items-center gap-2">

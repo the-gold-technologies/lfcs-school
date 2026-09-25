@@ -5,6 +5,7 @@ import VisionMissionSection from "@/components/about/VisionMissionSection";
 import OurValuesSection from "@/components/about/OurValuesSection";
 import LeadershipSection from "@/components/about/LeadershipSection";
 import OurGrowthSection from "@/components/about/OurGrowthSection";
+import AwardsSection from "@/components/about/AwardsSection";
 import AboutCTASection from "@/components/about/AboutCTASection";
 
 export default function AboutPage() {
@@ -17,6 +18,7 @@ export default function AboutPage() {
       <OurValuesSection />
       <LeadershipSection />
       <OurGrowthSection />
+      <AwardsSection />
       <AboutCTASection />
     </main>
   );

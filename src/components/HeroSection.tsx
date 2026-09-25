@@ -29,8 +29,8 @@ export default function HeroSection() {
             <Link href="/our-school" className="bg-lf-burgundy text-white px-5 md:px-6 py-2.5 md:py-3 rounded-[16px] font-semibold hover:bg-lf-burgundy-hover transition-all flex items-center gap-2 text-sm md:text-base">
               Explore Our Schools <ArrowRight className="w-4 h-4 md:w-5 md:h-5 text-lf-gold" />
             </Link>
-            <Link href="/admissions" className="bg-transparent border border-lf-burgundy text-lf-burgundy px-5 md:px-6 py-2.5 md:py-3 rounded-[16px] font-semibold hover:bg-lf-burgundy/5 transition-all flex items-center gap-2 text-sm md:text-base">
-              Admissions Open <GraduationCap className="w-4 h-4 md:w-5 md:h-5" />
+            <Link href="/start-school" className="bg-transparent border border-lf-burgundy text-lf-burgundy px-5 md:px-6 py-2.5 md:py-3 rounded-[16px] font-semibold hover:bg-lf-burgundy/5 transition-all flex items-center gap-2 text-sm md:text-base">
+              Start a School <GraduationCap className="w-4 h-4 md:w-5 md:h-5" />
             </Link>
           </div>
         </div>
@@ -42,21 +42,21 @@ export default function HeroSection() {
           <div className="flex flex-row gap-2 md:gap-4 items-start">
             <GraduationCap className="w-7 h-7 md:w-11 md:h-11 text-red-500 mb-2 md:mb-3 shrink-0" strokeWidth={1.5} />
             <div>
-              <div className="text-xl md:text-3xl font-medium text-[#0a192f]">1200+</div>
+              <div className="text-xl md:text-3xl font-medium text-[#0a192f]">14000+</div>
               <div className="text-[10px] md:text-xs font-medium text-gray-500 uppercase tracking-wide mt-0.5 md:mt-1">Happy Students</div>
             </div>
           </div>
           <div className="flex flex-row gap-2 md:gap-4 items-start">
             <Users className="w-7 h-7 md:w-11 md:h-11 text-blue-500 mb-2 md:mb-3 shrink-0" strokeWidth={1.5} />
             <div>
-              <div className="text-xl md:text-3xl font-medium text-[#0a192f]">80+</div>
+              <div className="text-xl md:text-3xl font-medium text-[#0a192f]">1000+</div>
               <div className="text-[10px] md:text-xs font-medium text-gray-500 uppercase tracking-wide mt-0.5 md:mt-1">Qualified Teachers</div>
             </div>
           </div>
           <div className="flex flex-row gap-2 md:gap-4 items-start">
             <Award className="w-7 h-7 md:w-11 md:h-11 text-pink-500 mb-2 md:mb-3 shrink-0" strokeWidth={1.5} />
             <div>
-              <div className="text-xl md:text-3xl font-medium text-[#0a192f]">10+</div>
+              <div className="text-xl md:text-3xl font-medium text-[#0a192f]">30+</div>
               <div className="text-[10px] md:text-xs font-medium text-gray-500 uppercase tracking-wide mt-0.5 md:mt-1">Years Of Excellence</div>
             </div>
           </div>

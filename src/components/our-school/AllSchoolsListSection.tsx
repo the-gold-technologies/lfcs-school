@@ -37,7 +37,7 @@ const schools = [
     img: '/schools/Ghosi.webp'
   },
   {
-    name: 'LFCS, KHALISHPUR',
+    name: 'LFCS, BALLIA',
     city: 'Mau',
     state: 'Uttar Pradesh',
     address: 'S.H. 34 Mau - Ballia Road khalishpur Mau, Uttar Pradesh 275102',

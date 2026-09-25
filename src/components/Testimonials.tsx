@@ -8,19 +8,19 @@ export default function Testimonials() {
 
   const testimonialsData = {
     STUDENTS: [
-      { name: 'Ananya Singh', role: 'Student, Class X', text: 'I love the activities and sports here. It\'s like a second home where I can learn and grow everyday.' },
-      { name: 'Rahul Verma', role: 'Student, Class XII', text: 'The teachers are very supportive and the environment is very conducive to learning. I feel ready for the future!' },
-      { name: 'Priya Sharma', role: 'Student, Class IX', text: 'I have made so many friends and the facilities are top-notch. I love coming to school and participating in clubs.' },
+      { name: 'Animesh Rai', role: 'Alumnus, Pursuing BBA', text: 'My years at the school gave me a strong foundation for pursuing BBA. The discipline and values I learned here continue to help me in college.' },
+      { name: 'Aditi Rai', role: 'Alumna, Pursuing MBBS', text: 'The teachers always motivated me to ask questions and understand concepts rather than simply memorising them. Beyond academics, the school taught me responsibility, time management and respect.' },
+      { name: 'Suraj Yadav', role: 'Alumnus, Pursuing B.Tech (AI & ML)', text: 'The school provided an environment where curiosity and interest in technology were encouraged. My teachers helped me develop logical thinking and problem-solving skills.' },
     ],
     TEACHERS: [
-      { name: 'Mrs. Kavita', role: 'Teacher, English', text: 'Teaching here has been a wonderful experience. The students are eager to learn and the administration is very supportive.' },
-      { name: 'Mr. Rajesh', role: 'Teacher, Mathematics', text: 'The school provides excellent resources for us to teach effectively, making every classroom session interactive and fun.' },
-      { name: 'Ms. Sunita', role: 'Teacher, Science', text: 'I love the collaborative environment among the staff and the focus on student development beyond just academics.' },
+      { name: 'Mr. Shashi Bhushan Singh', role: 'PGT Science', text: 'Working at Little Flower Children School has been a rewarding experience.' },
+      { name: 'Mr. Umesh Vishwakarma', role: 'TGT Maths', text: 'My experience at LFCS has been enriching and fulfilling.' },
+      { name: 'Ms. Wajeeha Parveen', role: 'TGT Teacher', text: 'The school provides a balanced environment for academic learning, creativity, discipline and personality development.' },
     ],
     PARENTS: [
-      { name: 'Mrs. Ishani Dube', role: 'Parent', text: 'We are thrilled with our experience! The nurturing environment and dedicated teachers give us confidence that our child is receiving the best foundation.' },
-      { name: 'Mr. Sumit Pandit', role: 'Parent', text: 'The school has exceeded our expectations. Its commitment to both academic excellence and personal growth provides a truly balanced education.' },
-      { name: 'Mr. Pratyush Dada', role: 'Parent', text: 'Choosing this school was our best decision. The focus on character development ensures our child is growing into a well-rounded individual.' },
+      { name: 'Mr. Sarvesh Singh', role: 'Parent', text: 'The teachers are caring, approachable and attentive towards individual students.' },
+      { name: 'Mr. Banshidhar Yadav', role: 'Parent', text: 'LFCS has provided our child with a safe, disciplined and encouraging learning environment.' },
+      { name: 'Mr. Rambharat Yadav', role: 'Parent', text: 'We are pleased with the academic and personal development of my child at LFCS. We are thankful to the teachers and management for their sincere efforts.' },
     ]
   };
 

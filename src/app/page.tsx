@@ -5,7 +5,6 @@ import OurApproachSection from "@/components/OurApproachSection";
 import ExperienceSection from "@/components/ExperienceSection";
 import OurSchoolsSection from "@/components/OurSchoolsSection";
 import CTABanners from "@/components/CTABanners";
-import TrustedPartners from "@/components/TrustedPartners";
 import Testimonials from "@/components/Testimonials";
 import NewsSection from "@/components/NewsSection";
 
@@ -19,7 +18,6 @@ export default function Home() {
       <ExperienceSection />
       <OurSchoolsSection />
       <CTABanners />
-      <TrustedPartners />
       <Testimonials />
       <NewsSection />
     </div>

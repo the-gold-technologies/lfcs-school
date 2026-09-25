@@ -20,7 +20,7 @@ export default function Header() {
         { label: 'LFCS, MAU', href: 'https://lfgos.com/', img: '/schools/Nizamuddinpura-Mau.webp' },
         { label: 'LFCS, SIKATIYA', href: 'https://lfcsmau.co/', img: '/schools/Sikatia-Mau.webp' },
         { label: 'LFCS, GHOSI', href: 'https://www.lfcsghosi.co.in/', img: '/schools/Ghosi.webp' },
-        { label: 'LFCS, KHALISHPUR', href: 'https://lfcsballia.co.in/', img: '/schools/Khalispur-Balia.webp' },
+        { label: 'LFCS, BALLIA', href: 'https://lfcsballia.co.in/', img: '/schools/Khalispur-Balia.webp' },
         { label: 'LFCS, KASIMABAD', href: 'https://www.lfcskasimabad.in/', img: '/schools/Kasimabad.webp' },
         { label: 'LFIS, MAU', href: 'https://lfismau.co.in/', img: '/schools/lfis-mau.webp' },
       ]

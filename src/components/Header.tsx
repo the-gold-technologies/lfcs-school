@@ -45,22 +45,14 @@ export default function Header() {
         <div
           className={`max-w-7xl mx-auto px-3 sm:px-4 lg:px-0 rounded-2xl border transition-all duration-300 ${
             scrolled
-              ? 'bg-white/95 lg:px-2  backdrop-blur-md border-gray-100 shadow-[0_8px_30px_-10px_rgba(0,0,0,0.2)]'
+              ? 'bg-white/95 lg:px-3  backdrop-blur-md border-gray-100 shadow-[0_8px_30px_-10px_rgba(0,0,0,0.2)]'
               : 'bg-transparent border-transparent'
           }`}
         >
           <div className="flex justify-between items-center h-[70px] md:h-[85px]">
             {/* Logo */}
             <Link href="/" className="flex-shrink-0 flex items-center gap-2">
-              <Image src="/logo1.webp" alt="Little Flower Logo" width={60} height={60} className="object-contain md:w-[80px] md:h-[80px]" />
-              <div className="flex flex-col items-center">
-                <span className="text-lf-burgundy font-serif text-[22px] md:text-[32px] leading-none tracking-[0.06rem] font-semibold">Little Flower</span>
-                <div className="flex items-center gap-2 mt-1">
-                  <div className="h-[1.5px] w-4 md:w-6 bg-lf-burgundy"></div>
-                  <span className="text-lf-olive font-bold text-[9px] md:text-[12px] uppercase tracking-[0.1em]">CHILDREN SCHOOL</span>
-                  <div className="h-[1.5px] w-4 md:w-6 bg-lf-burgundy"></div>
-                </div>
-              </div>
+              <Image src="/logo-header.webp" alt="Little Flower Children School" width={1525} height={448} priority className="object-contain h-[54px] md:h-[70px] w-auto" />
             </Link>
 
             <nav className="hidden lg:flex space-x-8 items-end">

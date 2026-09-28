@@ -1,28 +1,24 @@
 "use client";
 
-import { useState, FormEvent } from "react";
-import { ArrowRight, CheckCircle2, Phone, Mail, MapPin, Clock } from "lucide-react";
+import { useActionState } from "react";
+import { ArrowRight, CheckCircle2, Phone, Mail, MapPin, Clock, Loader2 } from "lucide-react";
 import { schools } from "@/components/our-school/AllSchoolsListSection";
+import { submitContactForm, type FormState } from "@/app/actions/enquiries";
 
 const inputClass =
   "w-full bg-white border border-gray-200 rounded-[14px] px-4 py-3 text-[14px] text-[#0a192f] placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-lf-burgundy/30 focus:border-lf-burgundy transition-all";
 const labelClass = "block text-[13px] font-bold text-[#0a192f] mb-2";
 
 const contactDetails = [
-  { icon: Phone, label: "Call Us", value: "+91 123 456 7890", href: "tel:+911234567890", bg: "bg-[#fbeef2]", color: "text-lf-burgundy" },
-  { icon: Mail, label: "Admissions & General", value: "marketing@lfcsschools.com", href: "mailto:marketing@lfcsschools.com", bg: "bg-[#fdf6e3]", color: "text-lf-gold" },
-  { icon: Mail, label: "Start a School / Franchise", value: "franchise@lfcsschools.com", href: "mailto:franchise@lfcsschools.com", bg: "bg-[#fbeef2]", color: "text-lf-burgundy" },
-  { icon: MapPin, label: "Visit Us", value: "Little Flower Group of Schools, Uttar Pradesh, India", bg: "bg-[#edf1e8]", color: "text-lf-olive" },
+  // TODO: phone number pending from client
+  { icon: Phone, label: "Call Us", value: "", bg: "bg-[#fbeef2]", color: "text-lf-burgundy" },
+  { icon: Mail, label: "Email Us", value: "franchise@lfcsschools.com", href: "mailto:franchise@lfcsschools.com", bg: "bg-[#fdf6e3]", color: "text-lf-gold" },
+  { icon: MapPin, label: "Visit Us", value: "B-1/142, Sector-G, Aliganj, Lucknow - 226024, Uttar Pradesh", bg: "bg-[#edf1e8]", color: "text-lf-olive" },
   { icon: Clock, label: "Office Hours", value: "Mon - Sat: 8:00 AM - 5:00 PM", bg: "bg-[#f8ede4]", color: "text-lf-orange" },
 ];
 
 export default function ContactFormSection() {
-  const [submitted, setSubmitted] = useState(false);
-
-  function handleSubmit(e: FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-    setSubmitted(true);
-  }
+  const [state, formAction, pending] = useActionState<FormState, FormData>(submitContactForm, { status: "idle" });
 
   return (
     <section id="contact-form" className="py-16 bg-white">
@@ -64,7 +60,7 @@ export default function ContactFormSection() {
 
           {/* Form */}
           <div className="lg:col-span-3 rounded-[32px] bg-[#fdf7ee] border border-[#e5e5e5]/40 p-6 sm:p-10">
-            {submitted ? (
+            {state.status === "success" ? (
               <div className="flex flex-col items-center text-center py-16">
                 <div className="w-16 h-16 rounded-full bg-[#edf1e8] flex items-center justify-center mb-6">
                   <CheckCircle2 className="w-8 h-8 text-[#66733a]" strokeWidth={1.5} />
@@ -75,7 +71,10 @@ export default function ContactFormSection() {
                 </p>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="flex flex-col gap-6">
+              <form action={formAction} className="flex flex-col gap-6">
+                {/* Spam trap: hidden from people, often filled in by bots */}
+                <input type="text" name="website" tabIndex={-1} autoComplete="off" aria-hidden="true" className="hidden" />
+
                 <div>
                   <h3 className="font-serif text-[24px] font-medium text-[#0a192f] mb-1">Send Us a Message</h3>
                   <p className="text-gray-500 text-[13.5px]">Fields marked required must be filled in.</p>
@@ -120,13 +119,24 @@ export default function ContactFormSection() {
                   </div>
                 </div>
 
+                {state.status === "error" && (
+                  <p role="alert" className="text-[13.5px] text-red-700 bg-red-50 border border-red-100 rounded-[12px] px-4 py-3">
+                    {state.message}
+                  </p>
+                )}
+
                 <button
                   type="submit"
-                  className="bg-lf-burgundy text-white pl-7 pr-2 py-2 rounded-full font-bold text-[15px] hover:bg-lf-burgundy-hover transition-all flex items-center justify-center gap-4 shadow-md hover:shadow-lg w-fit"
+                  disabled={pending}
+                  className="bg-lf-burgundy text-white pl-7 pr-2 py-2 rounded-full font-bold text-[15px] hover:bg-lf-burgundy-hover transition-all flex items-center justify-center gap-4 shadow-md hover:shadow-lg w-fit disabled:opacity-70 disabled:cursor-not-allowed"
                 >
-                  <span>Send Message</span>
+                  <span>{pending ? "Sending..." : "Send Message"}</span>
                   <span className="bg-white rounded-full p-1.5 flex items-center justify-center">
-                    <ArrowRight className="w-4 h-4 text-lf-burgundy" strokeWidth={3} />
+                    {pending ? (
+                      <Loader2 className="w-4 h-4 text-lf-burgundy animate-spin" strokeWidth={3} />
+                    ) : (
+                      <ArrowRight className="w-4 h-4 text-lf-burgundy" strokeWidth={3} />
+                    )}
                   </span>
                 </button>
               </form>

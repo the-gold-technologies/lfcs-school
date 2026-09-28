@@ -117,11 +117,8 @@ export default function Footer() {
           <div className="flex flex-wrap justify-center md:justify-start gap-8">
             <div className="flex items-center gap-3">
               <Phone className="w-5 h-5 text-lf-gold" strokeWidth={1.5} />
-              <span className="hover:text-white transition-colors cursor-pointer">+91 123 456 7890</span>
-            </div>
-            <div className="flex items-center gap-3">
-              <Mail className="w-5 h-5 text-lf-gold" strokeWidth={1.5} />
-              <a href="mailto:marketing@lfcsschools.com" className="hover:text-white transition-colors">marketing@lfcsschools.com</a>
+              {/* TODO: phone number pending from client */}
+              <span></span>
             </div>
             <div className="flex items-center gap-3">
               <Mail className="w-5 h-5 text-lf-gold" strokeWidth={1.5} />
@@ -129,7 +126,7 @@ export default function Footer() {
             </div>
             <div className="flex items-center gap-3">
               <MapPin className="w-5 h-5 text-lf-gold" strokeWidth={1.5} />
-              <span>Little Flower Group of Schools, Uttar Pradesh, India</span>
+              <span>B-1/142, Sector-G, Aliganj, Lucknow - 226024, Uttar Pradesh</span>
             </div>
             <div className="flex items-center gap-3">
               <Clock className="w-5 h-5 text-lf-gold" strokeWidth={1.5} />

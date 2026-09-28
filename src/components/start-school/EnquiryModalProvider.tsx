@@ -6,7 +6,14 @@ import { useLenis } from "lenis/react";
 import { EnquiryModalContext } from "./EnquiryModalContext";
 import EnquiryFormSection from "./EnquiryFormSection";
 
-export default function EnquiryModalProvider({ children }: { children: React.ReactNode }) {
+export default function EnquiryModalProvider({
+  children,
+  form,
+}: {
+  children: React.ReactNode;
+  // Form shown inside the modal; defaults to the Start a School enquiry form
+  form?: React.ReactNode;
+}) {
   const [open, setOpen] = useState(false);
   const lenis = useLenis();
 
@@ -72,7 +79,7 @@ export default function EnquiryModalProvider({ children }: { children: React.Rea
               data-lenis-prevent
               className="styled-scrollbar max-h-screen sm:max-h-[90vh] overflow-y-auto overscroll-contain p-6 sm:p-10"
             >
-              <EnquiryFormSection />
+              {form ?? <EnquiryFormSection />}
             </div>
           </div>
         </div>

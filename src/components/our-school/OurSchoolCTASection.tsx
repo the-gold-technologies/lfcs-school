@@ -1,5 +1,6 @@
 import { ArrowRight, Leaf, Users, Star } from "lucide-react";
 import Link from "next/link";
+import EnquiryCTAButton from "@/components/start-school/EnquiryCTAButton";
 
 export default function OurSchoolCTASection() {
   return (
@@ -29,12 +30,12 @@ export default function OurSchoolCTASection() {
 
 
               <div className="flex flex-col sm:flex-row flex-wrap gap-4 mb-8">
-                <Link href="/contact#contact-form" className="bg-lf-burgundy text-white pl-6 pr-2 py-2 rounded-full font-bold text-[14px] hover:bg-lf-burgundy-hover transition-all flex items-center justify-between gap-4 shadow-md hover:shadow-lg w-full sm:w-auto group">
+                <EnquiryCTAButton className="bg-lf-burgundy text-white pl-6 pr-2 py-2 rounded-full font-bold text-[14px] hover:bg-lf-burgundy-hover transition-all flex items-center justify-between gap-4 shadow-md hover:shadow-lg w-full sm:w-auto group cursor-pointer">
                   <span>Enquire for Admission</span> 
                   <span className="bg-white rounded-full w-8 h-8 flex items-center justify-center group-hover:bg-gray-100 transition-colors">
                     <ArrowRight className="w-4 h-4 text-lf-burgundy" strokeWidth={2.5} />
                   </span>
-                </Link>
+                </EnquiryCTAButton>
 
                 <Link href="/about" className="bg-white text-[#41533b] border border-gray-200 px-8 py-3 rounded-full font-bold text-[14px] hover:bg-gray-50 transition-all flex items-center justify-center shadow-sm w-full sm:w-auto">
                   Explore Our School

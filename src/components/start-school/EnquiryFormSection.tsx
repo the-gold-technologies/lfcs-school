@@ -29,7 +29,7 @@ export default function EnquiryFormSection() {
           </span>
         </h2>
         <p className="text-gray-600 text-[14.5px] leading-relaxed">
-          If you are interested in establishing an LFCS school, share your details with us. Our team can understand your requirements and guide you through the next steps of the enquiry process.
+          If you are interested in establishing an LFCS school, share your details with us. Our team can understand your requirements and guide you through the next steps of the enquiry process. You can also email us at <a href="mailto:franchise@lfcsschools.com" className="font-semibold text-lf-burgundy hover:underline">franchise@lfcsschools.com</a>.
         </p>
       </div>
 

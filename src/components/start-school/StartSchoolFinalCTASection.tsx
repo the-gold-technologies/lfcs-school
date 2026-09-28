@@ -22,6 +22,10 @@ export default function StartSchoolFinalCTASection() {
                 </span>
               </EnquiryCTAButton>
 
+              <p className="mt-5 text-[14px] text-gray-600">
+                Or email us at <a href="mailto:franchise@lfcsschools.com" className="font-semibold text-lf-burgundy hover:underline">franchise@lfcsschools.com</a>
+              </p>
+
             </div>
 
             {/* Right Image */}
@@ -29,7 +33,7 @@ export default function StartSchoolFinalCTASection() {
               <img loading="lazy" decoding="async"
                 src="/cta-bg.webp"
                 alt="Build a school with Little Flower"
-                className="w-full absolute max-w-[95%] md:max-w-[65%] -top-6 right-14 object-contain translate-x-4 lg:translate-x-12"
+                className="w-full absolute max-w-[95%] md:max-w-[65%] -top-0 right-14 object-contain translate-x-4 lg:translate-x-12"
               />
             </div>
           </div>

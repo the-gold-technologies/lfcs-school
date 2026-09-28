@@ -23,10 +23,10 @@ export default function OurStorySection() {
             
             <div className="space-y-6 text-gray-600 text-[15px] leading-relaxed">
               <p>
-                Founded in 1995 with a single classroom and a big dream, Little Flower School began its journey with a simple mission: to provide quality, value-based education that goes beyond textbooks.
+                Founded in 1993 by Late Shri Vijay Shankar Yadav in a temporary space with just 30 students and a big dream, Little Flower School began its journey with a simple mission: to provide quality, value-based education that goes beyond textbooks.
               </p>
               <p>
-                Over the past two decades, we have grown from a modest neighborhood school into a vast network of educational institutions across multiple states. What hasn't changed is our commitment to fostering a nurturing environment where every child feels valued, encouraged, and challenged to achieve their best.
+                Over the past three decades, we have grown from a modest neighborhood school into a network of CBSE-affiliated schools across Uttar Pradesh. What hasn't changed is our commitment to fostering a nurturing environment where every child feels valued, encouraged, and challenged to achieve their best.
               </p>
             </div>
 
@@ -36,7 +36,7 @@ export default function OurStorySection() {
                   <History className="w-6 h-6 text-[#c76785]" strokeWidth={1.5} />
                 </div>
                 <div>
-                  <h4 className="font-bold text-[#0a192f] text-[18px]">1995</h4>
+                  <h4 className="font-bold text-[#0a192f] text-[18px]">1993</h4>
                   <p className="text-[12px] text-gray-500 font-medium uppercase tracking-wide">Year Founded</p>
                 </div>
               </div>
@@ -45,8 +45,8 @@ export default function OurStorySection() {
                   <Users className="w-6 h-6 text-[#dfae19]" strokeWidth={1.5} />
                 </div>
                 <div>
-                  <h4 className="font-bold text-[#0a192f] text-[18px]">50,000+</h4>
-                  <p className="text-[12px] text-gray-500 font-medium uppercase tracking-wide">Alumni Network</p>
+                  <h4 className="font-bold text-[#0a192f] text-[18px]">1000+</h4>
+                  <p className="text-[12px] text-gray-500 font-medium uppercase tracking-wide">Qualified Teachers</p>
                 </div>
               </div>
             </div>

@@ -88,7 +88,7 @@ export default function AcademicJourneySection() {
 
           <div className="shrink-0 lg:max-w-md flex flex-col items-start lg:pb-2 gap-6">
             
-            <a href="#admissions" className="inline-flex items-center gap-3 bg-lf-burgundy text-white px-8 py-3.5 rounded-full font-semibold hover:bg-lf-burgundy-hover transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1">
+            <a href="/contact#contact-form" className="inline-flex items-center gap-3 bg-lf-burgundy text-white px-8 py-3.5 rounded-full font-semibold hover:bg-lf-burgundy-hover transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1">
               Explore Admissions <ChevronRight className="w-5 h-5" />
             </a>
           </div>

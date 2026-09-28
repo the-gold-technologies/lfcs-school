@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
 const filters = [
@@ -15,20 +16,20 @@ const filters = [
 ];
 
 const galleryItems = [
-  { category: "Annual Functions", image: "/home-page/Experience8.webp" },
-  { category: "Sports Days", image: "/experience/sports1.webp" },
-  { category: "School Programmes", image: "/home-page/skills1.webp" },
-  { category: "Competitions", image: "/home-page/Experience9.webp" },
-  { category: "Workshops", image: "/academics/collabrative.webp" },
-  { category: "Educational Trips", image: "/experience/art1.webp" },
-  { category: "Celebrations", image: "/experience/life1.webp" },
-  { category: "Competitions", image: "/academics/practical.webp" },
-  { category: "School Programmes", image: "/experience/art2.webp" },
-  { category: "Annual Functions", image: "/home-page/skills4.webp" },
-  { category: "Educational Trips", image: "/home-page/Experience4.webp" },
-  { category: "Celebrations", image: "/experience/life2.webp" },
-  { category: "Sports Days", image: "/experience/sports2.webp" },
-  { category: "Workshops", image: "/home-page/skills2.webp" },
+  { category: "Annual Functions", image: "/home-page/Experience8.webp", ratio: 16 / 9 },
+  { category: "Sports Days", image: "/experience/sports1.webp", ratio: 1920 / 816 },
+  { category: "School Programmes", image: "/home-page/skills1.webp", ratio: 16 / 9 },
+  { category: "Competitions", image: "/home-page/Experience9.webp", ratio: 9 / 16 },
+  { category: "Workshops", image: "/academics/collabrative.webp", ratio: 16 / 9 },
+  { category: "Educational Trips", image: "/experience/art1.webp", ratio: 964 / 769 },
+  { category: "Celebrations", image: "/experience/life1.webp", ratio: 1377 / 926 },
+  { category: "Competitions", image: "/academics/practical.webp", ratio: 3 / 4 },
+  { category: "School Programmes", image: "/experience/art2.webp", ratio: 16 / 9 },
+  { category: "Annual Functions", image: "/home-page/skills4.webp", ratio: 1280 / 576 },
+  { category: "Educational Trips", image: "/home-page/Experience4.webp", ratio: 4 / 3 },
+  { category: "Celebrations", image: "/experience/life2.webp", ratio: 3 / 4 },
+  { category: "Sports Days", image: "/experience/sports2.webp", ratio: 16 / 9 },
+  { category: "Workshops", image: "/home-page/skills2.webp", ratio: 3 / 4 },
 ];
 
 export default function GallerySection() {
@@ -40,11 +41,6 @@ export default function GallerySection() {
 
   // Fallback to all items if filter results in empty list, just for visual sake
   const displayItems = filteredItems.length > 0 ? filteredItems : galleryItems;
-
-  const getFlexBasis = (idx: number) => {
-    const patterns = ['18%', '22%', '18%', '20%', '15%', '18%', '20%', '15%', '12%'];
-    return patterns[idx % patterns.length];
-  };
 
   return (
     <section className="py-16 bg-white relative">
@@ -81,17 +77,22 @@ export default function GallerySection() {
           ))}
         </div>
 
-        {/* Masonry-style Collage */}
-        <div className="flex flex-wrap gap-3 mb-16 max-w-screen-2xl mx-auto">
-          {displayItems.map((item, idx) => (
-            <div 
-              key={idx} 
-              style={{ flexBasis: getFlexBasis(idx), flexGrow: 1 }}
-              className="h-[140px] md:h-[180px] lg:h-[220px] rounded-[16px] overflow-hidden group relative min-w-[140px] sm:min-w-[180px] shadow-sm hover:shadow-md transition-all duration-300 cursor-pointer"
+        {/* Justified Collage - fixed row height, each card sized to its photo so nothing is cropped */}
+        <div className="flex flex-wrap justify-center gap-3 mb-16 max-w-screen-2xl mx-auto [--row-h:140px] md:[--row-h:180px] lg:[--row-h:220px]">
+          {displayItems.map((item) => (
+            <div
+              key={`${activeFilter}-${item.image}`}
+              style={{
+                aspectRatio: item.ratio,
+                flexGrow: item.ratio,
+                flexBasis: `calc(var(--row-h) * ${item.ratio})`,
+                maxWidth: `calc(var(--row-h) * ${item.ratio} * 1.5)`,
+              }}
+              className="rounded-[16px] overflow-hidden group relative shadow-sm hover:shadow-md transition-all duration-300 cursor-pointer"
             >
-              <img loading="lazy" decoding="async" 
-                src={item.image} 
-                alt={item.category} 
+              <img loading="lazy" decoding="async"
+                src={item.image}
+                alt={item.category}
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
               />
             </div>
@@ -102,10 +103,10 @@ export default function GallerySection() {
         <div className="flex flex-col items-center justify-center relative max-w-5xl mx-auto mt-8 mb-8">
           
           {/* View Full Gallery Button */}
-          <button className="inline-flex items-center gap-2 bg-[#832646] text-white px-8 py-3.5 rounded-full font-semibold hover:bg-[#6a1d37] transition-colors shadow-md z-10 text-[15px]">
+          <Link href="/gallery" className="inline-flex items-center gap-2 bg-[#832646] text-white px-8 py-3.5 rounded-full font-semibold hover:bg-[#6a1d37] transition-colors shadow-md z-10 text-[15px]">
             View Full Gallery
             <ArrowRight className="w-4 h-4" />
-          </button>
+          </Link>
           
           <p className="text-[13px] text-gray-500 mt-5 max-w-xl text-center z-10 relative">
             Explore hundreds more moments from our campuses in our complete media library. Specific events and celebrations may vary depending on the academic calendar and campus.

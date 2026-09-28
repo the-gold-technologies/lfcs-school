@@ -2,7 +2,7 @@ import { ArrowRight, MapPin, Globe } from "lucide-react";
 import { FaFacebook, FaInstagram, FaYoutube } from "react-icons/fa";
 import Link from "next/link";
 
-const schools = [
+export const schools = [
   {
     name: 'LFCS, MAU',
     city: 'Mau',

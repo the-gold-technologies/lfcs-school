@@ -1,4 +1,4 @@
-import { Trophy, Medal, Star, Target, ChevronRight, User } from "lucide-react";
+import { Trophy, Medal, Star, Target, User } from "lucide-react";
 
 // Placeholder data - Client to replace with real data
 const achievements = [
@@ -8,8 +8,8 @@ const achievements = [
     bg: "bg-[#dfae19]",
     desc: "Board examinations, subject-level performance and academic competitions.",
     students: [
-      { name: "John Doe", event: "CBSE Class 12th Board", position: "District Topper (98%)", year: "2023", branch: "Main Campus" },
-      { name: "Jane Smith", event: "National Science Olympiad", position: "Gold Medalist", year: "2024", branch: "City Branch" }
+      { name: "Siddhi Vishwakarma", event: "CBSE Class X Board", position: "School Topper (97%)", year: "2026", branch: "LFCS", img: "/academics/toppers/x-siddhi-vishwakarma.webp" },
+      { name: "Anshika Upadhyay", event: "CBSE Class XII Board", position: "School Topper (95%)", year: "2026", branch: "LFCS", img: "/academics/toppers/xii-anshika-upadhyay.webp" }
     ]
   },
   {
@@ -52,7 +52,7 @@ export default function StudentAchievementsSection() {
         <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
           <div className="max-w-2xl">
             <span className="text-[#dfae19] font-bold text-[12px] tracking-[0.2em] uppercase mb-3 block">Student Achievements</span>
-            <h2 className="font-serif text-[34px] md:text-[44px] font-medium text-[#0a192f] leading-tight mb-4">
+            <h2 className="font-serif text-[34px] md:text-[44px] font-medium text-[#0a192f] leading-tight">
               Celebrating Participation.<br /> Recognising 
               <span className="font-script text-[#dfae19] text-[38px] md:text-[48px] relative inline-block -my-4 pl-3">
                  Achievement.
@@ -61,14 +61,10 @@ export default function StudentAchievementsSection() {
                 </svg>
               </span>
             </h2>
-            <p className="text-[15px] text-gray-600 leading-relaxed">
-              Every achievement reflects effort, preparation and participation. At LFCS, we recognise students who perform well in academics as well as those who participate and achieve in sports, cultural activities, competitions and other areas.
-            </p>
           </div>
-          <button className="hidden md:inline-flex items-center gap-2 bg-[#0a192f] text-white px-6 py-3 rounded-[16px] font-semibold hover:bg-lf-burgundy transition-colors text-sm shrink-0 shadow-md">
-            View All Achievements
-            <ChevronRight className="w-4 h-4" />
-          </button>
+          <p className="text-[15px] text-gray-600 leading-relaxed md:max-w-sm md:text-right">
+            Every achievement reflects effort and preparation. At LFCS, we celebrate students who excel in academics, sports, cultural activities and competitions.
+          </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
@@ -88,9 +84,13 @@ export default function StudentAchievementsSection() {
                 {item.students.map((student, sIdx) => (
                   <div key={sIdx} className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 p-3 bg-gray-50 rounded-[12px]">
                     <div className="flex items-center gap-3">
-                      <div className="w-8 h-8 rounded-full bg-white border border-gray-200 flex items-center justify-center">
-                        <User className="w-4 h-4 text-gray-400" />
-                      </div>
+                      {"img" in student && student.img ? (
+                        <img loading="lazy" decoding="async" src={student.img} alt={student.name} className="w-8 h-8 rounded-full object-cover object-top border border-gray-200 bg-white shrink-0" />
+                      ) : (
+                        <div className="w-8 h-8 rounded-full bg-white border border-gray-200 flex items-center justify-center shrink-0">
+                          <User className="w-4 h-4 text-gray-400" />
+                        </div>
+                      )}
                       <div>
                         <div className="font-bold text-[#0a192f] text-[14px]">{student.name}</div>
                         <div className="text-[12px] text-gray-500">{student.event} • {student.year}</div>
@@ -106,11 +106,6 @@ export default function StudentAchievementsSection() {
             </div>
           ))}
         </div>
-
-        <button className="md:hidden mt-8 w-full inline-flex items-center justify-center gap-2 bg-[#0a192f] text-white px-6 py-3 rounded-[16px] font-semibold hover:bg-lf-burgundy transition-colors text-sm shadow-md">
-          View All Achievements
-          <ChevronRight className="w-4 h-4" />
-        </button>
 
       </div>
     </section>

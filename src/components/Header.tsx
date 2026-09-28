@@ -1,7 +1,7 @@
 "use client";
 import Link from 'next/link';
 import Image from 'next/image';
-import { Home, BookOpen, Building, Menu, X, ChevronDown, Backpack, GraduationCap } from 'lucide-react';
+import { Home, BookOpen, Building, Menu, X, ChevronDown, Backpack, GraduationCap, Phone } from 'lucide-react';
 import { useEffect, useState } from 'react';
 
 export default function Header() {
@@ -33,6 +33,7 @@ export default function Header() {
         { label: 'LFIS, MAU', href: 'https://lfismau.co.in/', img: '/schools/lfis-mau.webp' },
       ]
     },
+    { label: 'Contact Us', href: '/contact', icon: Phone, hasDropdown: false },
   ];
 
   return (

@@ -14,7 +14,7 @@ export default function CTABanners() {
             </div>
             <h2 className="text-[26px] md:text-[32px] font-serif text-white mb-2 leading-tight">Admissions Open</h2>
             <p className="text-gray-200 text-[14px] mb-8 max-w-sm leading-relaxed">Begin your child's journey of excellence and endless possibilities.</p>
-            <Link href="/admissions" className="bg-lf-gold text-[#0a192f] px-6 py-2.5 rounded-[16px] font-bold text-[14px] hover:bg-[#c99a12] transition-colors w-max flex items-center gap-2">
+            <Link href="/contact#contact-form" className="bg-lf-gold text-[#0a192f] px-6 py-2.5 rounded-[16px] font-bold text-[14px] hover:bg-[#c99a12] transition-colors w-max flex items-center gap-2">
               Learn About Admissions <ArrowRight className="w-4 h-4" />
             </Link>
           </div>

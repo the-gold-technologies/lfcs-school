@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { Phone, Mail, MapPin, Clock, ChevronRight } from 'lucide-react';
+import { Phone, Mail, MapPin, Clock } from 'lucide-react';
+import BackToTopButton from '@/components/BackToTopButton';
 
 const FacebookIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
@@ -31,7 +32,7 @@ export default function Footer() {
     <div className="bg-[#fdfdfc]">
       <footer className="bg-[#6a2238] text-white pt-20 pb-8 rounded-t-[40px] mx-1">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mb-16">
           
           {/* Logo & Description */}
           <div className="lg:col-span-2 pr-8">
@@ -75,26 +76,26 @@ export default function Footer() {
               <li><Link href="/academics" className="hover:text-white transition-colors">Academics</Link></li>
               <li><Link href="/experience" className="hover:text-white transition-colors">Experience</Link></li>
               <li><Link href="/our-school" className="hover:text-white transition-colors">Our Schools</Link></li>
-              <li><Link href="/admissions" className="hover:text-white transition-colors">Admissions</Link></li>
               <li><Link href="/start-school" className="hover:text-white transition-colors">Start a School</Link></li>
               <li><Link href="/contact" className="hover:text-white transition-colors">Contact Us</Link></li>
             </ul>
           </div>
 
-          {/* Links 3 - ADMISSIONS */}
+          {/* Links 2 - ADMISSIONS */}
           <div>
             <h4 className="text-lf-gold font-bold mb-6 uppercase tracking-wider text-xs">Admissions</h4>
             <ul className="space-y-3.5 text-[13px] text-[#eef3ea]">
-              <li><Link href="/admissions#why-choose-us" className="hover:text-white transition-colors">Why Choose Us</Link></li>
-              <li><Link href="/admissions#process" className="hover:text-white transition-colors">Admission Process</Link></li>
-              <li><Link href="/admissions#eligibility" className="hover:text-white transition-colors">Eligibility & Documents</Link></li>
-              <li><Link href="/admissions#fees" className="hover:text-white transition-colors">Fee Structure</Link></li>
-              <li><Link href="/admissions#faqs" className="hover:text-white transition-colors">FAQs</Link></li>
-              <li><Link href="/admissions#apply" className="hover:text-white transition-colors">Apply Now</Link></li>
+              <li><Link href="/about#our-story" className="hover:text-white transition-colors">Why Choose Us</Link></li>
+              <li><Link href="/academics#curriculum" className="hover:text-white transition-colors">Curriculum</Link></li>
+              <li><Link href="/academics#approach" className="hover:text-white transition-colors">Teaching Approach</Link></li>
+              <li><Link href="/academics#faculty" className="hover:text-white transition-colors">Our Faculty</Link></li>
+              <li><Link href="/experience#life-at-lfcs" className="hover:text-white transition-colors">Life at LFCS</Link></li>
+              <li><Link href="/our-school#schools" className="hover:text-white transition-colors">Our Campuses</Link></li>
+              <li><Link href="/contact#contact-form" className="hover:text-white transition-colors">Enquire Now</Link></li>
             </ul>
           </div>
 
-          {/* Links 4 - START A SCHOOL */}
+          {/* Links 3 - START A SCHOOL */}
           <div>
             <h4 className="text-lf-gold font-bold mb-6 uppercase tracking-wider text-xs">Start A School</h4>
             <ul className="space-y-3.5 text-[13px] text-[#eef3ea]">
@@ -102,21 +103,9 @@ export default function Footer() {
               <li><Link href="/start-school#model" className="hover:text-white transition-colors">Our School Model</Link></li>
               <li><Link href="/start-school#support" className="hover:text-white transition-colors">Support & Benefits</Link></li>
               <li><Link href="/start-school#requirements" className="hover:text-white transition-colors">Requirements</Link></li>
+              <li><Link href="/start-school#process" className="hover:text-white transition-colors">Setup Process</Link></li>
               <li><Link href="/start-school#investment" className="hover:text-white transition-colors">Investment Overview</Link></li>
-              <li><Link href="/start-school#apply" className="hover:text-white transition-colors">Partner With Us</Link></li>
               <li><Link href="/start-school#faqs" className="hover:text-white transition-colors">FAQs</Link></li>
-            </ul>
-          </div>
-
-          {/* Links 5 - RESOURCES */}
-          <div className="hidden lg:block">
-            <h4 className="text-lf-gold font-bold mb-6 uppercase tracking-wider text-xs">Resources</h4>
-             <ul className="space-y-3.5 text-[13px] text-[#eef3ea]">
-              <li><Link href="/news" className="hover:text-white transition-colors">News & Events</Link></li>
-              <li><Link href="/careers" className="hover:text-white transition-colors">Careers</Link></li>
-              <li><Link href="/downloads" className="hover:text-white transition-colors">Downloads</Link></li>
-              <li><Link href="/privacy-policy" className="hover:text-white transition-colors">Privacy Policy</Link></li>
-              <li><Link href="/terms" className="hover:text-white transition-colors">Terms & Conditions</Link></li>
             </ul>
           </div>
 
@@ -132,7 +121,11 @@ export default function Footer() {
             </div>
             <div className="flex items-center gap-3">
               <Mail className="w-5 h-5 text-lf-gold" strokeWidth={1.5} />
-              <span className="hover:text-white transition-colors cursor-pointer">info@littleflowergroup.com</span>
+              <a href="mailto:marketing@lfcsschools.com" className="hover:text-white transition-colors">marketing@lfcsschools.com</a>
+            </div>
+            <div className="flex items-center gap-3">
+              <Mail className="w-5 h-5 text-lf-gold" strokeWidth={1.5} />
+              <a href="mailto:franchise@lfcsschools.com" className="hover:text-white transition-colors">franchise@lfcsschools.com</a>
             </div>
             <div className="flex items-center gap-3">
               <MapPin className="w-5 h-5 text-lf-gold" strokeWidth={1.5} />
@@ -145,9 +138,7 @@ export default function Footer() {
           </div>
           
           <div className="text-center md:text-right mt-4 md:mt-0">
-            <div className="w-10 h-10 border border-white/30 rounded-full flex items-center justify-center hover:bg-white/10 transition-colors ml-auto cursor-pointer">
-              <ChevronRight className="w-5 h-5 -rotate-90 text-white/80" />
-            </div>
+            <BackToTopButton />
           </div>
           
         </div>

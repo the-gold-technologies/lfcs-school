@@ -31,7 +31,7 @@ export default function AboutCTASection() {
               <img loading="lazy" decoding="async" 
                 src="/cta-bg.webp" 
                 alt="Join Little Flower Family" 
-                className="w-full absolute max-w-[95%] md:max-w-[70%] -top-6 object-contain translate-x-4 lg:translate-x-12" 
+                className="w-full absolute max-w-[95%] md:max-w-[60%] top-0 object-contain translate-x-4 lg:translate-x-8" 
               />
             </div>
           </div>

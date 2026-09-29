@@ -33,7 +33,7 @@ export default function StartSchoolFinalCTASection() {
               <img loading="lazy" decoding="async"
                 src="/cta-bg.webp"
                 alt="Build a school with Little Flower"
-                className="w-full absolute max-w-[95%] md:max-w-[65%] -top-0 right-14 object-contain translate-x-4 lg:translate-x-12"
+                className="w-full absolute max-w-[95%] md:max-w-[60%] top-5 right-14 object-contain translate-x-4 lg:translate-x-12"
               />
             </div>
           </div>

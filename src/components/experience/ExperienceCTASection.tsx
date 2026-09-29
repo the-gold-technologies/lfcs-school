@@ -28,7 +28,7 @@ export default function ExperienceCTASection() {
               <img loading="lazy" decoding="async" 
                 src="/cta-bg.webp" 
                 alt="Join Little Flower Family" 
-                className="w-full absolute max-w-[95%] md:max-w-[75%] -bottom-10 right-0 object-contain translate-x-4 lg:translate-x-12 hidden md:block" 
+                className="w-full absolute max-w-[95%] md:max-w-[68%] -bottom-10 right-0 object-contain translate-x-4 lg:translate-x-12 hidden md:block" 
               />
             </div>
           </div>

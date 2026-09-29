@@ -12,7 +12,7 @@ export default function ExperienceHeroSection() {
         <div className="grid grid-cols-1 lg:grid-cols-12 items-center">
           
           {/* Left Text Content */}
-          <div className="lg:col-span-4 flex flex-col items-start text-left max-w-2xl">
+          <div className="lg:col-span-5 flex flex-col items-start text-left max-w-2xl">
             <span className="text-[#dfae19] font-bold text-[12px] tracking-[0.2em] uppercase mb-4 block">Life at LFCS</span>
             
             <h1 className="font-serif text-3xl sm:text-4xl md:text-[55px] font-medium leading-[1.3] mb-6 text-[#0a192f]">
@@ -36,7 +36,7 @@ export default function ExperienceHeroSection() {
 
           {/* Right Image */}
           <div className="lg:col-span-7 relative w-full flex justify-center">
-            <div className="relative w-full max-w-full lg:max-w-[110%] overflow-hidden scale-105">
+            <div className="relative w-full max-w-full lg:max-w-[100%] overflow-hidden scale-90">
               <Image 
                 src="/experience-hero.webp" 
                 alt="Students interacting at school" 

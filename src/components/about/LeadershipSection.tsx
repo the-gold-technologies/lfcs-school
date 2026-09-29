@@ -68,7 +68,7 @@ export default function LeadershipSection() {
               </div>
               
               <div className="pt-6 border-t border-gray-200">
-                <p className="font-serif text-[20px] text-[#0a192f] font-medium">Mr. Murali Yadav</p>
+                <p className="font-serif text-[20px] text-[#0a192f] font-medium">Mr. Muralidhar Yadav</p>
                 <p className="text-[#c76785] text-[13px] font-bold uppercase tracking-wider mt-1">Chairman, Little Flower Group of Schools</p>
               </div>
             </div>

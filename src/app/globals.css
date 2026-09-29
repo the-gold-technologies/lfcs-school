@@ -1,6 +1,7 @@
 @import "tailwindcss";
 
 :root {
+  color-scheme: only light;
   --background: #ffffff;
   --foreground: #171717;
 }
@@ -22,13 +23,6 @@
   /* Hover variants */
   --color-lf-burgundy-hover: #6a2238;
   --color-lf-gold-hover: #c49915;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
 }
 
 body {

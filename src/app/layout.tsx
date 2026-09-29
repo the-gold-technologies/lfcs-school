@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter, Playfair_Display, Satisfy } from "next/font/google";
 import "./globals.css";
 
@@ -21,6 +21,12 @@ const satisfy = Satisfy({
 export const metadata: Metadata = {
   title: "Little Flower Group of Schools",
   description: "Rooted in Values. Rising with Excellence.",
+};
+
+// The site is designed for light mode only; stop mobile browsers (Chrome,
+// Samsung Internet) from force-darkening it, which hides the header logo.
+export const viewport: Viewport = {
+  colorScheme: "only light",
 };
 
 import Header from "@/components/Header";

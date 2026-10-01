@@ -7,25 +7,25 @@ export default function HeroSection() {
       {/* 1. Hero Section */}
       <section className="relative min-h-[75vh] sm:min-h-[65vh] md:h-[75vh] lg:h-[95vh] flex items-center overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <img src="/hersection_bg.webp" alt="Students" className="absolute inset-0 w-full h-full object-cover object-top" />
-          <div className="absolute inset-y-0 left-0 w-full md:w-[70%] lg:w-[55%] bg-gradient-to-r from-white/95 via-white/80 to-transparent"></div>
-          <img src="/herobg1.webp" alt="Hero Overlay" className="absolute inset-0 w-full h-full object-cover pointer-events-none" />
+          <img src="/hersection_bg.webp" alt="Students" className="hero-bg absolute inset-0 w-full h-full object-cover object-top" />
+          <div className="hero-panel absolute inset-y-0 left-0 w-full md:w-[70%] lg:w-[55%] bg-gradient-to-r from-white/95 via-white/80 to-transparent"></div>
+          <img src="/herobg1.webp" alt="Hero Overlay" className="hero-overlay absolute inset-0 w-full h-full object-cover pointer-events-none" />
         </div>
 
         <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-0 mt-20 md:mt-14 pb-10 md:pb-0">
           <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl font-medium leading-tight max-w-2xl mb-4 md:mb-6">
-            <span className="text-[#0a192f]">Rooted in Values.</span><br />
-            <span className="text-lf-burgundy">Rising with <span className="font-script text-lf-burgundy text-[48px] sm:text-[64px] md:text-[65px] relative inline-block -my-4 pr-2">
+            <span className="hero-rise inline-block text-[#0a192f]" style={{ animationDelay: "0.6s" }}>Rooted in Values.</span><br />
+            <span className="hero-rise inline-block text-lf-burgundy" style={{ animationDelay: "0.85s" }}>Rising with <span className="font-script text-lf-burgundy text-[48px] sm:text-[64px] md:text-[65px] relative inline-block -my-4 pr-2">
               Excellence.
-              <svg className="absolute bottom-[4px] left-0 w-full h-[6px]" viewBox="0 0 100 10" preserveAspectRatio="none">
-                <path d="M2 7 Q 50 12 98 3" stroke="#dfae19" strokeWidth="3" fill="none" strokeLinecap="round" />
+              <svg className="absolute bottom-[4px] left-0 w-full h-[10px]" viewBox="0 0 100 10" preserveAspectRatio="none">
+                <path className="hero-draw" pathLength={100} d="M2 7 Q 50 12 98 3" stroke="#dfae19" strokeWidth="3" fill="none" strokeLinecap="round" />
               </svg>
             </span></span>
           </h1>
-          <p className="text-base md:text-xl text-gray-700 max-w-xl mb-8 md:mb-10 leading-relaxed font-light">
+          <p className="hero-rise text-base md:text-xl text-gray-700 max-w-xl mb-8 md:mb-10 leading-relaxed font-light" style={{ animationDelay: "1.1s" }}>
             A network of CBSE schools committed to academic excellence, character building and holistic development.
           </p>
-          <div className="flex flex-wrap gap-3 md:gap-4">
+          <div className="hero-rise flex flex-wrap gap-3 md:gap-4" style={{ animationDelay: "1.3s" }}>
             <Link href="/our-school" className="bg-lf-burgundy text-white px-5 md:px-6 py-2.5 md:py-3 rounded-[16px] font-semibold hover:bg-lf-burgundy-hover transition-all flex items-center gap-2 text-sm md:text-base">
               Explore Our Schools <ArrowRight className="w-4 h-4 md:w-5 md:h-5 text-lf-gold" />
             </Link>
@@ -38,7 +38,7 @@ export default function HeroSection() {
 
       {/* 2. Statistics Bar */}
       <div className="relative z-20 max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-0 -mt-8 md:-mt-16 mb-10 md:mb-16">
-        <div className="bg-white rounded-[24px] md:rounded-[32px] shadow-xl py-5 md:py-8 px-4 md:px-10 grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 text-left divide-x divide-gray-100">
+        <div className="hero-rise bg-white rounded-[24px] md:rounded-[32px] shadow-xl py-5 md:py-8 px-4 md:px-10 grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 text-left divide-x divide-gray-100" style={{ animationDelay: "1.5s" }}>
           <div className="flex flex-row gap-2 md:gap-4 items-start">
             <GraduationCap className="w-7 h-7 md:w-11 md:h-11 text-red-500 mb-2 md:mb-3 shrink-0" strokeWidth={1.5} />
             <div>

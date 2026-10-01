@@ -67,3 +67,42 @@ body {
   background-color: #842b46;
 }
 
+
+/* Hero first-load entrance */
+@keyframes hero-bg-in {
+  from { opacity: 0; transform: scale(1.12); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes hero-fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes hero-panel-in {
+  from { opacity: 0; transform: translateX(-8%); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes hero-rise {
+  from { opacity: 0; transform: translateY(28px); filter: blur(8px); }
+  to { opacity: 1; transform: translateY(0); filter: blur(0); }
+}
+
+@keyframes hero-draw {
+  from { stroke-dashoffset: 100; }
+  to { stroke-dashoffset: 0; }
+}
+
+.hero-bg { animation: hero-bg-in 2.2s cubic-bezier(0.22, 1, 0.36, 1) both; }
+.hero-panel { animation: hero-panel-in 1.2s cubic-bezier(0.22, 1, 0.36, 1) 0.2s both; }
+.hero-overlay { animation: hero-fade 1.4s ease-out 0.5s both; }
+.hero-rise { animation: hero-rise 1s cubic-bezier(0.22, 1, 0.36, 1) both; }
+.hero-draw { stroke-dasharray: 100; animation: hero-draw 1s cubic-bezier(0.65, 0, 0.35, 1) 1.5s both; }
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-bg, .hero-panel, .hero-overlay, .hero-rise, .hero-draw {
+    animation: none;
+    stroke-dasharray: none;
+  }
+}

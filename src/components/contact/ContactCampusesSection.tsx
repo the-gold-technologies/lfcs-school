@@ -20,37 +20,47 @@ export default function ContactCampusesSection() {
           {schools.map((school) => (
             <div
               key={school.name}
-              className="flex flex-col p-6 rounded-[24px] border border-gray-100 bg-[#fefdfa] shadow-[0_4px_20px_rgb(0,0,0,0.03)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.06)] transition-shadow"
+              className="group relative flex flex-col justify-end aspect-[16/10] min-h-[250px] p-5 rounded-[24px] overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.08)] hover:shadow-[0_16px_40px_rgb(0,0,0,0.16)] transition-shadow duration-500"
             >
-              <h3 className="font-serif text-[20px] font-medium text-[#0a192f] mb-1">{school.name}</h3>
-              <p className="text-[12px] font-bold uppercase tracking-[0.15em] text-lf-gold mb-4">
-                {school.city}, {school.state}
-              </p>
+              {/* Background image */}
+              <img
+                loading="lazy"
+                decoding="async"
+                src={school.img}
+                alt={school.name}
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+              {/* Readability overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0a192f] via-[#0a192f]/60 to-transparent"></div>
 
-              <div className="flex items-start gap-3 text-[14px] text-gray-600 leading-relaxed mb-6">
-                <MapPin className="w-4 h-4 text-lf-burgundy mt-1 shrink-0" strokeWidth={2} />
-                <span>{school.address}</span>
-              </div>
+              <div className="relative z-10">
+                <h3 className="font-serif text-[20px] font-medium text-white mb-1.5 leading-tight">{school.name}</h3>
 
-              <div className="mt-auto flex flex-wrap gap-3">
-                <a
-                  href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${school.name} ${school.address}`)}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 px-4 py-2 rounded-full bg-lf-burgundy text-white text-[13px] font-bold hover:bg-lf-burgundy-hover transition-colors"
-                >
-                  Directions
-                  <ArrowUpRight className="w-4 h-4" strokeWidth={2.5} />
-                </a>
-                <a
-                  href={school.website}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 px-4 py-2 rounded-full border border-gray-200 bg-white text-[#41533b] text-[13px] font-bold hover:bg-gray-50 transition-colors"
-                >
-                  <Globe className="w-4 h-4" strokeWidth={2} />
-                  Website
-                </a>
+                <div className="flex items-start gap-2 text-[12.5px] text-white/85 leading-snug mb-3">
+                  <MapPin className="w-3.5 h-3.5 text-[#dfae19] mt-0.5 shrink-0" strokeWidth={2} />
+                  <span>{school.address}</span>
+                </div>
+
+                <div className="flex flex-wrap gap-2.5">
+                  <a
+                    href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${school.name} ${school.address}`)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-lf-burgundy text-white text-[12px] font-bold hover:bg-lf-burgundy-hover transition-colors"
+                  >
+                    Directions
+                    <ArrowUpRight className="w-4 h-4" strokeWidth={2.5} />
+                  </a>
+                  <a
+                    href={school.website}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-full border border-white/30 bg-white/10 backdrop-blur-md text-white text-[12px] font-bold hover:bg-white hover:text-[#0a192f] transition-colors"
+                  >
+                    <Globe className="w-4 h-4" strokeWidth={2} />
+                    Website
+                  </a>
+                </div>
               </div>
             </div>
           ))}

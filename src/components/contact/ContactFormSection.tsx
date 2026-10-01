@@ -10,8 +10,7 @@ const inputClass =
 const labelClass = "block text-[13px] font-bold text-[#0a192f] mb-2";
 
 const contactDetails = [
-  // TODO: phone number pending from client
-  { icon: Phone, label: "Call Us", value: "", bg: "bg-[#fbeef2]", color: "text-lf-burgundy" },
+  { icon: Phone, label: "Call Us", value: "+91 94508 79999", href: "tel:+919450879999", bg: "bg-[#fbeef2]", color: "text-lf-burgundy" },
   { icon: Mail, label: "Email Us", value: "franchise@lfcsschools.com", href: "mailto:franchise@lfcsschools.com", bg: "bg-[#fdf6e3]", color: "text-lf-gold" },
   { icon: MapPin, label: "Visit Us", value: "B-1/142, Sector-G, Aliganj, Lucknow - 226024, Uttar Pradesh", bg: "bg-[#edf1e8]", color: "text-lf-olive" },
   { icon: Clock, label: "Office Hours", value: "Mon - Sat: 8:00 AM - 5:00 PM", bg: "bg-[#f8ede4]", color: "text-lf-orange" },

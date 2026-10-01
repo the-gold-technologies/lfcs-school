@@ -117,8 +117,7 @@ export default function Footer() {
           <div className="flex flex-wrap justify-center md:justify-start gap-8">
             <div className="flex items-center gap-3">
               <Phone className="w-5 h-5 text-lf-gold" strokeWidth={1.5} />
-              {/* TODO: phone number pending from client */}
-              <span></span>
+              <a href="tel:+919450879999" className="hover:text-white transition-colors">+91 94508 79999</a>
             </div>
             <div className="flex items-center gap-3">
               <Mail className="w-5 h-5 text-lf-gold" strokeWidth={1.5} />

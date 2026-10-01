@@ -1,6 +1,6 @@
 import HeroSection from "@/components/HeroSection";
 import WelcomeSection from "@/components/WelcomeSection";
-import BrandAmbassadorSection from "@/components/BrandAmbassadorSection";
+import NoteOfSupportSection from "@/components/NoteOfSupportSection";
 import HowWeEducateSection from "@/components/HowWeEducateSection";
 import OurApproachSection from "@/components/OurApproachSection";
 import ExperienceSection from "@/components/ExperienceSection";
@@ -13,7 +13,7 @@ export default function Home() {
     <div className="flex flex-col min-h-screen bg-white">
       <HeroSection />
       <WelcomeSection />
-      <BrandAmbassadorSection />
+      <NoteOfSupportSection />
       <HowWeEducateSection />
       <OurApproachSection />
       <ExperienceSection />

@@ -93,6 +93,45 @@ export default function LeadershipSection() {
             </div>
           </div>
 
+          {/* Brand Ambassador Section */}
+          <div id="brand-ambassador" className="scroll-mt-28 flex flex-col md:flex-row items-center gap-8 lg:gap-12 bg-white rounded-[2rem] p-8 md:p-10 shadow-xl border border-gray-100 relative transition-all duration-300 hover:shadow-2xl hover:border-[#c76785]/30">
+            <div className="absolute -right-6 top-1/2 -translate-y-1/2 w-12 h-24 bg-[#c76785] rounded-l-2xl opacity-10"></div>
+
+            <div className="w-full md:w-2/5 relative">
+              <div className="relative aspect-[5/6] rounded-2xl overflow-hidden shadow-lg group">
+                <img loading="lazy" decoding="async" src="/about/brand-ambassador.webp" alt="Sharman Joshi, Brand Ambassador of Little Flower Children School" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                <div className="absolute inset-0 ring-1 ring-inset ring-black/10 rounded-2xl"></div>
+              </div>
+              {/* Decorative dots */}
+              <div className="absolute -bottom-4 -left-4 w-24 h-24 bg-[radial-gradient(#c76785_2px,transparent_2px)] [background-size:16px_16px] opacity-30 -z-10"></div>
+            </div>
+
+            <div className="w-full md:w-3/5 space-y-6">
+              <div>
+                <h3 className="text-[#c76785] font-bold text-[13px] uppercase tracking-[0.15em] mb-2">A Message from the Brand Ambassador</h3>
+                <h2 className="font-serif text-[28px] md:text-[32px] text-[#0a192f] font-medium leading-tight">
+                  Because Every Child Deserves the Chance to Learn, Grow and Dream.
+                </h2>
+              </div>
+
+              <div className="relative">
+                <Quote className="absolute -top-4 -left-6 w-12 h-12 text-[#dfae19] opacity-20 -z-10 rotate-180" />
+                <div className="space-y-3 text-gray-600 text-[15px] leading-relaxed">
+                  <p>Education has the power to shape not just a child&apos;s future, but the future of an entire community.</p>
+                  <p>That is what makes my association with Little Flower Children School meaningful to me.</p>
+                  <p>I firmly believe every child deserves access to a surrounding where they can learn &amp; grow with confidence, discover their potential, dream without limitations &amp; work towards making them true.</p>
+                  <p>LFCS is taking that belief beyond the classroom towards making quality education more accessible to children and families across India.</p>
+                  <p>I am glad to be a part of this journey, and to stand behind a vision that believes in the power of education to create a better tomorrow.</p>
+                </div>
+              </div>
+
+              <div className="pt-6 border-t border-gray-200">
+                <p className="font-serif text-[20px] text-[#0a192f] font-medium">Sharman Joshi</p>
+                <p className="text-[#c76785] text-[13px] font-bold uppercase tracking-wider mt-1">Brand Ambassador, Little Flower Children School</p>
+              </div>
+            </div>
+          </div>
+
           {/* Concort Consultant Management Profile Section */}
           <div className="pt-12">
             <div className="text-center mb-12">

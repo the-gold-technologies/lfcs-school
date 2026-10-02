@@ -26,7 +26,7 @@ export default function OurGrowthSection() {
     },
     {
       year: "2014",
-      title: "LFIS, Mau",
+      title: "LFIS, Khalishpur Mau",
       desc: "Our flagship international school in Khalishpur, with high tech facilities and an Olympic standard swimming pool.",
       color: "#fb5857",
       bgColor: "bg-[#fcf2f2]",

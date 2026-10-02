@@ -72,7 +72,7 @@ const schools = [
     img: '/schools/lfcs-azamgarh.webp'
   },
   {
-    name: 'LFIS, MAU',
+    name: 'LFIS, KHALISHPUR MAU',
     city: 'Mau',
     state: 'Uttar Pradesh',
     address: 'S.H. 34 Mau - Ballia Road khalishpur Mau, Uttar Pradesh 275102',
@@ -81,6 +81,17 @@ const schools = [
     facebook: 'https://www.facebook.com/share/1Bd9LEPBNU/',
     youtube: '',
     img: '/schools/lfis-mau.webp'
+  },
+  {
+    name: 'AZAD HIND INTER COLLEGE, KHALISHPUR MAU',
+    city: 'Mau',
+    state: 'Uttar Pradesh',
+    address: 'Khalishpur, Mau, Uttar Pradesh',
+    website: '',
+    instagram: '',
+    facebook: 'https://www.facebook.com/azadhindcollege/',
+    youtube: '',
+    img: '/schools/azad-hind-inter-college.webp'
   }
 ];
 
@@ -158,7 +169,7 @@ export default function OurSchoolsSection() {
                   <img loading="lazy" decoding="async" src={school.img} alt={school.city} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                 </div>
                 <div className="p-4 flex flex-col h-[150px]">
-                  <h3 className="font-semibold text-[#0a192f] text-[15px] leading-snug mb-2 truncate">
+                  <h3 className="font-semibold text-[#0a192f] text-[15px] leading-snug mb-2 truncate" title={school.name}>
                     {school.name}
                   </h3>
                   <div className="flex items-start gap-2 text-[12.5px] font-medium text-gray-500 mb-3 h-[36px]">
@@ -190,9 +201,11 @@ export default function OurSchoolsSection() {
                       )}
                     </div>
                     
-                    <a href={school.website || "#"} target={school.website ? "_blank" : "_self"} rel="noopener noreferrer" className="text-[#0a192f] font-bold text-[11px] uppercase flex items-center gap-1 hover:text-[#dfae19] transition-colors">
-                      Website <ArrowRight className="w-3 h-3" />
-                    </a>
+                    {school.website && (
+                      <a href={school.website} target="_blank" rel="noopener noreferrer" className="text-[#0a192f] font-bold text-[11px] uppercase flex items-center gap-1 hover:text-[#dfae19] transition-colors">
+                        Website <ArrowRight className="w-3 h-3" />
+                      </a>
+                    )}
                   </div>
                 </div>
               </div>

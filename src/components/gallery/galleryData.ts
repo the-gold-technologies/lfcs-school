@@ -19,7 +19,7 @@ export type GalleryImage = {
 export const galleryImages: GalleryImage[] = [
   // Campus & Facilities
   { src: "/schools/Nizamuddinpura-Mau.webp", caption: "LFCS Nizamuddinpura, Mau", category: "Campus & Facilities" },
-  { src: "/about/journey-lfis-mau.webp", caption: "LFIS, Mau", category: "Campus & Facilities" },
+  { src: "/about/journey-lfis-mau.webp", caption: "LFIS, Khalishpur Mau", category: "Campus & Facilities" },
   { src: "/schools/Ghosi.webp", caption: "LFCS Ghosi campus and school transport", category: "Campus & Facilities" },
   { src: "/schools/Kasimabad.webp", caption: "LFCS Kasimabad campus", category: "Campus & Facilities" },
   { src: "/schools/Khalispur-Balia.webp", caption: "LFCS Kiriharapur, Ballia", category: "Campus & Facilities" },

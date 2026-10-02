@@ -70,7 +70,7 @@ export const schools = [
     img: '/schools/lfcs-azamgarh.webp'
   },
   {
-    name: 'LFIS, MAU',
+    name: 'LFIS, KHALISHPUR MAU',
     city: 'Mau',
     state: 'Uttar Pradesh',
     address: 'S.H. 34 Mau - Ballia Road khalishpur Mau, Uttar Pradesh 275102',
@@ -79,6 +79,17 @@ export const schools = [
     facebook: 'https://www.facebook.com/share/1Bd9LEPBNU/',
     youtube: '',
     img: '/schools/lfis-mau.webp'
+  },
+  {
+    name: 'AZAD HIND INTER COLLEGE, KHALISHPUR MAU',
+    city: 'Mau',
+    state: 'Uttar Pradesh',
+    address: 'Khalishpur, Mau, Uttar Pradesh',
+    website: '',
+    instagram: '',
+    facebook: 'https://www.facebook.com/azadhindcollege/',
+    youtube: '',
+    img: '/schools/azad-hind-inter-college.webp'
   }
 ];
 
@@ -105,7 +116,7 @@ export default function AllSchoolsListSection() {
               
               {/* Content */}
               <div className="p-5 flex flex-col flex-grow bg-[#f4f5f7] relative">
-                <h3 className="font-bold text-[#0a192f] text-[16px] leading-snug mb-1.5 transition-colors duration-300 truncate">
+                <h3 className="font-bold text-[#0a192f] text-[16px] leading-snug mb-1.5 transition-colors duration-300 truncate" title={school.name}>
                   {school.name}
                 </h3>
                 
@@ -138,18 +149,20 @@ export default function AllSchoolsListSection() {
                     )}
                   </div>
                   
-                  <Link 
-                    href={school.website || "#"} 
-                    target={school.website ? "_blank" : "_self"}
-                    className="flex items-center gap-1.5 group/link"
-                  >
-                    <span className="text-[#0a192f] font-bold text-[11px] uppercase tracking-wide group-hover/link:text-[#dfae19] transition-colors">
-                      Website 
-                    </span>
-                    <span className="w-6 h-6 rounded-full bg-white border border-gray-200 group-hover/link:bg-[#dfae19]/10 text-[#0a192f] group-hover/link:text-[#dfae19] flex items-center justify-center transition-colors">
-                      <ArrowRight className="w-3 h-3 group-hover/link:translate-x-0.5 transition-transform" />
-                    </span>
-                  </Link>
+                  {school.website && (
+                    <Link
+                      href={school.website}
+                      target="_blank"
+                      className="flex items-center gap-1.5 group/link"
+                    >
+                      <span className="text-[#0a192f] font-bold text-[11px] uppercase tracking-wide group-hover/link:text-[#dfae19] transition-colors">
+                        Website
+                      </span>
+                      <span className="w-6 h-6 rounded-full bg-white border border-gray-200 group-hover/link:bg-[#dfae19]/10 text-[#0a192f] group-hover/link:text-[#dfae19] flex items-center justify-center transition-colors">
+                        <ArrowRight className="w-3 h-3 group-hover/link:translate-x-0.5 transition-transform" />
+                      </span>
+                    </Link>
+                  )}
                 </div>
               </div>
             </div>

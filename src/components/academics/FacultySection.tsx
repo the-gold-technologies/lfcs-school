@@ -6,7 +6,8 @@ const principals = [
   { name: "Sanjay Rai", school: "LFCS, Ghosi", city: "Ghosi", img: "/academics/principals/sanjay-rai.webp" },
   { name: "Deepa Pal", school: "LFCS, Ballia", city: "Mau", img: "/academics/principals/deepa-pal.webp" },
   { name: "Ekta Singh", school: "LFCS, Kasimabad Ghazipur", city: "Kasimabad", img: "/academics/principals/ekta-singh.webp" },
-  { name: "Zeeta Lepcha", school: "LFIS, Mau", city: "Mau", img: "/academics/principals/zeeta-lepcha.webp" },
+  { name: "Zeeta Lepcha", school: "LFIS, Khalishpur Mau", city: "Mau", img: "/academics/principals/zeeta-lepcha.webp" },
+  { name: "Mahendra Yadav", school: "Azad Hind Inter College, Khalishpur Mau", city: "Mau", img: "/academics/principals/mahendra-yadav.webp" },
 ];
 
 export default function FacultySection() {

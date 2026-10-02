@@ -51,15 +51,17 @@ export default function ContactCampusesSection() {
                     Directions
                     <ArrowUpRight className="w-4 h-4" strokeWidth={2.5} />
                   </a>
-                  <a
-                    href={school.website}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-full border border-white/30 bg-white/10 backdrop-blur-md text-white text-[12px] font-bold hover:bg-white hover:text-[#0a192f] transition-colors"
-                  >
-                    <Globe className="w-4 h-4" strokeWidth={2} />
-                    Website
-                  </a>
+                  {school.website && (
+                    <a
+                      href={school.website}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-full border border-white/30 bg-white/10 backdrop-blur-md text-white text-[12px] font-bold hover:bg-white hover:text-[#0a192f] transition-colors"
+                    >
+                      <Globe className="w-4 h-4" strokeWidth={2} />
+                      Website
+                    </a>
+                  )}
                 </div>
               </div>
             </div>

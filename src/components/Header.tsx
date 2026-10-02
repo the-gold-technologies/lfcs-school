@@ -31,7 +31,8 @@ export default function Header() {
         { label: 'LFCS, BALLIA', href: 'https://lfcsballia.co.in/', img: '/schools/Khalispur-Balia.webp' },
         { label: 'LFCS, KASIMABAD GHAZIPUR', href: 'https://www.lfcskasimabad.in/', img: '/schools/Kasimabad.webp' },
         { label: 'LFCS, AZAMGARH', href: 'https://lfcsazamgarh.org.in/', img: '/schools/lfcs-azamgarh.webp' },
-        { label: 'LFIS, MAU', href: 'https://lfismau.co.in/', img: '/schools/lfis-mau.webp' },
+        { label: 'LFIS, KHALISHPUR MAU', href: 'https://lfismau.co.in/', img: '/schools/lfis-mau.webp' },
+        { label: 'AZAD HIND INTER COLLEGE, KHALISHPUR MAU', href: 'https://www.facebook.com/azadhindcollege/', img: '/schools/azad-hind-inter-college.webp' },
       ]
     },
     { label: 'Contact Us', href: '/contact', icon: Phone, hasDropdown: false },

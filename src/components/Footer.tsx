@@ -127,9 +127,17 @@ export default function Footer() {
           <div className="text-center md:text-right mt-4 md:mt-0">
             <BackToTopButton />
           </div>
-          
+
         </div>
-        
+
+        {/* Credit */}
+        <p className="text-center md:text-right text-[11px] text-[#eef3ea]/60 pt-2">
+          Designed &amp; Developed by{" "}
+          <a href="https://thegoldtechnologies.com/" target="_blank" rel="noopener" className="text-lf-gold/80 hover:text-lf-gold transition-colors">
+            The Gold Technologies
+          </a>
+        </p>
+
       </div>
     </footer>
     </div>

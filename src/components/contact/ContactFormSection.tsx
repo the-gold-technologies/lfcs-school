@@ -2,6 +2,7 @@
 
 import { useActionState } from "react";
 import { ArrowRight, CheckCircle2, Phone, Mail, MapPin, Clock, Loader2 } from "lucide-react";
+import { FaFacebook, FaInstagram, FaYoutube } from "react-icons/fa";
 import { schools } from "@/components/our-school/AllSchoolsListSection";
 import { submitContactForm, type FormState } from "@/app/actions/enquiries";
 
@@ -14,6 +15,12 @@ const contactDetails = [
   { icon: Mail, label: "Email Us", value: "franchise@lfcsschools.com", href: "mailto:franchise@lfcsschools.com", bg: "bg-[#fdf6e3]", color: "text-lf-gold" },
   { icon: MapPin, label: "Visit Us", value: "B-1/142, Sector-G, Aliganj, Lucknow - 226024, Uttar Pradesh", bg: "bg-[#edf1e8]", color: "text-lf-olive" },
   { icon: Clock, label: "Office Hours", value: "Mon - Sat: 8:00 AM - 5:00 PM", bg: "bg-[#f8ede4]", color: "text-lf-orange" },
+];
+
+const socialLinks = [
+  { icon: FaFacebook, label: "Facebook", href: "https://www.facebook.com/people/LFCS-Schools/61594935059542/" },
+  { icon: FaInstagram, label: "Instagram", href: "https://www.instagram.com/lfcs_school" },
+  { icon: FaYoutube, label: "YouTube", href: "https://youtube.com/@lfcsschools?si=TCzIAvIrbwgYA2KY" },
 ];
 
 export default function ContactFormSection() {
@@ -55,6 +62,24 @@ export default function ContactFormSection() {
                 <div key={label} className={cardClass}>{content}</div>
               );
             })}
+
+            <div className="p-5 rounded-[20px] border border-gray-100 bg-[#fefdfa] shadow-[0_4px_20px_rgb(0,0,0,0.03)]">
+              <p className="text-[12px] font-bold uppercase tracking-[0.15em] text-gray-400 mb-3">Follow Us</p>
+              <div className="flex gap-3">
+                {socialLinks.map(({ icon: Icon, label, href }) => (
+                  <a
+                    key={label}
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={label}
+                    className="w-11 h-11 rounded-full bg-[#fbeef2] text-lf-burgundy flex items-center justify-center hover:bg-lf-burgundy hover:text-white transition-colors"
+                  >
+                    <Icon className="w-[18px] h-[18px]" />
+                  </a>
+                ))}
+              </div>
+            </div>
           </div>
 
           {/* Form */}

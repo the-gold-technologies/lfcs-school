@@ -3,7 +3,6 @@ import LifeAtLFCSSection from "@/components/experience/LifeAtLFCSSection";
 import SportsFitnessSection from "@/components/experience/SportsFitnessSection";
 import ArtsCultureSection from "@/components/experience/ArtsCultureSection";
 import ClubsActivitiesSection from "@/components/experience/ClubsActivitiesSection";
-import StudentAchievementsSection from "@/components/experience/StudentAchievementsSection";
 import GallerySection from "@/components/experience/GallerySection";
 import ExperienceCTASection from "@/components/experience/ExperienceCTASection";
 
@@ -20,7 +19,6 @@ export default function ExperiencePage() {
       <SportsFitnessSection />
       <ArtsCultureSection />
       <ClubsActivitiesSection />
-      <StudentAchievementsSection />
       <GallerySection />
       <ExperienceCTASection />
     </main>

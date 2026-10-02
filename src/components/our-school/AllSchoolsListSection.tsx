@@ -48,7 +48,7 @@ export const schools = [
     img: '/schools/Khalispur-Balia.webp'
   },
   {
-    name: 'LFCS, KASIMABAD',
+    name: 'LFCS, KASIMABAD GHAZIPUR',
     city: 'Kasimabad',
     state: 'Uttar Pradesh',
     address: 'RM22+GPP, Campus: Gehuri, Mardah - Kasimabad Rd, Kasimabad, Uttar Pradesh 233230',
@@ -57,6 +57,17 @@ export const schools = [
     facebook: 'https://www.facebook.com/share/1HDhticq5g/',
     youtube: 'https://m.youtube.com/%40lfcs-ghazipur?fbclid=PAb21jcATneaJwZG9mAmV4dG4DYWVtAjExAHNydGMGYXBwX2lkDzU2NzA2NzM0MzM1MjQyNwABpxOWZnA2iTlDmD-F17tfUplSU6zSWMXnudLmhm37QeOK1oHD_Dqo8SWU6W-u_aem_yXSkKcFwEpvnM-qYsL_hCw',
     img: '/schools/Kasimabad.webp'
+  },
+  {
+    name: 'LFCS, AZAMGARH',
+    city: 'Azamgarh',
+    state: 'Uttar Pradesh',
+    address: 'Sardaha Tahbarpur, Azamgarh, Uttar Pradesh',
+    website: 'https://lfcsazamgarh.org.in/',
+    instagram: 'https://www.instagram.com/lfcsazamgarh?igsh=MTM4b3YzaTBoMmVqZg==',
+    facebook: 'https://www.facebook.com/share/1JBYeqSdEN/',
+    youtube: 'https://www.youtube.com/watch?feature=shared&v=90HTbxPKwIg',
+    img: '/schools/lfcs-azamgarh.webp'
   },
   {
     name: 'LFIS, MAU',

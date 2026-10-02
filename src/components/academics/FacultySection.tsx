@@ -5,7 +5,7 @@ const principals = [
   { name: "P. L. Jaishi", school: "LFCS, Sikatiya", city: "Mau", img: "/academics/principals/pl-jaishi.webp" },
   { name: "Sanjay Rai", school: "LFCS, Ghosi", city: "Ghosi", img: "/academics/principals/sanjay-rai.webp" },
   { name: "Deepa Pal", school: "LFCS, Ballia", city: "Mau", img: "/academics/principals/deepa-pal.webp" },
-  { name: "Ekta Singh", school: "LFCS, Kasimabad", city: "Kasimabad", img: "/academics/principals/ekta-singh.webp" },
+  { name: "Ekta Singh", school: "LFCS, Kasimabad Ghazipur", city: "Kasimabad", img: "/academics/principals/ekta-singh.webp" },
   { name: "Zeeta Lepcha", school: "LFIS, Mau", city: "Mau", img: "/academics/principals/zeeta-lepcha.webp" },
 ];
 

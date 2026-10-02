@@ -29,7 +29,8 @@ export default function Header() {
         { label: 'LFCS, SIKATIYA', href: 'https://lfcsmau.co/', img: '/schools/Sikatia-Mau.webp' },
         { label: 'LFCS, GHOSI', href: 'https://www.lfcsghosi.co.in/', img: '/schools/Ghosi.webp' },
         { label: 'LFCS, BALLIA', href: 'https://lfcsballia.co.in/', img: '/schools/Khalispur-Balia.webp' },
-        { label: 'LFCS, KASIMABAD', href: 'https://www.lfcskasimabad.in/', img: '/schools/Kasimabad.webp' },
+        { label: 'LFCS, KASIMABAD GHAZIPUR', href: 'https://www.lfcskasimabad.in/', img: '/schools/Kasimabad.webp' },
+        { label: 'LFCS, AZAMGARH', href: 'https://lfcsazamgarh.org.in/', img: '/schools/lfcs-azamgarh.webp' },
         { label: 'LFIS, MAU', href: 'https://lfismau.co.in/', img: '/schools/lfis-mau.webp' },
       ]
     },

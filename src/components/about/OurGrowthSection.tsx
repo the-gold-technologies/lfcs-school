@@ -48,7 +48,7 @@ export default function OurGrowthSection() {
     },
     {
       year: "2022",
-      title: "LFCS, Kasimabad",
+      title: "LFCS, Kasimabad Ghazipur",
       desc: "A new branch in Kasimabad, Ghazipur, commencing operations in the 2022-23 session.",
       color: "#842b46",
       bgColor: "bg-[#f8eef1]",

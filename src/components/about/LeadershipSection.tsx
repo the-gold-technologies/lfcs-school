@@ -181,7 +181,6 @@ export default function LeadershipSection() {
             <div className="flex flex-col-reverse md:flex-row items-center gap-8 lg:gap-12">
               <div className="w-full md:w-3/5 space-y-6 pl-10">
                 <div>
-                  <h3 className="text-[#c76785] font-bold text-[13px] uppercase tracking-[0.15em] mb-2">Founder</h3>
                   <h2 className="font-serif text-[28px] md:text-[32px] text-[#0a192f] font-medium leading-tight">Ms. Manju Rana</h2>
                 </div>
 

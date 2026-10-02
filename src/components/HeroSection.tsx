@@ -42,7 +42,7 @@ export default function HeroSection() {
           <div className="flex flex-row gap-2 md:gap-4 items-start">
             <GraduationCap className="w-7 h-7 md:w-11 md:h-11 text-red-500 mb-2 md:mb-3 shrink-0" strokeWidth={1.5} />
             <div>
-              <div className="text-xl md:text-3xl font-medium text-[#0a192f]">14000+</div>
+              <div className="text-xl md:text-3xl font-medium text-[#0a192f]">40000+</div>
               <div className="text-[10px] md:text-xs font-medium text-gray-500 uppercase tracking-wide mt-0.5 md:mt-1">Happy Students</div>
             </div>
           </div>

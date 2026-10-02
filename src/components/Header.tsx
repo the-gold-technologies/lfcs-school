@@ -7,6 +7,7 @@ import { useEffect, useState } from 'react';
 export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [mobileSchoolsOpen, setMobileSchoolsOpen] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 10);
@@ -25,14 +26,14 @@ export default function Header() {
       icon: Building, 
       hasDropdown: true,
       dropdownItems: [
-        { label: 'LFCS, MAU', href: 'https://lfgos.com/', img: '/schools/Nizamuddinpura-Mau.webp' },
-        { label: 'LFCS, SIKATIYA', href: 'https://lfcsmau.co/', img: '/schools/Sikatia-Mau.webp' },
-        { label: 'LFCS, GHOSI', href: 'https://www.lfcsghosi.co.in/', img: '/schools/Ghosi.webp' },
-        { label: 'LFCS, BALLIA', href: 'https://lfcsballia.co.in/', img: '/schools/Khalispur-Balia.webp' },
-        { label: 'LFCS, KASIMABAD GHAZIPUR', href: 'https://www.lfcskasimabad.in/', img: '/schools/Kasimabad.webp' },
-        { label: 'LFCS, AZAMGARH', href: 'https://lfcsazamgarh.org.in/', img: '/schools/lfcs-azamgarh.webp' },
-        { label: 'LFIS, KHALISHPUR MAU', href: 'https://lfismau.co.in/', img: '/schools/lfis-mau.webp' },
-        { label: 'AZAD HIND INTER COLLEGE, KHALISHPUR MAU', href: 'https://www.facebook.com/azadhindcollege/', img: '/schools/azad-hind-inter-college.webp' },
+        { label: 'LFCS, MAU', href: 'https://lfgos.com/', img: '/schools/thumbs/Nizamuddinpura-Mau.webp' },
+        { label: 'LFCS, SIKATIYA', href: 'https://lfcsmau.co/', img: '/schools/thumbs/Sikatia-Mau.webp' },
+        { label: 'LFCS, GHOSI', href: 'https://www.lfcsghosi.co.in/', img: '/schools/thumbs/Ghosi.webp' },
+        { label: 'LFCS, BALLIA', href: 'https://lfcsballia.co.in/', img: '/schools/thumbs/Khalispur-Balia.webp' },
+        { label: 'LFCS, KASIMABAD GHAZIPUR', href: 'https://www.lfcskasimabad.in/', img: '/schools/thumbs/Kasimabad.webp' },
+        { label: 'LFCS, AZAMGARH', href: 'https://lfcsazamgarh.org.in/', img: '/schools/thumbs/lfcs-azamgarh.webp' },
+        { label: 'LFIS, KHALISHPUR MAU', href: 'https://lfismau.co.in/', img: '/schools/thumbs/lfis-mau.webp' },
+        { label: 'AZAD HIND INTER COLLEGE, KHALISHPUR MAU', href: 'https://www.facebook.com/azadhindcollege/', img: '/schools/thumbs/azad-hind-inter-college.webp' },
       ]
     },
     { label: 'Contact Us', href: '/contact', icon: Phone, hasDropdown: false },
@@ -48,7 +49,7 @@ export default function Header() {
         <div
           className={`max-w-7xl mx-auto px-3 sm:px-4 lg:px-0 rounded-2xl border transition-all duration-300 ${
             scrolled
-              ? 'bg-white/95 lg:px-3  backdrop-blur-md border-gray-100 shadow-[0_8px_30px_-10px_rgba(0,0,0,0.2)]'
+              ? 'bg-white/95 lg:px-3 lg:backdrop-blur-md border-gray-100 shadow-[0_8px_30px_-10px_rgba(0,0,0,0.2)]'
               : 'bg-transparent border-transparent'
           }`}
         >
@@ -83,7 +84,7 @@ export default function Header() {
                             className="group/item block rounded-lg overflow-hidden hover:bg-gray-50 transition-colors border border-transparent hover:border-gray-100 pb-2"
                           >
                             <div className="h-20 w-full overflow-hidden mb-2 rounded-t-lg">
-                              <img src={item.img} alt={item.label} className="w-full h-full object-cover group-hover/item:scale-105 transition-transform duration-500" />
+                              <img loading="lazy" decoding="async" src={item.img} alt={item.label} className="w-full h-full object-cover group-hover/item:scale-105 transition-transform duration-500" />
                             </div>
                             <span className="px-2.5 block text-[12px] font-bold text-[#0a192f] group-hover/item:text-lf-burgundy transition-colors truncate">
                               {item.label}
@@ -104,7 +105,10 @@ export default function Header() {
               </Link>
               <button
                 className="lg:hidden text-gray-700 hover:text-[#0a192f] p-2"
-                onClick={() => setMobileOpen(true)}
+                onClick={() => {
+                  setMobileSchoolsOpen(false);
+                  setMobileOpen(true);
+                }}
               >
                 <Menu className="w-7 h-7" />
               </button>
@@ -131,21 +135,31 @@ export default function Header() {
               </button>
             </div>
 
-            <nav className="flex-1 overflow-y-auto py-4 px-2">
+            <nav data-lenis-prevent className="flex-1 overflow-y-auto overscroll-contain py-4 px-2">
               {navLinks.map(({ label, href, icon: Icon, hasDropdown, dropdownItems }) => (
                 <div key={label}>
-                  <Link
-                    href={href}
-                    onClick={() => !hasDropdown && setMobileOpen(false)}
-                    className="flex items-center justify-between px-4 py-3.5 rounded-[12px] text-[#0a192f] hover:bg-gray-50 font-semibold text-[15px] transition-colors"
-                  >
-                    <div className="flex items-center gap-4">
+                  <div className="flex items-center rounded-[12px] hover:bg-gray-50 transition-colors">
+                    <Link
+                      href={href}
+                      onClick={() => setMobileOpen(false)}
+                      className="flex-1 flex items-center gap-4 px-4 py-3.5 text-[#0a192f] font-semibold text-[15px]"
+                    >
                       <Icon className="w-5 h-5 text-lf-olive shrink-0" strokeWidth={1.5} />
                       {label}
-                    </div>
-                    {hasDropdown && <ChevronDown className="w-4 h-4 text-gray-400" />}
-                  </Link>
-                  {hasDropdown && dropdownItems && (
+                    </Link>
+                    {hasDropdown && (
+                      <button
+                        type="button"
+                        onClick={() => setMobileSchoolsOpen((open) => !open)}
+                        aria-expanded={mobileSchoolsOpen}
+                        aria-label={`${mobileSchoolsOpen ? 'Collapse' : 'Expand'} ${label}`}
+                        className="p-3.5 mr-1 text-gray-400 hover:text-[#0a192f] transition-colors"
+                      >
+                        <ChevronDown className={`w-5 h-5 transition-transform duration-300 ${mobileSchoolsOpen ? 'rotate-180' : ''}`} />
+                      </button>
+                    )}
+                  </div>
+                  {hasDropdown && dropdownItems && mobileSchoolsOpen && (
                     <div className="ml-12 mt-1 mb-2 flex flex-col gap-2 border-l-2 border-gray-100 pl-4">
                       {dropdownItems.map((item, idx) => (
                         <Link
@@ -156,7 +170,7 @@ export default function Header() {
                           onClick={() => setMobileOpen(false)}
                           className="flex items-center gap-3 py-2 hover:bg-gray-50 rounded-lg transition-colors group/mob"
                         >
-                          <img src={item.img} alt={item.label} className="w-10 h-10 rounded-md object-cover flex-shrink-0" />
+                          <img loading="lazy" decoding="async" src={item.img} alt={item.label} className="w-10 h-10 rounded-md object-cover flex-shrink-0" />
                           <span className="text-[13px] font-semibold text-[#0a192f] group-hover/mob:text-lf-burgundy transition-colors truncate">
                             {item.label}
                           </span>

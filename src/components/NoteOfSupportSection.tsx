@@ -28,8 +28,8 @@ export default function NoteOfSupportSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-0">
         <div className="relative bg-[#0a192f] rounded-[2rem] overflow-hidden p-6 md:p-10">
           {/* Background decorations */}
-          <div className="absolute top-0 right-0 w-72 h-72 bg-[#dfae19] opacity-10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3"></div>
-          <div className="absolute bottom-0 left-1/3 w-72 h-72 bg-[#c76785] opacity-10 rounded-full blur-3xl translate-y-1/2"></div>
+          <div className="hidden md:block absolute top-0 right-0 w-72 h-72 bg-[#dfae19] opacity-10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3"></div>
+          <div className="hidden md:block absolute bottom-0 left-1/3 w-72 h-72 bg-[#c76785] opacity-10 rounded-full blur-3xl translate-y-1/2"></div>
 
           <div className="relative z-10 text-center mb-8 md:mb-10">
             <span className="text-[#dfae19] font-bold text-[12px] tracking-[0.2em] uppercase block mb-1">Notes of Support</span>

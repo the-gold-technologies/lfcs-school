@@ -54,7 +54,7 @@ export default function LifeAtLFCSSection() {
           {/* Right Images Layout */}
           <div className="relative w-full h-[500px] hidden md:block">
             {/* Background pattern */}
-            <div className="absolute top-10 right-0 w-64 h-64 bg-[#dfae19]/10 rounded-full blur-[60px]"></div>
+            <div className="hidden md:block absolute top-10 right-0 w-64 h-64 bg-[#dfae19]/10 rounded-full blur-[60px]"></div>
             
             <div className="absolute top-0 right-0 w-[60%] h-[60%] rounded-[20px] overflow-hidden shadow-lg border-4 border-white z-10">
               <img loading="lazy" decoding="async" 

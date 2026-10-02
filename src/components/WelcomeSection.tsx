@@ -32,7 +32,7 @@ export default function WelcomeSection() {
             ].map(({ img, icon: Icon, color, title, desc }) => (
               <div key={title} className="bg-white rounded-[24px] overflow-hidden border border-gray-100 shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:-translate-y-1 transition-transform group flex flex-col">
                 <div className="relative h-44 sm:h-48 w-full">
-                  <img src={img} alt={title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                  <img loading="lazy" decoding="async" src={img} alt={title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                   <div className={`absolute -bottom-6 left-6 w-[3.25rem] h-[3.25rem] rounded-full border-[4px] border-white flex items-center justify-center ${color} z-10 shadow-sm`}>
                     <Icon className="w-5 h-5 text-white" strokeWidth={2} />
                   </div>

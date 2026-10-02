@@ -54,7 +54,7 @@ const activities = [
 export default function ClubsActivitiesSection() {
   return (
     <section className="py-16 bg-white relative overflow-hidden">
-      <div className="absolute top-0 right-0 w-[40%] h-[100%] bg-[#dfae19]/[0.03] blur-[100px] pointer-events-none"></div>
+      <div className="hidden md:block absolute top-0 right-0 w-[40%] h-[100%] bg-[#dfae19]/[0.03] blur-[100px] pointer-events-none"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
         

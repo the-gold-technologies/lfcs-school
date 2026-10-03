@@ -159,7 +159,7 @@ export default function AcademicResultsSection() {
         <div className="bg-white rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.06)] border border-gray-100 p-6 md:p-8 flex flex-col md:flex-row items-center justify-between gap-6 mb-16 relative z-10">
           
           {/* Stat 1 */}
-          <div className="flex items-center gap-3 flex-1 justify-center md:border-r border-gray-200">
+          <div className="flex items-center gap-3 flex-1 w-full max-w-[240px] md:max-w-none justify-start md:justify-center md:border-r border-gray-200">
             <div className="w-14 h-14 bg-[#9c1f38] rounded-full flex items-center justify-center shrink-0 shadow-md">
                <Trophy className="w-6 h-6 text-[#dfae19]" />
             </div>
@@ -170,7 +170,7 @@ export default function AcademicResultsSection() {
           </div>
 
           {/* Stat 2 */}
-          <div className="flex items-center gap-3 flex-1 justify-center md:border-r border-gray-200">
+          <div className="flex items-center gap-3 flex-1 w-full max-w-[240px] md:max-w-none justify-start md:justify-center md:border-r border-gray-200">
             <div className="w-14 h-14 bg-[#9c1f38] rounded-full flex items-center justify-center shrink-0 shadow-md">
                <GraduationCap className="w-7 h-7 text-white" />
             </div>
@@ -181,7 +181,7 @@ export default function AcademicResultsSection() {
           </div>
 
           {/* Stat 3 */}
-          <div className="flex items-center gap-3 flex-1 justify-center md:border-r border-gray-200">
+          <div className="flex items-center gap-3 flex-1 w-full max-w-[240px] md:max-w-none justify-start md:justify-center md:border-r border-gray-200">
             <div className="w-14 h-14 bg-[#9c1f38] rounded-full flex items-center justify-center shrink-0 shadow-md">
                <Star className="w-6 h-6 text-[#dfae19]" />
             </div>
@@ -192,7 +192,7 @@ export default function AcademicResultsSection() {
           </div>
 
           {/* Stat 4 */}
-          <div className="flex items-center gap-3 flex-1 justify-center">
+          <div className="flex items-center gap-3 flex-1 w-full max-w-[240px] md:max-w-none justify-start md:justify-center">
             <div className="w-14 h-14 bg-[#9c1f38] rounded-full flex items-center justify-center shrink-0 shadow-md">
                <Award className="w-6 h-6 text-white" />
             </div>

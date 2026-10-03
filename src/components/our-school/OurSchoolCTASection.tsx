@@ -75,7 +75,7 @@ export default function OurSchoolCTASection() {
             </div>
 
             {/* Right Image */}
-            <div className="w-full h-[400px] lg:h-auto relative -ml-10">
+            <div className="hidden md:block w-full h-[400px] lg:h-auto relative -ml-10">
               <img loading="lazy" decoding="async" 
                 src="/our-school-cta.webp" 
                 alt="LFCS Students" 

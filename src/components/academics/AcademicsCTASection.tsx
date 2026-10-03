@@ -11,7 +11,7 @@ export default function AcademicsCTASection() {
             {/* Left Text Content */}
             <div className="md:col-span-5 flex flex-col items-start text-left">
               <h2 className="font-serif text-[32px] sm:text-[36px] lg:text-[36px] font-semibold text-[#3f5333] leading-[1.35] mb-6">
-                A Strogn Foundation Today,<br /> A Brighter Tomorrow.
+                A Strong Foundation Today,<br /> A Brighter Tomorrow.
               </h2>
               
               <Link href="/contact#contact-form" className="bg-lf-burgundy text-white pl-6 pr-2 py-2 rounded-full font-bold text-[15px] hover:bg-lf-burgundy-hover transition-all flex items-center justify-center gap-4 shadow-md hover:shadow-lg inline-flex w-max">
@@ -23,7 +23,7 @@ export default function AcademicsCTASection() {
             </div>
 
             {/* Right Image */}
-            <div className="md:col-span-7 flex justify-end">
+            <div className="hidden md:col-span-7 md:flex justify-end">
               <img loading="lazy" decoding="async" 
                 src="/cta-bg.webp" 
                 alt="Join Little Flower Family" 

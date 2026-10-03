@@ -29,7 +29,7 @@ export default function StartSchoolFinalCTASection() {
             </div>
 
             {/* Right Image */}
-            <div className="md:col-span-6 flex justify-end">
+            <div className="hidden md:col-span-6 md:flex justify-end">
               <img loading="lazy" decoding="async"
                 src="/cta-bg.webp"
                 alt="Build a school with Little Flower"

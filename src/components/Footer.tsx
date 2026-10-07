@@ -50,7 +50,7 @@ export default function Footer() {
               <a href="https://www.facebook.com/people/LFCS-Schools/61594935059542/" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="w-10 h-10 rounded-full border border-white/30 flex items-center justify-center text-[#eef3ea] hover:text-white hover:border-white transition-all">
                 <FacebookIcon />
               </a>
-              <a href="https://www.instagram.com/lfcs_school" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="w-10 h-10 rounded-full border border-white/30 flex items-center justify-center text-[#eef3ea] hover:text-white hover:border-white transition-all">
+              <a href="https://www.instagram.com/lfcs_schools/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="w-10 h-10 rounded-full border border-white/30 flex items-center justify-center text-[#eef3ea] hover:text-white hover:border-white transition-all">
                 <InstagramIcon />
               </a>
               <a href="https://youtube.com/@lfcsschools?si=TCzIAvIrbwgYA2KY" target="_blank" rel="noopener noreferrer" aria-label="YouTube" className="w-10 h-10 rounded-full border border-white/30 flex items-center justify-center text-[#eef3ea] hover:text-white hover:border-white transition-all">
@@ -108,7 +108,9 @@ export default function Footer() {
           <div className="flex flex-wrap justify-center md:justify-start gap-8">
             <div className="flex items-center gap-3">
               <Phone className="w-5 h-5 text-lf-gold" strokeWidth={1.5} />
-              <a href="tel:+919450879999" className="hover:text-white transition-colors">+91 94508 79999</a>
+              <a href="tel:+918368838489" className="hover:text-white transition-colors">+91 83688 38489</a>
+              <span className="text-white/40">|</span>
+              <a href="tel:+919999976959" className="hover:text-white transition-colors">+91 99999 76959</a>
             </div>
             <div className="flex items-center gap-3">
               <Mail className="w-5 h-5 text-lf-gold" strokeWidth={1.5} />

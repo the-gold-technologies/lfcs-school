@@ -11,7 +11,13 @@ const inputClass =
 const labelClass = "block text-[13px] font-bold text-[#0a192f] mb-2";
 
 const contactDetails = [
-  { icon: Phone, label: "Call Us", value: "+91 94508 79999", href: "tel:+919450879999", bg: "bg-[#fbeef2]", color: "text-lf-burgundy" },
+  {
+    icon: Phone, label: "Call Us", bg: "bg-[#fbeef2]", color: "text-lf-burgundy",
+    links: [
+      { value: "+91 83688 38489", href: "tel:+918368838489" },
+      { value: "+91 99999 76959", href: "tel:+919999976959" },
+    ],
+  },
   { icon: Mail, label: "Email Us", value: "franchise@lfcsschools.com", href: "mailto:franchise@lfcsschools.com", bg: "bg-[#fdf6e3]", color: "text-lf-gold" },
   { icon: MapPin, label: "Visit Us", value: "B-1/142, Sector-G, Aliganj, Lucknow - 226024, Uttar Pradesh", bg: "bg-[#edf1e8]", color: "text-lf-olive" },
   { icon: Clock, label: "Office Hours", value: "Mon - Sat: 8:00 AM - 5:00 PM", bg: "bg-[#f8ede4]", color: "text-lf-orange" },
@@ -19,7 +25,7 @@ const contactDetails = [
 
 const socialLinks = [
   { icon: FaFacebook, label: "Facebook", href: "https://www.facebook.com/people/LFCS-Schools/61594935059542/" },
-  { icon: FaInstagram, label: "Instagram", href: "https://www.instagram.com/lfcs_school" },
+  { icon: FaInstagram, label: "Instagram", href: "https://www.instagram.com/lfcs_schools/" },
   { icon: FaYoutube, label: "YouTube", href: "https://youtube.com/@lfcsschools?si=TCzIAvIrbwgYA2KY" },
 ];
 
@@ -41,7 +47,7 @@ export default function ContactFormSection() {
               Reach our central office directly, or send us a message and the right team will respond.
             </p>
 
-            {contactDetails.map(({ icon: Icon, label, value, href, bg, color }) => {
+            {contactDetails.map(({ icon: Icon, label, value, href, links, bg, color }) => {
               const content = (
                 <>
                   <div className={`w-12 h-12 rounded-full ${bg} flex items-center justify-center shrink-0`}>
@@ -49,7 +55,15 @@ export default function ContactFormSection() {
                   </div>
                   <div className="min-w-0">
                     <p className="text-[12px] font-bold uppercase tracking-[0.15em] text-gray-400 mb-1">{label}</p>
-                    <p className="text-[15px] font-semibold text-[#0a192f] break-words">{value}</p>
+                    {links ? (
+                      links.map((link) => (
+                        <a key={link.href} href={link.href} className="block text-[15px] font-semibold text-[#0a192f] hover:text-lf-burgundy transition-colors">
+                          {link.value}
+                        </a>
+                      ))
+                    ) : (
+                      <p className="text-[15px] font-semibold text-[#0a192f] break-words">{value}</p>
+                    )}
                   </div>
                 </>
               );

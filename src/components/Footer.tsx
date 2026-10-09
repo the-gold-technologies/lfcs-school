@@ -118,7 +118,7 @@ export default function Footer() {
             </div>
             <div className="flex items-center gap-3">
               <MapPin className="w-5 h-5 text-lf-gold" strokeWidth={1.5} />
-              <span>B-1/142, Sector-G, Aliganj, Lucknow - 226024, Uttar Pradesh</span>
+              <span>Lucknow, Uttar Pradesh</span>
             </div>
             <div className="flex items-center gap-3">
               <Clock className="w-5 h-5 text-lf-gold" strokeWidth={1.5} />

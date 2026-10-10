@@ -1,7 +1,7 @@
 "use client";
 import Link from 'next/link';
 import Image from 'next/image';
-import { Home, BookOpen, Building, Menu, X, ChevronDown, Backpack, GraduationCap, Phone } from 'lucide-react';
+import { Home, BookOpen, Building, Menu, X, ChevronDown, Backpack, GraduationCap, Phone, Newspaper } from 'lucide-react';
 import { useEffect, useState } from 'react';
 
 export default function Header() {
@@ -36,6 +36,7 @@ export default function Header() {
         { label: 'AZAD HIND INTER COLLEGE, KHALISHPUR MAU', href: 'https://www.facebook.com/azadhindcollege/', img: '/schools/thumbs/azad-hind-inter-college.webp' },
       ]
     },
+    { label: 'News & Events', href: '/news-&-events', icon: Newspaper, hasDropdown: false },
     { label: 'Contact Us', href: '/contact', icon: Phone, hasDropdown: false },
   ];
 
@@ -56,10 +57,10 @@ export default function Header() {
           <div className="flex justify-between items-center h-[70px] md:h-[85px]">
             {/* Logo */}
             <Link href="/" className="flex-shrink-0 flex items-center gap-2">
-              <Image src="/logo-header.webp" alt="Little Flower Children School" width={1525} height={448} priority className="object-contain h-[54px] md:h-[70px] w-auto" />
+              <Image src="/logo-header.webp" alt="Little Flower Children School" width={1525} height={448} priority className="object-contain h-[54px] md:h-[70px] lg:h-[58px] xl:h-[70px] w-auto" />
             </Link>
 
-            <nav className="hidden lg:flex space-x-8 items-end">
+            <nav className="hidden lg:flex lg:space-x-0 xl:space-x-4 items-end">
               {navLinks.map(({ label, href, icon: Icon, hasDropdown, dropdownItems }) => (
                 <div key={label} className="relative group">
                   <Link href={href} className="flex flex-col items-center text-[#0a192f] py-1 px-2">
@@ -67,7 +68,7 @@ export default function Header() {
                       <Icon className="w-6 h-6 mb-1 text-lf-olive group-hover:scale-110 group-hover:text-lf-burgundy transition-all duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)] relative z-10" strokeWidth={1.5} />
                       <div className="absolute inset-0 bg-lf-burgundy/20 rounded-full scale-0 group-hover:scale-[1.7] blur-md transition-all duration-500 opacity-0 group-hover:opacity-100 z-0" />
                     </div>
-                    <span className="text-[13px] font-bold flex items-center gap-1 group-hover:text-lf-burgundy transition-colors duration-300 relative">
+                    <span className="text-[13px] font-bold whitespace-nowrap flex items-center gap-1 group-hover:text-lf-burgundy transition-colors duration-300 relative">
                       {label} 
                       {hasDropdown && <ChevronDown className="w-4 h-4 transition-transform duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)] group-hover:-rotate-180" />}
                     </span>
@@ -100,7 +101,7 @@ export default function Header() {
 
             {/* CTA + Hamburger */}
             <div className="flex items-center gap-3">
-              <Link href="/start-school" className="hidden md:block bg-lf-burgundy text-white px-5 lg:px-8 py-2.5 lg:py-3.5 rounded-[16px] font-semibold text-sm hover:bg-lf-burgundy-hover transition-colors">
+              <Link href="/start-school" className="hidden md:block whitespace-nowrap bg-lf-burgundy text-white px-5 xl:px-8 py-2.5 lg:py-3.5 rounded-[16px] font-semibold text-sm hover:bg-lf-burgundy-hover transition-colors">
                 Start a School
               </Link>
               <button

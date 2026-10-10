@@ -7,6 +7,7 @@ import ExperienceSection from "@/components/ExperienceSection";
 import OurSchoolsSection from "@/components/OurSchoolsSection";
 import CTABanners from "@/components/CTABanners";
 import Testimonials from "@/components/Testimonials";
+import NewsSection from "@/components/NewsSection";
 
 export default function Home() {
   return (
@@ -18,6 +19,7 @@ export default function Home() {
       <OurApproachSection />
       <ExperienceSection />
       <OurSchoolsSection />
+      <NewsSection />
       <CTABanners />
       <Testimonials />
     </div>

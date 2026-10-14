@@ -1,6 +1,6 @@
 import { ChevronRight, BookOpen, GraduationCap, Globe, Target, Baby } from "lucide-react";
 
-const stages = [
+export const stages = [
   {
     title: "Early Years",
     grades: "[Nursery – UKG]",

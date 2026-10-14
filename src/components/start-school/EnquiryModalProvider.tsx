@@ -64,7 +64,7 @@ export default function EnquiryModalProvider({
           onClick={closeModal}
         >
           <div
-            className="relative w-full sm:max-w-3xl bg-white sm:rounded-[32px] shadow-2xl max-h-screen sm:max-h-[90vh] overflow-hidden"
+            className="relative w-full sm:max-w-3xl bg-white sm:rounded-[32px] shadow-2xl max-h-screen sm:max-h-[90vh] overflow-clip"
             onClick={(e) => e.stopPropagation()}
           >
             <button

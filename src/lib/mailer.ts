@@ -73,6 +73,7 @@ export async function sendFormEmail(options: {
   title: string;
   replyTo: string;
   fields: Field[];
+  attachments?: { filename: string; content: Buffer }[];
 }) {
   const { html, text } = renderEmail(options.title, options.fields);
   await getTransporter().sendMail({
@@ -82,5 +83,6 @@ export async function sendFormEmail(options: {
     subject: options.subject,
     text,
     html,
+    attachments: options.attachments,
   });
 }

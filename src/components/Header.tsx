@@ -1,13 +1,55 @@
 "use client";
 import Link from 'next/link';
 import Image from 'next/image';
-import { Home, BookOpen, Building, Menu, X, ChevronDown, Backpack, GraduationCap, Phone, Newspaper } from 'lucide-react';
+import { Home, BookOpen, Building, Menu, X, ChevronDown, Backpack, GraduationCap, Phone, Newspaper, type LucideIcon } from 'lucide-react';
 import { useEffect, useState } from 'react';
+
+type SchoolItem = { label: string; href: string; img: string };
+type PageItem = { label: string; href: string; icon: LucideIcon; description: string };
+type NavLink = {
+  label: string;
+  href: string;
+  icon: LucideIcon;
+  schools?: SchoolItem[];
+  pages?: PageItem[];
+};
+
+const navLinks: NavLink[] = [
+  { label: 'About Us', href: '/about', icon: Home },
+  {
+    label: 'Academics',
+    href: '/academics',
+    icon: BookOpen,
+    pages: [
+      { label: 'Academics', href: '/academics', icon: BookOpen, description: 'Curriculum, learning stages and results' },
+      { label: 'Experience', href: '/experience', icon: Backpack, description: 'Sports, arts, clubs and student life' },
+      { label: 'News & Events', href: '/news-&-events', icon: Newspaper, description: 'Announcements and press coverage' },
+    ],
+  },
+  { label: 'Admissions', href: '/admissions', icon: GraduationCap },
+  {
+    label: 'Our Schools',
+    href: '/our-school',
+    icon: Building,
+    schools: [
+      { label: 'LFCS, MAU', href: 'https://lfgos.com/', img: '/schools/thumbs/Nizamuddinpura-Mau.webp' },
+      { label: 'LFCS, SIKATIYA', href: 'https://lfcsmau.co/', img: '/schools/thumbs/Sikatia-Mau.webp' },
+      { label: 'LFCS, GHOSI', href: 'https://www.lfcsghosi.co.in/', img: '/schools/thumbs/Ghosi.webp' },
+      { label: 'LFCS, BALLIA', href: 'https://lfcsballia.co.in/', img: '/schools/thumbs/Khalispur-Balia.webp' },
+      { label: 'LFCS, KASIMABAD GHAZIPUR', href: 'https://www.lfcskasimabad.in/', img: '/schools/thumbs/Kasimabad.webp' },
+      { label: 'LFCS, AZAMGARH', href: 'https://lfcsazamgarh.org.in/', img: '/schools/thumbs/lfcs-azamgarh.webp' },
+      { label: 'LFIS, KHALISHPUR MAU', href: 'https://lfismau.co.in/', img: '/schools/thumbs/lfis-mau.webp' },
+      { label: 'AZAD HIND INTER COLLEGE, KHALISHPUR MAU', href: 'https://www.facebook.com/azadhindcollege/', img: '/schools/thumbs/azad-hind-inter-college.webp' },
+    ],
+  },
+  { label: 'Contact Us', href: '/contact', icon: Phone },
+];
 
 export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [mobileSchoolsOpen, setMobileSchoolsOpen] = useState(false);
+  // Label of the dropdown expanded in the mobile drawer, if any
+  const [mobileExpanded, setMobileExpanded] = useState<string | null>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 10);
@@ -15,30 +57,6 @@ export default function Header() {
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
-
-  const navLinks = [
-    { label: 'About Us', href: '/about', icon: Home, hasDropdown: false },
-    { label: 'Academics', href: '/academics', icon: BookOpen, hasDropdown: false },
-    { label: 'Experience', href: '/experience', icon: Backpack, hasDropdown: false },
-    { 
-      label: 'Our Schools', 
-      href: '/our-school', 
-      icon: Building, 
-      hasDropdown: true,
-      dropdownItems: [
-        { label: 'LFCS, MAU', href: 'https://lfgos.com/', img: '/schools/thumbs/Nizamuddinpura-Mau.webp' },
-        { label: 'LFCS, SIKATIYA', href: 'https://lfcsmau.co/', img: '/schools/thumbs/Sikatia-Mau.webp' },
-        { label: 'LFCS, GHOSI', href: 'https://www.lfcsghosi.co.in/', img: '/schools/thumbs/Ghosi.webp' },
-        { label: 'LFCS, BALLIA', href: 'https://lfcsballia.co.in/', img: '/schools/thumbs/Khalispur-Balia.webp' },
-        { label: 'LFCS, KASIMABAD GHAZIPUR', href: 'https://www.lfcskasimabad.in/', img: '/schools/thumbs/Kasimabad.webp' },
-        { label: 'LFCS, AZAMGARH', href: 'https://lfcsazamgarh.org.in/', img: '/schools/thumbs/lfcs-azamgarh.webp' },
-        { label: 'LFIS, KHALISHPUR MAU', href: 'https://lfismau.co.in/', img: '/schools/thumbs/lfis-mau.webp' },
-        { label: 'AZAD HIND INTER COLLEGE, KHALISHPUR MAU', href: 'https://www.facebook.com/azadhindcollege/', img: '/schools/thumbs/azad-hind-inter-college.webp' },
-      ]
-    },
-    { label: 'News & Events', href: '/news-&-events', icon: Newspaper, hasDropdown: false },
-    { label: 'Contact Us', href: '/contact', icon: Phone, hasDropdown: false },
-  ];
 
   return (
     <>
@@ -57,11 +75,11 @@ export default function Header() {
           <div className="flex justify-between items-center h-[70px] md:h-[85px]">
             {/* Logo */}
             <Link href="/" className="flex-shrink-0 flex items-center gap-2">
-              <Image src="/logo-header.webp" alt="Little Flower Children School" width={1525} height={448} priority className="object-contain h-[54px] md:h-[70px] lg:h-[58px] xl:h-[70px] w-auto" />
+              <Image src="/logo-header.webp" alt="Little Flower Children School" width={1525} height={448} priority className="object-contain h-[54px] md:h-[70px] w-auto" />
             </Link>
 
-            <nav className="hidden lg:flex lg:space-x-0 xl:space-x-4 items-end">
-              {navLinks.map(({ label, href, icon: Icon, hasDropdown, dropdownItems }) => (
+            <nav className="hidden lg:flex space-x-4 items-end">
+              {navLinks.map(({ label, href, icon: Icon, schools, pages }) => (
                 <div key={label} className="relative group">
                   <Link href={href} className="flex flex-col items-center text-[#0a192f] py-1 px-2">
                     <div className="relative">
@@ -69,18 +87,39 @@ export default function Header() {
                       <div className="absolute inset-0 bg-lf-burgundy/20 rounded-full scale-0 group-hover:scale-[1.7] blur-md transition-all duration-500 opacity-0 group-hover:opacity-100 z-0" />
                     </div>
                     <span className="text-[13px] font-bold whitespace-nowrap flex items-center gap-1 group-hover:text-lf-burgundy transition-colors duration-300 relative">
-                      {label} 
-                      {hasDropdown && <ChevronDown className="w-4 h-4 transition-transform duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)] group-hover:-rotate-180" />}
+                      {label}
+                      {(schools || pages) && <ChevronDown className="w-4 h-4 transition-transform duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)] group-hover:-rotate-180" />}
                     </span>
                   </Link>
-                  {hasDropdown && dropdownItems && (
+
+                  {pages && (
+                    <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[340px] bg-white rounded-2xl shadow-[0_10px_40px_-10px_rgba(0,0,0,0.1)] border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top group-hover:translate-y-0 translate-y-2 p-2 z-[100]">
+                      {pages.map(({ label: pageLabel, href: pageHref, icon: PageIcon, description }) => (
+                        <Link
+                          key={pageHref}
+                          href={pageHref}
+                          className="group/item flex items-center gap-3 rounded-xl p-3 hover:bg-[#fdf7ee] transition-colors"
+                        >
+                          <span className="w-10 h-10 rounded-full bg-[#edf1e8] group-hover/item:bg-[#fbeef2] flex items-center justify-center shrink-0 transition-colors">
+                            <PageIcon className="w-5 h-5 text-lf-olive group-hover/item:text-lf-burgundy transition-colors" strokeWidth={1.75} />
+                          </span>
+                          <span className="min-w-0">
+                            <span className="block text-[13.5px] font-bold text-[#0a192f] group-hover/item:text-lf-burgundy transition-colors">{pageLabel}</span>
+                            <span className="block text-[12px] text-gray-500 leading-snug">{description}</span>
+                          </span>
+                        </Link>
+                      ))}
+                    </div>
+                  )}
+
+                  {schools && (
                     <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[540px] bg-white rounded-2xl shadow-[0_10px_40px_-10px_rgba(0,0,0,0.1)] border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top group-hover:translate-y-0 translate-y-2 p-4 z-[100]">
                       <div className="grid grid-cols-3 gap-3.5">
-                        {dropdownItems.map((item, idx) => (
-                          <Link 
-                            key={idx} 
-                            href={item.href} 
-                            target="_blank" 
+                        {schools.map((item, idx) => (
+                          <Link
+                            key={idx}
+                            href={item.href}
+                            target="_blank"
                             rel="noopener noreferrer"
                             className="group/item block rounded-lg overflow-hidden hover:bg-gray-50 transition-colors border border-transparent hover:border-gray-100 pb-2"
                           >
@@ -101,13 +140,13 @@ export default function Header() {
 
             {/* CTA + Hamburger */}
             <div className="flex items-center gap-3">
-              <Link href="/start-school" className="hidden md:block whitespace-nowrap bg-lf-burgundy text-white px-5 xl:px-8 py-2.5 lg:py-3.5 rounded-[16px] font-semibold text-sm hover:bg-lf-burgundy-hover transition-colors">
+              <Link href="/start-school" className="hidden md:block whitespace-nowrap bg-lf-burgundy text-white px-5 lg:px-8 py-2.5 lg:py-3.5 rounded-[16px] font-semibold text-sm hover:bg-lf-burgundy-hover transition-colors">
                 Start a School
               </Link>
               <button
                 className="lg:hidden text-gray-700 hover:text-[#0a192f] p-2"
                 onClick={() => {
-                  setMobileSchoolsOpen(false);
+                  setMobileExpanded(null);
                   setMobileOpen(true);
                 }}
               >
@@ -137,50 +176,72 @@ export default function Header() {
             </div>
 
             <nav data-lenis-prevent className="flex-1 overflow-y-auto overscroll-contain py-4 px-2">
-              {navLinks.map(({ label, href, icon: Icon, hasDropdown, dropdownItems }) => (
-                <div key={label}>
-                  <div className="flex items-center rounded-[12px] hover:bg-gray-50 transition-colors">
-                    <Link
-                      href={href}
-                      onClick={() => setMobileOpen(false)}
-                      className="flex-1 flex items-center gap-4 px-4 py-3.5 text-[#0a192f] font-semibold text-[15px]"
-                    >
-                      <Icon className="w-5 h-5 text-lf-olive shrink-0" strokeWidth={1.5} />
-                      {label}
-                    </Link>
-                    {hasDropdown && (
-                      <button
-                        type="button"
-                        onClick={() => setMobileSchoolsOpen((open) => !open)}
-                        aria-expanded={mobileSchoolsOpen}
-                        aria-label={`${mobileSchoolsOpen ? 'Collapse' : 'Expand'} ${label}`}
-                        className="p-3.5 mr-1 text-gray-400 hover:text-[#0a192f] transition-colors"
+              {navLinks.map(({ label, href, icon: Icon, schools, pages }) => {
+                const expanded = mobileExpanded === label;
+                return (
+                  <div key={label}>
+                    <div className="flex items-center rounded-[12px] hover:bg-gray-50 transition-colors">
+                      <Link
+                        href={href}
+                        onClick={() => setMobileOpen(false)}
+                        className="flex-1 flex items-center gap-4 px-4 py-3.5 text-[#0a192f] font-semibold text-[15px]"
                       >
-                        <ChevronDown className={`w-5 h-5 transition-transform duration-300 ${mobileSchoolsOpen ? 'rotate-180' : ''}`} />
-                      </button>
+                        <Icon className="w-5 h-5 text-lf-olive shrink-0" strokeWidth={1.5} />
+                        {label}
+                      </Link>
+                      {(schools || pages) && (
+                        <button
+                          type="button"
+                          onClick={() => setMobileExpanded(expanded ? null : label)}
+                          aria-expanded={expanded}
+                          aria-label={`${expanded ? 'Collapse' : 'Expand'} ${label}`}
+                          className="p-3.5 mr-1 text-gray-400 hover:text-[#0a192f] transition-colors"
+                        >
+                          <ChevronDown className={`w-5 h-5 transition-transform duration-300 ${expanded ? 'rotate-180' : ''}`} />
+                        </button>
+                      )}
+                    </div>
+
+                    {pages && expanded && (
+                      <div className="ml-12 mt-1 mb-2 flex flex-col gap-1 border-l-2 border-gray-100 pl-4">
+                        {pages.map(({ label: pageLabel, href: pageHref, icon: PageIcon }) => (
+                          <Link
+                            key={pageHref}
+                            href={pageHref}
+                            onClick={() => setMobileOpen(false)}
+                            className="flex items-center gap-3 py-2 hover:bg-gray-50 rounded-lg transition-colors group/mob"
+                          >
+                            <PageIcon className="w-4 h-4 text-lf-olive shrink-0" strokeWidth={1.75} />
+                            <span className="text-[13.5px] font-semibold text-[#0a192f] group-hover/mob:text-lf-burgundy transition-colors">
+                              {pageLabel}
+                            </span>
+                          </Link>
+                        ))}
+                      </div>
+                    )}
+
+                    {schools && expanded && (
+                      <div className="ml-12 mt-1 mb-2 flex flex-col gap-2 border-l-2 border-gray-100 pl-4">
+                        {schools.map((item, idx) => (
+                          <Link
+                            key={idx}
+                            href={item.href}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            onClick={() => setMobileOpen(false)}
+                            className="flex items-center gap-3 py-2 hover:bg-gray-50 rounded-lg transition-colors group/mob"
+                          >
+                            <img loading="lazy" decoding="async" src={item.img} alt={item.label} className="w-10 h-10 rounded-md object-cover flex-shrink-0" />
+                            <span className="text-[13px] font-semibold text-[#0a192f] group-hover/mob:text-lf-burgundy transition-colors truncate">
+                              {item.label}
+                            </span>
+                          </Link>
+                        ))}
+                      </div>
                     )}
                   </div>
-                  {hasDropdown && dropdownItems && mobileSchoolsOpen && (
-                    <div className="ml-12 mt-1 mb-2 flex flex-col gap-2 border-l-2 border-gray-100 pl-4">
-                      {dropdownItems.map((item, idx) => (
-                        <Link
-                          key={idx}
-                          href={item.href}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          onClick={() => setMobileOpen(false)}
-                          className="flex items-center gap-3 py-2 hover:bg-gray-50 rounded-lg transition-colors group/mob"
-                        >
-                          <img loading="lazy" decoding="async" src={item.img} alt={item.label} className="w-10 h-10 rounded-md object-cover flex-shrink-0" />
-                          <span className="text-[13px] font-semibold text-[#0a192f] group-hover/mob:text-lf-burgundy transition-colors truncate">
-                            {item.label}
-                          </span>
-                        </Link>
-                      ))}
-                    </div>
-                  )}
-                </div>
-              ))}
+                );
+              })}
             </nav>
 
             <div className="p-5 border-t border-gray-100">

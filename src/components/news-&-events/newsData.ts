@@ -17,6 +17,15 @@ export const newsItems: NewsItem[] = [
     source: "Dailyhunt",
     url: "https://m.dailyhunt.in/news/india/english/loktej+english-epaper-loktejen/lfsc+director+murlidhar+yadav+spearheads+new+school+associate+program+inaugurated+by+anand+kumar-newsid-n729745845",
   },
+  // Kept second (not featured) on purpose, even though it's newer.
+  {
+    title: "Meet Anand Kumar: From Selling Papads to Inspiring IIT Aspirants Through Super 30",
+    excerpt: "The Times of India profiles Super 30 founder Anand Kumar, who started with Rs 500 and two students in Patna after losing his Cambridge dream, and went on to guide underprivileged students into the IITs.",
+    date: "19 Oct 2026",
+    img: "/news-&-events/anand-kumar-toi-profile.webp",
+    source: "The Times of India",
+    url: "https://timesofindia.indiatimes.com/life-style/people/meet-anand-kumar-he-helped-his-mother-sell-papads-after-losing-his-cambridge-dream-today-his-super-30-inspires-underprivileged-iit-aspirants/articleshow/135047822.cms",
+  },
   {
     title: "Super 30 Founder Anand Kumar Inaugurates LFCS School Associate Program",
     excerpt: "Renowned educator Anand Kumar inaugurated the program and was felicitated by the LFCS leadership for his support of the \"Education for All\" mission.",

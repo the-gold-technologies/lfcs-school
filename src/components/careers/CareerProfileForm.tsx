@@ -2,9 +2,8 @@
 
 import { useActionState, useState } from "react";
 import { ArrowRight, CheckCircle2, FileText, Loader2, Upload } from "lucide-react";
-import { schools } from "@/components/our-school/AllSchoolsListSection";
 import { submitCareerProfile, type FormState } from "@/app/actions/enquiries";
-import { administrativeRoles, CV_EXTENSIONS, MAX_CV_BYTES, teachingRoles } from "./careersData";
+import { CV_EXTENSIONS, MAX_CV_BYTES } from "./careersData";
 
 const inputClass =
   "w-full bg-white border border-gray-200 rounded-[14px] px-4 py-3 text-[14px] text-[#0a192f] placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-lf-burgundy/30 focus:border-lf-burgundy transition-all";
@@ -12,7 +11,14 @@ const labelClass = "block text-[13px] font-bold text-[#0a192f] mb-2";
 
 const experienceOptions = ["Fresher", "Less than 2 years", "2–5 years", "5–10 years", "More than 10 years"];
 
-export default function CareerProfileForm() {
+type CareerProfileFormProps = {
+  campuses: string[];
+  // Role areas listed under Teaching / Administrative Opportunities in the CMS
+  teachingRoles: string[];
+  administrativeRoles: string[];
+};
+
+export default function CareerProfileForm({ campuses, teachingRoles, administrativeRoles }: CareerProfileFormProps) {
   const [state, formAction, pending] = useActionState<FormState, FormData>(submitCareerProfile, { status: "idle" });
   const [area, setArea] = useState("");
   const [cvName, setCvName] = useState("");
@@ -113,8 +119,8 @@ export default function CareerProfileForm() {
               <label className={labelClass} htmlFor="campus">Preferred Campus</label>
               <select id="campus" name="campus" defaultValue="" className={inputClass}>
                 <option value="">Any / Not sure</option>
-                {schools.map((school) => (
-                  <option key={school.name} value={school.name}>{school.name}</option>
+                {campuses.map((name) => (
+                  <option key={name} value={name}>{name}</option>
                 ))}
               </select>
             </div>
@@ -139,12 +145,12 @@ export default function CareerProfileForm() {
                 </span>
                 <input id="cv" name="cv" type="file" accept=".pdf,.doc,.docx" onChange={onCvChange} className="absolute inset-0 w-full h-full opacity-0 cursor-pointer" />
               </label>
-              {cvError && <p className="text-[12.5px] text-red-700 mt-2">{cvError}</p>}
+              {cvError && <p className="whitespace-pre-line text-[12.5px] text-red-700 mt-2">{cvError}</p>}
             </div>
           </div>
 
           {state.status === "error" && (
-            <p role="alert" className="text-[13.5px] text-red-700 bg-red-50 border border-red-100 rounded-[12px] px-4 py-3">
+            <p role="alert" className="whitespace-pre-line text-[13.5px] text-red-700 bg-red-50 border border-red-100 rounded-[12px] px-4 py-3">
               {state.message}
             </p>
           )}

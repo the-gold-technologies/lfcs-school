@@ -1,7 +1,10 @@
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
+import { splitAfterComma, type SectionContent } from "@/lib/content";
+import { sizedImage } from "@/lib/image";
 
-export default function AcademicsCTASection() {
+export default function AcademicsCTASection({ data }: { data: SectionContent }) {
+  const [headLead, headRest] = splitAfterComma(data.heading);
   return (
     <section className="py-12 md:py-20 bg-[#fcfdfe]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 relative lg:px-0">
@@ -11,11 +14,11 @@ export default function AcademicsCTASection() {
             {/* Left Text Content */}
             <div className="md:col-span-5 flex flex-col items-start text-left">
               <h2 className="font-serif text-[32px] sm:text-[36px] lg:text-[36px] font-semibold text-[#3f5333] leading-[1.35] mb-6">
-                A Strong Foundation Today,<br /> A Brighter Tomorrow.
+                {headLead && <>{headLead}<br /> </>}{headRest}
               </h2>
               
-              <Link href="/contact#contact-form" className="bg-lf-burgundy text-white pl-6 pr-2 py-2 rounded-full font-bold text-[15px] hover:bg-lf-burgundy-hover transition-all flex items-center justify-center gap-4 shadow-md hover:shadow-lg inline-flex w-max">
-                <span>Enquire Now</span> 
+              <Link href={data.buttonLink} className="bg-lf-burgundy text-white pl-6 pr-2 py-2 rounded-full font-bold text-[15px] hover:bg-lf-burgundy-hover transition-all flex items-center justify-center gap-4 shadow-md hover:shadow-lg inline-flex w-max">
+                <span>{data.buttonText}</span> 
                 <span className="bg-white rounded-full p-1.5 flex items-center justify-center">
                   <ArrowRight className="w-4 h-4 text-lf-burgundy" strokeWidth={3} />
                 </span>
@@ -25,8 +28,8 @@ export default function AcademicsCTASection() {
             {/* Right Image */}
             <div className="hidden md:col-span-7 md:flex justify-end">
               <img loading="lazy" decoding="async" 
-                src="/cta-bg.webp" 
-                alt="Join Little Flower Family" 
+                src={sizedImage(data.bgImage, 1000)} 
+                alt="Join the Little Flower family" 
                 className="w-full absolute max-w-[95%] md:max-w-[57%] top-6 object-contain translate-x-4 lg:translate-x-8" 
               />
             </div>

@@ -2,8 +2,8 @@
 
 import { useActionState } from "react";
 import { ArrowRight, CheckCircle2, ClipboardList, Loader2, MessageCircle, School } from "lucide-react";
-import { schools } from "@/components/our-school/AllSchoolsListSection";
 import { submitAdmissionEnquiry, type FormState } from "@/app/actions/enquiries";
+import type { SectionContent } from "@/lib/content";
 
 const inputClass =
   "w-full bg-white border border-gray-200 rounded-[14px] px-4 py-3 text-[14px] text-[#0a192f] placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-lf-burgundy/30 focus:border-lf-burgundy transition-all";
@@ -18,13 +18,14 @@ const classOptions = [
 
 const sessionOptions = ["2026–27", "2027–28"];
 
-const steps = [
-  { icon: ClipboardList, title: "Share a few details", text: "Tell us about your child and the class you are looking for." },
-  { icon: School, title: "We check your campus", text: "Our team looks at availability at your preferred school." },
-  { icon: MessageCircle, title: "We guide you", text: "We share the admission process and the next steps." },
-];
+// Icon for each guidance step, in CMS order
+const stepIcons = [ClipboardList, School, MessageCircle];
 
-export default function AdmissionEnquiryFormSection() {
+export default function AdmissionEnquiryFormSection({ data, campuses }: { data: SectionContent; campuses: string[] }) {
+  const steps = (data.steps as { title: string; text: string }[]).map((step, i) => ({
+    ...step,
+    icon: stepIcons[i % stepIcons.length],
+  }));
   const [state, formAction, pending] = useActionState<FormState, FormData>(submitAdmissionEnquiry, { status: "idle" });
 
   return (
@@ -34,18 +35,18 @@ export default function AdmissionEnquiryFormSection() {
 
           {/* Intro */}
           <div className="lg:col-span-2">
-            <span className="text-[#dfae19] font-bold text-[12px] tracking-[0.15em] uppercase mb-3 block">Admission Enquiry</span>
+            <span className="text-[#dfae19] font-bold text-[12px] tracking-[0.15em] uppercase mb-3 block">{data.tagline}</span>
             <h2 className="font-serif text-[34px] md:text-[44px] font-medium text-[#0a192f] leading-tight mb-4">
-              Let&apos;s Help You Get{" "}
+              {data.headline}{" "}
               <span className="font-script text-[#dfae19] text-[38px] md:text-[48px] relative inline-block -my-4 pr-1">
-                Started
+                {data.scriptAccent}
                 <svg className="absolute bottom-[4px] left-0 w-full h-[6px]" viewBox="0 0 100 10" preserveAspectRatio="none">
                   <path d="M2 7 Q 50 12 98 3" stroke="#dfae19" strokeWidth="3" fill="none" strokeLinecap="round" />
                 </svg>
               </span>
             </h2>
-            <p className="text-gray-600 text-[15px] leading-relaxed mb-8">
-              Interested in admissions at Little Flower Group of Schools? Share a few details, and our team can guide you regarding the admission process and the information relevant to your preferred campus.
+            <p className="whitespace-pre-line text-gray-600 text-[15px] leading-relaxed mb-8">
+              {data.description}
             </p>
 
             <ol className="relative flex flex-col gap-6">
@@ -56,8 +57,8 @@ export default function AdmissionEnquiryFormSection() {
                     <Icon className="w-5 h-5 text-lf-gold" strokeWidth={2} />
                   </div>
                   <div className="pt-1.5">
-                    <p className="font-bold text-[#0a192f] text-[15px]">{title}</p>
-                    <p className="text-gray-500 text-[13.5px] leading-relaxed">{text}</p>
+                    <p className="whitespace-pre-line font-bold text-[#0a192f] text-[15px]">{title}</p>
+                    <p className="whitespace-pre-line text-gray-500 text-[13.5px] leading-relaxed">{text}</p>
                   </div>
                 </li>
               ))}
@@ -99,8 +100,8 @@ export default function AdmissionEnquiryFormSection() {
                     <label className={labelClass} htmlFor="campus">Preferred School / Campus</label>
                     <select id="campus" name="campus" defaultValue="" className={inputClass}>
                       <option value="">Any / Not sure</option>
-                      {schools.map((school) => (
-                        <option key={school.name} value={school.name}>{school.name}</option>
+                      {campuses.map((name) => (
+                        <option key={name} value={name}>{name}</option>
                       ))}
                     </select>
                   </div>
@@ -129,7 +130,7 @@ export default function AdmissionEnquiryFormSection() {
                 </div>
 
                 {state.status === "error" && (
-                  <p role="alert" className="text-[13.5px] text-red-700 bg-red-50 border border-red-100 rounded-[12px] px-4 py-3">
+                  <p role="alert" className="whitespace-pre-line text-[13.5px] text-red-700 bg-red-50 border border-red-100 rounded-[12px] px-4 py-3">
                     {state.message}
                   </p>
                 )}

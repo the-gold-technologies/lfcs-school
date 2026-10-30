@@ -1,16 +1,10 @@
 import { CheckCircle2 } from "lucide-react";
+import { paragraphs, splitLastWord, type SectionContent } from "@/lib/content";
+import { sizedImage } from "@/lib/image";
 
-const experiences = [
-  "Classroom learning",
-  "Sports and physical activities",
-  "Creative and cultural activities",
-  "Competitions and events",
-  "Clubs and student activities",
-  "Educational trips",
-  "Celebrations and school programmes",
-];
-
-export default function LifeAtLFCSSection() {
+export default function LifeAtLFCSSection({ data }: { data: SectionContent }) {
+  const [headLead, headLast] = splitLastWord(data.headline);
+  const experiences = (data.experiences as { title: string }[]).map((e) => e.title);
   return (
     <section id="life-at-lfcs" className="py-16 bg-white relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-0">
@@ -18,11 +12,11 @@ export default function LifeAtLFCSSection() {
           
           {/* Left Content */}
           <div className="flex flex-col items-start max-w-xl">
-            <span className="text-[#dfae19] font-bold text-[12px] tracking-[0.2em] uppercase mb-3 block">Life at LFCS</span>
+            <span className="text-[#dfae19] font-bold text-[12px] tracking-[0.2em] uppercase mb-3 block">{data.tagline}</span>
             <h2 className="font-serif text-[34px] md:text-[44px] font-medium text-[#0a192f] leading-tight mb-6">
-              Upskilling, Participating & <br/> Growing 
+              {headLead} <br/> {headLast} 
               <span className="font-script text-[#dfae19] text-[38px] md:text-[48px] relative inline-block -my-4 pl-3">
-                 EveryDay
+                 {data.scriptAccent}
                 <svg className="absolute bottom-[4px] left-0 w-full h-[6px]" viewBox="0 0 100 10" preserveAspectRatio="none">
                   <path d="M2 7 Q 50 12 98 3" stroke="#dfae19" strokeWidth="3" fill="none" strokeLinecap="round" />
                 </svg>
@@ -30,16 +24,12 @@ export default function LifeAtLFCSSection() {
             </h2>
             
             <div className="space-y-4 text-[15px] text-gray-600 leading-relaxed mb-8">
-              <p>
-                At LFCS, even though academics form the core for the student these different activities & opportunities shape them and make them ready for their future.
-              </p>
-              <p>
-                Right from Classroom projects to cultural events, sports activities to competitions LFCS provides students with a variety of opportunities where they can participate & engage more with their school life.
-              </p>
+              {paragraphs(data.description).map((p) => (
+                <p key={p.slice(0, 40)} className="whitespace-pre-line">{p}</p>
+              ))}
             </div>
-            
             <div className="w-full">
-              <h3 className="font-semibold text-[#0a192f] mb-4 text-[16px]">A typical LFCS experience brings together:</h3>
+              <h3 className="font-semibold text-[#0a192f] mb-4 text-[16px]">{data.experiencesTitle}</h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {experiences.map((exp, idx) => (
                   <div key={idx} className="flex items-center gap-3">
@@ -58,16 +48,16 @@ export default function LifeAtLFCSSection() {
             
             <div className="absolute top-0 right-0 w-[60%] h-[60%] rounded-[20px] overflow-hidden shadow-lg border-4 border-white z-10">
               <img loading="lazy" decoding="async" 
-                src="/experience/life1.webp" 
-                alt="Creative activities" 
+                src={sizedImage(data.image1, 700)} 
+                alt="Creative activities at Little Flower" 
                 className="w-full h-full object-cover"
               />
             </div>
             
             <div className="absolute bottom-0 left-0 w-[65%] h-[55%] rounded-[20px] overflow-hidden shadow-xl border-4 border-white z-20">
               <img loading="lazy" decoding="async" 
-                src="/experience/life2.webp" 
-                alt="Sports activities" 
+                src={sizedImage(data.image2, 700)} 
+                alt="Sports activities at Little Flower" 
                 className="w-full h-full object-cover"
               />
             </div>
@@ -76,8 +66,8 @@ export default function LifeAtLFCSSection() {
           {/* Mobile Single Image */}
           <div className="md:hidden w-full h-[300px] rounded-[20px] overflow-hidden shadow-md">
             <img loading="lazy" decoding="async" 
-              src="/experience/life2.webp" 
-              alt="School Life" 
+              src={sizedImage(data.image2, 700)} 
+              alt="School life at Little Flower" 
               className="w-full h-full object-cover"
             />
           </div>

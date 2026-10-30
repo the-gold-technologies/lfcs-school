@@ -2,27 +2,14 @@
 
 import { useState } from "react";
 import { Quote, Star, Heart, Sparkles } from "lucide-react";
+import { splitAfterComma, type SectionContent, type Testimonial } from "@/lib/content";
 
-export default function Testimonials() {
+export default function Testimonials({ data, testimonials }: { data: SectionContent; testimonials: Testimonial[] }) {
   const [activeTab, setActiveTab] = useState("PARENTS");
 
-  const testimonialsData = {
-    STUDENTS: [
-      { name: 'Animesh Rai', role: 'Alumnus, Pursuing BBA', text: 'My years at the school gave me a strong foundation for pursuing BBA. The discipline and values I learned here continue to help me in college.' },
-      { name: 'Aditi Rai', role: 'Alumna, Pursuing MBBS', text: 'The teachers always motivated me to ask questions and understand concepts rather than simply memorising them. Beyond academics, the school taught me responsibility, time management and respect.' },
-      { name: 'Suraj Yadav', role: 'Alumnus, Pursuing B.Tech (AI & ML)', text: 'The school provided an environment where curiosity and interest in technology were encouraged. My teachers helped me develop logical thinking and problem-solving skills.' },
-    ],
-    TEACHERS: [
-      { name: 'Mr. Shashi Bhushan Singh', role: 'PGT Science', text: 'Working at Little Flower Children School has been a rewarding experience.' },
-      { name: 'Mr. Umesh Vishwakarma', role: 'TGT Maths', text: 'My experience at LFCS has been enriching and fulfilling.' },
-      { name: 'Ms. Wajeeha Parveen', role: 'TGT Teacher', text: 'The school provides a balanced environment for academic learning, creativity, discipline and personality development.' },
-    ],
-    PARENTS: [
-      { name: 'Mr. Sarvesh Singh', role: 'Parent', text: 'The teachers are caring, approachable and attentive towards individual students.' },
-      { name: 'Mr. Banshidhar Yadav', role: 'Parent', text: 'LFCS has provided our child with a safe, disciplined and encouraging learning environment.' },
-      { name: 'Mr. Rambharat Yadav', role: 'Parent', text: 'We are pleased with the academic and personal development of my child at LFCS. We are thankful to the teachers and management for their sincere efforts.' },
-    ]
-  };
+  const byCategory = (category: string) => testimonials.filter((t) => t.category === category);
+  // On phones the heading breaks after the comma ("Loved by Parents, / Trusted for")
+  const [headLead, headRest] = splitAfterComma(data.headline);
 
   // Map each index to a vibrant brand color and unique shape
   const cardStyles = [
@@ -71,15 +58,15 @@ export default function Testimonials() {
         {/* Playful Heading */}
         <div className="text-center mb-12 relative">
           <h2 className="font-serif text-[44px] font-medium text-[#0a192f] leading-tight mb-4">
-            Loved by Parents, <br className="md:hidden" />Trusted for <span className="font-script text-[#dfae19] text-[48px] relative inline-block -my-4 pr-1">
-              Generations
+            {headLead && <>{headLead} <br className="md:hidden" /></>}{headRest} <span className="font-script text-[#dfae19] text-[48px] relative inline-block -my-4 pr-1">
+              {data.scriptAccent}
               <svg className="absolute bottom-[4px] left-0 w-full h-[6px]" viewBox="0 0 100 10" preserveAspectRatio="none">
                 <path d="M2 7 Q 50 12 98 3" stroke="#dfae19" strokeWidth="3" fill="none" strokeLinecap="round" />
               </svg>
             </span>
           </h2>
-          <p className="text-gray-500 text-[15px] max-w-2xl mx-auto mt-6">
-            Hear from the wonderful people who make our school a vibrant community of learners and leaders!
+          <p className="whitespace-pre-line text-gray-500 text-[15px] max-w-2xl mx-auto mt-6">
+            {data.subtitle}
           </p>
         </div>
 
@@ -134,7 +121,7 @@ export default function Testimonials() {
 
         {/* Unique Vibrant Cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-6 lg:gap-10 pb-10">
-          {testimonialsData[activeTab as keyof typeof testimonialsData].map((t, i) => {
+          {byCategory(activeTab).map((t, i) => {
             const style = cardStyles[i % cardStyles.length];
             return (
               <div 
@@ -146,8 +133,8 @@ export default function Testimonials() {
                   <Quote className="w-16 h-16 rotate-180" fill="currentColor" strokeWidth={0} />
                 </div>
                 
-                <p className={`${style.text} text-[16px] leading-[1.8] font-medium relative z-10 mt-12 mb-8`}>
-                  "{t.text}"
+                <p className={`whitespace-pre-line ${style.text} text-[16px] leading-[1.8] font-medium relative z-10 mt-12 mb-8`}>
+                  &ldquo;{t.text}&rdquo;
                 </p>
                 
                 <div className="relative z-10 mt-auto flex items-center gap-4">

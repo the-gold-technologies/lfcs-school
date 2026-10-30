@@ -2,6 +2,7 @@
 
 import { ENQUIRY_EMAIL, sendFormEmail } from "@/lib/mailer";
 import { CV_EXTENSIONS, MAX_CV_BYTES } from "@/components/careers/careersData";
+import { cmsPostSubmission } from "@/lib/cms";
 
 export type FormState = {
   status: "idle" | "success" | "error";
@@ -48,6 +49,18 @@ export async function submitContactForm(_prev: FormState, formData: FormData): P
   }
 
   const typeLabel = enquiryTypeLabels[enquiryType] ?? "General Enquiry";
+
+  // Also file it in the CMS inbox; admission enquiries from the pop-up go to the Admissions inbox
+  await cmsPostSubmission({
+    formType: enquiryType === "admissions" ? "admissions" : "contact",
+    fullName,
+    email,
+    phone,
+    preferredCampus: campus,
+    grade,
+    enquiryType: typeLabel,
+    message,
+  });
 
   try {
     await sendFormEmail({
@@ -112,6 +125,21 @@ export async function submitStartSchoolEnquiry(_prev: FormState, formData: FormD
     return { status: "error", message: "Please enter a valid email address." };
   }
 
+  await cmsPostSubmission({
+    formType: "start-school",
+    fullName,
+    email,
+    phone: contactNumber,
+    city,
+    proposedLocation,
+    landOwnership: landOwnershipLabels[landOwnership] ?? "",
+    landArea,
+    schoolLevel: schoolLevelLabels[schoolLevel] ?? "",
+    investmentCapacity: investment,
+    experience,
+    message,
+  });
+
   try {
     await sendFormEmail({
       to: ENQUIRY_EMAIL,
@@ -158,6 +186,16 @@ export async function submitAdmissionEnquiry(_prev: FormState, formData: FormDat
   if (!EMAIL_RE.test(email)) {
     return { status: "error", message: "Please enter a valid email address." };
   }
+
+  await cmsPostSubmission({
+    formType: "admissions",
+    fullName: parentName,
+    email,
+    preferredCampus: campus,
+    grade,
+    academicSession: session,
+    message,
+  });
 
   try {
     await sendFormEmail({
@@ -224,6 +262,19 @@ export async function submitCareerProfile(_prev: FormState, formData: FormData):
   }
 
   const areaLabel = careerAreaLabels[area] ?? careerAreaLabels.other;
+
+  // The CV itself is only attached to the email; the CMS record notes whether one was sent
+  await cmsPostSubmission({
+    formType: "careers",
+    fullName,
+    email,
+    phone,
+    preferredCampus: campus,
+    careerArea: areaLabel,
+    roleOfInterest: role,
+    experience,
+    message: attachments.length ? `${message}\n\n[CV attached to the enquiry email]` : message,
+  });
 
   try {
     await sendFormEmail({

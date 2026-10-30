@@ -4,6 +4,9 @@ import Image from 'next/image';
 import { Home, BookOpen, Building, Menu, X, ChevronDown, Backpack, GraduationCap, Phone, Newspaper, type LucideIcon } from 'lucide-react';
 import { useEffect, useState } from 'react';
 
+import type { NavLink as CmsNavLink } from '@/lib/content';
+import { sizedImage } from '@/lib/image';
+
 type SchoolItem = { label: string; href: string; img: string };
 type PageItem = { label: string; href: string; icon: LucideIcon; description: string };
 type NavLink = {
@@ -14,38 +17,50 @@ type NavLink = {
   pages?: PageItem[];
 };
 
-const navLinks: NavLink[] = [
-  { label: 'About Us', href: '/about', icon: Home },
-  {
-    label: 'Academics',
-    href: '/academics',
-    icon: BookOpen,
-    pages: [
-      { label: 'Academics', href: '/academics', icon: BookOpen, description: 'Curriculum, learning stages and results' },
-      { label: 'Experience', href: '/experience', icon: Backpack, description: 'Sports, arts, clubs and student life' },
-      { label: 'News & Events', href: '/news-&-events', icon: Newspaper, description: 'Announcements and press coverage' },
-    ],
-  },
-  { label: 'Admissions', href: '/admissions', icon: GraduationCap },
-  {
-    label: 'Our Schools',
-    href: '/our-school',
-    icon: Building,
-    schools: [
-      { label: 'LFCS, MAU', href: 'https://lfgos.com/', img: '/schools/thumbs/Nizamuddinpura-Mau.webp' },
-      { label: 'LFCS, SIKATIYA', href: 'https://lfcsmau.co/', img: '/schools/thumbs/Sikatia-Mau.webp' },
-      { label: 'LFCS, GHOSI', href: 'https://www.lfcsghosi.co.in/', img: '/schools/thumbs/Ghosi.webp' },
-      { label: 'LFCS, BALLIA', href: 'https://lfcsballia.co.in/', img: '/schools/thumbs/Khalispur-Balia.webp' },
-      { label: 'LFCS, KASIMABAD GHAZIPUR', href: 'https://www.lfcskasimabad.in/', img: '/schools/thumbs/Kasimabad.webp' },
-      { label: 'LFCS, AZAMGARH', href: 'https://lfcsazamgarh.org.in/', img: '/schools/thumbs/lfcs-azamgarh.webp' },
-      { label: 'LFIS, KHALISHPUR MAU', href: 'https://lfismau.co.in/', img: '/schools/thumbs/lfis-mau.webp' },
-      { label: 'AZAD HIND INTER COLLEGE, KHALISHPUR MAU', href: 'https://www.facebook.com/azadhindcollege/', img: '/schools/thumbs/azad-hind-inter-college.webp' },
-    ],
-  },
-  { label: 'Contact Us', href: '/contact', icon: Phone },
-];
+// Icons are part of the design, so they stay here and are matched to CMS links by URL
+const iconFor: Record<string, LucideIcon> = {
+  '/about': Home,
+  '/academics': BookOpen,
+  '/experience': Backpack,
+  '/news-&-events': Newspaper,
+  '/admissions': GraduationCap,
+  '/our-school': Building,
+  '/contact': Phone,
+};
 
-export default function Header() {
+// Turns the flat CMS link list into the menu: dropdown items with images render as the
+// schools grid, the rest as the described page list
+function buildMenu(links: CmsNavLink[]): NavLink[] {
+  const childrenOf = (id: string) => links.filter((l) => l.parent === id);
+  return links
+    .filter((l) => (!l.parent || l.parent === '-') && l.type !== 'Action Button')
+    .map((l) => {
+      const children = childrenOf(l.id);
+      const item: NavLink = { label: l.label, href: l.url, icon: iconFor[l.url] ?? Home };
+      if (children.some((c) => c.image)) {
+        item.schools = children.map((c) => ({ label: c.label, href: c.url, img: sizedImage(c.image, 320) }));
+      } else if (children.length) {
+        item.pages = children.map((c) => ({
+          label: c.label,
+          href: c.url,
+          icon: iconFor[c.url] ?? BookOpen,
+          description: c.description ?? '',
+        }));
+      }
+      return item;
+    });
+}
+
+type HeaderProps = {
+  links: CmsNavLink[];
+  logo: string;
+  mobileLogo: string;
+  brandTitle: string;
+};
+
+export default function Header({ links, logo, mobileLogo, brandTitle }: HeaderProps) {
+  const navLinks = buildMenu(links);
+  const action = links.find((l) => l.type === 'Action Button');
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   // Label of the dropdown expanded in the mobile drawer, if any
@@ -75,7 +90,7 @@ export default function Header() {
           <div className="flex justify-between items-center h-[70px] md:h-[85px]">
             {/* Logo */}
             <Link href="/" className="flex-shrink-0 flex items-center gap-2">
-              <Image src="/logo-header.webp" alt="Little Flower Children School" width={1525} height={448} priority className="object-contain h-[54px] md:h-[70px] w-auto" />
+              <Image src={logo} alt="Little Flower Group of Schools" width={1525} height={448} priority className="object-contain h-[54px] md:h-[70px] w-auto" />
             </Link>
 
             <nav className="hidden lg:flex space-x-4 items-end">
@@ -140,9 +155,11 @@ export default function Header() {
 
             {/* CTA + Hamburger */}
             <div className="flex items-center gap-3">
-              <Link href="/start-school" className="hidden md:block whitespace-nowrap bg-lf-burgundy text-white px-5 lg:px-8 py-2.5 lg:py-3.5 rounded-[16px] font-semibold text-sm hover:bg-lf-burgundy-hover transition-colors">
-                Start a School
-              </Link>
+              {action && (
+                <Link href={action.url} className="hidden md:block whitespace-nowrap bg-lf-burgundy text-white px-5 lg:px-8 py-2.5 lg:py-3.5 rounded-[16px] font-semibold text-sm hover:bg-lf-burgundy-hover transition-colors">
+                  {action.label}
+                </Link>
+              )}
               <button
                 className="lg:hidden text-gray-700 hover:text-[#0a192f] p-2"
                 onClick={() => {
@@ -167,8 +184,8 @@ export default function Header() {
           <div className="relative ml-auto w-[280px] h-full bg-white flex flex-col shadow-2xl">
             <div className="flex items-center justify-between p-5 border-b border-gray-100">
               <Link href="/" className="flex items-center gap-2" onClick={() => setMobileOpen(false)}>
-                <Image src="/logo1.webp" alt="Logo" width={44} height={44} className="object-contain" />
-                <span className="text-lf-burgundy font-serif text-[18px] font-semibold">Little Flower</span>
+                <Image src={mobileLogo} alt="Little Flower Group of Schools" width={44} height={44} className="object-contain" />
+                <span className="text-lf-burgundy font-serif text-[18px] font-semibold">{brandTitle}</span>
               </Link>
               <button onClick={() => setMobileOpen(false)} className="p-1 text-gray-500 hover:text-gray-800">
                 <X className="w-6 h-6" />
@@ -244,11 +261,13 @@ export default function Header() {
               })}
             </nav>
 
-            <div className="p-5 border-t border-gray-100">
-              <Link href="/start-school" onClick={() => setMobileOpen(false)} className="block w-full text-center bg-lf-burgundy text-white px-6 py-3 rounded-[16px] font-semibold text-sm hover:bg-lf-burgundy-hover transition-colors">
-                Start a School
-              </Link>
-            </div>
+            {action && (
+              <div className="p-5 border-t border-gray-100">
+                <Link href={action.url} onClick={() => setMobileOpen(false)} className="block w-full text-center bg-lf-burgundy text-white px-6 py-3 rounded-[16px] font-semibold text-sm hover:bg-lf-burgundy-hover transition-colors">
+                  {action.label}
+                </Link>
+              </div>
+            )}
           </div>
         </div>
       )}

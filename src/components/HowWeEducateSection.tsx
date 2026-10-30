@@ -1,6 +1,19 @@
 import { Target, Award, Monitor, Star } from "lucide-react";
+import type { SectionContent } from "@/lib/content";
+import { sizedImage } from "@/lib/image";
 
-export default function HowWeEducateSection() {
+const pillarStyles = [
+  { icon: Target, color: "bg-[#71a1ec]" },
+  { icon: Award, color: "bg-[#f87878]" },
+  { icon: Monitor, color: "bg-[#6db387]" },
+  { icon: Star, color: "bg-[#a37ee8]" },
+];
+
+export default function HowWeEducateSection({ data }: { data: SectionContent }) {
+  const pillars = (data.pillars as { title: string; desc: string }[]).map((p, i) => ({
+    ...p,
+    ...pillarStyles[i % pillarStyles.length],
+  }));
   return (
     <section className="py-14 md:py-24 bg-[#fcfdfe] relative overflow-hidden">
       {/* Decorative background */}
@@ -19,32 +32,27 @@ export default function HowWeEducateSection() {
               <div className="absolute -top-4 -left-4 w-full h-full rounded-[32px] border-[6px] border-[#89b3a9] z-10"></div>
               <div className="absolute -top-16 -right-8 w-40 h-32 bg-[#f5d7ce] rounded-[40px] rounded-bl-[80px] rotate-[15deg] z-20"></div>
               <div className="absolute -bottom-10 -left-10 w-32 h-32 bg-[#fae5a0] rounded-[40px] rounded-tr-[80px] -rotate-[15deg] z-20"></div>
-              <img loading="lazy" decoding="async" src="/home-page/how-we-educate.webp" alt="Students learning" className="w-full h-auto min-h-[350px] rounded-[32px] object-cover relative z-10" />
+              <img loading="lazy" decoding="async" src={sizedImage(data.mainImage, 900)} alt="Students learning at Little Flower" className="w-full h-auto min-h-[350px] rounded-[32px] object-cover relative z-10" />
             </div>
           </div>
 
           {/* Right Text Area */}
           <div className="xl:w-[60%] z-10 xl:pl-6 w-full">
-            <span className="text-[#dfae19] font-bold text-[12px] tracking-[0.15em] uppercase mb-4 block">HOW WE EDUCATE</span>
+            <span className="text-[#dfae19] font-bold text-[12px] tracking-[0.15em] uppercase mb-4 block">{data.tagline}</span>
             <h2 className="font-serif text-[34px] md:text-[44px] font-medium text-[#0a192f] leading-tight mb-4 md:mb-2">
-              Learning Beyond <span className="font-script text-[#dfae19] text-[38px] md:text-[48px] relative inline-block -my-4 pr-1">
-                Classrooms
+              {data.headline} <span className="font-script text-[#dfae19] text-[38px] md:text-[48px] relative inline-block -my-4 pr-1">
+                {data.scriptAccent}
                 <svg className="absolute bottom-[4px] left-0 w-full h-[6px]" viewBox="0 0 100 10" preserveAspectRatio="none">
                   <path d="M2 7 Q 50 12 98 3" stroke="#dfae19" strokeWidth="3" fill="none" strokeLinecap="round" />
                 </svg>
               </span>
             </h2>
-            <p className="text-gray-500 mb-10 md:mb-14 text-[15px] md:text-[16px] max-w-2xl leading-relaxed">
-              We blend strong academics with innovation and creativity to nurture curious minds and confident hearts.
+            <p className="whitespace-pre-line text-gray-500 mb-10 md:mb-14 text-[15px] md:text-[16px] max-w-2xl leading-relaxed">
+              {data.subtitle}
             </p>
 
             <div className="grid grid-cols-2 md:flex md:flex-row items-start gap-6 md:gap-0 md:divide-x md:divide-gray-100">
-              {[
-                { icon: Target, color: 'bg-[#71a1ec]', title: 'Experiential Learning', desc: 'Hands-on learning that builds curiosity.' },
-                { icon: Award, color: 'bg-[#f87878]', title: 'Academic Excellence', desc: 'Strong foundation with personalized support.' },
-                { icon: Monitor, color: 'bg-[#6db387]', title: 'Technology & Innovation', desc: 'Smart classrooms and digital integration.' },
-                { icon: Star, color: 'bg-[#a37ee8]', title: 'Holistic Development', desc: 'Nurturing mind, body and character.' },
-              ].map(({ icon: Icon, color, title, desc }, i) => (
+              {pillars.map(({ icon: Icon, color, title, desc }, i) => (
                 <div key={title} className={`flex-1 flex flex-col gap-3 ${i > 0 ? 'md:px-6' : 'md:pr-6'}`}>
                   <div className="flex items-center gap-3">
                     <div className={`w-[42px] h-[42px] md:w-[46px] md:h-[46px] rounded-full ${color} flex items-center justify-center shrink-0`}>
@@ -52,7 +60,7 @@ export default function HowWeEducateSection() {
                     </div>
                     <h4 className="font-bold text-[#0a192f] text-[13px] md:text-[15px] leading-tight">{title}</h4>
                   </div>
-                  <p className="text-[12px] md:text-[13px] text-gray-500 leading-relaxed">{desc}</p>
+                  <p className="whitespace-pre-line text-[12px] md:text-[13px] text-gray-500 leading-relaxed">{desc}</p>
                 </div>
               ))}
             </div>

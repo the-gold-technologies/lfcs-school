@@ -1,14 +1,17 @@
 import { BookOpen, Briefcase, LayoutGrid, Award, Building2 } from "lucide-react";
+import type { SectionContent } from "@/lib/content";
 
-const areas = [
-  { icon: BookOpen, title: "Educational Framework", desc: "Alignment with the LFCS approach to learning, student development and school values.", color: "#dfae19", bg: "#fcf5de" },
-  { icon: Briefcase, title: "School Management", desc: "Clarity on management responsibilities, operational processes and decision-making.", color: "#66733a", bg: "#edf1e8" },
-  { icon: LayoutGrid, title: "Academic Structure", desc: "Guidance on curriculum implementation, teaching practices and academic planning, where included in the agreement.", color: "#3b82f6", bg: "#eff6ff" },
-  { icon: Award, title: "Brand Identity", desc: "Use of approved LFCS branding and communication guidelines, subject to the applicable partnership terms.", color: "#c76785", bg: "#fbeff2" },
-  { icon: Building2, title: "School Development", desc: "Planning and coordination for establishing the required infrastructure, resources and operating systems.", color: "#842b46", bg: "#fbeef1" },
-];
+// Icon for each model area, in CMS order (colours come from the CMS)
+const areaIcons = [BookOpen, Briefcase, LayoutGrid, Award, Building2];
 
-export default function SchoolModelSection() {
+export default function SchoolModelSection({ data }: { data: SectionContent }) {
+  const areas = (data.areas as { title: string; desc: string; color: string; bg: string }[]).map((a, i) => ({
+    ...a,
+    icon: areaIcons[i % areaIcons.length],
+  }));
+  // The heading wraps halfway ("A Partnership / Built Around")
+  const headWords = (data.headline as string).trim().split(/\s+/);
+  const half = Math.ceil(headWords.length / 2);
   return (
     <section id="model" className="py-16 bg-[#fdfdfc] relative overflow-hidden scroll-mt-24">
 
@@ -20,11 +23,11 @@ export default function SchoolModelSection() {
       />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-0 relative z-10">
         <div className="max-w-2xl mb-12 md:mb-14">
-          <span className="text-[#66733a] font-bold text-[12px] tracking-[0.2em] uppercase mb-4 block">LFCS School Model</span>
+          <span className="text-[#66733a] font-bold text-[12px] tracking-[0.2em] uppercase mb-4 block">{data.tagline}</span>
           <h2 className="font-serif text-[34px] md:text-[44px] font-medium text-[#0a192f] leading-tight mb-5">
-            A Partnership <br /> Built Around{" "}
+            {headWords.slice(0, half).join(" ")} <br /> {headWords.slice(half).join(" ")}{" "}
             <span className="font-script text-[#dfae19] text-[38px] md:text-[50px] relative inline-block -my-4 pr-1">
-               Education
+               {data.scriptAccent}
               <svg className="absolute bottom-[4px] left-0 w-full h-[6px]" viewBox="0 0 100 10" preserveAspectRatio="none">
                 <path d="M2 7 Q 50 12 98 3" stroke="#dfae19" strokeWidth="3" fill="none" strokeLinecap="round" />
               </svg>
@@ -44,7 +47,7 @@ export default function SchoolModelSection() {
                   <item.icon className="w-6 h-6" style={{ color: item.color }} strokeWidth={1.5} />
                 </div>
                 <h4 className="font-bold text-[#0a192f] text-[15px] leading-snug">{item.title}</h4>
-                <p className="text-gray-500 text-[13.5px] leading-relaxed">{item.desc}</p>
+                <p className="whitespace-pre-line text-gray-500 text-[13.5px] leading-relaxed">{item.desc}</p>
               </div>
             ))}
           </div>

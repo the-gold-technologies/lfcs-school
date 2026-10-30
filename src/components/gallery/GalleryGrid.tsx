@@ -1,12 +1,15 @@
 "use client";
 
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { ChevronLeft, ChevronRight, X, Expand } from "lucide-react";
-import { galleryCategories, galleryImages, type GalleryCategory } from "./galleryData";
+import type { GalleryPhoto } from "@/lib/content";
+import { sizedImage } from "@/lib/image";
 
-type Filter = "All" | GalleryCategory;
+type Filter = string;
 
-export default function GalleryGrid() {
+export default function GalleryGrid({ photos: galleryImages }: { photos: GalleryPhoto[] }) {
+  // Filter tabs follow the categories in the order photos appear in the CMS
+  const galleryCategories = [...new Set(galleryImages.map((img) => img.category))];
   const [activeFilter, setActiveFilter] = useState<Filter>("All");
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
@@ -17,23 +20,22 @@ export default function GalleryGrid() {
   const countFor = (filter: Filter) =>
     filter === "All" ? galleryImages.length : galleryImages.filter((img) => img.category === filter).length;
 
-  const close = useCallback(() => setOpenIndex(null), []);
-  const showPrev = useCallback(
-    () => setOpenIndex((i) => (i === null ? i : (i - 1 + images.length) % images.length)),
-    [images.length]
-  );
-  const showNext = useCallback(
-    () => setOpenIndex((i) => (i === null ? i : (i + 1) % images.length)),
-    [images.length]
-  );
+  const count = images.length;
+  // Moves the open photo by `delta`, wrapping around the filtered list
+  const step = (delta: number) => setOpenIndex((i) => (i === null ? i : (i + delta + count) % count));
+  const close = () => setOpenIndex(null);
+  const showPrev = () => step(-1);
+  const showNext = () => step(1);
+  const isOpen = openIndex !== null;
 
   // Keyboard controls and scroll lock while the viewer is open
   useEffect(() => {
-    if (openIndex === null) return;
+    if (!isOpen) return;
+    const move = (delta: number) => setOpenIndex((i) => (i === null ? i : (i + delta + count) % count));
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") close();
-      if (e.key === "ArrowLeft") showPrev();
-      if (e.key === "ArrowRight") showNext();
+      if (e.key === "Escape") setOpenIndex(null);
+      if (e.key === "ArrowLeft") move(-1);
+      if (e.key === "ArrowRight") move(1);
     };
     const prevOverflow = document.body.style.overflow;
     document.body.style.overflow = "hidden";
@@ -42,7 +44,7 @@ export default function GalleryGrid() {
       document.body.style.overflow = prevOverflow;
       window.removeEventListener("keydown", onKey);
     };
-  }, [openIndex, close, showPrev, showNext]);
+  }, [isOpen, count]);
 
   const current = openIndex === null ? null : images[openIndex];
   const filters: Filter[] = ["All", ...galleryCategories];
@@ -87,7 +89,7 @@ export default function GalleryGrid() {
               <img
                 loading="lazy"
                 decoding="async"
-                src={img.src}
+                src={sizedImage(img.src, 700)}
                 alt={img.caption}
                 className="block w-full h-auto transition-transform duration-700 group-hover:scale-105"
               />
@@ -124,7 +126,7 @@ export default function GalleryGrid() {
 
           <div className="relative flex-1 flex items-center justify-center px-4 md:px-20 min-h-0">
             <img
-              src={current.src}
+              src={sizedImage(current.src, 1800)}
               alt={current.caption}
               className="max-w-full max-h-full object-contain rounded-[12px] shadow-2xl"
               onClick={(e) => e.stopPropagation()}
@@ -151,7 +153,7 @@ export default function GalleryGrid() {
 
           <div className="px-4 py-5 text-center" onClick={(e) => e.stopPropagation()}>
             <span className="text-[#dfae19] text-[11px] font-bold uppercase tracking-wider">{current.category}</span>
-            <p className="text-white text-[15px] font-medium mt-1">{current.caption}</p>
+            <p className="whitespace-pre-line text-white text-[15px] font-medium mt-1">{current.caption}</p>
           </div>
         </div>
       )}

@@ -1,69 +1,23 @@
-import { ChevronRight, BookOpen, GraduationCap, Globe, Target, Baby } from "lucide-react";
+import { ChevronRight } from "lucide-react";
+import type { SectionContent } from "@/lib/content";
+import { sizedImage } from "@/lib/image";
 
-export const stages = [
-  {
-    title: "Early Years",
-    grades: "[Nursery – UKG]",
-    description: "Focus on developing foundational skills through play-based learning, classroom activities and guided exploration.",
-    color: "#ffb703", // Yellow/Orange
-    bgColor: "bg-[#ffb703]",
-    textColor: "text-[#ffb703]",
-    lightBg: "bg-[#ffb703]/10",
-    borderColor: "border-[#ffb703]",
-    icon: <Baby className="w-6 h-6 text-[#ffb703]" strokeWidth={1.5} />,
-    image: "/JourneyCard1.webp",
-  },
-  {
-    title: "Primary School",
-    grades: "[I – V]",
-    description: "Focus expands towards building stronger subject knowledge, reading & writing skills, mathematical understanding & learning habits.",
-    color: "#2a9d8f", // Green
-    bgColor: "bg-[#2a9d8f]",
-    textColor: "text-[#2a9d8f]",
-    lightBg: "bg-[#2a9d8f]/10",
-    borderColor: "border-[#2a9d8f]",
-    icon: <BookOpen className="w-6 h-6 text-[#2a9d8f]" strokeWidth={1.5} />,
-    image: "/JourneyCard2.webp",
-  },
-  {
-    title: "Middle School",
-    grades: "[VI – VIII]",
-    description: "Introduces & requires students to gain greater subject depth, think independently and develop stronger problem-solving skills.",
-    color: "#0077b6", // Blue
-    bgColor: "bg-[#0077b6]",
-    textColor: "text-[#0077b6]",
-    lightBg: "bg-[#0077b6]/10",
-    borderColor: "border-[#0077b6]",
-    icon: <Globe className="w-6 h-6 text-[#0077b6]" strokeWidth={1.5} />,
-    image: "/JourneyCard3.webp",
-  },
-  {
-    title: "Secondary School",
-    grades: "[IX – X]",
-    description: "A crucial phase where students apply knowledge & skills, strengthen analytical abilities and prepare for board exams with the right guidance.",
-    color: "#7209b7", // Purple
-    bgColor: "bg-[#7209b7]",
-    textColor: "text-[#7209b7]",
-    lightBg: "bg-[#7209b7]/10",
-    borderColor: "border-[#7209b7]",
-    icon: <GraduationCap className="w-6 h-6 text-[#7209b7]" strokeWidth={1.5} />,
-    image: "/JourneyCard4.webp",
-  },
-  {
-    title: "Senior Secondary",
-    grades: "[XI – XII]",
-    description: "Students work towards academic specialisation, deeper subject understanding and preparation for higher education and future career pathways.",
-    color: "#ff4d6d", // Pink
-    bgColor: "bg-[#ff4d6d]",
-    textColor: "text-[#ff4d6d]",
-    lightBg: "bg-[#ff4d6d]/10",
-    borderColor: "border-[#ff4d6d]",
-    icon: <Target className="w-6 h-6 text-[#ff4d6d]" strokeWidth={1.5} />,
-    image: "/JourneyCard5.webp",
-  }
+// Colours for each learning stage, in CMS order (also used by the Admissions class cards)
+export const stageStyles = [
+  { bgColor: "bg-[#ffb703]", textColor: "text-[#ffb703]", lightBg: "bg-[#ffb703]/10" },
+  { bgColor: "bg-[#2a9d8f]", textColor: "text-[#2a9d8f]", lightBg: "bg-[#2a9d8f]/10" },
+  { bgColor: "bg-[#0077b6]", textColor: "text-[#0077b6]", lightBg: "bg-[#0077b6]/10" },
+  { bgColor: "bg-[#7209b7]", textColor: "text-[#7209b7]", lightBg: "bg-[#7209b7]/10" },
+  { bgColor: "bg-[#ff4d6d]", textColor: "text-[#ff4d6d]", lightBg: "bg-[#ff4d6d]/10" },
 ];
 
-export default function AcademicJourneySection() {
+export type StageContent = { title: string; grades: string; desc: string; image: string };
+
+export default function AcademicJourneySection({ data }: { data: SectionContent }) {
+  const stages = (data.stages as StageContent[]).map((stage, i) => ({
+    ...stage,
+    ...stageStyles[i % stageStyles.length],
+  }));
   return (
     <section className="pt-16 md:pt-24 pb-12 bg-[#fdfdfc] relative overflow-hidden">
 
@@ -72,24 +26,24 @@ export default function AcademicJourneySection() {
         {/* Header Section */}
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-12">
           <div className="max-w-3xl">
-            <span className="text-[#fca311] font-bold text-[12px] tracking-[0.15em] uppercase mb-4 block">Academic Journey</span>
+            <span className="text-[#fca311] font-bold text-[12px] tracking-[0.15em] uppercase mb-4 block">{data.tagline}</span>
           
             <h2 className="font-serif text-[34px] md:text-[44px] font-medium text-[#0a192f] leading-tight mb-0">
-              Academic Journey That <br className="hidden md:block" />
+              {data.headline} <br className="hidden md:block" />
               <span className="font-script text-[#dfae19] text-[38px] md:text-[54px] relative inline-block -my-4">
-                Progresses
+                {data.scriptAccent}
                 <svg className="absolute bottom-[4px] left-0 w-full h-[6px]" viewBox="0 0 100 10" preserveAspectRatio="none">
                   <path d="M2 7 Q 50 12 98 3" stroke="#dfae19" strokeWidth="3" fill="none" strokeLinecap="round" />
                 </svg>
               </span>{" "}
-              with Every Stage
+              {data.subtitle}
             </h2>
           </div>
 
           <div className="shrink-0 lg:max-w-md flex flex-col items-start lg:pb-2 gap-6">
             
-            <a href="/contact#contact-form" className="inline-flex items-center gap-3 bg-lf-burgundy text-white px-8 py-3.5 rounded-full font-semibold hover:bg-lf-burgundy-hover transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1">
-              Explore Admissions <ChevronRight className="w-5 h-5" />
+            <a href={data.ctaLink} className="inline-flex items-center gap-3 bg-lf-burgundy text-white px-8 py-3.5 rounded-full font-semibold hover:bg-lf-burgundy-hover transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1">
+              {data.ctaText} <ChevronRight className="w-5 h-5" />
             </a>
           </div>
         </div>
@@ -106,7 +60,7 @@ export default function AcademicJourneySection() {
                   
                   {/* Colored Header Area (50%) */}
                   <div className={`${stage.lightBg} rounded-t-[32px] pt-10 pb-2 px-4 h-1/2 shrink-0 flex items-end justify-center overflow-hidden`}>
-                     <img loading="lazy" decoding="async" src={stage.image} alt={stage.title} className="w-full h-full object-contain object-bottom scale-[1.15] origin-bottom" />
+                     <img loading="lazy" decoding="async" src={sizedImage(stage.image, 500)} alt={`${stage.title} at Little Flower`} className="w-full h-full object-contain object-bottom scale-[1.15] origin-bottom" />
                   </div>
 
                   {/* Text Content (50%) */}
@@ -117,8 +71,8 @@ export default function AcademicJourneySection() {
                     <div className={`font-bold text-[15px] mb-4 ${stage.textColor}`}>
                       {stage.grades}
                     </div>
-                    <p className="text-gray-500 text-[13px] leading-relaxed">
-                      {stage.description}
+                    <p className="whitespace-pre-line text-gray-500 text-[13px] leading-relaxed">
+                      {stage.desc}
                     </p>
                   </div>
                 </div>

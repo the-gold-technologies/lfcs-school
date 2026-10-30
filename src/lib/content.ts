@@ -52,7 +52,8 @@ export const getPage = cache(async (slug: PageSlug): Promise<PageContent> => {
   };
 });
 
-export type SiteConfig = typeof snapshot.site;
+// sitemapCustomContent is only set once an admin uploads a sitemap, so the snapshot may not carry it
+export type SiteConfig = typeof snapshot.site & { sitemapCustomContent?: string | null };
 
 export const getSite = cache(async (): Promise<SiteConfig> => {
   const res = await cmsGet<SiteConfig>("/seo/global", [CmsTag.site]);

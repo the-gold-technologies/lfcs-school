@@ -36,21 +36,31 @@ export async function cmsGet<T>(path: string, tags: string[]): Promise<CmsJson<T
   }
 }
 
-// Records a form submission in the CMS inbox. Failures are logged, never shown to the visitor,
-// because the enquiry email is the primary delivery channel.
-export async function cmsPostSubmission(body: Record<string, unknown>): Promise<void> {
+// Records a form submission in the CMS inbox; the CMS also emails the enquiry to the school.
+// Sent as multipart so an optional CV file travels with it. Returns false when it wasn't saved.
+export async function cmsPostSubmission(fields: Record<string, string>, cv?: File): Promise<boolean> {
   const secret = process.env.CMS_SHARED_SECRET;
-  if (!CMS_URL || !secret) return;
+  if (!CMS_URL || !secret) {
+    console.error("[cms] CMS_URL and CMS_SHARED_SECRET must be set to receive form submissions");
+    return false;
+  }
+  const body = new FormData();
+  for (const [key, value] of Object.entries(fields)) {
+    if (value) body.append(key, value);
+  }
+  if (cv) body.append("cv", cv, cv.name.slice(0, 150));
   try {
     const res = await fetch(`${CMS_URL}/api/submissions`, {
       method: "POST",
-      headers: { "Content-Type": "application/json", "x-cms-secret": secret },
-      body: JSON.stringify(body),
+      headers: { "x-cms-secret": secret },
+      body,
       cache: "no-store",
-      signal: AbortSignal.timeout(8000),
+      signal: AbortSignal.timeout(cv ? 30000 : 8000),
     });
     if (!res.ok) throw new Error(`responded ${res.status}`);
+    return true;
   } catch (error) {
     console.error("[cms] Could not record submission in CMS:", error);
+    return false;
   }
 }

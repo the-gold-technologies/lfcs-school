@@ -50,7 +50,6 @@ const snapshot = {
   campuses: strip((await get("/campuses")).data),
   news: strip((await get("/news")).data),
   gallery: strip((await get("/gallery")).data),
-  testimonials: strip((await get("/testimonials")).data),
   results: strip((await get("/results")).data),
 };
 

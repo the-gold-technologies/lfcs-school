@@ -142,14 +142,6 @@ export const getGallery = cache(async (): Promise<GalleryPhoto[]> => {
 
 export type Testimonial = { name: string; role: string; text: string; category: string };
 
-export const getTestimonials = cache(async (): Promise<Testimonial[]> => {
-  type Row = Testimonial & { isActive: boolean };
-  const res = await cmsGet<Row[]>("/testimonials", [CmsTag.testimonials]);
-  return ((res?.data ?? snapshot.testimonials) as Row[])
-    .filter((t) => t.isActive)
-    .map(({ name, role, text, category }) => ({ name, role, text, category }));
-});
-
 export type Topper = { name: string; percent: string; image: string };
 
 // Board toppers grouped by class, in the order they are listed in the CMS

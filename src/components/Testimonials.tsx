@@ -4,8 +4,9 @@ import { useState } from "react";
 import { Quote, Star, Heart, Sparkles } from "lucide-react";
 import { splitAfterComma, type SectionContent, type Testimonial } from "@/lib/content";
 
-export default function Testimonials({ data, testimonials }: { data: SectionContent; testimonials: Testimonial[] }) {
+export default function Testimonials({ data }: { data: SectionContent }) {
   const [activeTab, setActiveTab] = useState("PARENTS");
+  const testimonials: Testimonial[] = data.testimonials ?? [];
 
   const byCategory = (category: string) => testimonials.filter((t) => t.category === category);
   // On phones the heading breaks after the comma ("Loved by Parents, / Trusted for")

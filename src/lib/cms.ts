@@ -11,7 +11,6 @@ export const CmsTag = {
   campuses: "campuses",
   news: "news",
   gallery: "gallery",
-  testimonials: "testimonials",
   results: "results",
   site: "site",
   page: (slug: string) => `page:${slug}`,

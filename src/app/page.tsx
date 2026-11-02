@@ -10,7 +10,7 @@ import CTABanners from "@/components/CTABanners";
 import Testimonials from "@/components/Testimonials";
 import NewsSection from "@/components/NewsSection";
 import JsonLd from "@/components/JsonLd";
-import { getCampuses, getNews, getPage, getTestimonials } from "@/lib/content";
+import { getCampuses, getNews, getPage } from "@/lib/content";
 import { buildHomeMetadata, heroHeadingTag, siteSchemas } from "@/lib/seo";
 
 // Home SEO comes from CMS Global SEO settings
@@ -20,11 +20,10 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function Home() {
-  const [{ sections: s }, campuses, news, testimonials, schemas] = await Promise.all([
+  const [{ sections: s }, campuses, news, schemas] = await Promise.all([
     getPage("home"),
     getCampuses(),
     getNews(),
-    getTestimonials(),
     siteSchemas(),
   ]);
 
@@ -42,7 +41,7 @@ export default async function Home() {
       <OurSchoolsSection data={s.OurSchoolsSection} schools={campuses} />
       <NewsSection data={s.NewsSection} news={news} />
       <CTABanners data={s.CTABanners} />
-      <Testimonials data={s.TestimonialsSection} testimonials={testimonials} />
+      <Testimonials data={s.TestimonialsSection} />
     </div>
   );
 }

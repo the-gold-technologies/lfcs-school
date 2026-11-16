@@ -4,7 +4,7 @@ const nextConfig: NextConfig = {
   images: {
     // Content images are uploaded through the CMS to Cloudinary
     remotePatterns: [
-      { protocol: "https", hostname: "res.cloudinary.com", pathname: "/dpa93copz/**" },
+      { protocol: "https", hostname: "res.cloudinary.com", pathname: "/kdiu9prw/**" },
       { protocol: "https", hostname: "images.unsplash.com" },
     ],
   },

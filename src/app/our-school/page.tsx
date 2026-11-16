@@ -2,11 +2,16 @@ import type { Metadata } from "next";
 import OurSchoolHeroSection from "@/components/our-school/OurSchoolHeroSection";
 import AllSchoolsListSection from "@/components/our-school/AllSchoolsListSection";
 import OurSchoolCTASection from "@/components/our-school/OurSchoolCTASection";
-import EnquiryModalProvider from "@/components/start-school/EnquiryModalProvider";
+import EnquiryModalProvider from "@/components/school-franchise/EnquiryModalProvider";
 import AdmissionEnquiryForm from "@/components/our-school/AdmissionEnquiryForm";
 import JsonLd from "@/components/JsonLd";
 import { getCampuses, getPage } from "@/lib/content";
-import { absoluteUrl, buildPageMetadata, heroHeadingTag, pageSchemas } from "@/lib/seo";
+import {
+  absoluteUrl,
+  buildPageMetadata,
+  heroHeadingTag,
+  pageSchemas,
+} from "@/lib/seo";
 
 export async function generateMetadata(): Promise<Metadata> {
   const { sections } = await getPage("our-school");
@@ -31,7 +36,13 @@ export default async function OurSchoolPage() {
             name: c.name,
             url: c.website,
             image: c.img,
-            address: { "@type": "PostalAddress", streetAddress: c.address, addressLocality: c.city, addressRegion: c.state, addressCountry: "IN" },
+            address: {
+              "@type": "PostalAddress",
+              streetAddress: c.address,
+              addressLocality: c.city,
+              addressRegion: c.state,
+              addressCountry: "IN",
+            },
           },
         })),
       },
@@ -42,11 +53,19 @@ export default async function OurSchoolPage() {
 
   return (
     <EnquiryModalProvider
-      form={<AdmissionEnquiryForm data={s.AdmissionEnquiryModalSection} campuses={campuses.map((c) => c.name)} />}
+      form={
+        <AdmissionEnquiryForm
+          data={s.AdmissionEnquiryModalSection}
+          campuses={campuses.map((c) => c.name)}
+        />
+      }
     >
       <div className="min-h-screen bg-white font-sans text-gray-800">
         <JsonLd data={schemas} />
-        <OurSchoolHeroSection data={s.OurSchoolHeroSection} headingTag={headingTag} />
+        <OurSchoolHeroSection
+          data={s.OurSchoolHeroSection}
+          headingTag={headingTag}
+        />
         <AllSchoolsListSection schools={campuses} />
         <OurSchoolCTASection data={s.OurSchoolCTASection} />
       </div>

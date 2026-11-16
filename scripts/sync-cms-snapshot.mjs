@@ -17,7 +17,7 @@ const PAGES = {
   admissions: "/admissions",
   experience: "/experience",
   "our-school": "/our-school",
-  "start-school": "/start-school",
+  "school-franchise": "/start-school",
   careers: "/careers",
   contact: "/contact",
   "news-and-events": "/news-and-events",

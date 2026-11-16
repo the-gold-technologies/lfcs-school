@@ -1,23 +1,32 @@
-import { Target, Users, GraduationCap, HeartHandshake } from "lucide-react";
+import { Target, Users, GraduationCap, HeartHandshake, type LucideIcon } from "lucide-react";
+import { paragraphs, type SectionContent } from "@/lib/content";
 
-const highlights = [
-  { icon: Target, title: "Purpose-Driven Work", text: "Contribute to the learning and development of young minds.", bg: "bg-[#fbeef2]", color: "text-lf-burgundy" },
-  { icon: Users, title: "Collaborative Environment", text: "Work alongside people who share a commitment to education.", bg: "bg-[#edf1e8]", color: "text-lf-olive" },
-  { icon: GraduationCap, title: "Continuous Learning", text: "Embrace opportunities to strengthen professional knowledge and skills.", bg: "bg-[#fdf6e3]", color: "text-lf-gold" },
-  { icon: HeartHandshake, title: "Meaningful Contribution", text: "Support an educational mission focused on academic development, values and holistic growth.", bg: "bg-[#f8ede4]", color: "text-lf-orange" },
+// The CMS stores each highlight's icon by name; card colours follow CMS order
+const highlightIcons: Record<string, LucideIcon> = { Target, Users, GraduationCap, HeartHandshake };
+const highlightStyles = [
+  { bg: "bg-[#fbeef2]", color: "text-lf-burgundy" },
+  { bg: "bg-[#edf1e8]", color: "text-lf-olive" },
+  { bg: "bg-[#fdf6e3]", color: "text-lf-gold" },
+  { bg: "bg-[#f8ede4]", color: "text-lf-orange" },
 ];
 
-export default function WhyWorkWithUsSection() {
+export default function WhyWorkWithUsSection({ data }: { data: SectionContent }) {
+  const highlights = (data.highlights as { icon: string; title: string; text: string }[]).map((h, i) => ({
+    ...highlightStyles[i % highlightStyles.length],
+    icon: highlightIcons[h.icon] ?? Target,
+    title: h.title,
+    text: h.text,
+  }));
   return (
     <section className="py-16 md:py-24 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 mb-12">
           <div className="lg:col-span-5">
-            <span className="text-[#dfae19] font-bold text-[12px] tracking-[0.15em] uppercase mb-3 block">Why Work With LFCS</span>
+            <span className="text-[#dfae19] font-bold text-[12px] tracking-[0.15em] uppercase mb-3 block">{data.tagline}</span>
             <h2 className="font-serif text-[34px] md:text-[44px] font-medium text-[#0a192f] leading-tight">
-              Be Part of Something{" "}
+              {data.headline}{" "}
               <span className="font-script text-[#dfae19] text-[38px] md:text-[48px] relative inline-block -my-4 pr-1">
-                Meaningful
+                {data.scriptAccent}
                 <svg className="absolute bottom-[4px] left-0 w-full h-[6px]" viewBox="0 0 100 10" preserveAspectRatio="none">
                   <path d="M2 7 Q 50 12 98 3" stroke="#dfae19" strokeWidth="3" fill="none" strokeLinecap="round" />
                 </svg>
@@ -26,15 +35,9 @@ export default function WhyWorkWithUsSection() {
           </div>
 
           <div className="lg:col-span-7 space-y-4 text-[15px] text-gray-600 leading-relaxed lg:pt-8">
-            <p>
-              Working in education is an opportunity to make a difference that extends far beyond the classroom. At LFCS, every role contributes to creating a supportive learning environment and helping students prepare for the future.
-            </p>
-            <p>
-              As our network continues to grow, we value individuals who bring commitment, fresh perspectives and a willingness to contribute to the larger educational mission.
-            </p>
-            <p>
-              Whether you are an experienced educator or a professional looking to contribute your skills to the education sector, LFCS offers an opportunity to be part of a shared purpose.
-            </p>
+            {paragraphs(data.description).map((p) => (
+              <p key={p.slice(0, 40)} className="whitespace-pre-line">{p}</p>
+            ))}
           </div>
         </div>
 
@@ -48,7 +51,7 @@ export default function WhyWorkWithUsSection() {
                 <Icon className={`w-5 h-5 ${color}`} strokeWidth={2} />
               </div>
               <h3 className="font-serif text-[20px] text-[#0a192f] leading-snug mb-2">{title}</h3>
-              <p className="text-gray-500 text-[14px] leading-relaxed">{text}</p>
+              <p className="whitespace-pre-line text-gray-500 text-[14px] leading-relaxed">{text}</p>
             </div>
           ))}
         </div>

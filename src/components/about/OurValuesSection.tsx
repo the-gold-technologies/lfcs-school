@@ -1,62 +1,26 @@
-import { ShieldCheck, Heart, Star, Lightbulb, Users, Leaf, Send } from "lucide-react";
+import { ShieldCheck, Heart, Star, Lightbulb, Users, Leaf } from "lucide-react";
+import { splitAfterSentence, type SectionContent } from "@/lib/content";
+import { sizedImage } from "@/lib/image";
 
-export default function OurValuesSection() {
-  const values = [
-    { 
-      icon: ShieldCheck, 
-      title: "Integrity", 
-      desc: "We do the right thing at all times, even when no one is watching.", 
-      color: "#dfae19", // gold
-      bgColor: "bg-[#fcf9ed]", // very light gold
-      tinyIcon: Heart,
-      img: "/about/values1.webp"
-    },
-    { 
-      icon: Heart, 
-      title: "Respect", 
-      desc: "We value every single individual and treat everyone with kindness.", 
-      color: "#fb5857", // red/pink
-      bgColor: "bg-[#fdf4f4]", // very light pink
-      tinyIcon: Heart,
-      img: "/about/values2.webp"
-    },
-    { 
-      icon: Star, 
-      title: "Excellence", 
-      desc: "We consistently strive for the highest standards in all that we do.", 
-      color: "#66733a", // olive
-      bgColor: "bg-[#f3f7ef]", // very light green
-      tinyIcon: Star,
-      img: "/about/values3.webp"
-    },
-    { 
-      icon: Lightbulb, 
-      title: "Innovation", 
-      desc: "We embrace new ideas and creativity to solve real-world challenges.", 
-      color: "#3b82f6", // blue
-      bgColor: "bg-[#f0f6ff]", // very light blue
-      tinyIcon: Heart,
-      img: "/about/values4.webp"
-    },
-    { 
-      icon: Users, 
-      title: "Community", 
-      desc: "We build strong, supportive relationships that help us grow together.", 
-      color: "#fb5857", // red/pink
-      bgColor: "bg-[#fdf4f4]", 
-      tinyIcon: Heart,
-      img: "/about/values5.webp"
-    },
-    { 
-      icon: Leaf, 
-      title: "Responsibility", 
-      desc: "We take full ownership of our actions and care deeply for our world.", 
-      color: "#dfae19", // gold
-      bgColor: "bg-[#fcf9ed]", 
-      tinyIcon: Heart,
-      img: "/about/values6.webp"
-    },
-  ];
+// Icon and colours for each value card, in CMS order
+const valueStyles = [
+  { icon: ShieldCheck, color: "#dfae19", bgColor: "bg-[#fcf9ed]", tinyIcon: Heart },
+  { icon: Heart, color: "#fb5857", bgColor: "bg-[#fdf4f4]", tinyIcon: Heart },
+  { icon: Star, color: "#66733a", bgColor: "bg-[#f3f7ef]", tinyIcon: Star },
+  { icon: Lightbulb, color: "#3b82f6", bgColor: "bg-[#f0f6ff]", tinyIcon: Heart },
+  { icon: Users, color: "#fb5857", bgColor: "bg-[#fdf4f4]", tinyIcon: Heart },
+  { icon: Leaf, color: "#dfae19", bgColor: "bg-[#fcf9ed]", tinyIcon: Heart },
+];
+
+export default function OurValuesSection({ data }: { data: SectionContent }) {
+  const values = (data.values as { title: string; desc: string; image: string }[]).map((v, i) => ({
+    ...valueStyles[i % valueStyles.length],
+    title: v.title,
+    desc: v.desc,
+    img: sizedImage(v.image, 500),
+  }));
+  // From sm up the subtitle breaks after its first sentence
+  const [subLead, subRest] = splitAfterSentence(data.subtitle);
 
   return (
     <section className="py-20 bg-[#fdfdfc] overflow-hidden relative">
@@ -72,18 +36,17 @@ export default function OurValuesSection() {
         
         {/* Header */}
         <div className="text-center mb-16 relative z-10">
-           <span className="text-[#66733a] font-bold text-[12px] tracking-[0.2em] uppercase mb-4 block">Core Values</span>
+           <span className="text-[#66733a] font-bold text-[12px] tracking-[0.2em] uppercase mb-4 block">{data.tagline}</span>
           <h2 className="font-serif text-[36px] md:text-[48px] font-medium text-[#0a192f] leading-tight mb-4">
-            The Pillars of Our <span className="font-script text-[#dfae19] text-[48px] md:text-[60px] relative inline-block -my-4 pr-1">
-              Community
+            {data.headline} <span className="font-script text-[#dfae19] text-[48px] md:text-[60px] relative inline-block -my-4 pr-1">
+              {data.scriptAccent}
               <svg className="absolute bottom-[4px] left-0 w-full h-[6px]" viewBox="0 0 100 10" preserveAspectRatio="none">
                 <path d="M2 7 Q 50 12 98 3" stroke="#dfae19" strokeWidth="3" fill="none" strokeLinecap="round" />
               </svg>
             </span>
           </h2>
-          <p className="text-gray-500 text-[15px] max-w-2xl mx-auto mt-4">
-            Our core values are the foundation of everything we do. <br className="hidden sm:block" />
-            They guide our choices, shape our culture, and inspire a better tomorrow.
+          <p className="whitespace-pre-line text-gray-500 text-[15px] max-w-2xl mx-auto mt-4">
+            {subLead} {subRest && <><br className="hidden sm:block" />{subRest}</>}
           </p>
         </div>
 
@@ -113,7 +76,7 @@ export default function OurValuesSection() {
                   <h3 className="font-bold text-[18px] mb-2" style={{ color: v.color }}>{v.title}</h3>
                   
                   {/* Description */}
-                  <p className="text-gray-600 text-[13px] leading-relaxed mb-6 flex-1 flex items-start justify-center">
+                  <p className="whitespace-pre-line text-gray-600 text-[13px] leading-relaxed mb-6 flex-1 flex items-start justify-center">
                     {v.desc}
                   </p>
                   

@@ -3,33 +3,33 @@
 import { useActionState } from "react";
 import { ArrowRight, CheckCircle2, Phone, Mail, MapPin, Clock, Loader2 } from "lucide-react";
 import { FaFacebook, FaInstagram, FaYoutube } from "react-icons/fa";
-import { schools } from "@/components/our-school/AllSchoolsListSection";
 import { submitContactForm, type FormState } from "@/app/actions/enquiries";
+import type { SectionContent } from "@/lib/content";
 
 const inputClass =
   "w-full bg-white border border-gray-200 rounded-[14px] px-4 py-3 text-[14px] text-[#0a192f] placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-lf-burgundy/30 focus:border-lf-burgundy transition-all";
 const labelClass = "block text-[13px] font-bold text-[#0a192f] mb-2";
 
-const contactDetails = [
-  {
-    icon: Phone, label: "Call Us", bg: "bg-[#fbeef2]", color: "text-lf-burgundy",
-    links: [
-      { value: "+91 83688 38489", href: "tel:+918368838489" },
-      { value: "+91 99999 76959", href: "tel:+919999976959" },
-    ],
-  },
-  { icon: Mail, label: "Email Us", value: "franchise@lfcsschools.com", href: "mailto:franchise@lfcsschools.com", bg: "bg-[#fdf6e3]", color: "text-lf-gold" },
-  { icon: MapPin, label: "Visit Us", value: "B-1/142, Sector-G, Aliganj, Lucknow - 226024, Uttar Pradesh", bg: "bg-[#edf1e8]", color: "text-lf-olive" },
-  { icon: Clock, label: "Office Hours", value: "Mon - Sat: 8:00 AM - 5:00 PM", bg: "bg-[#f8ede4]", color: "text-lf-orange" },
-];
+const telHref = (phone: string) => `tel:${phone.replace(/[^\d+]/g, "")}`;
 
-const socialLinks = [
-  { icon: FaFacebook, label: "Facebook", href: "https://www.facebook.com/people/LFCS-Schools/61594935059542/" },
-  { icon: FaInstagram, label: "Instagram", href: "https://www.instagram.com/lfcs_schools/" },
-  { icon: FaYoutube, label: "YouTube", href: "https://youtube.com/@lfcsschools?si=TCzIAvIrbwgYA2KY" },
-];
+type Socials = { facebook?: string | null; instagram?: string | null; youtube?: string | null };
 
-export default function ContactFormSection() {
+export default function ContactFormSection({ data, socials, campuses }: { data: SectionContent; socials: Socials; campuses: string[] }) {
+  const contactDetails = [
+    {
+      icon: Phone, label: "Call Us", bg: "bg-[#fbeef2]", color: "text-lf-burgundy",
+      links: [data.phone1, data.phone2].filter(Boolean).map((phone: string) => ({ value: phone, href: telHref(phone) })),
+    },
+    { icon: Mail, label: "Email Us", value: data.email, href: `mailto:${data.email}`, bg: "bg-[#fdf6e3]", color: "text-lf-gold" },
+    { icon: MapPin, label: "Visit Us", value: data.address, bg: "bg-[#edf1e8]", color: "text-lf-olive" },
+    { icon: Clock, label: "Office Hours", value: data.hours, bg: "bg-[#f8ede4]", color: "text-lf-orange" },
+  ];
+  // Social profiles come from CMS global settings
+  const socialLinks = [
+    { icon: FaFacebook, label: "Facebook", href: socials.facebook },
+    { icon: FaInstagram, label: "Instagram", href: socials.instagram },
+    { icon: FaYoutube, label: "YouTube", href: socials.youtube },
+  ].filter((link): link is { icon: typeof FaFacebook; label: string; href: string } => !!link.href);
   const [state, formAction, pending] = useActionState<FormState, FormData>(submitContactForm, { status: "idle" });
 
   return (
@@ -40,11 +40,11 @@ export default function ContactFormSection() {
           {/* Contact Details */}
           <div className="lg:col-span-2 flex flex-col gap-4">
             <h2 className="font-serif text-[28px] md:text-[34px] font-medium text-[#0a192f] leading-tight mb-2">
-              Get in{" "}
-              <span className="font-script text-[#dfae19] text-[32px] md:text-[38px]">Touch</span>
+              {data.heading}{" "}
+              <span className="font-script text-[#dfae19] text-[32px] md:text-[38px]">{data.scriptAccent}</span>
             </h2>
-            <p className="text-gray-600 text-[14.5px] leading-relaxed mb-4">
-              Reach our central office directly, or send us a message and the right team will respond.
+            <p className="whitespace-pre-line text-gray-600 text-[14.5px] leading-relaxed mb-4">
+              {data.description}
             </p>
 
             {contactDetails.map(({ icon: Icon, label, value, href, links, bg, color }) => {
@@ -54,7 +54,7 @@ export default function ContactFormSection() {
                     <Icon className={`w-5 h-5 ${color}`} strokeWidth={2} />
                   </div>
                   <div className="min-w-0">
-                    <p className="text-[12px] font-bold uppercase tracking-[0.15em] text-gray-400 mb-1">{label}</p>
+                    <p className="whitespace-pre-line text-[12px] font-bold uppercase tracking-[0.15em] text-gray-400 mb-1">{label}</p>
                     {links ? (
                       links.map((link) => (
                         <a key={link.href} href={link.href} className="block text-[15px] font-semibold text-[#0a192f] hover:text-lf-burgundy transition-colors">
@@ -62,7 +62,7 @@ export default function ContactFormSection() {
                         </a>
                       ))
                     ) : (
-                      <p className="text-[15px] font-semibold text-[#0a192f] break-words">{value}</p>
+                      <p className="whitespace-pre-line text-[15px] font-semibold text-[#0a192f] break-words">{value}</p>
                     )}
                   </div>
                 </>
@@ -146,8 +146,8 @@ export default function ContactFormSection() {
                     <label className={labelClass} htmlFor="campus">Preferred Campus</label>
                     <select id="campus" name="campus" defaultValue="" className={inputClass}>
                       <option value="">Any / Not sure</option>
-                      {schools.map((school) => (
-                        <option key={school.name} value={school.name}>{school.name}</option>
+                      {campuses.map((name) => (
+                        <option key={name} value={name}>{name}</option>
                       ))}
                     </select>
                   </div>
@@ -158,7 +158,7 @@ export default function ContactFormSection() {
                 </div>
 
                 {state.status === "error" && (
-                  <p role="alert" className="text-[13.5px] text-red-700 bg-red-50 border border-red-100 rounded-[12px] px-4 py-3">
+                  <p role="alert" className="whitespace-pre-line text-[13.5px] text-red-700 bg-red-50 border border-red-100 rounded-[12px] px-4 py-3">
                     {state.message}
                   </p>
                 )}

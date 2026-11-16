@@ -4,105 +4,17 @@ import { FaFacebook, FaInstagram, FaYoutube } from "react-icons/fa";
 import { useState, useEffect } from "react";
 import Link from "next/link";
 
-const schools = [
-  {
-    name: 'LFCS, MAU',
-    city: 'Mau',
-    state: 'Uttar Pradesh',
-    address: 'WHPC+9MX, Nizamuddinpura, Sahadatpura, Mau, Uttar Pradesh 275101',
-    website: 'https://lfgos.com/',
-    instagram: 'https://www.instagram.com/official_lfcsnizamuddinpura?igsh=OHB6ZWE3bzV0cWc4',
-    facebook: 'https://www.facebook.com/share/19GPAevD61/',
-    youtube: '',
-    img: '/schools/Nizamuddinpura-Mau.webp'
-  },
-  {
-    name: 'LFCS, SIKATIYA',
-    city: 'Mau',
-    state: 'Uttar Pradesh',
-    address: 'Near Sikatiya Overbridge, Mau, Uttar Pradesh',
-    website: 'https://lfcsmau.co/',
-    instagram: 'https://www.instagram.com/lfcssikatiyamau?igsh=NWNxOHZ6bGVvN2xy',
-    facebook: 'https://www.facebook.com/share/19SXEvspwD/',
-    youtube: '',
-    img: '/schools/Sikatia-Mau.webp'
-  },
-  {
-    name: 'LFCS, GHOSI',
-    city: 'Ghosi',
-    state: 'Uttar Pradesh',
-    address: 'Zamal Bikkampur, Ghosi, Uttar Pradesh 275304',
-    website: 'https://www.lfcsghosi.co.in/',
-    instagram: 'https://www.instagram.com/littleflowerchildren?igsh=Zm9kbGQ0Mmh1Z3Jq',
-    facebook: 'https://www.facebook.com/share/1bmo1SL5EY/',
-    youtube: 'https://youtube.com/@littleflowerchildrenschool7873?si=BaZY_xTs0DmYVV4L',
-    img: '/schools/Ghosi.webp'
-  },
-  {
-    name: 'LFCS, BALLIA',
-    city: 'Mau',
-    state: 'Uttar Pradesh',
-    address: 'S.H. 34 Mau - Ballia Road khalishpur Mau, Uttar Pradesh 275102',
-    website: 'https://lfcsballia.co.in/',
-    instagram: 'https://www.instagram.com/lfcs.ballia?igsh=MWlrYjN4OGN0NmtyYg==',
-    facebook: 'https://www.facebook.com/share/1EkqBTTVKx/',
-    youtube: '',
-    img: '/schools/Khalispur-Balia.webp'
-  },
-  {
-    name: 'LFCS, KASIMABAD GHAZIPUR',
-    city: 'Kasimabad',
-    state: 'Uttar Pradesh',
-    address: 'RM22+GPP, Campus: Gehuri, Mardah - Kasimabad Rd, Kasimabad, Uttar Pradesh 233230',
-    website: 'https://www.lfcskasimabad.in/',
-    instagram: 'https://www.instagram.com/lfcsghazipur?igsh=bzdnOHlueWZ6d3g0',
-    facebook: 'https://www.facebook.com/share/1HDhticq5g/',
-    youtube: 'https://m.youtube.com/%40lfcs-ghazipur?fbclid=PAb21jcATneaJwZG9mAmV4dG4DYWVtAjExAHNydGMGYXBwX2lkDzU2NzA2NzM0MzM1MjQyNwABpxOWZnA2iTlDmD-F17tfUplSU6zSWMXnudLmhm37QeOK1oHD_Dqo8SWU6W-u_aem_yXSkKcFwEpvnM-qYsL_hCw',
-    img: '/schools/Kasimabad.webp'
-  },
-  {
-    name: 'LFCS, AZAMGARH',
-    city: 'Azamgarh',
-    state: 'Uttar Pradesh',
-    address: 'Sardaha Tahbarpur, Azamgarh, Uttar Pradesh',
-    website: 'https://lfcsazamgarh.org.in/',
-    instagram: 'https://www.instagram.com/lfcsazamgarh?igsh=MTM4b3YzaTBoMmVqZg==',
-    facebook: 'https://www.facebook.com/share/1JBYeqSdEN/',
-    youtube: 'https://www.youtube.com/watch?feature=shared&v=90HTbxPKwIg',
-    img: '/schools/lfcs-azamgarh.webp'
-  },
-  {
-    name: 'LFIS, KHALISHPUR MAU',
-    city: 'Mau',
-    state: 'Uttar Pradesh',
-    address: 'S.H. 34 Mau - Ballia Road khalishpur Mau, Uttar Pradesh 275102',
-    website: 'https://lfismau.co.in/',
-    instagram: 'https://www.instagram.com/lfis.mau15?igsh=MXF2YWYzNjN2YXd5eg==',
-    facebook: 'https://www.facebook.com/share/1Bd9LEPBNU/',
-    youtube: '',
-    img: '/schools/lfis-mau.webp'
-  },
-  {
-    name: 'AZAD HIND INTER COLLEGE, KHALISHPUR MAU',
-    city: 'Mau',
-    state: 'Uttar Pradesh',
-    address: 'Khalishpur, Mau, Uttar Pradesh',
-    website: '',
-    instagram: '',
-    facebook: 'https://www.facebook.com/azadhindcollege/',
-    youtube: '',
-    img: '/schools/azad-hind-inter-college.webp'
-  }
-];
+import type { Campus, SectionContent } from "@/lib/content";
+import { sizedImage } from "@/lib/image";
 
 // Card width + gap in px — must match CSS below
 const CARD_W = 300;
 const GAP = 20;
 const STEP = CARD_W + GAP;
 
-export default function OurSchoolsSection() {
+export default function OurSchoolsSection({ data, schools }: { data: SectionContent; schools: Campus[] }) {
   const [index, setIndex] = useState(0);
-  const maxIndex = schools.length - 4; // show 4 at a time
+  const maxIndex = Math.max(0, schools.length - 4); // show 4 at a time
 
   const prev = () => setIndex(i => Math.max(0, i - 1));
   const next = () => setIndex(i => Math.min(maxIndex, i + 1));
@@ -129,17 +41,17 @@ export default function OurSchoolsSection() {
         {/* Header */}
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 gap-6">
           <div>
-            <span className="text-[#dfae19] font-bold text-[12px] tracking-[0.15em] uppercase mb-3 block">OUR SCHOOLS</span>
+            <span className="text-[#dfae19] font-bold text-[12px] tracking-[0.15em] uppercase mb-3 block">{data.tagline}</span>
             <h2 className="font-serif text-[34px] md:text-[44px] font-medium text-[#0a192f] leading-tight mb-2">
-              A Strong Network. A Shared{" "}
+              {data.headline}{" "}
               <span className="font-script text-[#dfae19] text-[38px] md:text-[48px] relative inline-block -my-4 pr-1">
-                Vision.
+                {data.scriptAccent}
                 <svg className="absolute bottom-[4px] left-0 w-full h-[6px]" viewBox="0 0 100 10" preserveAspectRatio="none">
                   <path d="M2 7 Q 50 12 98 3" stroke="#dfae19" strokeWidth="3" fill="none" strokeLinecap="round" />
                 </svg>
               </span>
             </h2>
-            <p className="text-gray-500 text-[15px] mt-2">Our schools spread across cities, united by the same values and commitment.</p>
+            <p className="whitespace-pre-line text-gray-500 text-[15px] mt-2">{data.subtitle}</p>
           </div>
 
           <div className="flex items-center gap-3 shrink-0">
@@ -151,8 +63,8 @@ export default function OurSchoolsSection() {
               className="w-10 h-10 rounded-full bg-[#0a192f] text-white flex items-center justify-center hover:bg-[#dfae19] transition-all disabled:opacity-30 disabled:cursor-not-allowed">
               <ChevronRight className="w-5 h-5" />
             </button>
-            <Link href="/our-school" className="hidden md:flex items-center gap-2 border border-[#0a192f]/20 text-[#0a192f] px-5 py-2.5 rounded-[16px] font-semibold hover:bg-gray-50 transition-colors text-[14px] ml-2">
-              View All <ArrowRight className="w-4 h-4" />
+            <Link href={data.ctaLink} className="hidden md:flex items-center gap-2 border border-[#0a192f]/20 text-[#0a192f] px-5 py-2.5 rounded-[16px] font-semibold hover:bg-gray-50 transition-colors text-[14px] ml-2">
+              {data.ctaText} <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
         </div>
@@ -166,7 +78,7 @@ export default function OurSchoolsSection() {
             {schools.map((school, i) => (
               <div key={i} className="min-w-[300px] w-[300px] bg-[#f4f5f7] rounded-[20px] overflow-hidden border border-gray-200  hover:-translate-y-1 transition-transform duration-300 group shrink-0">
                 <div className="h-[160px] overflow-hidden">
-                  <img loading="lazy" decoding="async" src={school.img} alt={school.city} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                  <img loading="lazy" decoding="async" src={sizedImage(school.img, 600)} alt={school.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                 </div>
                 <div className="p-4 flex flex-col h-[150px]">
                   <h3 className="font-semibold text-[#0a192f] text-[15px] leading-snug mb-2 truncate" title={school.name}>

@@ -1,18 +1,19 @@
 import { MapPin, Globe, ArrowUpRight } from "lucide-react";
-import { schools } from "@/components/our-school/AllSchoolsListSection";
+import type { Campus, SectionContent } from "@/lib/content";
+import { sizedImage } from "@/lib/image";
 
-export default function ContactCampusesSection() {
+export default function ContactCampusesSection({ data, schools }: { data: SectionContent; schools: Campus[] }) {
   return (
     <section className="pt-8 pb-32 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-2xl mx-auto mb-12">
-          <span className="text-[#dfae19] font-bold text-[12px] tracking-[0.2em] uppercase mb-4 block">Our Campuses</span>
+          <span className="text-[#dfae19] font-bold text-[12px] tracking-[0.2em] uppercase mb-4 block">{data.tagline}</span>
           <h2 className="font-serif text-[28px] md:text-[38px] font-medium text-[#0a192f] leading-tight mb-4">
-            Reach a{" "}
-            <span className="font-script text-[#832646] text-[32px] md:text-[44px]">Campus Near You</span>
+            {data.headline}{" "}
+            <span className="font-script text-[#832646] text-[32px] md:text-[44px]">{data.scriptAccent}</span>
           </h2>
-          <p className="text-gray-600 text-[14.5px] leading-relaxed">
-            Contact or visit any of our schools directly for campus-specific admissions and information.
+          <p className="whitespace-pre-line text-gray-600 text-[14.5px] leading-relaxed">
+            {data.subtitle}
           </p>
         </div>
 
@@ -26,7 +27,7 @@ export default function ContactCampusesSection() {
               <img
                 loading="lazy"
                 decoding="async"
-                src={school.img}
+                src={sizedImage(school.img, 700)}
                 alt={school.name}
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               />

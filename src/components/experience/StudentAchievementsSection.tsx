@@ -76,7 +76,7 @@ export default function StudentAchievementsSection() {
                 </div>
                 <div>
                   <h3 className="font-bold text-[18px] text-[#0a192f] mb-1">{item.category} Achievements</h3>
-                  <p className="text-[13px] text-gray-500 leading-relaxed">{item.desc}</p>
+                  <p className="whitespace-pre-line text-[13px] text-gray-500 leading-relaxed">{item.desc}</p>
                 </div>
               </div>
 

@@ -1,6 +1,7 @@
 import { Eye, Target } from "lucide-react";
+import type { SectionContent } from "@/lib/content";
 
-export default function VisionMissionSection() {
+export default function VisionMissionSection({ data }: { data: SectionContent }) {
   return (
     <section className="py-10  bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-0">
@@ -15,9 +16,9 @@ export default function VisionMissionSection() {
               <div className="w-16 h-16 rounded-full bg-[#dfae19] flex items-center justify-center mb-8 shadow-lg">
                 <Eye className="w-8 h-8 text-lf-olive" strokeWidth={1.5} />
               </div>
-              <h2 className="font-serif text-[36px] font-medium text-white mb-6">Our Vision</h2>
-              <p className="text-white/90 text-[16px] md:text-[18px] leading-relaxed font-light">
-                To be a leading educational network that empowers students to achieve their highest potential, fostering a generation of compassionate, innovative, and responsible global citizens who will make a positive impact on the world.
+              <h2 className="font-serif text-[36px] font-medium text-white mb-6">{data.visionTitle}</h2>
+              <p className="whitespace-pre-line text-white/90 text-[16px] md:text-[18px] leading-relaxed font-light">
+                {data.visionDesc}
               </p>
             </div>
           </div>
@@ -31,9 +32,9 @@ export default function VisionMissionSection() {
               <div className="w-16 h-16 rounded-full bg-white flex items-center justify-center mb-8 shadow-lg">
                 <Target className="w-8 h-8 text-[#c76785]" strokeWidth={1.5} />
               </div>
-              <h2 className="font-serif text-[36px] font-medium text-white mb-6">Our Mission</h2>
-              <p className="text-white/90 text-[16px] md:text-[18px] leading-relaxed font-light">
-                To provide a dynamic, inclusive, and values-driven learning environment where excellence in academics, character development, and holistic growth is cultivated through dedicated teaching and strong community partnerships.
+              <h2 className="font-serif text-[36px] font-medium text-white mb-6">{data.missionTitle}</h2>
+              <p className="whitespace-pre-line text-white/90 text-[16px] md:text-[18px] leading-relaxed font-light">
+                {data.missionDesc}
               </p>
              </div>
           </div>

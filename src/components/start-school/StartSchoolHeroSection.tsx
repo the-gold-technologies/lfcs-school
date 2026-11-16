@@ -1,8 +1,11 @@
 import { ChevronRight } from "lucide-react";
 import Image from "next/image";
 import EnquiryCTAButton from "./EnquiryCTAButton";
+import { splitAfterSentence, type SectionContent } from "@/lib/content";
+import type { HeadingTag } from "@/lib/seo";
 
-export default function StartSchoolHeroSection() {
+export default function StartSchoolHeroSection({ data, headingTag: Heading }: { data: SectionContent; headingTag: HeadingTag }) {
+  const [headLead, headRest] = splitAfterSentence(data.headline);
   return (
     <section className="relative min-h-[60vh] md:min-h-[70vh] flex items-center bg-[#fefdfa] pt-24 pb-20 overflow-hidden">
       {/* Decorative Background Elements */}
@@ -14,24 +17,24 @@ export default function StartSchoolHeroSection() {
 
           {/* Left Text Content */}
           <div className="lg:col-span-6 flex flex-col items-start text-left w-full max-w-4xl">
-            <span className="text-[#dfae19] font-bold text-[12px] tracking-[0.2em] uppercase mb-4 block">Start a School</span>
+            <span className="text-[#dfae19] font-bold text-[12px] tracking-[0.2em] uppercase mb-4 block">{data.tagline}</span>
 
-            <h1 className="font-serif text-3xl sm:text-4xl md:text-[55px] font-medium leading-tight mb-6 text-[#0a192f]">
-              Start a School. <br /> Shape a {' '}
+            <Heading className="font-serif text-3xl sm:text-4xl md:text-[55px] font-medium leading-tight mb-6 text-[#0a192f]">
+              {headLead}{headRest && <> <br /> {headRest}</>}{' '}
               <span className="font-script text-lf-burgundy text-[40px] sm:text-[48px] md:text-[60px] relative inline-block -my-2 pr-2">
-                Future.
+                {data.scriptAccent}
                 <svg className="absolute bottom-[4px] left-0 w-full h-[6px]" viewBox="0 0 100 10" preserveAspectRatio="none">
                   <path d="M2 7 Q 50 12 98 3" stroke="#dfae19" strokeWidth="3" fill="none" strokeLinecap="round" />
                 </svg>
               </span>
-            </h1>
+            </Heading>
 
-            <p className="text-[15px] text-gray-600 mb-8 leading-relaxed">
-              Become a part of LFCS and bring quality education closer to communities, in partnership with individuals and organisations who share our commitment to learning and growth.
+            <p className="whitespace-pre-line text-[15px] text-gray-600 mb-8 leading-relaxed">
+              {data.description}
             </p>
 
             <EnquiryCTAButton className="inline-flex items-center gap-2 bg-lf-burgundy text-white px-5 lg:px-8 py-2.5 lg:py-3.5 rounded-[16px] font-semibold hover:bg-lf-burgundy-hover transition-colors text-sm">
-              Start Your Enquiry
+              {data.buttonText}
               <ChevronRight className="w-4 h-4" />
             </EnquiryCTAButton>
           </div>
@@ -41,8 +44,8 @@ export default function StartSchoolHeroSection() {
           <div className="lg:col-span-6 relative w-full flex justify-center lg:justify-end pr-10">
             <div className="relative w-full max-w-[380px] sm:max-w-[440px] md:max-w-[600px] mx-auto lg:mx-0 overflow-hidden">
               <Image
-                src="/start-school/start-school-hero.webp"
-                alt="Students interacting at school"
+                src={data.image}
+                alt="Students at a Little Flower school"
                 width={1115}
                 height={1024}
                 className="w-full h-auto object-contain"

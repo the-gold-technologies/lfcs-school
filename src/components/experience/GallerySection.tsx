@@ -1,41 +1,55 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import type { SectionContent } from "@/lib/content";
+import { sizedImage } from "@/lib/image";
 
-const filters = [
-  "All Events", 
-  "Annual Functions", 
-  "Sports Days", 
-  "Competitions", 
-  "Celebrations", 
-  "Educational Trips", 
-  "Workshops", 
-  "School Programmes"
-];
+type EventPhoto = { category: string; image: string };
 
-const galleryItems = [
-  { category: "Annual Functions", image: "/home-page/Experience8.webp", ratio: 16 / 9 },
-  { category: "Sports Days", image: "/experience/sports1.webp", ratio: 1920 / 816 },
-  { category: "School Programmes", image: "/home-page/skills1.webp", ratio: 16 / 9 },
-  { category: "Competitions", image: "/home-page/Experience9.webp", ratio: 9 / 16 },
-  { category: "Workshops", image: "/academics/collabrative.webp", ratio: 16 / 9 },
-  { category: "Educational Trips", image: "/experience/art1.webp", ratio: 964 / 769 },
-  { category: "Celebrations", image: "/experience/life1.webp", ratio: 1377 / 926 },
-  { category: "Competitions", image: "/academics/practical.webp", ratio: 3 / 4 },
-  { category: "School Programmes", image: "/experience/art2.webp", ratio: 16 / 9 },
-  { category: "Annual Functions", image: "/home-page/skills4.webp", ratio: 1280 / 576 },
-  { category: "Educational Trips", image: "/home-page/Experience4.webp", ratio: 4 / 3 },
-  { category: "Celebrations", image: "/experience/life2.webp", ratio: 3 / 4 },
-  { category: "Sports Days", image: "/experience/sports2.webp", ratio: 16 / 9 },
-  { category: "Workshops", image: "/home-page/skills2.webp", ratio: 3 / 4 },
-];
+// Collage card sized to its photo's real shape (measured once loaded) so nothing is cropped
+function CollageCard({ item, onRatio, ratio }: { item: EventPhoto; ratio: number; onRatio: (r: number) => void }) {
+  const imgRef = useRef<HTMLImageElement>(null);
+  const measure = () => {
+    const img = imgRef.current;
+    if (img?.naturalWidth && img.naturalHeight) onRatio(img.naturalWidth / img.naturalHeight);
+  };
+  // Cached images can finish loading before hydration, when onLoad never fires
+  useEffect(measure, []); // eslint-disable-line react-hooks/exhaustive-deps
 
-export default function GallerySection() {
-  const [activeFilter, setActiveFilter] = useState("All Events");
+  return (
+    <div
+      style={{
+        aspectRatio: ratio,
+        flexGrow: ratio,
+        flexBasis: `calc(var(--row-h) * ${ratio})`,
+        maxWidth: `calc(var(--row-h) * ${ratio} * 1.5)`,
+      }}
+      className="rounded-[16px] overflow-hidden group relative shadow-sm hover:shadow-md transition-all duration-300 cursor-pointer"
+    >
+      <img
+        ref={imgRef}
+        loading="lazy"
+        decoding="async"
+        src={sizedImage(item.image, 900)}
+        alt={`${item.category} at Little Flower`}
+        onLoad={measure}
+        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+      />
+    </div>
+  );
+}
 
-  const filteredItems = activeFilter === "All Events" 
+export default function GallerySection({ data }: { data: SectionContent }) {
+  const filters = data.filters as string[];
+  const galleryItems = data.photos as EventPhoto[];
+  const allLabel = filters[0] ?? "";
+  // Width/height ratio of each photo once measured; 4:3 until then
+  const [ratios, setRatios] = useState<Record<string, number>>({});
+  const [activeFilter, setActiveFilter] = useState(allLabel);
+
+  const filteredItems = activeFilter === allLabel 
     ? galleryItems 
     : galleryItems.filter(item => item.category === activeFilter);
 
@@ -48,15 +62,15 @@ export default function GallerySection() {
         
         {/* Header */}
         <div className="text-center max-w-4xl mx-auto mb-10">
-          <span className="text-[#3498db] font-bold text-[12px] tracking-[0.2em] uppercase mb-3 block">Events, Trips & Celebrations</span>
-          <h2 className="font-serif text-[34px] md:text-[44px] font-medium text-[#0a192f] leading-tight mb-10">
+          <span className="text-[#3498db] font-bold text-[12px] tracking-[0.2em] uppercase mb-3 block">{data.tagline}</span>
+          <h2 className="font-serif text-[34px] md:text-[44px] font-medium text-[#0a192f] leading-tight mb-10 text-balance">
             <span className="font-script text-[#dfae19] text-[38px] md:text-[48px] relative inline-block -my-4 pr-3">
-               Experiences
+               {data.scriptAccent}
               <svg className="absolute bottom-[4px] left-0 w-full h-[6px]" viewBox="0 0 100 10" preserveAspectRatio="none">
                 <path d="M2 7 Q 50 12 98 3" stroke="#dfae19" strokeWidth="3" fill="none" strokeLinecap="round" />
               </svg>
             </span>
-            that Become Part of <br className="hidden md:block" /> a Student Life
+            {data.headline}
           </h2>
         </div>
 
@@ -80,22 +94,12 @@ export default function GallerySection() {
         {/* Justified Collage - fixed row height, each card sized to its photo so nothing is cropped */}
         <div className="flex flex-wrap justify-center gap-3 mb-16 max-w-screen-2xl mx-auto [--row-h:140px] md:[--row-h:180px] lg:[--row-h:220px]">
           {displayItems.map((item) => (
-            <div
+            <CollageCard
               key={`${activeFilter}-${item.image}`}
-              style={{
-                aspectRatio: item.ratio,
-                flexGrow: item.ratio,
-                flexBasis: `calc(var(--row-h) * ${item.ratio})`,
-                maxWidth: `calc(var(--row-h) * ${item.ratio} * 1.5)`,
-              }}
-              className="rounded-[16px] overflow-hidden group relative shadow-sm hover:shadow-md transition-all duration-300 cursor-pointer"
-            >
-              <img loading="lazy" decoding="async"
-                src={item.image}
-                alt={item.category}
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-              />
-            </div>
+              item={item}
+              ratio={ratios[item.image] ?? 4 / 3}
+              onRatio={(r) => setRatios((prev) => (prev[item.image] === r ? prev : { ...prev, [item.image]: r }))}
+            />
           ))}
         </div>
 
@@ -103,13 +107,13 @@ export default function GallerySection() {
         <div className="flex flex-col items-center justify-center relative max-w-5xl mx-auto mt-8 mb-8">
           
           {/* View Full Gallery Button */}
-          <Link href="/gallery" className="inline-flex items-center gap-2 bg-[#832646] text-white px-8 py-3.5 rounded-full font-semibold hover:bg-[#6a1d37] transition-colors shadow-md z-10 text-[15px]">
-            View Full Gallery
+          <Link href={data.ctaLink} className="inline-flex items-center gap-2 bg-[#832646] text-white px-8 py-3.5 rounded-full font-semibold hover:bg-[#6a1d37] transition-colors shadow-md z-10 text-[15px]">
+            {data.ctaText}
             <ArrowRight className="w-4 h-4" />
           </Link>
           
-          <p className="text-[13px] text-gray-500 mt-5 max-w-xl text-center z-10 relative">
-            Explore hundreds more moments from our campuses in our complete media library. Specific events and celebrations may vary depending on the academic calendar and campus.
+          <p className="whitespace-pre-line text-[13px] text-gray-500 mt-5 max-w-xl text-center z-10 relative">
+            {data.footerNote}
           </p>         
         </div>
 

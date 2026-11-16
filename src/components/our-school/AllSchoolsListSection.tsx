@@ -2,99 +2,10 @@ import { ArrowRight, MapPin, Globe } from "lucide-react";
 import { FaFacebook, FaInstagram, FaYoutube } from "react-icons/fa";
 import Link from "next/link";
 
-export const schools = [
-  {
-    name: 'LFCS, MAU',
-    city: 'Mau',
-    state: 'Uttar Pradesh',
-    address: 'WHPC+9MX, Nizamuddinpura, Sahadatpura, Mau, Uttar Pradesh 275101',
-    website: 'https://lfgos.com/',
-    instagram: 'https://www.instagram.com/official_lfcsnizamuddinpura?igsh=OHB6ZWE3bzV0cWc4',
-    facebook: 'https://www.facebook.com/share/19GPAevD61/',
-    youtube: '',
-    img: '/schools/Nizamuddinpura-Mau.webp'
-  },
-  {
-    name: 'LFCS, SIKATIYA',
-    city: 'Mau',
-    state: 'Uttar Pradesh',
-    address: 'Near Sikatiya Overbridge, Mau, Uttar Pradesh',
-    website: 'https://lfcsmau.co/',
-    instagram: 'https://www.instagram.com/lfcssikatiyamau?igsh=NWNxOHZ6bGVvN2xy',
-    facebook: 'https://www.facebook.com/share/19SXEvspwD/',
-    youtube: '',
-    img: '/schools/Sikatia-Mau.webp'
-  },
-  {
-    name: 'LFCS, GHOSI',
-    city: 'Ghosi',
-    state: 'Uttar Pradesh',
-    address: 'Zamal Bikkampur, Ghosi, Uttar Pradesh 275304',
-    website: 'https://www.lfcsghosi.co.in/',
-    instagram: 'https://www.instagram.com/littleflowerchildren?igsh=Zm9kbGQ0Mmh1Z3Jq',
-    facebook: 'https://www.facebook.com/share/1bmo1SL5EY/',
-    youtube: 'https://youtube.com/@littleflowerchildrenschool7873?si=BaZY_xTs0DmYVV4L',
-    img: '/schools/Ghosi.webp'
-  },
-  {
-    name: 'LFCS, BALLIA',
-    city: 'Mau',
-    state: 'Uttar Pradesh',
-    address: 'S.H. 34 Mau - Ballia Road khalishpur Mau, Uttar Pradesh 275102',
-    website: 'https://lfcsballia.co.in/',
-    instagram: 'https://www.instagram.com/lfcs.ballia?igsh=MWlrYjN4OGN0NmtyYg==',
-    facebook: 'https://www.facebook.com/share/1EkqBTTVKx/',
-    youtube: '',
-    img: '/schools/Khalispur-Balia.webp'
-  },
-  {
-    name: 'LFCS, KASIMABAD GHAZIPUR',
-    city: 'Kasimabad',
-    state: 'Uttar Pradesh',
-    address: 'RM22+GPP, Campus: Gehuri, Mardah - Kasimabad Rd, Kasimabad, Uttar Pradesh 233230',
-    website: 'https://www.lfcskasimabad.in/',
-    instagram: 'https://www.instagram.com/lfcsghazipur?igsh=bzdnOHlueWZ6d3g0',
-    facebook: 'https://www.facebook.com/share/1HDhticq5g/',
-    youtube: 'https://m.youtube.com/%40lfcs-ghazipur?fbclid=PAb21jcATneaJwZG9mAmV4dG4DYWVtAjExAHNydGMGYXBwX2lkDzU2NzA2NzM0MzM1MjQyNwABpxOWZnA2iTlDmD-F17tfUplSU6zSWMXnudLmhm37QeOK1oHD_Dqo8SWU6W-u_aem_yXSkKcFwEpvnM-qYsL_hCw',
-    img: '/schools/Kasimabad.webp'
-  },
-  {
-    name: 'LFCS, AZAMGARH',
-    city: 'Azamgarh',
-    state: 'Uttar Pradesh',
-    address: 'Sardaha Tahbarpur, Azamgarh, Uttar Pradesh',
-    website: 'https://lfcsazamgarh.org.in/',
-    instagram: 'https://www.instagram.com/lfcsazamgarh?igsh=MTM4b3YzaTBoMmVqZg==',
-    facebook: 'https://www.facebook.com/share/1JBYeqSdEN/',
-    youtube: 'https://www.youtube.com/watch?feature=shared&v=90HTbxPKwIg',
-    img: '/schools/lfcs-azamgarh.webp'
-  },
-  {
-    name: 'LFIS, KHALISHPUR MAU',
-    city: 'Mau',
-    state: 'Uttar Pradesh',
-    address: 'S.H. 34 Mau - Ballia Road khalishpur Mau, Uttar Pradesh 275102',
-    website: 'https://lfismau.co.in/',
-    instagram: 'https://www.instagram.com/lfis.mau15?igsh=MXF2YWYzNjN2YXd5eg==',
-    facebook: 'https://www.facebook.com/share/1Bd9LEPBNU/',
-    youtube: '',
-    img: '/schools/lfis-mau.webp'
-  },
-  {
-    name: 'AZAD HIND INTER COLLEGE, KHALISHPUR MAU',
-    city: 'Mau',
-    state: 'Uttar Pradesh',
-    address: 'Khalishpur, Mau, Uttar Pradesh',
-    website: '',
-    instagram: '',
-    facebook: 'https://www.facebook.com/azadhindcollege/',
-    youtube: '',
-    img: '/schools/azad-hind-inter-college.webp'
-  }
-];
+import type { Campus } from "@/lib/content";
+import { sizedImage } from "@/lib/image";
 
-
-export default function AllSchoolsListSection() {
+export default function AllSchoolsListSection({ schools }: { schools: Campus[] }) {
   return (
     <section id="schools" className="pb-24 pt-8 bg-white relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -107,8 +18,8 @@ export default function AllSchoolsListSection() {
               {/* Image Container */}
               <div className="h-[220px] overflow-hidden relative shrink-0">
                 <img loading="lazy" decoding="async" 
-                  src={school.img} 
-                  alt={`Little Flower Children's School, ${school.city}`} 
+                  src={sizedImage(school.img, 700)} 
+                  alt={school.name} 
                   className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700 ease-out"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />

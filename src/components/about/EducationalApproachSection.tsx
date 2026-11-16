@@ -1,40 +1,22 @@
 import { BookOpen, Globe2, Lightbulb, Puzzle } from "lucide-react";
+import type { SectionContent } from "@/lib/content";
+import { sizedImage } from "@/lib/image";
 
-export default function EducationalApproachSection() {
-  const approaches = [
-    {
-      icon: BookOpen,
-      title: "Child-Centered Learning",
-      desc: "We focus on nurturing curiosity and encouraging exploration.",
-      color: "#dfae19", // gold
-      bgColor: "bg-[#fcf5de]", 
-      imgSrc: "/about/approach1.webp", 
-    },
-    {
-      icon: Lightbulb,
-      title: "Experiential Learning",
-      desc: "Hands-on experiences that make learning meaningful and lasting.",
-      color: "#66733a", // olive
-      bgColor: "bg-[#edf1e8]",
-      imgSrc: "/about/approach2.webp",
-    },
-    {
-      icon: Puzzle,
-      title: "Holistic Development",
-      desc: "We nurture academics, creativity, sports, and life skills equally.",
-      color: "#c76785", // pink
-      bgColor: "bg-[#fbeff2]", 
-      imgSrc: "/about/approach3.webp",
-    },
-    {
-      icon: Globe2,
-      title: "Values & Character",
-      desc: "Building strong values, empathy, and respect for a better tomorrow.",
-      color: "#3b82f6", // blue
-      bgColor: "bg-[#eff6ff]",
-      imgSrc: "/about/approach4.webp",
-    },
-  ];
+// Icon and accent colour for each approach card, in CMS order
+const approachStyles = [
+  { icon: BookOpen, color: "#dfae19", bgColor: "bg-[#fcf5de]" },
+  { icon: Lightbulb, color: "#66733a", bgColor: "bg-[#edf1e8]" },
+  { icon: Puzzle, color: "#c76785", bgColor: "bg-[#fbeff2]" },
+  { icon: Globe2, color: "#3b82f6", bgColor: "bg-[#eff6ff]" },
+];
+
+export default function EducationalApproachSection({ data }: { data: SectionContent }) {
+  const approaches = (data.pillars as { title: string; desc: string; image: string }[]).map((p, i) => ({
+    ...approachStyles[i % approachStyles.length],
+    title: p.title,
+    desc: p.desc,
+    imgSrc: sizedImage(p.image, 600),
+  }));
 
   return (
     <section className="py-20 relative overflow-hidden">
@@ -49,17 +31,17 @@ export default function EducationalApproachSection() {
         
         {/* Header */}
         <div className="text-center mb-10 md:mb-12">
-          <span className="text-[#66733a] font-bold text-[12px] tracking-[0.2em] uppercase mb-4 block">How We Teach</span>
+          <span className="text-[#66733a] font-bold text-[12px] tracking-[0.2em] uppercase mb-4 block">{data.tagline}</span>
           <h2 className="font-serif text-[36px] md:text-[44px] font-medium text-[#0a192f] leading-tight mb-4">
-            Our Educational <span className="font-script text-[#dfae19] text-[44px] md:text-[52px] relative inline-block -my-4 pr-1">
-              Approach
+            {data.headline} <span className="font-script text-[#dfae19] text-[44px] md:text-[52px] relative inline-block -my-4 pr-1">
+              {data.scriptAccent}
               <svg className="absolute bottom-[4px] left-0 w-full h-[6px]" viewBox="0 0 100 10" preserveAspectRatio="none">
                 <path d="M2 7 Q 50 12 98 3" stroke="#dfae19" strokeWidth="3" fill="none" strokeLinecap="round" />
               </svg>
             </span>
           </h2>
-          <p className="text-gray-500 text-[15px] max-w-2xl mx-auto mt-4">
-            A dynamic blend of traditional values and modern pedagogical techniques designed to unlock every child's potential.
+          <p className="whitespace-pre-line text-gray-500 text-[15px] max-w-2xl mx-auto mt-4">
+            {data.description}
           </p>
         </div>
 
@@ -83,7 +65,7 @@ export default function EducationalApproachSection() {
               {/* Text Content */}
               <div className="relative z-10 flex flex-col items-center mt-6">
                 <h3 className="font-bold text-[#3f5333] text-[17px] mb-2">{item.title}</h3>
-                <p className="text-gray-500 text-[13px] leading-relaxed max-w-[95%]">
+                <p className="whitespace-pre-line text-gray-500 text-[13px] leading-relaxed max-w-[95%]">
                   {item.desc}
                 </p>
               </div>

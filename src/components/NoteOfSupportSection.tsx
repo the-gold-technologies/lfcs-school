@@ -1,28 +1,12 @@
 import { ArrowRight, Quote } from "lucide-react";
 import Link from "next/link";
+import type { SectionContent } from "@/lib/content";
+import { sizedImage } from "@/lib/image";
 
-const notes = [
-  {
-    name: "Sharman Joshi",
-    role: "Actor",
-    img: "/about/sharman-joshi.webp",
-    alt: "Sharman Joshi holding a Little Flower Children School sign",
-    headline: "Some journeys are worth supporting because of the trust behind them.",
-    excerpt: "I am happy to extend my support to Little Flower Children School and its journey towards making quality education accessible to more children and families.",
-    href: "/about#note-of-support",
-  },
-  {
-    name: "Mr. Anand Kumar",
-    role: "Mathematician & Educator",
-    img: "/about/anand-kumar.webp",
-    alt: "Mr. Anand Kumar, Mathematician and Educator",
-    headline: "Education can change the direction of a child's life.",
-    excerpt: "But for that change to happen, quality education must reach the children who need it. I wish LFCS the very best as it takes this important vision to more children and families across India.",
-    href: "/about#anand-kumar",
-  },
-];
-
-export default function NoteOfSupportSection() {
+export default function NoteOfSupportSection({ data }: { data: SectionContent }) {
+  const notes = (data.endorsements as { name: string; role: string; image: string; headline: string; quote: string; link: string }[]).map(
+    (e) => ({ name: e.name, role: e.role, img: sizedImage(e.image, 480), alt: `${e.name}, ${e.role}`, headline: e.headline, excerpt: e.quote, href: e.link }),
+  );
   return (
     <section className="py-10 md:py-14 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-0">
@@ -32,9 +16,9 @@ export default function NoteOfSupportSection() {
           <div className="hidden md:block absolute bottom-0 left-1/3 w-72 h-72 bg-[#c76785] opacity-10 rounded-full blur-3xl translate-y-1/2"></div>
 
           <div className="relative z-10 text-center mb-8 md:mb-10">
-            <span className="text-[#dfae19] font-bold text-[12px] tracking-[0.2em] uppercase block mb-1">Notes of Support</span>
+            <span className="text-[#dfae19] font-bold text-[12px] tracking-[0.2em] uppercase block mb-1">{data.tagline}</span>
             <h2 className="font-serif text-[28px] md:text-[36px] text-white font-medium leading-tight">
-              Voices That Believe in Our Journey
+              {data.headline}
             </h2>
           </div>
 
@@ -53,16 +37,18 @@ export default function NoteOfSupportSection() {
                     <h3 className="font-serif text-[20px] md:text-[22px] text-white font-medium leading-snug">{headline}</h3>
                   </div>
 
-                  <p className="text-white/70 text-[14px] leading-relaxed mt-3 mb-4">&ldquo;{excerpt}&rdquo;</p>
+                  <p className="whitespace-pre-line text-white/70 text-[14px] leading-relaxed mt-3 mb-4">&ldquo;{excerpt}&rdquo;</p>
 
                   <div className="mt-auto pt-4 border-t border-white/10 flex items-end justify-between gap-4">
                     <div>
-                      <p className="font-serif text-[18px] text-white font-medium">{name}</p>
-                      <p className="text-[#dfae19] text-[11px] font-bold uppercase tracking-wider mt-1">{role}</p>
+                      <p className="whitespace-pre-line font-serif text-[18px] text-white font-medium">{name}</p>
+                      <p className="whitespace-pre-line text-[#dfae19] text-[11px] font-bold uppercase tracking-wider mt-1">{role}</p>
                     </div>
-                    <Link href={href} className="text-[#dfae19] hover:text-white text-[13px] font-semibold flex items-center gap-1.5 transition-colors shrink-0">
-                      Read Note <ArrowRight className="w-4 h-4" />
-                    </Link>
+                    {href && (
+                      <Link href={href} className="text-[#dfae19] hover:text-white text-[13px] font-semibold flex items-center gap-1.5 transition-colors shrink-0">
+                        Read Note <ArrowRight className="w-4 h-4" />
+                      </Link>
+                    )}
                   </div>
                 </div>
               </div>

@@ -1,7 +1,7 @@
 "use server";
 
-import { ENQUIRY_EMAIL, sendFormEmail } from "@/lib/mailer";
 import { CV_EXTENSIONS, MAX_CV_BYTES } from "@/components/careers/careersData";
+import { cmsPostSubmission } from "@/lib/cms";
 
 export type FormState = {
   status: "idle" | "success" | "error";
@@ -9,6 +9,9 @@ export type FormState = {
 };
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+// Shown to visitors when the CMS can't be reached, so they still have a way to get in touch
+const FALLBACK_EMAIL = "franchise@lfcsschools.com";
 
 // Reads a trimmed field and caps its length so nobody can post huge payloads
 function field(formData: FormData, name: string, max = 200) {
@@ -19,6 +22,13 @@ function field(formData: FormData, name: string, max = 200) {
 // Hidden "website" input that real visitors never fill in; bots usually do
 function isSpam(formData: FormData) {
   return field(formData, "website") !== "";
+}
+
+function failed(what: string): FormState {
+  return {
+    status: "error",
+    message: `Sorry, we couldn't send your ${what} right now. Please try again or email us at ${FALLBACK_EMAIL}.`,
+  };
 }
 
 const enquiryTypeLabels: Record<string, string> = {
@@ -47,32 +57,18 @@ export async function submitContactForm(_prev: FormState, formData: FormData): P
     return { status: "error", message: "Please enter a valid email address." };
   }
 
-  const typeLabel = enquiryTypeLabels[enquiryType] ?? "General Enquiry";
-
-  try {
-    await sendFormEmail({
-      to: ENQUIRY_EMAIL,
-      subject: `New ${typeLabel} enquiry from ${fullName}`,
-      title: `Contact Form – ${typeLabel}`,
-      replyTo: email,
-      fields: [
-        { label: "Full Name", value: fullName },
-        { label: "Phone", value: phone },
-        { label: "Email", value: email },
-        { label: "Enquiry Type", value: typeLabel },
-        { label: "Preferred Campus", value: campus || "Any / Not sure" },
-        { label: "Class Seeking Admission", value: grade },
-        { label: "Message", value: message },
-      ],
-    });
-    return { status: "success" };
-  } catch (error) {
-    console.error("Contact form email failed:", error);
-    return {
-      status: "error",
-      message: `Sorry, we couldn't send your message right now. Please try again or email us at ${ENQUIRY_EMAIL}.`,
-    };
-  }
+  // Admission enquiries from the pop-up go to the Admissions inbox
+  const saved = await cmsPostSubmission({
+    formType: enquiryType === "admissions" ? "admissions" : "contact",
+    fullName,
+    email,
+    phone,
+    preferredCampus: campus,
+    grade,
+    enquiryType: enquiryTypeLabels[enquiryType] ?? "General Enquiry",
+    message,
+  });
+  return saved ? { status: "success" } : failed("message");
 }
 
 const landOwnershipLabels: Record<string, string> = {
@@ -112,34 +108,21 @@ export async function submitStartSchoolEnquiry(_prev: FormState, formData: FormD
     return { status: "error", message: "Please enter a valid email address." };
   }
 
-  try {
-    await sendFormEmail({
-      to: ENQUIRY_EMAIL,
-      subject: `New Start a School enquiry from ${fullName} (${city})`,
-      title: "Start a School Enquiry",
-      replyTo: email,
-      fields: [
-        { label: "Full Name", value: fullName },
-        { label: "Contact Number", value: contactNumber },
-        { label: "Email", value: email },
-        { label: "City / Location", value: city },
-        { label: "Proposed School Location", value: proposedLocation },
-        { label: "Land Ownership / Access", value: landOwnershipLabels[landOwnership] ?? "" },
-        { label: "Approximate Land Area", value: landArea },
-        { label: "Proposed School Level", value: schoolLevelLabels[schoolLevel] ?? "" },
-        { label: "Estimated Investment Capacity", value: investment },
-        { label: "Previous Experience", value: experience },
-        { label: "Message / Project Details", value: message },
-      ],
-    });
-    return { status: "success" };
-  } catch (error) {
-    console.error("Start a school enquiry email failed:", error);
-    return {
-      status: "error",
-      message: `Sorry, we couldn't send your enquiry right now. Please try again or email us at ${ENQUIRY_EMAIL}.`,
-    };
-  }
+  const saved = await cmsPostSubmission({
+    formType: "start-school",
+    fullName,
+    email,
+    phone: contactNumber,
+    city,
+    proposedLocation,
+    landOwnership: landOwnershipLabels[landOwnership] ?? "",
+    landArea,
+    schoolLevel: schoolLevelLabels[schoolLevel] ?? "",
+    investmentCapacity: investment,
+    experience,
+    message,
+  });
+  return saved ? { status: "success" } : failed("enquiry");
 }
 
 export async function submitAdmissionEnquiry(_prev: FormState, formData: FormData): Promise<FormState> {
@@ -159,29 +142,16 @@ export async function submitAdmissionEnquiry(_prev: FormState, formData: FormDat
     return { status: "error", message: "Please enter a valid email address." };
   }
 
-  try {
-    await sendFormEmail({
-      to: ENQUIRY_EMAIL,
-      subject: `New admission enquiry from ${parentName} (${grade}, ${session})`,
-      title: "Admission Enquiry",
-      replyTo: email,
-      fields: [
-        { label: "Parent / Guardian Name", value: parentName },
-        { label: "Email", value: email },
-        { label: "Preferred School / Campus", value: campus || "Any / Not sure" },
-        { label: "Class Seeking Admission For", value: grade },
-        { label: "Academic Session", value: session },
-        { label: "Message", value: message },
-      ],
-    });
-    return { status: "success" };
-  } catch (error) {
-    console.error("Admission enquiry email failed:", error);
-    return {
-      status: "error",
-      message: `Sorry, we couldn't send your enquiry right now. Please try again or email us at ${ENQUIRY_EMAIL}.`,
-    };
-  }
+  const saved = await cmsPostSubmission({
+    formType: "admissions",
+    fullName: parentName,
+    email,
+    preferredCampus: campus,
+    grade,
+    academicSession: session,
+    message,
+  });
+  return saved ? { status: "success" } : failed("enquiry");
 }
 
 const careerAreaLabels: Record<string, string> = {
@@ -210,46 +180,33 @@ export async function submitCareerProfile(_prev: FormState, formData: FormData):
   }
 
   // Optional CV: an empty file input still arrives as a zero-byte File
-  const cv = formData.get("cv");
-  const attachments: { filename: string; content: Buffer }[] = [];
-  if (cv instanceof File && cv.size > 0) {
-    const name = cv.name.toLowerCase();
+  const file = formData.get("cv");
+  let cv: File | undefined;
+  if (file instanceof File && file.size > 0) {
+    const name = file.name.toLowerCase();
     if (!CV_EXTENSIONS.some((ext) => name.endsWith(ext))) {
       return { status: "error", message: "Please upload your CV as a PDF or Word document." };
     }
-    if (cv.size > MAX_CV_BYTES) {
+    if (file.size > MAX_CV_BYTES) {
       return { status: "error", message: "Your CV must be 5 MB or smaller." };
     }
-    attachments.push({ filename: cv.name.slice(0, 150), content: Buffer.from(await cv.arrayBuffer()) });
+    cv = file;
   }
 
-  const areaLabel = careerAreaLabels[area] ?? careerAreaLabels.other;
-
-  try {
-    await sendFormEmail({
-      to: ENQUIRY_EMAIL,
-      subject: `New career profile from ${fullName} (${areaLabel})`,
-      title: "Careers – Profile Submission",
-      replyTo: email,
-      fields: [
-        { label: "Full Name", value: fullName },
-        { label: "Phone", value: phone },
-        { label: "Email", value: email },
-        { label: "Area of Interest", value: areaLabel },
-        { label: "Role of Interest", value: role },
-        { label: "Experience", value: experience },
-        { label: "Preferred Campus", value: campus || "Any / Not sure" },
-        { label: "CV", value: attachments.length ? "Attached" : "Not provided" },
-        { label: "About Their Experience & Skills", value: message },
-      ],
-      attachments,
-    });
-    return { status: "success" };
-  } catch (error) {
-    console.error("Career profile email failed:", error);
-    return {
-      status: "error",
-      message: `Sorry, we couldn't send your profile right now. Please try again or email us at ${ENQUIRY_EMAIL}.`,
-    };
-  }
+  // The CMS stores the CV and links it from the inbox and the notification email
+  const saved = await cmsPostSubmission(
+    {
+      formType: "careers",
+      fullName,
+      email,
+      phone,
+      preferredCampus: campus,
+      careerArea: careerAreaLabels[area] ?? careerAreaLabels.other,
+      roleOfInterest: role,
+      experience,
+      message,
+    },
+    cv,
+  );
+  return saved ? { status: "success" } : failed("profile");
 }

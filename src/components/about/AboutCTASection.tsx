@@ -1,7 +1,9 @@
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
+import type { SectionContent } from "@/lib/content";
+import { sizedImage } from "@/lib/image";
 
-export default function AboutCTASection() {
+export default function AboutCTASection({ data }: { data: SectionContent }) {
   return (
     <section className="py-12 md:py-20 bg-[#fcfdfe]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 relative lg:px-0">
@@ -10,16 +12,16 @@ export default function AboutCTASection() {
           <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center z-10">
             {/* Left Text Content */}
             <div className="md:col-span-5 flex flex-col items-start text-left">
-              <h2 className="font-serif text-[32px] sm:text-[36px] lg:text-[40px] font-semibold text-[#3f5333] leading-[1.15] mb-4">
-                Be a Part of Our<br />Little Flower Family
+              <h2 className="font-serif text-[32px] sm:text-[36px] lg:text-[40px] font-semibold text-[#3f5333] leading-[1.15] mb-4 text-balance">
+                {data.heading}
               </h2>
               
-              <p className="text-[#5a6b52] text-[15px] lg:text-[16px] mb-8 font-medium">
-                Admissions open for a brighter tomorrow.
+              <p className="whitespace-pre-line text-[#5a6b52] text-[15px] lg:text-[16px] mb-8 font-medium">
+                {data.subtitle}
               </p>
               
-              <Link href="/contact#contact-form" className="bg-lf-burgundy text-white pl-6 pr-2 py-2 rounded-full font-bold text-[15px] hover:bg-lf-burgundy-hover transition-all flex items-center justify-center gap-4 shadow-md hover:shadow-lg inline-flex w-max">
-                <span>Enquire Now</span> 
+              <Link href={data.buttonLink} className="bg-lf-burgundy text-white pl-6 pr-2 py-2 rounded-full font-bold text-[15px] hover:bg-lf-burgundy-hover transition-all flex items-center justify-center gap-4 shadow-md hover:shadow-lg inline-flex w-max">
+                <span>{data.buttonText}</span> 
                 <span className="bg-white rounded-full p-1.5 flex items-center justify-center">
                   <ArrowRight className="w-4 h-4 text-lf-burgundy" strokeWidth={3} />
                 </span>
@@ -29,8 +31,8 @@ export default function AboutCTASection() {
             {/* Right Image */}
             <div className="hidden md:col-span-7 md:flex justify-end">
               <img loading="lazy" decoding="async" 
-                src="/cta-bg.webp" 
-                alt="Join Little Flower Family" 
+                src={sizedImage(data.bgImage, 1000)} 
+                alt={data.heading} 
                 className="w-full absolute max-w-[95%] md:max-w-[60%] top-0 object-contain translate-x-4 lg:translate-x-8" 
               />
             </div>

@@ -1,6 +1,9 @@
 import { ChevronRight } from "lucide-react";
+import { splitAfterComma, type SectionContent } from "@/lib/content";
+import type { HeadingTag } from "@/lib/seo";
 
-export default function AboutHeroSection() {
+export default function AboutHeroSection({ data, headingTag: Heading }: { data: SectionContent; headingTag: HeadingTag }) {
+  const [headLead, headRest] = splitAfterComma(data.headline);
   return (
     <section className="relative min-h-[60vh] md:min-h-[70vh] flex items-center bg-[#fefdfa] pt-32 pb-20 overflow-hidden">
       {/* Decorative Background Elements */}
@@ -12,24 +15,24 @@ export default function AboutHeroSection() {
           
           {/* Left Text Content */}
           <div className="lg:col-span-5 flex flex-col items-start text-left max-w-2xl">
-            <span className="text-[#dfae19] font-bold text-[12px] tracking-[0.2em] uppercase mb-4 block">About Us</span>
+            <span className="text-[#dfae19] font-bold text-[12px] tracking-[0.2em] uppercase mb-4 block">{data.tagline}</span>
             
-            <h1 className="font-serif text-3xl sm:text-4xl md:text-[55px] font-medium leading-tight mb-6 text-[#0a192f]">
-              Empowering Minds, <br />
-              Nurturing <span className="font-script text-lf-burgundy text-[40px] sm:text-[48px] md:text-[60px] relative inline-block -my-2 pr-2">
-                Futures.
+            <Heading className="font-serif text-3xl sm:text-4xl md:text-[55px] font-medium leading-tight mb-6 text-[#0a192f]">
+              {headLead && <>{headLead} <br /></>}
+              {headRest} <span className="font-script text-lf-burgundy text-[40px] sm:text-[48px] md:text-[60px] relative inline-block -my-2 pr-2">
+                {data.scriptAccent}
                 <svg className="absolute bottom-[4px] left-0 w-full h-[6px]" viewBox="0 0 100 10" preserveAspectRatio="none">
                   <path d="M2 7 Q 50 12 98 3" stroke="#dfae19" strokeWidth="3" fill="none" strokeLinecap="round" />
                 </svg>
               </span>
-            </h1>
+            </Heading>
             
-            <p className="text-[15px] text-gray-600 mb-8 leading-relaxed">
-              Discover the heart of Little Flower Group of Schools. A legacy of excellence, rooted in values, and dedicated to shaping the leaders of tomorrow.
+            <p className="whitespace-pre-line text-[15px] text-gray-600 mb-8 leading-relaxed">
+              {data.description}
             </p>
 
-            <a href="#our-story" className="inline-flex items-center gap-2 bg-lf-burgundy text-white px-5 lg:px-8 py-2.5 lg:py-3.5 rounded-[16px] font-semibold hover:bg-lf-burgundy-hover transition-colors text-sm">
-              Explore Our Story
+            <a href={data.ctaLink} className="inline-flex items-center gap-2 bg-lf-burgundy text-white px-5 lg:px-8 py-2.5 lg:py-3.5 rounded-[16px] font-semibold hover:bg-lf-burgundy-hover transition-colors text-sm">
+              {data.ctaText}
               <ChevronRight className="w-4 h-4" />
             </a>
           </div>
@@ -37,7 +40,7 @@ export default function AboutHeroSection() {
           {/* Right Image */}
           <div className="lg:col-span-7 relative w-full flex justify-end">
             <div className="relative w-full max-w-full lg:max-w-[110%] overflow-hidden scale-105 origin-right">
-              <img src="/about-hero.webp" alt="Little Flower Children School Hero" className="w-full h-auto object-contain" />
+              <img src={data.image} alt="Students and teachers of Little Flower Group of Schools" className="w-full h-auto object-contain" />
             </div>
           </div>
           

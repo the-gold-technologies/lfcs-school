@@ -1,18 +1,35 @@
+import type { Metadata } from "next";
 import ContactHeroSection from "@/components/contact/ContactHeroSection";
 import ContactFormSection from "@/components/contact/ContactFormSection";
 import ContactCampusesSection from "@/components/contact/ContactCampusesSection";
+import JsonLd from "@/components/JsonLd";
+import { getCampuses, getPage, getSite } from "@/lib/content";
+import { buildPageMetadata, heroHeadingTag, pageSchemas } from "@/lib/seo";
 
-export const metadata = {
-  title: "Contact Us | Little Flower Group of Schools",
-  description: "Get in touch with Little Flower Group of Schools for admissions, academics, partnerships, or general enquiries.",
-};
+export async function generateMetadata(): Promise<Metadata> {
+  return buildPageMetadata("contact");
+}
 
-export default function ContactPage() {
+export default async function ContactPage() {
+  const [{ sections: s }, site, campuses, schemas] = await Promise.all([
+    getPage("contact"),
+    getSite(),
+    getCampuses(),
+    pageSchemas("contact"),
+  ]);
+
+  const headingTag = await heroHeadingTag("contact");
+
   return (
-    <main className="min-h-screen bg-white font-sans text-gray-800">
-      <ContactHeroSection />
-      <ContactFormSection />
-      <ContactCampusesSection />
-    </main>
+    <div className="min-h-screen bg-white font-sans text-gray-800">
+      <JsonLd data={schemas} />
+      <ContactHeroSection data={s.ContactHeroSection} headingTag={headingTag} />
+      <ContactFormSection
+        data={s.ContactFormSection}
+        socials={{ facebook: site.facebookUrl, instagram: site.instagramUrl, youtube: site.youtubeUrl }}
+        campuses={campuses.map((c) => c.name)}
+      />
+      <ContactCampusesSection data={s.ContactCampusesSection} schools={campuses} />
+    </div>
   );
 }

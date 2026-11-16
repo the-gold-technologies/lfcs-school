@@ -1,8 +1,15 @@
-import { ArrowRight, Leaf, Users, Star } from "lucide-react";
+import { ArrowRight, Leaf, Users, Star, type LucideIcon } from "lucide-react";
 import Link from "next/link";
 import EnquiryCTAButton from "@/components/start-school/EnquiryCTAButton";
+import type { SectionContent } from "@/lib/content";
+import { sizedImage } from "@/lib/image";
 
-export default function OurSchoolCTASection() {
+// The CMS stores each feature's icon by name
+const featureIcons: Record<string, LucideIcon> = { Leaf, Users, Star };
+const featureColors = ["text-[#41533b]", "text-[#8c2b45]", "text-[#dfaf27]"];
+
+export default function OurSchoolCTASection({ data }: { data: SectionContent }) {
+  const features = data.features as { icon: string; title: string; subtitle: string }[];
   return (
     <section className="pb-32 pt-12 bg-[#fcfdfe]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-0 relative z-10">
@@ -14,14 +21,14 @@ export default function OurSchoolCTASection() {
               
               <div className="flex items-center gap-4 mb-6">
                 <span className="text-[#d8a32a] font-bold text-[11px] tracking-[0.25em] uppercase">
-                  Admissions Open
+                  {data.tagline}
                 </span>
               </div>
               
               <h2 className="font-serif text-[38px] sm:text-[44px] lg:text-[48px] font-medium text-[#111c30] leading-[1.35] mb-5 tracking-tight">
-                Give your child a place to <br />
+                {data.headline} <br />
                 <span className="font-script text-[#be204c] text-[48px] sm:text-[56px] lg:text-[62px] relative inline-block -my-1 pr-2">
-                  Grow. Lead. Learn.
+                  {data.scriptAccent}
                   <svg className="absolute bottom-[8px] left-0 w-full h-[6px]" viewBox="0 0 100 10" preserveAspectRatio="none">
                     <path d="M2 7 Q 50 12 98 3" stroke="#be204c" strokeWidth="3" fill="none" strokeLinecap="round" />
                   </svg>
@@ -31,45 +38,35 @@ export default function OurSchoolCTASection() {
 
               <div className="flex flex-col sm:flex-row flex-wrap gap-4 mb-8">
                 <EnquiryCTAButton className="bg-lf-burgundy text-white pl-6 pr-2 py-2 rounded-full font-bold text-[14px] hover:bg-lf-burgundy-hover transition-all flex items-center justify-between gap-4 shadow-md hover:shadow-lg w-full sm:w-auto group cursor-pointer">
-                  <span>Enquire for Admission</span> 
+                  <span>{data.primaryButtonText}</span> 
                   <span className="bg-white rounded-full w-8 h-8 flex items-center justify-center group-hover:bg-gray-100 transition-colors">
                     <ArrowRight className="w-4 h-4 text-lf-burgundy" strokeWidth={2.5} />
                   </span>
                 </EnquiryCTAButton>
 
-                <Link href="/about" className="bg-white text-[#41533b] border border-gray-200 px-8 py-3 rounded-full font-bold text-[14px] hover:bg-gray-50 transition-all flex items-center justify-center shadow-sm w-full sm:w-auto">
-                  Explore Our School
+                <Link href={data.secondaryButtonLink} className="bg-white text-[#41533b] border border-gray-200 px-8 py-3 rounded-full font-bold text-[14px] hover:bg-gray-50 transition-all flex items-center justify-center shadow-sm w-full sm:w-auto">
+                  {data.secondaryButtonText}
                 </Link>
               </div>
 
               {/* Features Bottom Row */}
               <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6 sm:gap-0 pt-6 border-t border-gray-200/80 text-[13px] font-semibold text-[#546072]">
                 
-                <div className="flex items-center gap-3 sm:pr-6">
-                  <div className="text-[#41533b]">
-                    <Leaf className="w-5 h-5" strokeWidth={2.5} />
-                  </div>
-                  <span className="leading-tight text-[12px]">Nurturing<br/>Environment</span>
-                </div>
-
-                <div className="hidden sm:block w-[1px] h-10 bg-gray-200/80"></div>
-
-                <div className="flex items-center gap-3 sm:px-6">
-                  <div className="text-[#8c2b45]">
-                    <Users className="w-5 h-5" strokeWidth={2.5} />
-                  </div>
-                  <span className="leading-tight text-[12px]">Holistic<br/>Development</span>
-                </div>
-
-                <div className="hidden sm:block w-[1px] h-10 bg-gray-200/80"></div>
-
-                <div className="flex items-center gap-3 sm:pl-6">
-                  <div className="text-[#dfaf27]">
-                    <Star className="w-5 h-5" strokeWidth={2.5} />
-                  </div>
-                  <span className="leading-tight text-[12px]">Brighter<br/>Futures</span>
-                </div>
-
+                {features.map((feature, i) => {
+                  const Icon = featureIcons[feature.icon] ?? Star;
+                  const edge = i === 0 ? "sm:pr-6" : i === features.length - 1 ? "sm:pl-6" : "sm:px-6";
+                  return (
+                    <div key={feature.title} className="contents">
+                      {i > 0 && <div className="hidden sm:block w-[1px] h-10 bg-gray-200/80"></div>}
+                      <div className={`flex items-center gap-3 ${edge}`}>
+                        <div className={featureColors[i % featureColors.length]}>
+                          <Icon className="w-5 h-5" strokeWidth={2.5} />
+                        </div>
+                        <span className="leading-tight text-[12px]">{feature.title}<br/>{feature.subtitle}</span>
+                      </div>
+                    </div>
+                  );
+                })}
               </div>
               
             </div>
@@ -77,8 +74,8 @@ export default function OurSchoolCTASection() {
             {/* Right Image */}
             <div className="hidden md:block w-full h-[400px] lg:h-auto relative -ml-10">
               <img loading="lazy" decoding="async" 
-                src="/our-school-cta.webp" 
-                alt="LFCS Students" 
+                src={sizedImage(data.image, 900)} 
+                alt="Little Flower students" 
                 className="w-full h-full object-contain"
               />
             </div>

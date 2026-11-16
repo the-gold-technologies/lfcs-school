@@ -1,6 +1,14 @@
-import { Sparkles, History, Users } from "lucide-react";
+import { History, Users } from "lucide-react";
+import { paragraphs, type SectionContent } from "@/lib/content";
+import { sizedImage } from "@/lib/image";
 
-export default function OurStorySection() {
+const statStyles = [
+  { Icon: History, color: "text-[#c76785]" },
+  { Icon: Users, color: "text-[#dfae19]" },
+];
+
+export default function OurStorySection({ data }: { data: SectionContent }) {
+  const stats = data.stats as { value: string; label: string }[];
   return (
     <section id="our-story" className="py-20  bg-white relative overflow-hidden">
       
@@ -11,10 +19,10 @@ export default function OurStorySection() {
           
           {/* Left: Text Content */}
           <div className="lg:w-1/2 pr-8">
-            <span className="text-[#c76785] font-bold text-[12px] tracking-[0.2em] uppercase mb-4 block">Our Story</span>
+            <span className="text-[#c76785] font-bold text-[12px] tracking-[0.2em] uppercase mb-4 block">{data.tagline}</span>
             <h2 className="font-serif text-[36px] md:text-[48px] font-medium text-[#0a192f] leading-tight mb-6">
-              A Journey of <span className="font-script text-[#dfae19] text-[44px] md:text-[56px] relative inline-block -my-4 pr-1">
-                Dedication
+              {data.headline} <span className="font-script text-[#dfae19] text-[44px] md:text-[56px] relative inline-block -my-4 pr-1">
+                {data.scriptAccent}
                 <svg className="absolute bottom-[4px] left-0 w-full h-[6px]" viewBox="0 0 100 10" preserveAspectRatio="none">
                   <path d="M2 7 Q 50 12 98 3" stroke="#dfae19" strokeWidth="3" fill="none" strokeLinecap="round" />
                 </svg>
@@ -22,43 +30,36 @@ export default function OurStorySection() {
             </h2>
             
             <div className="space-y-6 text-gray-600 text-[15px] leading-relaxed">
-              <p>
-                Founded in 1993 by Late Shri Vijay Shankar Yadav in a temporary space with just 30 students and a big dream, Little Flower School began its journey with a simple mission: to provide quality, value-based education that goes beyond textbooks.
-              </p>
-              <p>
-                Over the past three decades, we have grown from a modest neighborhood school into a network of CBSE-affiliated schools across Uttar Pradesh. What hasn't changed is our commitment to fostering a nurturing environment where every child feels valued, encouraged, and challenged to achieve their best.
-              </p>
+              {paragraphs(data.story).map((p) => (
+                <p key={p.slice(0, 40)} className="whitespace-pre-line">{p}</p>
+              ))}
             </div>
 
             <div className="mt-10 flex gap-8">
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-full bg-[#fcfdfe] border border-gray-100 shadow-sm flex items-center justify-center shrink-0">
-                  <History className="w-6 h-6 text-[#c76785]" strokeWidth={1.5} />
-                </div>
-                <div>
-                  <h4 className="font-bold text-[#0a192f] text-[18px]">1993</h4>
-                  <p className="text-[12px] text-gray-500 font-medium uppercase tracking-wide">Year Founded</p>
-                </div>
-              </div>
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-full bg-[#fcfdfe] border border-gray-100 shadow-sm flex items-center justify-center shrink-0">
-                  <Users className="w-6 h-6 text-[#dfae19]" strokeWidth={1.5} />
-                </div>
-                <div>
-                  <h4 className="font-bold text-[#0a192f] text-[18px]">1000+</h4>
-                  <p className="text-[12px] text-gray-500 font-medium uppercase tracking-wide">Qualified Teachers</p>
-                </div>
-              </div>
+              {stats.map(({ value, label }, idx) => {
+                const { Icon, color } = statStyles[idx % statStyles.length];
+                return (
+                  <div key={label} className="flex items-center gap-4">
+                    <div className="w-12 h-12 rounded-full bg-[#fcfdfe] border border-gray-100 shadow-sm flex items-center justify-center shrink-0">
+                      <Icon className={`w-6 h-6 ${color}`} strokeWidth={1.5} />
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-[#0a192f] text-[18px]">{value}</h4>
+                      <p className="whitespace-pre-line text-[12px] text-gray-500 font-medium uppercase tracking-wide">{label}</p>
+                    </div>
+                  </div>
+                );
+              })}
             </div>
           </div>
 
           {/* Right: Images */}
           <div className="lg:w-1/2 relative w-full h-[500px]">
             <div className="absolute top-0 right-0 w-[80%] h-[80%] rounded-[32px] overflow-hidden shadow-2xl z-10 border-8 border-white">
-              <img loading="lazy" decoding="async" src="/about/story1.webp" alt="Teacher and students" className="w-full h-full object-cover" />
+              <img loading="lazy" decoding="async" src={sizedImage(data.storyImage1, 800)} alt="Teacher with students at Little Flower" className="w-full h-full object-cover" />
             </div>
             <div className="absolute bottom-0 left-0 w-[60%] h-[55%] rounded-[32px] overflow-hidden shadow-xl z-20 border-8 border-white">
-              <img loading="lazy" decoding="async" src="/about/story2.webp" alt="Students in classroom" className="w-full h-full object-cover" />
+              <img loading="lazy" decoding="async" src={sizedImage(data.storyImage2, 600)} alt="Students in a Little Flower classroom" className="w-full h-full object-cover" />
             </div>
             
             {/* Playful shapes behind images */}

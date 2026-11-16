@@ -2,6 +2,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Phone, Mail, MapPin, Clock } from 'lucide-react';
 import BackToTopButton from '@/components/BackToTopButton';
+import type { SiteConfig } from '@/lib/content';
 
 const FacebookIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
@@ -21,7 +22,16 @@ const YoutubeIcon = () => (
   </svg>
 );
 
-export default function Footer() {
+const telHref = (phone: string) => `tel:${phone.replace(/[^\d+]/g, '')}`;
+
+export default function Footer({ site }: { site: SiteConfig }) {
+  const s = site.socialLinks;
+  const socials = [
+    { href: site.facebookUrl, label: 'Facebook', Icon: FacebookIcon },
+    { href: site.instagramUrl, label: 'Instagram', Icon: InstagramIcon },
+    { href: site.youtubeUrl, label: 'YouTube', Icon: YoutubeIcon },
+  ].filter((x) => x.href);
+
   return (
     <div className="bg-[#fdfdfc]">
       <footer className="bg-[#6a2238] text-white pt-20 pb-8 rounded-t-[40px] mx-1">
@@ -32,76 +42,40 @@ export default function Footer() {
           <div className="lg:col-span-2 pr-8">
             <Link href="/" className="flex-shrink-0 flex items-center gap-4 mb-6">
               <Image 
-                src="/logo1.webp" 
-                alt="Little Flower Logo" 
+                src={s.footerLogo || site.logo} 
+                alt="Little Flower Group of Schools logo" 
                 width={70} 
                 height={70} 
                 className="object-contain" 
               />
               <div className="flex flex-col">
-                <span className="text-white font-serif font-bold text-[22px] leading-none uppercase">Little Flower</span>
-                <span className="text-white font-semibold text-[13px] uppercase tracking-widest mt-1">Group of Schools</span>
+                <span className="text-white font-serif font-bold text-[22px] leading-none uppercase">{s.brandTitle}</span>
+                <span className="text-white font-semibold text-[13px] uppercase tracking-widest mt-1">{s.brandSubtitle}</span>
               </div>
             </Link>
-            <p className="text-[#eef3ea] text-[13px] leading-relaxed mb-8 pr-4">
-              A network of CBSE schools committed to academic excellence, character building and holistic development.
+            <p className="whitespace-pre-line text-[#eef3ea] text-[13px] leading-relaxed mb-8 pr-4">
+              {site.siteDescription}
             </p>
             <div className="flex gap-4">
-              <a href="https://www.facebook.com/people/LFCS-Schools/61594935059542/" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="w-10 h-10 rounded-full border border-white/30 flex items-center justify-center text-[#eef3ea] hover:text-white hover:border-white transition-all">
-                <FacebookIcon />
-              </a>
-              <a href="https://www.instagram.com/lfcs_schools/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="w-10 h-10 rounded-full border border-white/30 flex items-center justify-center text-[#eef3ea] hover:text-white hover:border-white transition-all">
-                <InstagramIcon />
-              </a>
-              <a href="https://youtube.com/@lfcsschools?si=TCzIAvIrbwgYA2KY" target="_blank" rel="noopener noreferrer" aria-label="YouTube" className="w-10 h-10 rounded-full border border-white/30 flex items-center justify-center text-[#eef3ea] hover:text-white hover:border-white transition-all">
-                <YoutubeIcon />
-              </a>
+              {socials.map(({ href, label, Icon }) => (
+                <a key={label} href={href!} target="_blank" rel="noopener noreferrer" aria-label={label} className="w-10 h-10 rounded-full border border-white/30 flex items-center justify-center text-[#eef3ea] hover:text-white hover:border-white transition-all">
+                  <Icon />
+                </a>
+              ))}
             </div>
           </div>
 
-          {/* Links 1 - QUICK LINKS */}
-          <div>
-            <h4 className="text-lf-gold font-bold mb-6 uppercase tracking-wider text-xs">Quick Links</h4>
-            <ul className="space-y-3.5 text-[13px] text-[#eef3ea]">
-              <li><Link href="/about" className="hover:text-white transition-colors">About Us</Link></li>
-              <li><Link href="/academics" className="hover:text-white transition-colors">Academics</Link></li>
-              <li><Link href="/experience" className="hover:text-white transition-colors">Experience</Link></li>
-              <li><Link href="/our-school" className="hover:text-white transition-colors">Our Schools</Link></li>
-              <li><Link href="/admissions" className="hover:text-white transition-colors">Admissions</Link></li>
-              <li><Link href="/news-&-events" className="hover:text-white transition-colors">News & Events</Link></li>
-              <li><Link href="/start-school" className="hover:text-white transition-colors">Start a School</Link></li>
-              <li><Link href="/careers" className="hover:text-white transition-colors">Careers</Link></li>
-              <li><Link href="/contact" className="hover:text-white transition-colors">Contact Us</Link></li>
-            </ul>
-          </div>
-
-          {/* Links 2 - ADMISSIONS */}
-          <div>
-            <h4 className="text-lf-gold font-bold mb-6 uppercase tracking-wider text-xs">Admissions</h4>
-            <ul className="space-y-3.5 text-[13px] text-[#eef3ea]">
-              <li><Link href="/about#our-story" className="hover:text-white transition-colors">Why Choose Us</Link></li>
-              <li><Link href="/academics#curriculum" className="hover:text-white transition-colors">Curriculum</Link></li>
-              <li><Link href="/academics#approach" className="hover:text-white transition-colors">Teaching Approach</Link></li>
-              <li><Link href="/academics#faculty" className="hover:text-white transition-colors">Our Faculty</Link></li>
-              <li><Link href="/experience#life-at-lfcs" className="hover:text-white transition-colors">Life at LFCS</Link></li>
-              <li><Link href="/our-school#schools" className="hover:text-white transition-colors">Our Campuses</Link></li>
-              <li><Link href="/contact#contact-form" className="hover:text-white transition-colors">Enquire Now</Link></li>
-            </ul>
-          </div>
-
-          {/* Links 3 - START A SCHOOL */}
-          <div>
-            <h4 className="text-lf-gold font-bold mb-6 uppercase tracking-wider text-xs">Start A School</h4>
-            <ul className="space-y-3.5 text-[13px] text-[#eef3ea]">
-              <li><Link href="/start-school#why-partner" className="hover:text-white transition-colors">Why Partner With Us</Link></li>
-              <li><Link href="/start-school#model" className="hover:text-white transition-colors">Our School Model</Link></li>
-              <li><Link href="/start-school#support" className="hover:text-white transition-colors">Support & Benefits</Link></li>
-              <li><Link href="/start-school#requirements" className="hover:text-white transition-colors">Requirements</Link></li>
-              <li><Link href="/start-school#process" className="hover:text-white transition-colors">Setup Process</Link></li>
-              <li><Link href="/start-school#investment" className="hover:text-white transition-colors">Investment Overview</Link></li>
-              <li><Link href="/start-school#faqs" className="hover:text-white transition-colors">FAQs</Link></li>
-            </ul>
-          </div>
+          {/* Link columns (CMS → Social Media & Footer) */}
+          {s.footerColumns.map((col) => (
+            <div key={col.title}>
+              <h4 className="text-lf-gold font-bold mb-6 uppercase tracking-wider text-xs">{col.title}</h4>
+              <ul className="space-y-3.5 text-[13px] text-[#eef3ea]">
+                {col.links.map((link) => (
+                  <li key={link.url + link.label}><Link href={link.url} className="hover:text-white transition-colors">{link.label}</Link></li>
+                ))}
+              </ul>
+            </div>
+          ))}
 
         </div>
 
@@ -111,21 +85,25 @@ export default function Footer() {
           <div className="flex flex-wrap justify-center md:justify-start gap-8">
             <div className="flex items-center gap-3">
               <Phone className="w-5 h-5 text-lf-gold" strokeWidth={1.5} />
-              <a href="tel:+918368838489" className="hover:text-white transition-colors">+91 83688 38489</a>
-              <span className="text-white/40">|</span>
-              <a href="tel:+919999976959" className="hover:text-white transition-colors">+91 99999 76959</a>
+              <a href={telHref(site.phone)} className="hover:text-white transition-colors">{site.phone}</a>
+              {s.phone2 && (
+                <>
+                  <span className="text-white/40">|</span>
+                  <a href={telHref(s.phone2)} className="hover:text-white transition-colors">{s.phone2}</a>
+                </>
+              )}
             </div>
             <div className="flex items-center gap-3">
               <Mail className="w-5 h-5 text-lf-gold" strokeWidth={1.5} />
-              <a href="mailto:franchise@lfcsschools.com" className="hover:text-white transition-colors">franchise@lfcsschools.com</a>
+              <a href={`mailto:${site.email}`} className="hover:text-white transition-colors">{site.email}</a>
             </div>
             <div className="flex items-center gap-3">
               <MapPin className="w-5 h-5 text-lf-gold" strokeWidth={1.5} />
-              <span>Lucknow, Uttar Pradesh</span>
+              <span>{site.address}</span>
             </div>
             <div className="flex items-center gap-3">
               <Clock className="w-5 h-5 text-lf-gold" strokeWidth={1.5} />
-              <span>Mon - Sat: 8:00 AM - 5:00 PM</span>
+              <span>{s.operatingHours}</span>
             </div>
           </div>
           
@@ -136,7 +114,7 @@ export default function Footer() {
         </div>
 
         {/* Credit */}
-        <p className="text-center md:text-right text-[11px] text-[#eef3ea]/60 pt-2">
+        <p className="whitespace-pre-line text-center md:text-right text-[11px] text-[#eef3ea]/60 pt-2">
           Designed &amp; Developed by{" "}
           <a href="https://thegoldtechnologies.com/" target="_blank" rel="noopener" className="text-lf-gold/80 hover:text-lf-gold transition-colors">
             The Gold Technologies

@@ -22,6 +22,12 @@ const nextConfig: NextConfig = {
         destination: "/news-&-events",
         permanent: true,
       },
+      // The Start a School page moved to /school-franchise; keep old links working.
+      {
+        source: "/start-school",
+        destination: "/school-franchise",
+        permanent: true,
+      },
     ];
   },
 };

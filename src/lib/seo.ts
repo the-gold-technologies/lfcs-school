@@ -1,9 +1,15 @@
 // Page metadata and JSON-LD built from CMS SEO settings: Global SEO drives the home page and
 // site-wide defaults, Page SEO drives every other page.
 import type { Metadata } from "next";
-import { getCampuses, getPage, getSite, type PageSlug, type SiteConfig } from "@/lib/content";
+import {
+  getCampuses,
+  getPage,
+  getSite,
+  type PageSlug,
+  type SiteConfig,
+} from "@/lib/content";
 
-export const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL || "https://lfgos.com").replace(/\/$/, "");
+export const SITE_URL = (process.env.CMS_URL || "").replace(/\/$/, "");
 
 // Public route and breadcrumb label for every CMS page
 export const PAGE_ROUTES: Record<PageSlug, { path: string; name: string }> = {
@@ -13,7 +19,7 @@ export const PAGE_ROUTES: Record<PageSlug, { path: string; name: string }> = {
   admissions: { path: "/admissions", name: "Admissions" },
   experience: { path: "/experience", name: "Experience" },
   "our-school": { path: "/our-school", name: "Our Schools" },
-  "start-school": { path: "/start-school", name: "Start a School" },
+  "school-franchise": { path: "/school-franchise", name: "Start a School" },
   careers: { path: "/careers", name: "Careers" },
   contact: { path: "/contact", name: "Contact Us" },
   "news-and-events": { path: "/news-&-events", name: "News & Events" },
@@ -21,7 +27,9 @@ export const PAGE_ROUTES: Record<PageSlug, { path: string; name: string }> = {
 };
 
 export const absoluteUrl = (path: string) =>
-  path.startsWith("http") ? path : `${SITE_URL}${path.startsWith("/") ? path : `/${path}`}`;
+  path.startsWith("http")
+    ? path
+    : `${SITE_URL}${path.startsWith("/") ? path : `/${path}`}`;
 
 // Keywords are stored as a comma-separated string in the CMS
 const keywordList = (keywords?: string | null) =>
@@ -30,7 +38,12 @@ const keywordList = (keywords?: string | null) =>
     .map((k) => k.trim())
     .filter(Boolean);
 
-function socialMetadata(title: string, description: string, url: string, image?: string): Metadata {
+function socialMetadata(
+  title: string,
+  description: string,
+  url: string,
+  image?: string,
+): Metadata {
   const images = image ? [{ url: image, alt: title }] : undefined;
   return {
     openGraph: {
@@ -65,7 +78,10 @@ export async function buildHomeMetadata(image?: string): Promise<Metadata> {
 }
 
 // Inner pages: Page SEO settings, falling back to the page name and site description
-export async function buildPageMetadata(slug: PageSlug, image?: string): Promise<Metadata> {
+export async function buildPageMetadata(
+  slug: PageSlug,
+  image?: string,
+): Promise<Metadata> {
   const [{ seo }, site] = await Promise.all([getPage(slug), getSite()]);
   const route = PAGE_ROUTES[slug];
   const title = seo?.metaTitle || `${route.name} | ${site.siteTitle}`;
@@ -78,7 +94,12 @@ export async function buildPageMetadata(slug: PageSlug, image?: string): Promise
     alternates: { canonical },
     robots: seo?.noIndex ? { index: false, follow: true } : undefined,
     // Pages without their own image share the school logo
-    ...socialMetadata(title, description, canonical, image || site.logo || undefined),
+    ...socialMetadata(
+      title,
+      description,
+      canonical,
+      image || site.logo || undefined,
+    ),
   };
 }
 
@@ -93,7 +114,9 @@ export function parseCmsSchema(schema?: string | null): JsonLdObject[] {
   if (!schema?.trim()) return [];
   try {
     const parsed = JSON.parse(schema);
-    return (Array.isArray(parsed) ? parsed : [parsed]).filter((s) => s && typeof s === "object");
+    return (Array.isArray(parsed) ? parsed : [parsed]).filter(
+      (s) => s && typeof s === "object",
+    );
   } catch {
     console.error("[seo] Ignoring invalid JSON-LD schema from the CMS");
     return [];
@@ -101,7 +124,13 @@ export function parseCmsSchema(schema?: string | null): JsonLdObject[] {
 }
 
 function sameAs(site: SiteConfig) {
-  return [site.facebookUrl, site.instagramUrl, site.youtubeUrl, site.linkedinUrl, site.socialLinks.twitter].filter(
+  return [
+    site.facebookUrl,
+    site.instagramUrl,
+    site.youtubeUrl,
+    site.linkedinUrl,
+    site.socialLinks.twitter,
+  ].filter(
     (url): url is string => typeof url === "string" && url.startsWith("http"),
   );
 }
@@ -116,10 +145,13 @@ export async function siteSchemas(): Promise<JsonLdObject[]> {
     getPage("about"),
   ]);
   const custom = parseCmsSchema(site.schema);
-  const officeAddress: string | undefined = contact.sections.ContactFormSection?.address;
-  const founded = (about.sections.OurStorySection?.stats as { label: string; value: string }[] | undefined)?.find(
-    (s) => /found/i.test(s.label),
-  )?.value;
+  const officeAddress: string | undefined =
+    contact.sections.ContactFormSection?.address;
+  const founded = (
+    about.sections.OurStorySection?.stats as
+      | { label: string; value: string }[]
+      | undefined
+  )?.find((s) => /found/i.test(s.label))?.value;
 
   const organization: JsonLdObject = {
     "@type": "EducationalOrganization",
@@ -167,13 +199,21 @@ export async function siteSchemas(): Promise<JsonLdObject[]> {
 }
 
 // Per-page schema: WebPage + breadcrumb, any page-specific extras, and the CMS Page SEO schema
-export async function pageSchemas(slug: PageSlug, extra: JsonLdObject[] = []): Promise<JsonLdObject[]> {
+export async function pageSchemas(
+  slug: PageSlug,
+  extra: JsonLdObject[] = [],
+): Promise<JsonLdObject[]> {
   const { seo } = await getPage(slug);
   const route = PAGE_ROUTES[slug];
   const url = seo?.canonicalUrl || absoluteUrl(route.path);
 
   const webPage: JsonLdObject = {
-    "@type": slug === "about" ? "AboutPage" : slug === "contact" ? "ContactPage" : "WebPage",
+    "@type":
+      slug === "about"
+        ? "AboutPage"
+        : slug === "contact"
+          ? "ContactPage"
+          : "WebPage",
     "@id": `${url}#webpage`,
     url,
     name: seo?.metaTitle || route.name,
@@ -211,6 +251,9 @@ const HEADING_TAGS: HeadingTag[] = ["h1", "h2", "h3", "h4", "h5", "h6"];
 // Tag for the page's hero heading, chosen under "Heading" in CMS Global SEO (home page) or
 // Page SEO (every other page); h1 unless the CMS says otherwise
 export async function heroHeadingTag(slug: PageSlug): Promise<HeadingTag> {
-  const value = slug === "home" ? (await getSite()).headingOptions : (await getPage(slug)).seo?.headingOptions;
+  const value =
+    slug === "home"
+      ? (await getSite()).headingOptions
+      : (await getPage(slug)).seo?.headingOptions;
   return HEADING_TAGS.find((tag) => tag === value) ?? "h1";
 }

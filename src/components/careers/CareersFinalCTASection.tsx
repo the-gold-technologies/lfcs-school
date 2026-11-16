@@ -1,9 +1,13 @@
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
-import EnquiryCTAButton from "@/components/start-school/EnquiryCTAButton";
+import EnquiryCTAButton from "@/components/school-franchise/EnquiryCTAButton";
 import { paragraphs, type SectionContent } from "@/lib/content";
 
-export default function CareersFinalCTASection({ data }: { data: SectionContent }) {
+export default function CareersFinalCTASection({
+  data,
+}: {
+  data: SectionContent;
+}) {
   return (
     <section className="py-12 md:py-20 bg-[#fdfdfc]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 relative lg:px-0">
@@ -17,14 +21,19 @@ export default function CareersFinalCTASection({ data }: { data: SectionContent 
 
               <div className="space-y-3 text-[15px] text-gray-600 leading-relaxed mb-7">
                 {paragraphs(data.description).map((p) => (
-                  <p key={p.slice(0, 40)} className="whitespace-pre-line">{p}</p>
+                  <p key={p.slice(0, 40)} className="whitespace-pre-line">
+                    {p}
+                  </p>
                 ))}
               </div>
 
               <EnquiryCTAButton className="bg-lf-burgundy text-white pl-6 pr-2 py-2 rounded-full font-bold text-[15px] hover:bg-lf-burgundy-hover transition-all flex items-center justify-center gap-4 shadow-md hover:shadow-lg inline-flex w-max">
                 <span>{data.buttonText}</span>
                 <span className="bg-white rounded-full p-1.5 flex items-center justify-center">
-                  <ArrowRight className="w-4 h-4 text-lf-burgundy" strokeWidth={3} />
+                  <ArrowRight
+                    className="w-4 h-4 text-lf-burgundy"
+                    strokeWidth={3}
+                  />
                 </span>
               </EnquiryCTAButton>
             </div>

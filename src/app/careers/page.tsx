@@ -5,7 +5,7 @@ import WorkCultureSection from "@/components/careers/WorkCultureSection";
 import OpportunitiesSection from "@/components/careers/OpportunitiesSection";
 import CareersFinalCTASection from "@/components/careers/CareersFinalCTASection";
 import CareerProfileForm from "@/components/careers/CareerProfileForm";
-import EnquiryModalProvider from "@/components/start-school/EnquiryModalProvider";
+import EnquiryModalProvider from "@/components/school-franchise/EnquiryModalProvider";
 import JsonLd from "@/components/JsonLd";
 import { getCampuses, getPage } from "@/lib/content";
 import { buildPageMetadata, heroHeadingTag, pageSchemas } from "@/lib/seo";
@@ -22,7 +22,9 @@ export default async function CareersPage() {
     pageSchemas("careers"),
   ]);
   // First opportunity block lists teaching roles, the second administrative roles
-  const [teaching, administrative] = s.OpportunitiesSection.opportunities as { roles: string[] }[];
+  const [teaching, administrative] = s.OpportunitiesSection.opportunities as {
+    roles: string[];
+  }[];
 
   const headingTag = await heroHeadingTag("careers");
 
@@ -38,7 +40,10 @@ export default async function CareersPage() {
     >
       <div className="min-h-screen bg-white font-sans text-gray-800">
         <JsonLd data={schemas} />
-        <CareersHeroSection data={s.CareersHeroSection} headingTag={headingTag} />
+        <CareersHeroSection
+          data={s.CareersHeroSection}
+          headingTag={headingTag}
+        />
         <WhyWorkWithUsSection data={s.WhyWorkWithUsSection} />
         <WorkCultureSection data={s.WorkCultureSection} />
         <OpportunitiesSection data={s.OpportunitiesSection} />

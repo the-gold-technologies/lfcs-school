@@ -28,7 +28,7 @@
           "scriptAccent": "Rising with Excellence.",
           "primaryCtaLink": "/our-school",
           "primaryCtaText": "Explore Our Schools",
-          "secondaryCtaLink": "/start-school",
+          "secondaryCtaLink": "/school-franchise",
           "secondaryCtaText": "Start a School"
         },
         "WelcomeSection": {
@@ -224,7 +224,7 @@
             {
               "image": "https://images.unsplash.com/photo-1580582932707-520aed937b7b?q=80&w=2089&auto=format&fit=crop",
               "title": "Start a School",
-              "ctaLink": "/start-school",
+              "ctaLink": "/school-franchise",
               "ctaText": "Partner With Us",
               "subtitle": "Partner with us to bring quality education to more communities."
             }
@@ -1209,7 +1209,7 @@
         "headingOptions": "h1"
       }
     },
-    "start-school": {
+    "school-franchise": {
       "sections": {
         "StartSchoolHeroSection": {
           "image": "https://res.cloudinary.com/kdiu9prw/image/upload/v1794814276/lfcs-school/start-school/start-school-hero_1793257753045.webp",
@@ -1593,7 +1593,7 @@
         "metaTitle": "Start a School | Associate Partnership | LFCS",
         "metaDescription": "Partner with Little Flower Group of Schools to establish and operate a high-performing associate school in your community.",
         "targetKeywords": "school franchise India, start a CBSE school, educational partnership, LFCS associate affiliate",
-        "canonicalUrl": "https://lfgos.com/start-school",
+        "canonicalUrl": "https://lfgos.com/school-franchise",
         "noIndex": false,
         "schema": null,
         "headingOptions": "h1"
@@ -1901,7 +1901,7 @@
               "label": "News & Events"
             },
             {
-              "url": "/start-school",
+              "url": "/school-franchise",
               "label": "Start a School"
             },
             {
@@ -1951,31 +1951,31 @@
         {
           "links": [
             {
-              "url": "/start-school#why-partner",
+              "url": "/school-franchise#why-partner",
               "label": "Why Partner With Us"
             },
             {
-              "url": "/start-school#model",
+              "url": "/school-franchise#model",
               "label": "Our School Model"
             },
             {
-              "url": "/start-school#support",
+              "url": "/school-franchise#support",
               "label": "Support & Benefits"
             },
             {
-              "url": "/start-school#requirements",
+              "url": "/school-franchise#requirements",
               "label": "Requirements"
             },
             {
-              "url": "/start-school#process",
+              "url": "/school-franchise#process",
               "label": "Setup Process"
             },
             {
-              "url": "/start-school#investment",
+              "url": "/school-franchise#investment",
               "label": "Investment Overview"
             },
             {
-              "url": "/start-school#faqs",
+              "url": "/school-franchise#faqs",
               "label": "FAQs"
             }
           ],
@@ -2123,7 +2123,7 @@
     {
       "id": "nav-start-school",
       "label": "Start a School",
-      "url": "/start-school",
+      "url": "/school-franchise",
       "type": "Action Button",
       "parent": "-",
       "description": null,
